@@ -20,7 +20,9 @@ import ClientInputsComponent from "../components/ClientInputs";
 import ServiceSelection from "../components/ServiceSelection";
 import BudgetSalesInputs from "../components/BudgetSalesInputs";
 import Results from "../components/Results";
+import KeywordSuggestions from "../components/KeywordSuggestions";
 import ExportSummary from "../components/ExportSummary";
+import SaveLoad from "../components/SaveLoad";
 
 const DEFAULT_CLOSE_RATE = 40;
 
@@ -226,6 +228,84 @@ export default function Home() {
     return calculate(services, budgetInputs);
   }, [services, budgetInputs, blendedMultiplier]);
 
+  // Save/Load state management
+  const getCurrentState = useCallback(() => {
+    return {
+      version: 1,
+      clientInputs,
+      budgetInputs,
+      targetAreas,
+      services: services.map((s) => ({
+        serviceName: s.serviceName,
+        selected: s.selected,
+        allocationPercent: s.allocationPercent,
+        cplChoice: s.cplChoice,
+        customCpl: s.customCpl,
+        customJobValue: s.customJobValue,
+        isManual: s.isManual,
+      })),
+    };
+  }, [clientInputs, budgetInputs, targetAreas, services]);
+
+  const loadSavedState = useCallback((data: Record<string, unknown>) => {
+    try {
+      const d = data as {
+        clientInputs?: ClientInputsType;
+        budgetInputs?: BudgetInputs;
+        targetAreas?: TargetAreaEntry[];
+        services?: Array<{
+          serviceName: string;
+          selected: boolean;
+          allocationPercent: number;
+          cplChoice: "low" | "mid" | "high" | "custom";
+          customCpl: number | null;
+          customJobValue: number | null;
+          isManual: boolean;
+        }>;
+      };
+
+      if (d.clientInputs) {
+        setClientInputs(d.clientInputs);
+        // Load services for this industry
+        if (d.clientInputs.industryId) {
+          const benchmarks = getServicesForIndustry(d.clientInputs.industryId);
+          const loadedServices: ServiceSelectionType[] = benchmarks.map((b) => {
+            const saved = d.services?.find((s) => s.serviceName === b.serviceName);
+            return {
+              serviceName: b.serviceName,
+              selected: saved?.selected ?? false,
+              allocationPercent: saved?.allocationPercent ?? 0,
+              cplChoice: saved?.cplChoice ?? ("mid" as const),
+              customCpl: saved?.customCpl ?? null,
+              customJobValue: saved?.customJobValue ?? null,
+              benchmark: b,
+              isManual: false,
+            };
+          });
+          // Add any manually added services
+          const manualServices = d.services?.filter((s) => s.isManual) ?? [];
+          for (const ms of manualServices) {
+            loadedServices.push({
+              serviceName: ms.serviceName,
+              selected: ms.selected,
+              allocationPercent: ms.allocationPercent,
+              cplChoice: ms.cplChoice,
+              customCpl: ms.customCpl,
+              customJobValue: ms.customJobValue,
+              benchmark: null,
+              isManual: true,
+            });
+          }
+          setServices(loadedServices);
+        }
+      }
+      if (d.budgetInputs) setBudgetInputs(d.budgetInputs);
+      if (d.targetAreas) setTargetAreas(d.targetAreas);
+    } catch {
+      alert("Could not load saved data. The file may be from an incompatible version.");
+    }
+  }, []);
+
   // Build area summary string for results
   const areasSummary = targetAreas
     .filter((a) => a.tier)
@@ -404,13 +484,27 @@ export default function Home() {
           marketMultiplier={blendedMultiplier}
         />
 
-        {/* Section E: Export */}
+        {/* Section E: Keyword Suggestions */}
+        <KeywordSuggestions
+          services={services}
+          industryId={clientInputs.industryId}
+        />
+
+        {/* Section F: Export */}
         <ExportSummary
           clientName={clientInputs.clientName}
           industryName={selectedIndustry?.name ?? "—"}
           services={services}
           result={result}
           roundingMode={budgetInputs.roundingMode}
+        />
+
+        {/* Section G: Save & Load */}
+        <SaveLoad
+          getCurrentState={getCurrentState}
+          loadState={loadSavedState}
+          clientName={clientInputs.clientName}
+          industryName={selectedIndustry?.name ?? "—"}
         />
       </main>
 

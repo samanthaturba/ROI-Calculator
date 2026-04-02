@@ -1,0 +1,1921 @@
+{
+  "hvac|AC Repair": [
+    "ac repair near me",
+    "emergency ac repair",
+    "ac not cooling",
+    "air conditioner repair cost",
+    "hvac repair service",
+    "ac unit not working"
+  ],
+  "hvac|Heating Repair": [
+    "furnace repair near me",
+    "heater not working",
+    "heating repair service",
+    "furnace not heating",
+    "emergency heating repair"
+  ],
+  "hvac|AC Installation": [
+    "ac installation near me",
+    "new ac unit cost",
+    "central air installation",
+    "ac replacement cost",
+    "hvac installation service"
+  ],
+  "hvac|HVAC Maintenance": [
+    "hvac tune up near me",
+    "ac maintenance service",
+    "furnace tune up cost",
+    "hvac service plan",
+    "annual hvac maintenance"
+  ],
+  "hvac|Ductwork & Ventilation": [
+    "duct cleaning near me",
+    "ductwork installation cost",
+    "air duct repair",
+    "ventilation installation service",
+    "duct replacement near me"
+  ],
+  "plumbing|Drain Cleaning": [
+    "drain cleaning near me",
+    "clogged drain service",
+    "sewer line cleaning",
+    "drain unclogging cost",
+    "emergency drain cleaning"
+  ],
+  "plumbing|Water Heater": [
+    "water heater repair near me",
+    "water heater replacement cost",
+    "no hot water",
+    "tankless water heater installation",
+    "water heater leaking"
+  ],
+  "plumbing|Pipe Repair": [
+    "pipe repair near me",
+    "burst pipe repair",
+    "leaking pipe fix",
+    "pipe replacement cost",
+    "emergency pipe repair"
+  ],
+  "plumbing|Bathroom Remodel": [
+    "bathroom remodel near me",
+    "bathroom renovation cost",
+    "bathroom remodel contractor",
+    "shower remodel service",
+    "get quote bathroom remodel"
+  ],
+  "plumbing|Emergency Plumbing": [
+    "emergency plumber near me",
+    "24 hour plumber",
+    "plumber available now",
+    "burst pipe emergency",
+    "after hours plumbing service"
+  ],
+  "roofing|Roof Replacement": [
+    "roof replacement near me",
+    "roof replacement cost",
+    "new roof estimate",
+    "reroof my house",
+    "get quote roof replacement"
+  ],
+  "roofing|Roof Repair": [
+    "roof repair near me",
+    "roof leak repair",
+    "roof repair cost",
+    "emergency roof repair",
+    "fix leaking roof"
+  ],
+  "roofing|Roof Inspection": [
+    "roof inspection near me",
+    "roof inspection cost",
+    "schedule roof inspection",
+    "roof assessment service",
+    "roof damage inspection"
+  ],
+  "roofing|Gutter Installation": [
+    "gutter installation near me",
+    "gutter replacement cost",
+    "new gutters installed",
+    "seamless gutter installation",
+    "gutter repair near me"
+  ],
+  "electrical|Panel Upgrade": [
+    "electrical panel upgrade near me",
+    "breaker panel replacement cost",
+    "200 amp panel upgrade",
+    "electrical panel upgrade cost",
+    "fuse box replacement"
+  ],
+  "electrical|Wiring & Rewiring": [
+    "electrician rewire house cost",
+    "electrical wiring near me",
+    "home rewiring service",
+    "wiring upgrade cost",
+    "old house rewiring"
+  ],
+  "electrical|Lighting Installation": [
+    "lighting installation near me",
+    "recessed lighting installation cost",
+    "electrician for lights",
+    "outdoor lighting installation",
+    "hire electrician lighting"
+  ],
+  "electrical|EV Charger Installation": [
+    "ev charger installation near me",
+    "tesla charger install cost",
+    "level 2 charger installation",
+    "home ev charging setup",
+    "electric car charger installer"
+  ],
+  "electrical|Generator Installation": [
+    "generator installation near me",
+    "whole house generator cost",
+    "standby generator installation",
+    "generac generator installer",
+    "backup generator install cost"
+  ],
+  "septic|Septic Pumping": [
+    "septic pumping near me",
+    "septic tank pumping cost",
+    "schedule septic pumping",
+    "septic tank cleaning service",
+    "septic pump out"
+  ],
+  "septic|Septic Installation": [
+    "septic system installation near me",
+    "new septic tank cost",
+    "septic system install cost",
+    "septic tank replacement",
+    "get quote septic installation"
+  ],
+  "septic|Septic Repair": [
+    "septic repair near me",
+    "septic system not draining",
+    "septic tank repair cost",
+    "septic line repair",
+    "septic system backup fix"
+  ],
+  "septic|Septic Inspection": [
+    "septic inspection near me",
+    "septic inspection cost",
+    "septic system inspection for home sale",
+    "schedule septic inspection",
+    "septic tank evaluation"
+  ],
+  "pest-control|General Pest Control": [
+    "pest control near me",
+    "exterminator near me",
+    "pest control service cost",
+    "bug exterminator",
+    "home pest treatment"
+  ],
+  "pest-control|Termite Treatment": [
+    "termite treatment near me",
+    "termite inspection cost",
+    "termite exterminator",
+    "termite damage repair",
+    "termite control service"
+  ],
+  "pest-control|Wildlife Removal": [
+    "wildlife removal near me",
+    "animal removal service",
+    "raccoon removal cost",
+    "squirrel in attic removal",
+    "wildlife control service"
+  ],
+  "pest-control|Bed Bug Treatment": [
+    "bed bug treatment near me",
+    "bed bug exterminator cost",
+    "bed bug removal service",
+    "get rid of bed bugs",
+    "bed bug heat treatment"
+  ],
+  "pest-control|Mosquito Control": [
+    "mosquito control near me",
+    "mosquito spraying service",
+    "mosquito treatment cost",
+    "yard mosquito treatment",
+    "mosquito fogging service"
+  ],
+  "pool|Pool Cleaning & Maintenance": [
+    "pool cleaning service near me",
+    "pool maintenance cost",
+    "weekly pool service",
+    "pool cleaning company",
+    "hire pool cleaner"
+  ],
+  "pool|Pool Repair": [
+    "pool repair near me",
+    "pool leak repair cost",
+    "pool pump repair",
+    "pool equipment repair",
+    "swimming pool repair service"
+  ],
+  "pool|Pool Installation": [
+    "pool installation near me",
+    "inground pool cost",
+    "pool builder near me",
+    "new pool installation cost",
+    "get quote pool installation"
+  ],
+  "pool|Pool Renovation": [
+    "pool renovation near me",
+    "pool resurfacing cost",
+    "pool remodel service",
+    "pool tile replacement",
+    "pool renovation estimate"
+  ],
+  "landscaping|Lawn Care & Maintenance": [
+    "lawn care service near me",
+    "lawn mowing service cost",
+    "weekly lawn maintenance",
+    "lawn treatment service",
+    "hire lawn care company"
+  ],
+  "landscaping|Landscape Design": [
+    "landscape design near me",
+    "landscaping company near me",
+    "landscape design cost",
+    "backyard landscaping service",
+    "get quote landscape design"
+  ],
+  "landscaping|Tree & Shrub Care": [
+    "tree and shrub care near me",
+    "shrub trimming service",
+    "tree pruning cost",
+    "ornamental tree care",
+    "hedge trimming service"
+  ],
+  "landscaping|Hardscaping & Patios": [
+    "patio installation near me",
+    "hardscaping service cost",
+    "paver patio contractor",
+    "outdoor patio builder",
+    "hardscape design near me"
+  ],
+  "landscaping|Landscape Lighting": [
+    "landscape lighting near me",
+    "outdoor lighting installation cost",
+    "garden lighting service",
+    "path lighting installation",
+    "landscape lighting design"
+  ],
+  "tree-service|Tree Removal": [
+    "tree removal near me",
+    "tree removal cost",
+    "large tree removal service",
+    "tree cutting service",
+    "get quote tree removal"
+  ],
+  "tree-service|Tree Trimming": [
+    "tree trimming near me",
+    "tree trimming cost",
+    "tree pruning service",
+    "tree branch removal",
+    "hire tree trimmer"
+  ],
+  "tree-service|Stump Grinding": [
+    "stump grinding near me",
+    "stump removal cost",
+    "stump grinding service",
+    "tree stump removal",
+    "stump grinder rental near me"
+  ],
+  "tree-service|Emergency Tree Service": [
+    "emergency tree removal near me",
+    "storm tree removal",
+    "fallen tree removal",
+    "24 hour tree service",
+    "emergency tree cutting"
+  ],
+  "painting|Interior Painting": [
+    "interior painting near me",
+    "house painter near me",
+    "interior painting cost",
+    "room painting service",
+    "hire interior painter"
+  ],
+  "painting|Exterior Painting": [
+    "exterior painting near me",
+    "house exterior painting cost",
+    "exterior house painter",
+    "outside painting service",
+    "get quote exterior painting"
+  ],
+  "painting|Commercial Painting": [
+    "commercial painting near me",
+    "commercial painter contractor",
+    "office painting service",
+    "commercial painting cost",
+    "hire commercial painter"
+  ],
+  "painting|Cabinet Painting": [
+    "cabinet painting near me",
+    "kitchen cabinet painting cost",
+    "cabinet refinishing service",
+    "cabinet spray painting",
+    "get quote cabinet painting"
+  ],
+  "fencing|Wood Fence Installation": [
+    "wood fence installation near me",
+    "wood fence cost per foot",
+    "privacy fence installation",
+    "wood fence builder",
+    "get quote wood fence"
+  ],
+  "fencing|Chain Link Fence": [
+    "chain link fence installation near me",
+    "chain link fence cost",
+    "chain link fence repair",
+    "chain link fence contractor",
+    "commercial chain link fence"
+  ],
+  "fencing|Vinyl Fence Installation": [
+    "vinyl fence installation near me",
+    "vinyl fence cost per foot",
+    "vinyl privacy fence installer",
+    "pvc fence installation",
+    "get quote vinyl fence"
+  ],
+  "fencing|Iron & Metal Fence": [
+    "iron fence installation near me",
+    "metal fence cost",
+    "wrought iron fence installer",
+    "aluminum fence installation",
+    "iron fence repair near me"
+  ],
+  "concrete|Concrete Driveways": [
+    "concrete driveway near me",
+    "concrete driveway cost",
+    "driveway replacement concrete",
+    "new concrete driveway",
+    "concrete driveway contractor"
+  ],
+  "concrete|Concrete Foundations": [
+    "concrete foundation contractor near me",
+    "foundation pouring cost",
+    "concrete slab foundation",
+    "foundation concrete service",
+    "new foundation construction"
+  ],
+  "concrete|Concrete Repair": [
+    "concrete repair near me",
+    "cracked concrete repair",
+    "concrete leveling service",
+    "concrete slab repair cost",
+    "fix cracked concrete"
+  ],
+  "concrete|Decorative Concrete": [
+    "decorative concrete near me",
+    "stained concrete cost",
+    "decorative concrete patio",
+    "colored concrete contractor",
+    "decorative concrete overlay"
+  ],
+  "stamped-concrete|Stamped Concrete Patios": [
+    "stamped concrete patio near me",
+    "stamped concrete patio cost",
+    "stamped concrete contractor",
+    "patio stamped concrete design",
+    "get quote stamped concrete"
+  ],
+  "stamped-concrete|Stamped Concrete Driveways": [
+    "stamped concrete driveway near me",
+    "stamped concrete driveway cost",
+    "decorative concrete driveway",
+    "stamped driveway contractor",
+    "stamped concrete driveway estimate"
+  ],
+  "stamped-concrete|Stamped Concrete Repair": [
+    "stamped concrete repair near me",
+    "stamped concrete reseal",
+    "fix stamped concrete",
+    "stamped concrete restoration",
+    "stamped concrete repair cost"
+  ],
+  "epoxy-flooring|Garage Floor Epoxy": [
+    "garage floor epoxy near me",
+    "epoxy garage floor cost",
+    "garage floor coating service",
+    "garage epoxy installer",
+    "get quote garage epoxy"
+  ],
+  "epoxy-flooring|Commercial Epoxy Flooring": [
+    "commercial epoxy flooring near me",
+    "industrial epoxy floor coating",
+    "commercial floor coating cost",
+    "warehouse epoxy flooring",
+    "epoxy flooring contractor"
+  ],
+  "epoxy-flooring|Epoxy Floor Coating": [
+    "epoxy floor coating near me",
+    "epoxy flooring cost per sq ft",
+    "epoxy floor installer",
+    "floor epoxy coating service",
+    "residential epoxy flooring"
+  ],
+  "flooring|Hardwood Floor Installation": [
+    "hardwood floor installation near me",
+    "hardwood flooring cost",
+    "wood floor installer",
+    "hardwood floor contractor",
+    "get quote hardwood floors"
+  ],
+  "flooring|Carpet Installation": [
+    "carpet installation near me",
+    "carpet replacement cost",
+    "carpet installer near me",
+    "new carpet cost per room",
+    "hire carpet installer"
+  ],
+  "flooring|Tile Installation": [
+    "tile installation near me",
+    "tile flooring cost",
+    "tile installer contractor",
+    "floor tile installation cost",
+    "hire tile installer"
+  ],
+  "flooring|Floor Refinishing": [
+    "floor refinishing near me",
+    "hardwood floor refinishing cost",
+    "sand and refinish floors",
+    "wood floor restoration",
+    "floor sanding service"
+  ],
+  "flooring|Vinyl & LVP Installation": [
+    "vinyl flooring installation near me",
+    "lvp installation cost",
+    "luxury vinyl plank installer",
+    "vinyl plank flooring service",
+    "lvp flooring contractor"
+  ],
+  "countertops|Granite Countertops": [
+    "granite countertops near me",
+    "granite countertop cost",
+    "granite countertop installation",
+    "granite countertop fabricator",
+    "get quote granite countertops"
+  ],
+  "countertops|Quartz Countertops": [
+    "quartz countertops near me",
+    "quartz countertop cost",
+    "quartz countertop installation",
+    "quartz countertop fabricator",
+    "get quote quartz countertops"
+  ],
+  "countertops|Marble Countertops": [
+    "marble countertops near me",
+    "marble countertop cost",
+    "marble countertop installation",
+    "marble countertop fabricator",
+    "get quote marble countertops"
+  ],
+  "countertops|Countertop Repair": [
+    "countertop repair near me",
+    "cracked countertop repair",
+    "countertop chip repair cost",
+    "granite countertop repair",
+    "countertop restoration service"
+  ],
+  "window-door|Window Replacement": [
+    "window replacement near me",
+    "window replacement cost",
+    "new windows installed",
+    "home window replacement",
+    "get quote window replacement"
+  ],
+  "window-door|Door Installation": [
+    "door installation near me",
+    "door replacement cost",
+    "exterior door installation",
+    "front door replacement",
+    "hire door installer"
+  ],
+  "window-door|Window Repair": [
+    "window repair near me",
+    "broken window repair",
+    "window glass replacement cost",
+    "foggy window repair",
+    "window seal repair"
+  ],
+  "window-door|Sliding Door Installation": [
+    "sliding door installation near me",
+    "sliding glass door replacement cost",
+    "patio door installation",
+    "sliding door installer",
+    "new sliding door cost"
+  ],
+  "siding|Vinyl Siding Installation": [
+    "vinyl siding installation near me",
+    "vinyl siding cost",
+    "vinyl siding contractor",
+    "house siding replacement",
+    "get quote vinyl siding"
+  ],
+  "siding|Fiber Cement Siding": [
+    "fiber cement siding near me",
+    "hardie board siding cost",
+    "fiber cement siding installation",
+    "james hardie siding contractor",
+    "fiber cement siding estimate"
+  ],
+  "siding|Siding Repair": [
+    "siding repair near me",
+    "siding repair cost",
+    "damaged siding fix",
+    "siding replacement service",
+    "vinyl siding repair"
+  ],
+  "garage-door|Garage Door Repair": [
+    "garage door repair near me",
+    "garage door not opening",
+    "garage door spring repair",
+    "garage door repair cost",
+    "broken garage door fix"
+  ],
+  "garage-door|Garage Door Installation": [
+    "garage door installation near me",
+    "new garage door cost",
+    "garage door replacement",
+    "garage door installer",
+    "get quote garage door"
+  ],
+  "garage-door|Garage Door Opener": [
+    "garage door opener installation near me",
+    "garage door opener repair",
+    "new garage door opener cost",
+    "garage door opener replacement",
+    "garage door opener not working"
+  ],
+  "garage-door|Commercial Garage Door": [
+    "commercial garage door repair near me",
+    "commercial overhead door installation",
+    "commercial garage door service",
+    "warehouse garage door repair",
+    "commercial garage door cost"
+  ],
+  "paving|Asphalt Paving": [
+    "asphalt paving near me",
+    "asphalt paving cost",
+    "asphalt paving contractor",
+    "asphalt driveway paving",
+    "commercial asphalt paving"
+  ],
+  "paving|Driveway Paving": [
+    "driveway paving near me",
+    "driveway paving cost",
+    "pave my driveway",
+    "driveway repaving service",
+    "new driveway installation"
+  ],
+  "paving|Parking Lot Paving": [
+    "parking lot paving near me",
+    "parking lot resurfacing cost",
+    "parking lot paving contractor",
+    "commercial parking lot paving",
+    "parking lot repair service"
+  ],
+  "paving|Sealcoating": [
+    "sealcoating near me",
+    "driveway sealcoating cost",
+    "asphalt sealcoating service",
+    "parking lot sealcoating",
+    "schedule sealcoating"
+  ],
+  "foundation-repair|Foundation Crack Repair": [
+    "foundation crack repair near me",
+    "foundation crack fix cost",
+    "basement wall crack repair",
+    "foundation crack sealing",
+    "cracked foundation fix"
+  ],
+  "foundation-repair|Foundation Leveling": [
+    "foundation leveling near me",
+    "house leveling cost",
+    "foundation jacking service",
+    "slab leveling contractor",
+    "foundation settling repair"
+  ],
+  "foundation-repair|Basement Waterproofing": [
+    "basement waterproofing near me",
+    "basement waterproofing cost",
+    "wet basement fix",
+    "basement leaking repair",
+    "basement waterproofing contractor"
+  ],
+  "foundation-repair|Foundation Inspection": [
+    "foundation inspection near me",
+    "foundation inspection cost",
+    "structural foundation assessment",
+    "schedule foundation inspection",
+    "foundation engineer near me"
+  ],
+  "waterproofing|Basement Waterproofing": [
+    "basement waterproofing near me",
+    "basement waterproofing cost",
+    "wet basement solution",
+    "basement water damage fix",
+    "waterproofing contractor"
+  ],
+  "waterproofing|Crawl Space Encapsulation": [
+    "crawl space encapsulation near me",
+    "crawl space encapsulation cost",
+    "crawl space moisture barrier",
+    "crawl space waterproofing",
+    "encapsulate crawl space"
+  ],
+  "waterproofing|Exterior Waterproofing": [
+    "exterior waterproofing near me",
+    "exterior foundation waterproofing cost",
+    "outside waterproofing service",
+    "exterior waterproofing contractor",
+    "foundation exterior sealing"
+  ],
+  "waterproofing|French Drain Installation": [
+    "french drain installation near me",
+    "french drain cost",
+    "french drain contractor",
+    "yard drainage solution",
+    "french drain installer"
+  ],
+  "demolition|Residential Demolition": [
+    "house demolition near me",
+    "residential demolition cost",
+    "home demolition contractor",
+    "tear down house cost",
+    "demolition service residential"
+  ],
+  "demolition|Commercial Demolition": [
+    "commercial demolition near me",
+    "commercial building demolition cost",
+    "commercial demolition contractor",
+    "building teardown service",
+    "get quote commercial demolition"
+  ],
+  "demolition|Interior Demolition": [
+    "interior demolition near me",
+    "interior demo contractor",
+    "gut renovation demolition",
+    "interior demolition cost",
+    "selective demolition service"
+  ],
+  "excavation|Site Excavation": [
+    "excavation company near me",
+    "site excavation cost",
+    "land excavation service",
+    "excavation contractor",
+    "hire excavator"
+  ],
+  "excavation|Trenching": [
+    "trenching service near me",
+    "trenching cost per foot",
+    "utility trenching contractor",
+    "trenching company",
+    "pipe trenching service"
+  ],
+  "excavation|Land Grading": [
+    "land grading near me",
+    "lot grading cost",
+    "yard grading service",
+    "land grading contractor",
+    "property grading service"
+  ],
+  "welding|Mobile Welding": [
+    "mobile welding near me",
+    "on site welding service",
+    "mobile welder cost",
+    "emergency mobile welding",
+    "hire mobile welder"
+  ],
+  "welding|Structural Welding": [
+    "structural welding near me",
+    "structural steel welding service",
+    "certified structural welder",
+    "structural welding contractor",
+    "structural welding repair"
+  ],
+  "welding|Custom Fabrication Welding": [
+    "custom welding near me",
+    "custom metal fabrication",
+    "welding fabrication shop",
+    "custom welding service",
+    "weld fabrication cost"
+  ],
+  "auto-body|Collision Repair": [
+    "collision repair near me",
+    "auto body shop near me",
+    "car accident repair cost",
+    "collision repair estimate",
+    "body shop for car repair"
+  ],
+  "auto-body|Auto Painting": [
+    "auto painting near me",
+    "car paint job cost",
+    "auto body paint shop",
+    "vehicle painting service",
+    "get quote car paint job"
+  ],
+  "auto-body|Dent Repair": [
+    "dent repair near me",
+    "paintless dent repair cost",
+    "car dent removal",
+    "door ding repair",
+    "pdr near me"
+  ],
+  "towing|Emergency Towing": [
+    "towing near me",
+    "emergency tow truck",
+    "24 hour towing service",
+    "roadside assistance near me",
+    "tow truck near me now"
+  ],
+  "towing|Long Distance Towing": [
+    "long distance towing near me",
+    "long distance tow truck cost",
+    "interstate towing service",
+    "long haul towing",
+    "cross country towing"
+  ],
+  "towing|Commercial Towing": [
+    "commercial towing near me",
+    "heavy duty towing service",
+    "semi truck towing",
+    "commercial vehicle towing cost",
+    "heavy equipment towing"
+  ],
+  "moving|Local Moving": [
+    "movers near me",
+    "local moving company",
+    "moving service cost",
+    "hire movers near me",
+    "local moving estimate"
+  ],
+  "moving|Long Distance Moving": [
+    "long distance movers near me",
+    "long distance moving cost",
+    "interstate moving company",
+    "cross country movers",
+    "get quote long distance move"
+  ],
+  "moving|Commercial Moving": [
+    "commercial movers near me",
+    "office moving service",
+    "commercial moving cost",
+    "business relocation service",
+    "hire commercial movers"
+  ],
+  "junk-removal|Residential Junk Removal": [
+    "junk removal near me",
+    "junk hauling service",
+    "junk removal cost",
+    "furniture removal service",
+    "schedule junk pickup"
+  ],
+  "junk-removal|Commercial Junk Removal": [
+    "commercial junk removal near me",
+    "office junk removal",
+    "commercial cleanout service",
+    "business junk hauling",
+    "commercial debris removal"
+  ],
+  "junk-removal|Dumpster Rental": [
+    "dumpster rental near me",
+    "dumpster rental cost",
+    "roll off dumpster rental",
+    "construction dumpster rental",
+    "rent a dumpster"
+  ],
+  "cleaning|House Cleaning": [
+    "house cleaning near me",
+    "house cleaning service cost",
+    "maid service near me",
+    "hire house cleaner",
+    "weekly house cleaning"
+  ],
+  "cleaning|Deep Cleaning": [
+    "deep cleaning service near me",
+    "deep house cleaning cost",
+    "professional deep cleaning",
+    "one time deep clean",
+    "schedule deep cleaning"
+  ],
+  "cleaning|Commercial Cleaning": [
+    "commercial cleaning near me",
+    "office cleaning service",
+    "janitorial service cost",
+    "commercial cleaning company",
+    "hire office cleaner"
+  ],
+  "cleaning|Move-Out Cleaning": [
+    "move out cleaning near me",
+    "move out cleaning cost",
+    "end of lease cleaning",
+    "apartment move out clean",
+    "schedule move out cleaning"
+  ],
+  "pressure-washing|House Washing": [
+    "house washing near me",
+    "house pressure washing cost",
+    "exterior house washing service",
+    "soft wash house cleaning",
+    "power wash my house"
+  ],
+  "pressure-washing|Driveway Pressure Washing": [
+    "driveway pressure washing near me",
+    "driveway cleaning cost",
+    "power wash driveway",
+    "concrete pressure washing",
+    "driveway power wash service"
+  ],
+  "pressure-washing|Commercial Pressure Washing": [
+    "commercial pressure washing near me",
+    "commercial power washing cost",
+    "building pressure washing service",
+    "storefront power washing",
+    "commercial exterior cleaning"
+  ],
+  "pressure-washing|Deck & Fence Washing": [
+    "deck washing near me",
+    "fence power washing cost",
+    "deck pressure washing service",
+    "wood deck cleaning",
+    "fence cleaning service"
+  ],
+  "restoration|Water Damage Restoration": [
+    "water damage restoration near me",
+    "flood damage repair",
+    "water damage cleanup cost",
+    "emergency water extraction",
+    "water damage repair service"
+  ],
+  "restoration|Fire Damage Restoration": [
+    "fire damage restoration near me",
+    "fire damage cleanup cost",
+    "smoke damage repair",
+    "fire restoration service",
+    "fire damage repair company"
+  ],
+  "restoration|Storm Damage Restoration": [
+    "storm damage repair near me",
+    "storm damage restoration service",
+    "wind damage repair",
+    "storm cleanup cost",
+    "emergency storm damage repair"
+  ],
+  "restoration|Mold Remediation": [
+    "mold remediation near me",
+    "mold removal cost",
+    "mold remediation service",
+    "black mold removal",
+    "mold inspection and removal"
+  ],
+  "mold-remediation|Mold Testing": [
+    "mold testing near me",
+    "mold inspection cost",
+    "mold air quality test",
+    "professional mold testing",
+    "schedule mold inspection"
+  ],
+  "mold-remediation|Mold Removal": [
+    "mold removal near me",
+    "mold removal cost",
+    "professional mold removal",
+    "mold cleanup service",
+    "hire mold removal company"
+  ],
+  "mold-remediation|Black Mold Remediation": [
+    "black mold removal near me",
+    "black mold remediation cost",
+    "toxic mold removal",
+    "black mold cleanup service",
+    "get rid of black mold"
+  ],
+  "insulation|Attic Insulation": [
+    "attic insulation near me",
+    "attic insulation cost",
+    "attic insulation installation",
+    "attic insulation contractor",
+    "upgrade attic insulation"
+  ],
+  "insulation|Spray Foam Insulation": [
+    "spray foam insulation near me",
+    "spray foam insulation cost",
+    "spray foam contractor",
+    "closed cell spray foam",
+    "spray foam insulation installer"
+  ],
+  "insulation|Blown-In Insulation": [
+    "blown in insulation near me",
+    "blown in insulation cost",
+    "cellulose insulation installer",
+    "blown insulation contractor",
+    "blown in insulation service"
+  ],
+  "solar|Solar Panel Installation": [
+    "solar panel installation near me",
+    "solar panel cost",
+    "solar installer near me",
+    "home solar panel system",
+    "get quote solar installation"
+  ],
+  "solar|Solar Battery Storage": [
+    "solar battery storage near me",
+    "solar battery cost",
+    "home battery backup solar",
+    "tesla powerwall installation",
+    "solar battery installer"
+  ],
+  "solar|Solar Maintenance": [
+    "solar panel maintenance near me",
+    "solar panel cleaning cost",
+    "solar panel repair service",
+    "solar system maintenance",
+    "solar panel inspection"
+  ],
+  "home-security|Security System Installation": [
+    "security system installation near me",
+    "home security system cost",
+    "alarm system installation",
+    "home security installer",
+    "get quote security system"
+  ],
+  "home-security|Security Camera Installation": [
+    "security camera installation near me",
+    "security camera system cost",
+    "cctv installation service",
+    "home camera system installer",
+    "surveillance camera installation"
+  ],
+  "home-security|Smart Home Security": [
+    "smart home security near me",
+    "smart home security system cost",
+    "smart lock installation",
+    "smart home automation security",
+    "connected home security service"
+  ],
+  "locksmith|Emergency Lockout": [
+    "locksmith near me",
+    "locked out of house",
+    "emergency lockout service",
+    "24 hour locksmith",
+    "car lockout help near me"
+  ],
+  "locksmith|Lock Rekeying": [
+    "lock rekey near me",
+    "lock rekeying cost",
+    "rekey locks new house",
+    "lock rekey service",
+    "locksmith rekey"
+  ],
+  "locksmith|Commercial Locksmith": [
+    "commercial locksmith near me",
+    "commercial lock change",
+    "business locksmith service",
+    "commercial door lock installation",
+    "office lock replacement"
+  ],
+  "appliance-repair|Refrigerator Repair": [
+    "refrigerator repair near me",
+    "fridge not cooling",
+    "refrigerator repair cost",
+    "fridge repair service",
+    "fix refrigerator"
+  ],
+  "appliance-repair|Washer/Dryer Repair": [
+    "washer repair near me",
+    "dryer not heating",
+    "washing machine repair cost",
+    "dryer repair service",
+    "washer dryer repair"
+  ],
+  "appliance-repair|Oven/Range Repair": [
+    "oven repair near me",
+    "stove repair service",
+    "oven not heating",
+    "range repair cost",
+    "fix broken oven"
+  ],
+  "appliance-repair|Dishwasher Repair": [
+    "dishwasher repair near me",
+    "dishwasher not draining",
+    "dishwasher repair cost",
+    "fix dishwasher",
+    "dishwasher repair service"
+  ],
+  "drywall|Drywall Installation": [
+    "drywall installation near me",
+    "drywall contractor",
+    "drywall installation cost",
+    "hang drywall service",
+    "hire drywall installer"
+  ],
+  "drywall|Drywall Repair": [
+    "drywall repair near me",
+    "drywall patch repair",
+    "hole in drywall fix",
+    "drywall repair cost",
+    "drywall damage repair"
+  ],
+  "drywall|Drywall Texturing": [
+    "drywall texturing near me",
+    "drywall texture service",
+    "ceiling texture repair",
+    "drywall texturing cost",
+    "knockdown texture service"
+  ],
+  "cabinetry|Custom Cabinets": [
+    "custom cabinets near me",
+    "custom kitchen cabinets cost",
+    "custom cabinet maker",
+    "custom cabinetry contractor",
+    "get quote custom cabinets"
+  ],
+  "cabinetry|Cabinet Refacing": [
+    "cabinet refacing near me",
+    "cabinet refacing cost",
+    "kitchen cabinet refacing",
+    "cabinet door replacement",
+    "reface cabinets service"
+  ],
+  "cabinetry|Cabinet Installation": [
+    "cabinet installation near me",
+    "kitchen cabinet installation cost",
+    "cabinet installer contractor",
+    "new cabinet installation",
+    "hire cabinet installer"
+  ],
+  "glass|Commercial Glass Installation": [
+    "commercial glass installation near me",
+    "commercial glass company",
+    "storefront glass installation",
+    "commercial window installation",
+    "commercial glazing contractor"
+  ],
+  "glass|Glass Repair & Replacement": [
+    "glass repair near me",
+    "glass replacement cost",
+    "broken glass repair",
+    "window glass replacement",
+    "emergency glass repair"
+  ],
+  "glass|Storefront Glass": [
+    "storefront glass near me",
+    "storefront window replacement",
+    "storefront glass repair cost",
+    "commercial storefront glass",
+    "storefront door glass replacement"
+  ],
+  "irrigation|Sprinkler Installation": [
+    "sprinkler installation near me",
+    "sprinkler system cost",
+    "lawn sprinkler installer",
+    "irrigation system installation",
+    "get quote sprinkler system"
+  ],
+  "irrigation|Sprinkler Repair": [
+    "sprinkler repair near me",
+    "sprinkler system not working",
+    "sprinkler head repair cost",
+    "irrigation repair service",
+    "fix broken sprinkler"
+  ],
+  "irrigation|Drip Irrigation": [
+    "drip irrigation installation near me",
+    "drip irrigation system cost",
+    "drip line installer",
+    "garden drip irrigation",
+    "drip irrigation contractor"
+  ],
+  "irrigation|Irrigation System Design": [
+    "irrigation design near me",
+    "irrigation system design cost",
+    "landscape irrigation planning",
+    "irrigation system designer",
+    "custom irrigation design"
+  ],
+  "well-service|Well Drilling": [
+    "well drilling near me",
+    "well drilling cost",
+    "water well drilling service",
+    "new well installation",
+    "residential well drilling"
+  ],
+  "well-service|Well Pump Repair": [
+    "well pump repair near me",
+    "well pump not working",
+    "well pump replacement cost",
+    "water well pump service",
+    "fix well pump"
+  ],
+  "well-service|Well Inspection": [
+    "well inspection near me",
+    "well water testing cost",
+    "well inspection for home sale",
+    "water well inspection service",
+    "schedule well inspection"
+  ],
+  "propane|Propane Delivery": [
+    "propane delivery near me",
+    "propane refill service",
+    "residential propane delivery",
+    "propane tank refill cost",
+    "schedule propane delivery"
+  ],
+  "propane|Propane Tank Installation": [
+    "propane tank installation near me",
+    "propane tank cost",
+    "underground propane tank install",
+    "propane tank setup service",
+    "new propane tank installation"
+  ],
+  "propane|Propane System Service": [
+    "propane system service near me",
+    "propane line repair",
+    "propane system maintenance",
+    "propane gas line service",
+    "propane system inspection"
+  ],
+  "marine|Boat Repair": [
+    "boat repair near me",
+    "boat repair service",
+    "fiberglass boat repair cost",
+    "boat hull repair",
+    "marine repair shop"
+  ],
+  "marine|Marine Engine Service": [
+    "marine engine repair near me",
+    "boat engine service",
+    "outboard motor repair cost",
+    "marine engine mechanic",
+    "boat motor not starting"
+  ],
+  "marine|Boat Detailing": [
+    "boat detailing near me",
+    "boat detailing cost",
+    "boat cleaning service",
+    "marine detailing service",
+    "schedule boat detailing"
+  ],
+  "heavy-equipment|Equipment Rental": [
+    "heavy equipment rental near me",
+    "excavator rental cost",
+    "construction equipment rental",
+    "rent heavy machinery",
+    "equipment rental company"
+  ],
+  "heavy-equipment|Equipment Repair": [
+    "heavy equipment repair near me",
+    "heavy equipment mechanic",
+    "construction equipment repair",
+    "heavy machinery repair cost",
+    "equipment breakdown repair"
+  ],
+  "heavy-equipment|Equipment Sales": [
+    "heavy equipment for sale near me",
+    "used construction equipment",
+    "buy heavy machinery",
+    "construction equipment dealer",
+    "heavy equipment sales"
+  ],
+  "commercial-kitchen|Kitchen Equipment Repair": [
+    "commercial kitchen repair near me",
+    "restaurant equipment repair",
+    "commercial oven repair",
+    "kitchen equipment service",
+    "commercial refrigerator repair"
+  ],
+  "commercial-kitchen|Kitchen Equipment Installation": [
+    "commercial kitchen installation near me",
+    "restaurant equipment installation",
+    "commercial kitchen setup cost",
+    "kitchen equipment installer",
+    "commercial kitchen buildout"
+  ],
+  "commercial-kitchen|Kitchen Hood Cleaning": [
+    "kitchen hood cleaning near me",
+    "restaurant hood cleaning cost",
+    "exhaust hood cleaning service",
+    "commercial hood cleaning",
+    "schedule hood cleaning"
+  ],
+  "sign-wraps|Vehicle Wraps": [
+    "vehicle wrap near me",
+    "car wrap cost",
+    "truck wrap service",
+    "fleet vehicle wraps",
+    "get quote vehicle wrap"
+  ],
+  "sign-wraps|Business Signage": [
+    "business signs near me",
+    "custom business signage cost",
+    "storefront sign installation",
+    "commercial signage company",
+    "business sign maker"
+  ],
+  "sign-wraps|Custom Signs & Banners": [
+    "custom signs near me",
+    "banner printing near me",
+    "custom banner cost",
+    "outdoor sign company",
+    "event banner printing"
+  ],
+  "sign-wraps|Graphic Design & Print": [
+    "print shop near me",
+    "graphic design services",
+    "custom printing service",
+    "business card printing near me",
+    "brochure printing cost"
+  ],
+  "powder-coating|Powder Coating Services": [
+    "powder coating near me",
+    "powder coating cost",
+    "metal powder coating service",
+    "powder coat shop",
+    "custom powder coating"
+  ],
+  "powder-coating|Custom Powder Coating": [
+    "custom powder coating near me",
+    "custom color powder coat",
+    "powder coating wheels cost",
+    "specialty powder coating",
+    "powder coating custom colors"
+  ],
+  "powder-coating|Industrial Powder Coating": [
+    "industrial powder coating near me",
+    "large scale powder coating",
+    "industrial coating service",
+    "commercial powder coating",
+    "industrial metal finishing"
+  ],
+  "metal-roofing|Metal Roof Installation": [
+    "metal roof installation near me",
+    "metal roof cost",
+    "metal roofing contractor",
+    "standing seam metal roof cost",
+    "get quote metal roof"
+  ],
+  "metal-roofing|Metal Roof Repair": [
+    "metal roof repair near me",
+    "metal roof leak repair",
+    "metal roofing repair cost",
+    "fix metal roof",
+    "metal roof panel replacement"
+  ],
+  "metal-roofing|Standing Seam Metal Roof": [
+    "standing seam metal roof near me",
+    "standing seam roof cost",
+    "standing seam metal roofing contractor",
+    "standing seam installation",
+    "standing seam metal roof estimate"
+  ],
+  "artificial-turf|Artificial Turf Installation": [
+    "artificial turf installation near me",
+    "artificial grass cost",
+    "synthetic turf installer",
+    "fake grass installation",
+    "get quote artificial turf"
+  ],
+  "artificial-turf|Putting Green Installation": [
+    "putting green installation near me",
+    "backyard putting green cost",
+    "artificial putting green installer",
+    "synthetic putting green",
+    "residential putting green"
+  ],
+  "artificial-turf|Pet Turf Installation": [
+    "pet turf near me",
+    "artificial grass for dogs cost",
+    "dog turf installation",
+    "pet friendly artificial grass",
+    "synthetic turf for pets"
+  ],
+  "machining|CNC Machining": [
+    "cnc machining near me",
+    "cnc machining services",
+    "cnc machine shop",
+    "custom cnc machining",
+    "cnc machining cost"
+  ],
+  "machining|Precision Machining": [
+    "precision machining near me",
+    "precision machine shop",
+    "tight tolerance machining",
+    "precision parts manufacturing",
+    "precision machining service"
+  ],
+  "machining|Custom Parts Manufacturing": [
+    "custom parts manufacturing near me",
+    "custom machined parts",
+    "one off parts machining",
+    "custom metal parts maker",
+    "get quote custom parts"
+  ],
+  "machining|Machine Repair & Service": [
+    "machine repair near me",
+    "industrial machine repair",
+    "machine maintenance service",
+    "cnc machine repair",
+    "machine breakdown repair"
+  ],
+  "machining|Prototype Manufacturing": [
+    "prototype machining near me",
+    "rapid prototyping service",
+    "prototype manufacturing cost",
+    "prototype parts maker",
+    "custom prototype fabrication"
+  ],
+  "home-builders|Custom Home Building": [
+    "custom home builder near me",
+    "build custom home cost",
+    "custom home construction",
+    "design build home contractor",
+    "get quote custom home"
+  ],
+  "home-builders|New Home Construction": [
+    "new home construction near me",
+    "home builder near me",
+    "new construction homes cost",
+    "residential construction company",
+    "build a new home"
+  ],
+  "home-builders|Home Remodeling": [
+    "home remodeling near me",
+    "home renovation contractor",
+    "house remodel cost",
+    "whole home remodel",
+    "get quote home remodel"
+  ],
+  "home-builders|Home Additions": [
+    "home addition near me",
+    "home addition cost",
+    "room addition contractor",
+    "house addition builder",
+    "get quote home addition"
+  ],
+  "auto-shipping|Vehicle Transport": [
+    "car shipping near me",
+    "vehicle transport cost",
+    "auto transport service",
+    "ship my car",
+    "car transport quote"
+  ],
+  "auto-shipping|Long Distance Auto Shipping": [
+    "long distance car shipping",
+    "cross country auto transport",
+    "interstate vehicle shipping cost",
+    "ship car across country",
+    "long distance auto transport quote"
+  ],
+  "auto-shipping|Enclosed Auto Transport": [
+    "enclosed auto transport near me",
+    "enclosed car shipping cost",
+    "enclosed vehicle transport",
+    "luxury car shipping enclosed",
+    "enclosed auto transport quote"
+  ],
+  "custom-engine|Engine Building & Performance": [
+    "custom engine builder near me",
+    "performance engine build cost",
+    "engine builder shop",
+    "race engine builder",
+    "custom performance engine"
+  ],
+  "custom-engine|Engine Repair & Rebuild": [
+    "engine rebuild near me",
+    "engine rebuild cost",
+    "motor rebuild service",
+    "engine repair shop",
+    "engine overhaul service"
+  ],
+  "custom-engine|Performance Tuning": [
+    "performance tuning near me",
+    "engine tuning service",
+    "ecu tuning cost",
+    "dyno tuning near me",
+    "performance chip tuning"
+  ],
+  "recycling|Commercial Recycling": [
+    "commercial recycling service near me",
+    "business recycling pickup",
+    "commercial recycling company",
+    "office recycling service",
+    "commercial waste recycling"
+  ],
+  "recycling|Electronic Waste Recycling": [
+    "e waste recycling near me",
+    "electronics recycling service",
+    "computer recycling cost",
+    "e waste disposal service",
+    "electronic waste pickup"
+  ],
+  "recycling|Scrap Metal Recycling": [
+    "scrap metal recycling near me",
+    "scrap yard near me",
+    "scrap metal pickup service",
+    "sell scrap metal",
+    "scrap metal prices near me"
+  ],
+  "waste|Commercial Waste Collection": [
+    "commercial waste collection near me",
+    "business trash pickup service",
+    "commercial waste management",
+    "commercial garbage service",
+    "schedule waste collection"
+  ],
+  "waste|Dumpster Rental": [
+    "dumpster rental near me",
+    "roll off dumpster cost",
+    "construction dumpster rental",
+    "temporary dumpster rental",
+    "rent a dumpster"
+  ],
+  "waste|Hazardous Waste Disposal": [
+    "hazardous waste disposal near me",
+    "hazmat waste removal cost",
+    "hazardous material disposal",
+    "chemical waste disposal service",
+    "hazardous waste cleanup"
+  ],
+  "installation|Office Furniture Installation": [
+    "office furniture installation near me",
+    "cubicle installation service",
+    "office furniture assembly cost",
+    "commercial furniture installer",
+    "office workstation setup"
+  ],
+  "installation|Office Relocation Services": [
+    "office relocation near me",
+    "office move service cost",
+    "business relocation company",
+    "corporate office moving",
+    "schedule office move"
+  ],
+  "installation|Equipment Installation": [
+    "equipment installation near me",
+    "commercial equipment installation",
+    "industrial equipment setup",
+    "equipment installation service",
+    "machinery installation contractor"
+  ],
+  "printing|Commercial Printing": [
+    "commercial printing near me",
+    "commercial print shop",
+    "bulk printing service",
+    "commercial printing cost",
+    "business printing services"
+  ],
+  "printing|Large Format Printing": [
+    "large format printing near me",
+    "banner printing service",
+    "wide format printing cost",
+    "poster printing near me",
+    "large scale printing"
+  ],
+  "printing|Custom Business Printing": [
+    "business card printing near me",
+    "custom business printing",
+    "brochure printing service",
+    "flyer printing cost",
+    "custom stationery printing"
+  ],
+  "bolt-services|Industrial Fastener Supply": [
+    "industrial fastener supplier near me",
+    "bulk bolt supplier",
+    "industrial fastener supply",
+    "wholesale fasteners near me",
+    "buy industrial bolts"
+  ],
+  "bolt-services|Custom Bolt Manufacturing": [
+    "custom bolt manufacturing",
+    "custom fastener manufacturer",
+    "specialty bolt maker",
+    "custom bolt fabrication",
+    "made to order fasteners"
+  ],
+  "bolt-services|Bolt & Fastener Distribution": [
+    "fastener distributor near me",
+    "bolt supply company",
+    "wholesale bolt distributor",
+    "fastener supplier",
+    "bulk fastener ordering"
+  ],
+  "engineering|Environmental Engineering": [
+    "environmental engineering firm near me",
+    "environmental consulting services",
+    "environmental site assessment",
+    "environmental remediation company",
+    "hire environmental engineer"
+  ],
+  "engineering|Naval & Marine Engineering": [
+    "marine engineering firm near me",
+    "naval engineering services",
+    "marine structural engineering",
+    "marine engineering consultant",
+    "ship engineering service"
+  ],
+  "engineering|Civil Engineering": [
+    "civil engineering firm near me",
+    "civil engineer for construction",
+    "civil engineering services",
+    "site civil engineer",
+    "hire civil engineer"
+  ],
+  "engineering|Mechanical Engineering": [
+    "mechanical engineering firm near me",
+    "mechanical engineering services",
+    "mechanical design consultant",
+    "hire mechanical engineer",
+    "mechanical engineering company"
+  ],
+  "structural-engineers|Residential Structural Engineering": [
+    "residential structural engineer near me",
+    "structural engineer for home",
+    "home structural assessment cost",
+    "residential structural inspection",
+    "hire structural engineer house"
+  ],
+  "structural-engineers|Commercial Structural Engineering": [
+    "commercial structural engineer near me",
+    "structural engineering firm commercial",
+    "building structural analysis",
+    "commercial structural assessment",
+    "hire commercial structural engineer"
+  ],
+  "structural-engineers|Structural Inspections": [
+    "structural inspection near me",
+    "structural inspection cost",
+    "building structural assessment",
+    "structural integrity inspection",
+    "schedule structural inspection"
+  ],
+  "tile-contractor|Tile Floor Installation": [
+    "tile floor installation near me",
+    "floor tile installer cost",
+    "ceramic tile installation",
+    "porcelain tile flooring",
+    "hire tile floor installer"
+  ],
+  "tile-contractor|Bathroom Tile Installation": [
+    "bathroom tile installation near me",
+    "bathroom tile cost",
+    "shower tile installer",
+    "bathroom tile contractor",
+    "bathroom tile remodel"
+  ],
+  "tile-contractor|Kitchen Backsplash Installation": [
+    "backsplash installation near me",
+    "kitchen backsplash cost",
+    "tile backsplash installer",
+    "kitchen backsplash contractor",
+    "get quote backsplash install"
+  ],
+  "tile-contractor|Tile Repair": [
+    "tile repair near me",
+    "cracked tile repair",
+    "tile replacement cost",
+    "fix broken tile",
+    "tile repair service"
+  ],
+  "lodging|Hotel & Motel Advertising": [
+    "hotels near me",
+    "hotel rooms available tonight",
+    "cheap hotel near me",
+    "book hotel room",
+    "hotel deals near me"
+  ],
+  "lodging|Vacation Rental Marketing": [
+    "vacation rental near me",
+    "cabin rental near me",
+    "vacation home rental",
+    "short term rental booking",
+    "weekend rental near me"
+  ],
+  "lodging|Resort & Lodge Marketing": [
+    "resort near me",
+    "lodge near me",
+    "resort vacation deals",
+    "mountain lodge booking",
+    "luxury resort getaway"
+  ],
+  "construction|General Contracting": [
+    "general contractor near me",
+    "general contractor cost",
+    "licensed general contractor",
+    "hire general contractor",
+    "construction contractor"
+  ],
+  "construction|Commercial Construction": [
+    "commercial construction company near me",
+    "commercial building contractor",
+    "commercial construction cost",
+    "commercial general contractor",
+    "hire commercial contractor"
+  ],
+  "construction|Renovation & Remodeling": [
+    "renovation contractor near me",
+    "home renovation cost",
+    "remodeling contractor",
+    "kitchen renovation near me",
+    "get quote renovation"
+  ],
+  "construction|Tenant Improvement": [
+    "tenant improvement contractor near me",
+    "commercial buildout cost",
+    "tenant improvement construction",
+    "office buildout contractor",
+    "TI construction service"
+  ],
+  "motor-groups|New Vehicle Sales": [
+    "new cars for sale near me",
+    "new car dealership near me",
+    "buy new car",
+    "new vehicle deals",
+    "new car specials near me"
+  ],
+  "motor-groups|Used Vehicle Sales": [
+    "used cars for sale near me",
+    "used car dealership near me",
+    "buy used car",
+    "pre owned vehicles near me",
+    "certified used cars"
+  ],
+  "motor-groups|Vehicle Service & Parts": [
+    "auto service near me",
+    "car service center",
+    "auto parts dealer near me",
+    "vehicle maintenance service",
+    "schedule car service"
+  ],
+  "motor-groups|Vehicle Financing": [
+    "auto financing near me",
+    "car loan near me",
+    "vehicle financing options",
+    "auto loan pre approval",
+    "car financing deals"
+  ],
+  "distribution|Wholesale Distribution": [
+    "wholesale distributor near me",
+    "wholesale supplier",
+    "bulk product distribution",
+    "wholesale distribution company",
+    "find wholesale distributor"
+  ],
+  "distribution|Freight & Logistics": [
+    "freight shipping company near me",
+    "freight logistics service",
+    "ltl freight shipping cost",
+    "freight transport company",
+    "get quote freight shipping"
+  ],
+  "distribution|Last Mile Delivery": [
+    "last mile delivery service near me",
+    "local delivery service",
+    "same day delivery service",
+    "last mile logistics",
+    "courier delivery service"
+  ],
+  "surveying|Land Surveying": [
+    "land surveyor near me",
+    "land survey cost",
+    "property survey service",
+    "hire land surveyor",
+    "residential land survey"
+  ],
+  "surveying|Construction Surveying": [
+    "construction surveyor near me",
+    "construction survey service",
+    "site surveying cost",
+    "building survey contractor",
+    "construction staking service"
+  ],
+  "surveying|Boundary Survey": [
+    "boundary survey near me",
+    "property boundary survey cost",
+    "lot line survey",
+    "property line survey service",
+    "boundary survey for fence"
+  ],
+  "metal-fabrication|Custom Metal Fabrication": [
+    "custom metal fabrication near me",
+    "metal fabrication shop",
+    "custom metalwork cost",
+    "metal fabrication service",
+    "get quote metal fabrication"
+  ],
+  "metal-fabrication|Structural Steel Fabrication": [
+    "structural steel fabrication near me",
+    "steel fabrication shop",
+    "structural steel contractor",
+    "steel fabrication cost",
+    "commercial steel fabrication"
+  ],
+  "metal-fabrication|Sheet Metal Work": [
+    "sheet metal work near me",
+    "sheet metal fabrication",
+    "custom sheet metal cost",
+    "sheet metal contractor",
+    "sheet metal shop"
+  ],
+  "service-cabling|Structured Cabling Installation": [
+    "structured cabling installation near me",
+    "data cabling contractor",
+    "structured cabling cost",
+    "low voltage cabling installer",
+    "commercial cabling service"
+  ],
+  "service-cabling|Network Cabling": [
+    "network cabling near me",
+    "ethernet wiring service",
+    "cat6 cable installation cost",
+    "office network cabling",
+    "network cable installer"
+  ],
+  "service-cabling|Fiber Optic Installation": [
+    "fiber optic installation near me",
+    "fiber optic cable installation cost",
+    "fiber optic contractor",
+    "commercial fiber optic service",
+    "fiber optic cabling installer"
+  ],
+  "vending|Vending Machine Placement": [
+    "vending machine placement near me",
+    "vending machine for my business",
+    "get a vending machine",
+    "vending machine vendor",
+    "free vending machine placement"
+  ],
+  "vending|Vending Machine Service & Repair": [
+    "vending machine repair near me",
+    "vending machine service company",
+    "vending machine not working",
+    "vending machine maintenance",
+    "vending machine repair cost"
+  ],
+  "vending|Office Vending Solutions": [
+    "office vending service near me",
+    "break room vending machine",
+    "office snack vending",
+    "workplace vending solutions",
+    "corporate vending service"
+  ],
+  "metal-plating|Electroplating Services": [
+    "electroplating near me",
+    "metal plating service",
+    "electroplating cost",
+    "nickel plating service",
+    "zinc plating near me"
+  ],
+  "metal-plating|Chrome Plating": [
+    "chrome plating near me",
+    "chrome plating cost",
+    "chrome plating shop",
+    "hard chrome plating service",
+    "decorative chrome plating"
+  ],
+  "metal-plating|Anodizing Services": [
+    "anodizing near me",
+    "aluminum anodizing service",
+    "anodizing cost",
+    "custom anodizing shop",
+    "anodizing company"
+  ],
+  "custom-home-builders|Custom Home Construction": [
+    "custom home builder near me",
+    "custom home construction cost",
+    "build dream home",
+    "custom home design build",
+    "get quote custom home build"
+  ],
+  "custom-home-builders|Luxury Home Design-Build": [
+    "luxury home builder near me",
+    "luxury home construction cost",
+    "high end home builder",
+    "luxury custom home design",
+    "luxury home design build"
+  ],
+  "custom-home-builders|Custom Floor Plans": [
+    "custom floor plans near me",
+    "custom home design service",
+    "house plan design cost",
+    "custom home floor plan architect",
+    "design custom floor plan"
+  ],
+  "cnc-machining|CNC Milling": [
+    "cnc milling near me",
+    "cnc milling service",
+    "cnc milling cost",
+    "precision cnc milling",
+    "custom cnc milling"
+  ],
+  "cnc-machining|CNC Turning": [
+    "cnc turning near me",
+    "cnc lathe service",
+    "cnc turning cost",
+    "precision cnc turning",
+    "custom cnc turning"
+  ],
+  "cnc-machining|Precision Machining": [
+    "precision machining near me",
+    "precision machine shop",
+    "precision machining services",
+    "tight tolerance machining",
+    "precision parts machining"
+  ],
+  "cnc-machining|Prototype Machining": [
+    "prototype machining near me",
+    "rapid prototype machining",
+    "cnc prototype cost",
+    "prototype parts machining",
+    "quick turn prototype"
+  ],
+  "composite|Composite Manufacturing": [
+    "composite manufacturing near me",
+    "composite fabrication service",
+    "carbon fiber manufacturing",
+    "composite parts manufacturer",
+    "custom composite fabrication"
+  ],
+  "composite|Fiberglass Fabrication": [
+    "fiberglass fabrication near me",
+    "fiberglass fabrication service",
+    "custom fiberglass work",
+    "fiberglass fabrication cost",
+    "fiberglass manufacturing"
+  ],
+  "composite|Composite Repair": [
+    "composite repair near me",
+    "fiberglass repair service",
+    "carbon fiber repair cost",
+    "composite damage repair",
+    "composite restoration"
+  ],
+  "fabrication|Custom Metal Fabrication": [
+    "metal fabrication near me",
+    "custom metal fabrication shop",
+    "metal fabrication cost",
+    "custom metalwork service",
+    "get quote metal fabrication"
+  ],
+  "fabrication|Structural Steel Fabrication": [
+    "structural steel fabricator near me",
+    "steel fabrication service",
+    "structural steel cost",
+    "steel beam fabrication",
+    "commercial steel fabricator"
+  ],
+  "fabrication|Sheet Metal Fabrication": [
+    "sheet metal fabrication near me",
+    "custom sheet metal service",
+    "sheet metal fabrication cost",
+    "precision sheet metal work",
+    "sheet metal fab shop"
+  ],
+  "fabrication|Welding & Fabrication": [
+    "welding and fabrication near me",
+    "weld fab shop",
+    "welding fabrication service",
+    "custom weld fabrication cost",
+    "hire welding fabricator"
+  ],
+  "consulting|Management Consulting": [
+    "management consulting firm near me",
+    "management consultant services",
+    "business management advisor",
+    "hire management consultant",
+    "management consulting company"
+  ],
+  "consulting|Business Strategy Consulting": [
+    "business strategy consultant near me",
+    "strategic planning consultant",
+    "business growth strategy advisor",
+    "hire strategy consultant",
+    "business strategy consulting firm"
+  ],
+  "consulting|Financial Consulting": [
+    "financial consultant near me",
+    "financial advisory services",
+    "business financial consultant",
+    "hire financial advisor",
+    "financial consulting firm"
+  ],
+  "consulting|IT Consulting": [
+    "it consulting near me",
+    "it consultant services",
+    "technology consulting firm",
+    "hire it consultant",
+    "managed it consulting"
+  ],
+  "consulting|HR Consulting": [
+    "hr consulting near me",
+    "hr consultant services",
+    "human resources consulting firm",
+    "hire hr consultant",
+    "outsourced hr consulting"
+  ],
+  "consulting|Operations Consulting": [
+    "operations consulting near me",
+    "operations improvement consultant",
+    "business operations advisor",
+    "hire operations consultant",
+    "operational efficiency consulting"
+  ]
+}

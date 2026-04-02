@@ -204,8 +204,26 @@ export function generateClientSummary(
 ): string {
   const jobs = roundingMode === "conservative" ? result.totalJobsRounded : result.totalJobs;
   const revenue = roundingMode === "conservative" ? result.totalRevenueRounded : result.totalRevenue;
+  const conservativeRev = result.totalRevenueRounded;
+  const projectedRev = result.totalRevenue;
 
-  return `With a Google Ads investment of ${formatCurrency(result.totalSpend)}/month, an estimated average cost per lead of ${formatCurrency(Math.round(result.weightedAvgCpl))}, and a ${result.closeRate}% close rate, ${clientName || "this client"} could generate approximately ${formatNumber(result.totalLeads)} leads per month, ${roundingMode === "conservative" ? jobs : formatNumber(jobs)} jobs per month, and about ${formatCurrency(revenue)}/month in new revenue potential depending on service mix and job values.`;
+  let summary = `ESTIMATED REVENUE POTENTIAL — ${clientName || "Client"}\n\n`;
+  summary += `Based on industry benchmarks for your service area, with a Google Ads investment of ${formatCurrency(result.totalSpend)}/month, an estimated average cost per lead of ${formatCurrency(Math.round(result.weightedAvgCpl))}, and an assumed ${result.closeRate}% close rate, the estimated potential is:\n\n`;
+  summary += `  Estimated leads per month: ~${formatNumber(result.totalLeads)}\n`;
+  summary += `  Estimated jobs per month: ~${roundingMode === "conservative" ? jobs : formatNumber(jobs)}\n`;
+  summary += `  Estimated revenue potential: ~${formatCurrency(revenue)}/month\n`;
+  if (Math.abs(conservativeRev - projectedRev) > 100) {
+    summary += `  Revenue range: ${formatCurrency(conservativeRev)} — ${formatCurrency(projectedRev)}/month\n`;
+  }
+  summary += `\nIMPORTANT NOTES:\n`;
+  summary += `• These are estimates based on published industry data, not guarantees.\n`;
+  summary += `• Actual results depend on campaign optimization, lead follow-up, phone answer rate, and sales process.\n`;
+  summary += `• Google Ads campaigns typically require 60-90 days to reach full optimization.\n`;
+  summary += `• During the first 2-4 weeks (learning period), expect higher costs and fewer leads as Google's algorithm gathers data.\n`;
+  summary += `• Results improve over time with consistent investment and campaign refinement.\n`;
+  summary += `• Revenue potential assumes leads are responded to promptly and followed up on effectively.\n`;
+
+  return summary;
 }
 
 export function generateInternalSummary(
@@ -219,18 +237,21 @@ export function generateInternalSummary(
   const jobs = roundingMode === "conservative" ? result.totalJobsRounded : result.totalJobs;
   const revenue = roundingMode === "conservative" ? result.totalRevenueRounded : result.totalRevenue;
 
-  let text = `Client: ${clientName || "—"}\n`;
+  let text = `INTERNAL — ROI Projection\n`;
+  text += `========================\n`;
+  text += `Client: ${clientName || "—"}\n`;
   text += `Industry: ${industryName}\n`;
-  text += `Services selected: ${selected.map((s) => s.serviceName).join(", ")}\n`;
+  text += `Services: ${selected.map((s) => s.serviceName).join(", ")}\n`;
   text += `Spend: ${formatCurrency(result.totalSpend)}/month\n`;
-  text += `CPL used: ${formatCurrency(Math.round(result.weightedAvgCpl))} (weighted avg)\n`;
-  text += `Close rate: ${result.closeRate}%\n`;
-  text += `Estimated leads: ${formatNumber(result.totalLeads)}\n`;
-  text += `Estimated jobs: ${roundingMode === "conservative" ? jobs : formatNumber(jobs)}\n`;
-  text += `Estimated monthly revenue: ${formatCurrency(revenue)}\n`;
+  text += `Est. CPL: ${formatCurrency(Math.round(result.weightedAvgCpl))} (weighted avg)\n`;
+  text += `Close rate assumption: ${result.closeRate}%\n`;
+  text += `Est. leads: ~${formatNumber(result.totalLeads)}/mo\n`;
+  text += `Est. jobs: ~${roundingMode === "conservative" ? jobs : formatNumber(jobs)}/mo\n`;
+  text += `Est. revenue: ~${formatCurrency(revenue)}/mo\n`;
+  text += `Revenue range: ${formatCurrency(result.totalRevenueRounded)} — ${formatCurrency(result.totalRevenue)}/mo\n`;
   if (result.grossProfit !== null) {
     const gp = roundingMode === "conservative" ? result.grossProfitRounded! : result.grossProfit;
-    text += `Estimated gross profit: ${formatCurrency(gp)}\n`;
+    text += `Est. gross profit: ~${formatCurrency(gp)}/mo\n`;
   }
 
   if (result.serviceResults.length > 1) {
@@ -238,15 +259,19 @@ export function generateInternalSummary(
     for (const sr of result.serviceResults) {
       const srJobs = roundingMode === "conservative" ? sr.jobsRounded : sr.jobs;
       const srRev = roundingMode === "conservative" ? sr.revenueRounded : sr.revenue;
-      text += `  ${sr.serviceName}: ${formatCurrency(sr.allocatedSpend)} spend → ${formatNumber(sr.leads)} leads → ${roundingMode === "conservative" ? srJobs : formatNumber(srJobs)} jobs → ${formatCurrency(srRev)} revenue\n`;
+      text += `  ${sr.serviceName}: ${formatCurrency(sr.allocatedSpend)} spend → ~${formatNumber(sr.leads)} leads → ~${roundingMode === "conservative" ? srJobs : formatNumber(srJobs)} jobs → ~${formatCurrency(srRev)} revenue\n`;
     }
   }
 
+  text += `\n⚠ REMINDER: These are ESTIMATES, not promises. Do not present as guaranteed numbers.\n`;
+  text += `⚠ Ramp-up: Expect 60-90 days before campaigns reach projected performance.\n`;
+  text += `⚠ Client must answer phones/emails promptly — missed calls = lost leads.\n`;
+
   if (result.hasCustomEstimates) {
-    text += `\n⚠ Note: Some values are custom estimates based on user-entered values.\n`;
+    text += `⚠ Some values are custom estimates based on user-entered values.\n`;
   }
   if (result.hasLowConfidence) {
-    text += `⚠ Note: Some benchmarks are low-confidence seed data.\n`;
+    text += `⚠ Some benchmarks are low-confidence seed data.\n`;
   }
 
   return text;
