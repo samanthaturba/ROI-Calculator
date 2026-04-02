@@ -69,10 +69,6 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
   const cpcMultiplier = platform === "google" ? 1.0 : platform === "meta" ? 0.6 : 2.5;
   const estimatedCpc = avgCpc * cpcMultiplier;
 
-  const conversionRate = result.totalLeads > 0 && result.totalSpend > 0
-    ? (result.totalLeads / (result.totalSpend / Math.max(estimatedCpc, 1))) * 100
-    : 0;
-
   const roas = result.totalSpend > 0 ? revenue / result.totalSpend : 0;
 
   return (
@@ -124,6 +120,7 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
           <div className="text-xl font-bold text-cogent-navy mt-1">
             ~{formatNumber(result.totalLeads)}
           </div>
+          <div className="text-xs text-gray-400 mt-0.5">form fills &amp; calls</div>
         </div>
         <div className="rounded-lg p-4 border border-cogent-sage/30" style={{ background: "rgba(188, 194, 106, 0.15)" }}>
           <div className="text-xs text-cogent-navy uppercase tracking-wide">Est. Jobs/Mo</div>
@@ -147,8 +144,27 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
         </div>
       </div>
 
+      {/* What these numbers mean */}
+      <div className="mb-6 p-4 bg-cogent-ivory/60 border border-gray-200 rounded-lg">
+        <h3 className="text-sm font-semibold text-cogent-navy mb-2">What These Numbers Mean</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-cogent-neutral">
+          <div>
+            <p className="font-semibold text-cogent-navy-dark mb-0.5">Est. Leads/Mo (~{formatNumber(result.totalLeads)})</p>
+            <p>This is the estimated number of <strong>form submissions, phone calls, and direct inquiries</strong> your ads are projected to generate each month. These are people actively reaching out to your business after seeing your ad.</p>
+          </div>
+          <div>
+            <p className="font-semibold text-cogent-navy-dark mb-0.5">Est. Jobs/Mo (~{isConservative ? jobs : formatNumber(jobs)})</p>
+            <p>Based on your <strong>{result.closeRate}% close rate</strong>, this is how many of those leads are expected to convert into paying jobs. This depends on how quickly you respond, your sales process, and how effectively leads are followed up on.</p>
+          </div>
+          <div>
+            <p className="font-semibold text-cogent-navy-dark mb-0.5">Est. Revenue/Mo (~{formatCurrency(revenue)})</p>
+            <p>Estimated monthly revenue based on your average job value multiplied by estimated jobs. Actual revenue varies with job mix, upsells, and seasonal factors.</p>
+          </div>
+        </div>
+      </div>
+
       {/* Advanced Metrics Row */}
-      <div className="grid grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-2 gap-4 mb-6">
         <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
           <div className="text-xs text-cogent-neutral uppercase tracking-wide mb-1">
             <MetricTooltip
@@ -162,18 +178,6 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
           <div className="text-xs text-gray-400">
             {platform === "google" ? "search click avg" : platform === "meta" ? "social click avg" : "professional click avg"}
           </div>
-        </div>
-        <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-          <div className="text-xs text-cogent-neutral uppercase tracking-wide mb-1">
-            <MetricTooltip
-              label="Est. CVR"
-              explanation="Conversion Rate — the percentage of ad clicks that turn into a lead (form fill, phone call, etc.). Higher CVR means your landing page and offer are working well."
-            />
-          </div>
-          <div className="text-lg font-bold text-cogent-navy-dark">
-            {conversionRate > 0 ? `${conversionRate.toFixed(1)}%` : "—"}
-          </div>
-          <div className="text-xs text-gray-400">click-to-lead rate</div>
         </div>
         <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
           <div className="text-xs text-cogent-neutral uppercase tracking-wide mb-1">
