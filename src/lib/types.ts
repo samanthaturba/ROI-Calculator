@@ -4,6 +4,13 @@ export type CplChoice = "low" | "mid" | "high" | "custom";
 
 export type RoundingMode = "exact" | "conservative";
 
+export type AdPlatform = "google" | "meta" | "linkedin";
+
+export interface PlatformRecommendation {
+  rating: number; // 1-5
+  note: string;
+}
+
 export interface IndustryBenchmark {
   industryId: string;
   industryName: string;

@@ -7,11 +7,14 @@ import type {
   BudgetInputs,
   ServiceSelection as ServiceSelectionType,
   ExtractedService,
+  AdPlatform,
 } from "../lib/types";
 import {
   getAllIndustries,
   getServicesForIndustry,
   getRecommendedSpend,
+  getPlatformRecommendations,
+  hasBenchmarksForPlatform,
 } from "../lib/benchmarks";
 import { calculate, checkSpendWarning } from "../lib/calculations";
 import { extractServicesFromText } from "../lib/service-extraction";
@@ -23,8 +26,27 @@ import Results from "../components/Results";
 import KeywordSuggestions from "../components/KeywordSuggestions";
 import ExportSummary from "../components/ExportSummary";
 import SaveLoad from "../components/SaveLoad";
+import PlatformRecommendations from "../components/PlatformRecommendations";
 
 const DEFAULT_CLOSE_RATE = 40;
+
+const PLATFORM_INFO: Record<AdPlatform, { label: string; icon: string; description: string }> = {
+  google: {
+    label: "Google Ads",
+    icon: "🔍",
+    description: "Search-based ads targeting high-intent users actively looking for services",
+  },
+  meta: {
+    label: "Meta Ads",
+    icon: "📱",
+    description: "Facebook & Instagram ads for awareness, retargeting, and lead generation",
+  },
+  linkedin: {
+    label: "LinkedIn Ads",
+    icon: "💼",
+    description: "Professional targeting for B2B services, C-suite decision makers",
+  },
+};
 
 export const MARKET_TIERS: Record<string, { label: string; multiplier: number; description: string }> = {
   "": { label: "Select market size...", multiplier: 1.0, description: "" },
@@ -65,6 +87,7 @@ export default function Home() {
   const [targetAreas, setTargetAreas] = useState<TargetAreaEntry[]>([
     { id: `area-${areaIdCounter++}`, name: "", tier: "", budgetPercent: 100 },
   ]);
+  const [platform, setPlatform] = useState<AdPlatform>("google");
 
   // Compute blended market multiplier from all areas
   const blendedMultiplier = useMemo(() => {
@@ -105,7 +128,6 @@ export default function Home() {
   function rebalanceAreas(areas: TargetAreaEntry[]): TargetAreaEntry[] {
     const even = Math.round((100 / areas.length) * 10) / 10;
     const rebalanced = areas.map((a) => ({ ...a, budgetPercent: even }));
-    // Fix rounding
     const total = rebalanced.reduce((s, a) => s + a.budgetPercent, 0);
     if (Math.abs(total - 100) > 0.01 && rebalanced.length > 0) {
       rebalanced[0].budgetPercent += Math.round((100 - total) * 10) / 10;
@@ -119,11 +141,40 @@ export default function Home() {
 
   const totalAreaPercent = targetAreas.reduce((s, a) => s + a.budgetPercent, 0);
 
+  // When platform changes, reload services for the current industry
+  function handlePlatformChange(newPlatform: AdPlatform) {
+    setPlatform(newPlatform);
+    if (clientInputs.industryId) {
+      const benchmarks = getServicesForIndustry(clientInputs.industryId, newPlatform);
+      const newServices: ServiceSelectionType[] = benchmarks.map((b) => ({
+        serviceName: b.serviceName,
+        selected: false,
+        allocationPercent: 0,
+        cplChoice: "mid" as const,
+        customCpl: null,
+        customJobValue: null,
+        benchmark: b,
+        isManual: false,
+      }));
+      setServices(newServices);
+      setExtractedServices([]);
+
+      // Update recommended spend for this platform
+      const spend = getRecommendedSpend(clientInputs.industryId, newPlatform);
+      if (spend.target) {
+        setBudgetInputs((prev) => ({
+          ...prev,
+          monthlyAdSpend: spend.target!,
+        }));
+      }
+    }
+  }
+
   // When industry changes, reset services
   const handleClientInputsChange = useCallback(
     (newInputs: ClientInputsType) => {
       if (newInputs.industryId !== clientInputs.industryId && newInputs.industryId) {
-        const benchmarks = getServicesForIndustry(newInputs.industryId);
+        const benchmarks = getServicesForIndustry(newInputs.industryId, platform);
         const newServices: ServiceSelectionType[] = benchmarks.map((b) => ({
           serviceName: b.serviceName,
           selected: false,
@@ -138,7 +189,7 @@ export default function Home() {
         setExtractedServices([]);
 
         // Set recommended spend as default
-        const spend = getRecommendedSpend(newInputs.industryId);
+        const spend = getRecommendedSpend(newInputs.industryId, platform);
         if (spend.target && budgetInputs.monthlyAdSpend === 0) {
           setBudgetInputs((prev) => ({
             ...prev,
@@ -151,14 +202,14 @@ export default function Home() {
       }
       setClientInputs(newInputs);
     },
-    [clientInputs.industryId, budgetInputs.monthlyAdSpend]
+    [clientInputs.industryId, budgetInputs.monthlyAdSpend, platform]
   );
 
   // Handle text extraction for service detection
   const handleTextExtract = useCallback(
     (text: string) => {
       if (!clientInputs.industryId) return;
-      const benchmarks = getServicesForIndustry(clientInputs.industryId);
+      const benchmarks = getServicesForIndustry(clientInputs.industryId, platform);
       const extracted = extractServicesFromText(text, benchmarks);
       setExtractedServices(extracted);
 
@@ -186,21 +237,31 @@ export default function Home() {
         });
       }
     },
-    [clientInputs.industryId]
+    [clientInputs.industryId, platform]
   );
 
   // Industry info
-  const selectedIndustry = getAllIndustries().find(
+  const selectedIndustry = getAllIndustries(platform).find(
     (i) => i.id === clientInputs.industryId
   );
   const recommendedSpend = clientInputs.industryId
-    ? getRecommendedSpend(clientInputs.industryId)
+    ? getRecommendedSpend(clientInputs.industryId, platform)
     : { min: null, target: null };
 
   const spendWarning = checkSpendWarning(
     budgetInputs.monthlyAdSpend,
     recommendedSpend.min
   );
+
+  // Platform recommendations for the selected industry
+  const platformRecs = clientInputs.industryId
+    ? getPlatformRecommendations(clientInputs.industryId)
+    : null;
+
+  // Check if current platform has benchmarks for selected industry
+  const platformHasBenchmarks = clientInputs.industryId
+    ? hasBenchmarksForPlatform(clientInputs.industryId, platform)
+    : true;
 
   // Calculate results with blended market multiplier
   const result = useMemo(() => {
@@ -231,7 +292,8 @@ export default function Home() {
   // Save/Load state management
   const getCurrentState = useCallback(() => {
     return {
-      version: 1,
+      version: 2,
+      platform,
       clientInputs,
       budgetInputs,
       targetAreas,
@@ -245,11 +307,12 @@ export default function Home() {
         isManual: s.isManual,
       })),
     };
-  }, [clientInputs, budgetInputs, targetAreas, services]);
+  }, [clientInputs, budgetInputs, targetAreas, services, platform]);
 
   const loadSavedState = useCallback((data: Record<string, unknown>) => {
     try {
       const d = data as {
+        platform?: AdPlatform;
         clientInputs?: ClientInputsType;
         budgetInputs?: BudgetInputs;
         targetAreas?: TargetAreaEntry[];
@@ -264,11 +327,14 @@ export default function Home() {
         }>;
       };
 
+      const loadPlatform = d.platform ?? "google";
+      setPlatform(loadPlatform);
+
       if (d.clientInputs) {
         setClientInputs(d.clientInputs);
         // Load services for this industry
         if (d.clientInputs.industryId) {
-          const benchmarks = getServicesForIndustry(d.clientInputs.industryId);
+          const benchmarks = getServicesForIndustry(d.clientInputs.industryId, loadPlatform);
           const loadedServices: ServiceSelectionType[] = benchmarks.map((b) => {
             const saved = d.services?.find((s) => s.serviceName === b.serviceName);
             return {
@@ -326,7 +392,7 @@ export default function Home() {
           />
           <div>
             <h1 className="text-lg font-bold text-white tracking-tight">
-              Google Ads ROI Calculator
+              Ad ROI Calculator
             </h1>
             <p className="text-sm text-cogent-sage-light">
               Powered by Cogent Analytics
@@ -337,12 +403,78 @@ export default function Home() {
 
       {/* Main content */}
       <main className="max-w-5xl mx-auto px-6 py-6 space-y-6">
+        {/* Platform Selector */}
+        <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+          <h2 className="text-lg font-semibold text-cogent-navy mb-1">Ad Platform</h2>
+          <p className="text-sm text-cogent-neutral mb-4">
+            Select which advertising platform to calculate ROI for. Each platform has different benchmarks, cost structures, and strengths.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {(Object.entries(PLATFORM_INFO) as [AdPlatform, typeof PLATFORM_INFO[AdPlatform]][]).map(
+              ([key, info]) => (
+                <button
+                  key={key}
+                  onClick={() => handlePlatformChange(key)}
+                  className={`p-4 rounded-lg border-2 text-left transition-all ${
+                    platform === key
+                      ? "border-cogent-navy bg-cogent-navy/5 ring-1 ring-cogent-navy/20"
+                      : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
+                  }`}
+                >
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xl">{info.icon}</span>
+                    <span className={`font-semibold ${platform === key ? "text-cogent-navy" : "text-gray-700"}`}>
+                      {info.label}
+                    </span>
+                    {platform === key && (
+                      <span className="ml-auto text-[10px] font-medium text-white bg-cogent-navy px-2 py-0.5 rounded-full">
+                        ACTIVE
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-xs text-cogent-neutral">{info.description}</p>
+                </button>
+              )
+            )}
+          </div>
+        </section>
+
         {/* Section A: Client Inputs */}
         <ClientInputsComponent
           value={clientInputs}
           onChange={handleClientInputsChange}
           onTextExtract={handleTextExtract}
         />
+
+        {/* Platform Recommendations (shown when industry is selected) */}
+        {clientInputs.industryId && platformRecs && (
+          <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+            <h2 className="text-lg font-semibold text-cogent-navy mb-1">
+              Platform Fit — {selectedIndustry?.name ?? "Industry"}
+            </h2>
+            <p className="text-sm text-cogent-neutral mb-4">
+              How well each advertising platform performs for this industry based on audience behavior, lead quality, and historical data.
+            </p>
+            <PlatformRecommendations
+              recommendations={platformRecs}
+              currentPlatform={platform}
+              industryName={selectedIndustry?.name ?? "this industry"}
+            />
+          </section>
+        )}
+
+        {/* No benchmarks warning */}
+        {clientInputs.industryId && !platformHasBenchmarks && (
+          <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg">
+            <p className="text-sm text-amber-800">
+              <strong>No benchmark data available</strong> for {selectedIndustry?.name ?? "this industry"} on {PLATFORM_INFO[platform].label}.
+              {platformRecs && platformRecs[platform].rating <= 2 && (
+                <> This platform is <strong>not recommended</strong> for this industry. Consider switching to a higher-rated platform above.</>
+              )}
+              {" "}You can still add custom services and enter your own CPL/job values manually.
+            </p>
+          </div>
+        )}
 
         {/* Section: Target Areas */}
         <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
@@ -482,13 +614,16 @@ export default function Home() {
           targetArea={areasSummary}
           marketTier={targetAreas.length === 1 ? targetAreas[0]?.tier : "blended"}
           marketMultiplier={blendedMultiplier}
+          platform={platform}
         />
 
-        {/* Section E: Keyword Suggestions */}
-        <KeywordSuggestions
-          services={services}
-          industryId={clientInputs.industryId}
-        />
+        {/* Section E: Keyword Suggestions (Google only) */}
+        {platform === "google" && (
+          <KeywordSuggestions
+            services={services}
+            industryId={clientInputs.industryId}
+          />
+        )}
 
         {/* Section F: Export */}
         <ExportSummary

@@ -1,6 +1,7 @@
 "use client";
 
-import type { CalculationResult, RoundingMode } from "../lib/types";
+import { useState } from "react";
+import type { CalculationResult, RoundingMode, AdPlatform } from "../lib/types";
 import { formatCurrency, formatNumber } from "../lib/calculations";
 
 interface Props {
@@ -9,9 +10,39 @@ interface Props {
   targetArea?: string;
   marketTier?: string;
   marketMultiplier?: number;
+  platform?: AdPlatform;
 }
 
-export default function Results({ result, roundingMode, targetArea, marketTier, marketMultiplier }: Props) {
+const PLATFORM_NAMES: Record<AdPlatform, string> = {
+  google: "Google Ads",
+  meta: "Meta Ads",
+  linkedin: "LinkedIn Ads",
+};
+
+function MetricTooltip({ label, explanation }: { label: string; explanation: string }) {
+  const [show, setShow] = useState(false);
+
+  return (
+    <span
+      className="relative inline-flex items-center"
+      onMouseEnter={() => setShow(true)}
+      onMouseLeave={() => setShow(false)}
+    >
+      <span className="cursor-help border-b border-dotted border-gray-400">{label}</span>
+      <span className="ml-1 text-gray-400 cursor-help text-[10px]">ⓘ</span>
+      {show && (
+        <span className="absolute z-10 bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 p-2 bg-cogent-navy text-white text-xs rounded-md shadow-lg">
+          {explanation}
+          <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-cogent-navy" />
+        </span>
+      )}
+    </span>
+  );
+}
+
+export default function Results({ result, roundingMode, targetArea, marketTier, marketMultiplier, platform = "google" }: Props) {
+  const platformName = PLATFORM_NAMES[platform];
+
   if (!result) {
     return (
       <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
@@ -33,11 +64,24 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
   const optimisticRevenue = result.totalRevenue;
   const showRange = Math.abs(conservativeRevenue - optimisticRevenue) > 100;
 
+  // Advanced metrics
+  const avgCpc = result.weightedAvgCpl * 0.15; // Approximate CPC as ~15% of CPL (varies by platform)
+  const cpcMultiplier = platform === "google" ? 1.0 : platform === "meta" ? 0.6 : 2.5;
+  const estimatedCpc = avgCpc * cpcMultiplier;
+
+  const conversionRate = result.totalLeads > 0 && result.totalSpend > 0
+    ? (result.totalLeads / (result.totalSpend / Math.max(estimatedCpc, 1))) * 100
+    : 0;
+
+  const roas = result.totalSpend > 0 ? revenue / result.totalSpend : 0;
+
   return (
     <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
-      <h2 className="text-lg font-semibold text-cogent-navy mb-1">Estimated Revenue Potential</h2>
+      <h2 className="text-lg font-semibold text-cogent-navy mb-1">
+        Estimated Revenue Potential — {platformName}
+      </h2>
       <p className="text-xs text-cogent-neutral mb-4">
-        Based on industry benchmarks and the inputs provided. Actual results will vary based on campaign optimization, lead quality, and close rate.
+        Based on {platformName} industry benchmarks and the inputs provided. Actual results will vary based on campaign optimization, lead quality, and close rate.
       </p>
 
       {/* Market adjustment note */}
@@ -59,7 +103,7 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
         </div>
       )}
 
-      {/* Summary cards - using "estimated" language throughout */}
+      {/* Summary cards */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
         <div className="bg-cogent-ivory rounded-lg p-4 border border-gray-100">
           <div className="text-xs text-cogent-neutral uppercase tracking-wide">Ad Spend</div>
@@ -100,6 +144,48 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
               Est. GP: ~{formatCurrency(gp)}
             </div>
           )}
+        </div>
+      </div>
+
+      {/* Advanced Metrics Row */}
+      <div className="grid grid-cols-3 gap-4 mb-6">
+        <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+          <div className="text-xs text-cogent-neutral uppercase tracking-wide mb-1">
+            <MetricTooltip
+              label="Est. CPC"
+              explanation="Cost Per Click — the estimated average cost each time someone clicks your ad. Varies by keyword competition, ad quality, and platform."
+            />
+          </div>
+          <div className="text-lg font-bold text-cogent-navy-dark">
+            ${estimatedCpc.toFixed(2)}
+          </div>
+          <div className="text-xs text-gray-400">
+            {platform === "google" ? "search click avg" : platform === "meta" ? "social click avg" : "professional click avg"}
+          </div>
+        </div>
+        <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+          <div className="text-xs text-cogent-neutral uppercase tracking-wide mb-1">
+            <MetricTooltip
+              label="Est. CVR"
+              explanation="Conversion Rate — the percentage of ad clicks that turn into a lead (form fill, phone call, etc.). Higher CVR means your landing page and offer are working well."
+            />
+          </div>
+          <div className="text-lg font-bold text-cogent-navy-dark">
+            {conversionRate > 0 ? `${conversionRate.toFixed(1)}%` : "—"}
+          </div>
+          <div className="text-xs text-gray-400">click-to-lead rate</div>
+        </div>
+        <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+          <div className="text-xs text-cogent-neutral uppercase tracking-wide mb-1">
+            <MetricTooltip
+              label="Est. ROAS"
+              explanation="Return on Ad Spend — for every $1 spent on ads, how many dollars of revenue are estimated. A ROAS of 5x means $5 revenue per $1 ad spend. Higher is better."
+            />
+          </div>
+          <div className="text-lg font-bold text-cogent-navy-dark">
+            {roas > 0 ? `${roas.toFixed(1)}x` : "—"}
+          </div>
+          <div className="text-xs text-gray-400">revenue per $1 ad spend</div>
         </div>
       </div>
 
@@ -170,25 +256,45 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
         </div>
       )}
 
-      {/* Google Ads Learning Period */}
+      {/* Learning & Ramp-Up Period */}
       <div className="mt-6 p-4 bg-cogent-navy/5 border border-cogent-navy/10 rounded-lg">
-        <h3 className="text-sm font-semibold text-cogent-navy mb-2">Google Ads Learning &amp; Ramp-Up Period</h3>
+        <h3 className="text-sm font-semibold text-cogent-navy mb-2">
+          {platformName} Learning &amp; Ramp-Up Period
+        </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-cogent-neutral">
           <div className="p-3 bg-white rounded-md border border-gray-100">
             <p className="font-semibold text-cogent-navy mb-1">Weeks 1-2: Learning Phase</p>
-            <p>Google&apos;s algorithm is gathering data. Expect higher CPL and fewer conversions. Do not make major changes during this period.</p>
+            <p>
+              {platform === "google"
+                ? "Google's algorithm is gathering data. Expect higher CPL and fewer conversions. Do not make major changes during this period."
+                : platform === "meta"
+                ? "Meta's algorithm is learning your audience. Ad delivery will fluctuate. Avoid editing ads or audiences during this phase."
+                : "LinkedIn's audience targeting is calibrating. Expect higher CPL initially as the algorithm identifies your ideal prospects."}
+            </p>
           </div>
           <div className="p-3 bg-white rounded-md border border-gray-100">
             <p className="font-semibold text-cogent-navy mb-1">Weeks 3-6: Optimization</p>
-            <p>Data builds, CPL stabilizes. Campaign adjustments begin. Results start trending toward benchmarks shown above.</p>
+            <p>
+              {platform === "google"
+                ? "Data builds, CPL stabilizes. Campaign adjustments begin. Results start trending toward benchmarks shown above."
+                : platform === "meta"
+                ? "Audience data matures. Retargeting audiences build. CPL begins to stabilize as winning ad creatives emerge."
+                : "Sponsored Content and InMail performance stabilizes. A/B test messaging and audience segments for better CPL."}
+            </p>
           </div>
           <div className="p-3 bg-white rounded-md border border-gray-100">
             <p className="font-semibold text-cogent-navy mb-1">Months 2-3+: Mature Performance</p>
-            <p>Campaigns are optimized and performing at or near projected benchmarks. Continuous optimization drives improvement.</p>
+            <p>
+              {platform === "google"
+                ? "Campaigns are optimized and performing at or near projected benchmarks. Continuous optimization drives improvement."
+                : platform === "meta"
+                ? "Lookalike audiences and retargeting are fully built. Campaigns running at steady-state performance with consistent lead flow."
+                : "Pipeline of B2B leads is established. Account-based targeting refined. Ongoing optimization for lower CPL and higher-quality leads."}
+            </p>
           </div>
         </div>
         <p className="text-xs text-cogent-neutral mt-3 opacity-80">
-          Most Google Ads campaigns require 60-90 days to reach full optimization. The estimates above represent mature campaign performance, not Day 1 results.
+          Most {platformName} campaigns require 60-90 days to reach full optimization. The estimates above represent mature campaign performance, not Day 1 results.
         </p>
       </div>
 
@@ -222,7 +328,7 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
           </div>
           <div className="flex items-start gap-2 py-1">
             <span className="text-amber-500 mt-0.5">&#9679;</span>
-            <span><strong>Review reputation</strong> — businesses with strong Google reviews see higher click and conversion rates</span>
+            <span><strong>Review reputation</strong> — businesses with strong {platform === "google" ? "Google" : "online"} reviews see higher click and conversion rates</span>
           </div>
           <div className="flex items-start gap-2 py-1">
             <span className="text-amber-500 mt-0.5">&#9679;</span>
@@ -239,8 +345,8 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
           They represent the <strong>potential opportunity</strong>, not a guarantee of results. Actual lead volume, cost per lead,
           close rate, and revenue will vary based on campaign setup, market conditions, competition, seasonality, and the
           client&apos;s ability to effectively respond to and close leads. Cogent Analytics does not guarantee any specific number
-          of leads, jobs, or revenue. These figures are intended to illustrate the potential return on investment from Google Ads
-          and to help set realistic expectations for campaign performance once fully optimized (typically 60-90 days).
+          of leads, jobs, or revenue. These figures are intended to illustrate the potential return on investment from {platformName}
+          {" "}and to help set realistic expectations for campaign performance once fully optimized (typically 60-90 days).
         </p>
       </div>
 
@@ -267,6 +373,7 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
           <p>est. leads = ad_spend / CPL = {formatCurrency(result.totalSpend)} / {formatCurrency(Math.round(result.weightedAvgCpl))} = ~{formatNumber(result.totalLeads)}</p>
           <p>est. jobs = leads &times; close_rate = ~{formatNumber(result.totalLeads)} &times; {result.closeRate}% = ~{formatNumber(result.totalJobs)}</p>
           <p>est. revenue = jobs &times; avg_job_value = ~{formatCurrency(revenue)}</p>
+          {roas > 0 && <p>est. ROAS = revenue / ad_spend = ~{formatCurrency(revenue)} / {formatCurrency(result.totalSpend)} = ~{roas.toFixed(1)}x</p>}
         </div>
       </div>
     </section>

@@ -91,7 +91,7 @@ export default function KeywordSuggestions({ services, industryId }: Props) {
       </div>
 
       <div className="mt-4 p-3 bg-cogent-ivory border border-gray-200 rounded-md text-xs text-cogent-neutral">
-        <p className="font-medium text-cogent-navy mb-1">Tips for Rick&apos;s campaigns:</p>
+        <p className="font-medium text-cogent-navy mb-1">Tips for Cogent campaigns:</p>
         <ul className="list-disc list-inside space-y-0.5">
           <li>Start with exact match and phrase match for tighter control</li>
           <li>Add &quot;near me&quot; and city-name variations for local targeting</li>

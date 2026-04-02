@@ -1,0 +1,387 @@
+{
+  "hvac": {
+    "google": { "rating": 5, "note": "Best platform for HVAC. High-intent 'near me' searches drive immediate leads." },
+    "meta": { "rating": 4, "note": "Strong for retargeting and seasonal promotions. Lead forms work well for AC tune-ups and maintenance plans." },
+    "linkedin": { "rating": 1, "note": "Not recommended. HVAC is a local consumer service — LinkedIn users aren't searching for AC repair." }
+  },
+  "plumbing": {
+    "google": { "rating": 5, "note": "Top platform. Emergency plumbing searches ('burst pipe', 'water heater leaking') convert immediately." },
+    "meta": { "rating": 3, "note": "Decent for retargeting and water heater replacement promos. Not ideal for emergency services." },
+    "linkedin": { "rating": 1, "note": "Not recommended for residential plumbing. Commercial plumbing contractors may see some B2B value." }
+  },
+  "roofing": {
+    "google": { "rating": 5, "note": "Excellent ROI. 'Roof replacement' and storm damage keywords drive high-value leads." },
+    "meta": { "rating": 4, "note": "Great for storm damage awareness campaigns and before/after showcase ads. Strong visual platform for roofing." },
+    "linkedin": { "rating": 1, "note": "Not recommended for residential roofing." }
+  },
+  "electrical": {
+    "google": { "rating": 5, "note": "High-intent searches drive strong leads. Emergency electrical work converts well." },
+    "meta": { "rating": 3, "note": "Works for panel upgrades, EV charger installations, and generator promos." },
+    "linkedin": { "rating": 1, "note": "Not recommended for residential electrical services." }
+  },
+  "septic": {
+    "google": { "rating": 5, "note": "Best platform. Septic emergencies drive immediate high-intent searches." },
+    "meta": { "rating": 2, "note": "Limited value. Septic services are urgency-driven and don't perform well as social ads." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "pest-control": {
+    "google": { "rating": 5, "note": "Excellent for pest emergencies and seasonal pest control. High search volume." },
+    "meta": { "rating": 4, "note": "Great for seasonal awareness campaigns ('mosquito season is here') and recurring service plans." },
+    "linkedin": { "rating": 1, "note": "Not recommended for residential pest control." }
+  },
+  "pool": {
+    "google": { "rating": 5, "note": "Strong seasonal performance. Pool building and maintenance keywords convert well." },
+    "meta": { "rating": 5, "note": "Excellent visual platform — pool builds, before/after photos perform very well. Great for seasonal promos." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "landscaping": {
+    "google": { "rating": 5, "note": "Strong local search intent. 'Landscaping near me' drives consistent leads." },
+    "meta": { "rating": 5, "note": "Excellent for visual showcase — before/after transformations. Great for seasonal promos and recurring maintenance plans." },
+    "linkedin": { "rating": 2, "note": "Only viable for commercial landscaping contracts targeting property managers." }
+  },
+  "tree-service": {
+    "google": { "rating": 5, "note": "Emergency tree removal and trimming searches convert at high rates." },
+    "meta": { "rating": 3, "note": "Moderate value for storm prep and seasonal trimming campaigns." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "painting": {
+    "google": { "rating": 5, "note": "Strong for residential and commercial painting leads." },
+    "meta": { "rating": 4, "note": "Before/after photos perform well. Good for color consultation and spring refresh campaigns." },
+    "linkedin": { "rating": 2, "note": "Only viable for commercial painting contracts targeting property managers and facilities teams." }
+  },
+  "fencing": {
+    "google": { "rating": 5, "note": "High-intent local searches. Fence installation keywords convert well." },
+    "meta": { "rating": 4, "note": "Visual platform works well — showcase fence styles and completed projects." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "concrete": {
+    "google": { "rating": 5, "note": "Strong for driveways, patios, and commercial concrete work." },
+    "meta": { "rating": 3, "note": "Decorative concrete and stamped concrete photos perform well visually." },
+    "linkedin": { "rating": 2, "note": "Only for commercial/industrial concrete contractors targeting construction firms." }
+  },
+  "stamped-concrete": {
+    "google": { "rating": 5, "note": "Niche but high-value searches convert well." },
+    "meta": { "rating": 4, "note": "Highly visual — before/after stamped concrete photos drive strong engagement and leads." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "epoxy-flooring": {
+    "google": { "rating": 5, "note": "Strong for garage floors and commercial epoxy. High search intent." },
+    "meta": { "rating": 4, "note": "Transformation photos are very engaging. Metallic epoxy and garage makeovers perform well." },
+    "linkedin": { "rating": 2, "note": "Some value for commercial/industrial epoxy flooring targeting facilities managers." }
+  },
+  "flooring": {
+    "google": { "rating": 5, "note": "High-volume search category with strong local intent." },
+    "meta": { "rating": 4, "note": "Showroom tours, style inspiration, and before/after transformations work well." },
+    "linkedin": { "rating": 1, "note": "Not recommended for residential flooring." }
+  },
+  "countertops": {
+    "google": { "rating": 5, "note": "High-value leads. Kitchen and bathroom countertop searches convert well." },
+    "meta": { "rating": 4, "note": "Granite, quartz, and marble showcase photos drive strong engagement." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "window-door": {
+    "google": { "rating": 5, "note": "Strong search intent for replacement windows and doors." },
+    "meta": { "rating": 4, "note": "Energy savings messaging and before/after photos work well. Good for seasonal promos." },
+    "linkedin": { "rating": 1, "note": "Not recommended for residential." }
+  },
+  "siding": {
+    "google": { "rating": 5, "note": "High-value lead category. Storm damage and replacement searches." },
+    "meta": { "rating": 3, "note": "Before/after exterior transformations can drive engagement." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "garage-door": {
+    "google": { "rating": 5, "note": "Emergency repair searches convert immediately. Great ROI." },
+    "meta": { "rating": 3, "note": "Moderate value for new garage door installations and smart garage door tech." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "paving": {
+    "google": { "rating": 5, "note": "Strong for driveway and parking lot paving searches." },
+    "meta": { "rating": 3, "note": "Before/after photos of driveway transformations can work." },
+    "linkedin": { "rating": 2, "note": "Some value for commercial paving targeting property managers." }
+  },
+  "foundation-repair": {
+    "google": { "rating": 5, "note": "High urgency searches. 'Foundation crack repair near me' converts well." },
+    "meta": { "rating": 3, "note": "Awareness campaigns about warning signs can generate leads. Educational content performs well." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "waterproofing": {
+    "google": { "rating": 5, "note": "Seasonal urgency drives high-intent searches, especially during rainy seasons." },
+    "meta": { "rating": 3, "note": "Seasonal awareness campaigns ('protect your basement this spring') can drive leads." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "demolition": {
+    "google": { "rating": 4, "note": "Niche but strong intent. Commercial and residential demo searches convert well." },
+    "meta": { "rating": 2, "note": "Limited social ad potential for demolition services." },
+    "linkedin": { "rating": 2, "note": "Some value for commercial demolition targeting developers and construction firms." }
+  },
+  "excavation": {
+    "google": { "rating": 4, "note": "B2B and residential searches. Good for land clearing and site prep." },
+    "meta": { "rating": 2, "note": "Limited social ad potential." },
+    "linkedin": { "rating": 2, "note": "Some value targeting construction companies and developers." }
+  },
+  "welding": {
+    "google": { "rating": 4, "note": "Good for custom welding and repair services." },
+    "meta": { "rating": 3, "note": "Custom fabrication showcase photos can drive engagement in local markets." },
+    "linkedin": { "rating": 2, "note": "Some value for industrial welding services targeting manufacturing firms." }
+  },
+  "auto-body": {
+    "google": { "rating": 5, "note": "Strong for collision repair and paint job searches. Insurance referral partnerships amplify results." },
+    "meta": { "rating": 4, "note": "Before/after repair photos and paint jobs drive strong engagement. Good for retargeting." },
+    "linkedin": { "rating": 1, "note": "Not recommended for consumer auto body services." }
+  },
+  "towing": {
+    "google": { "rating": 5, "note": "Emergency searches are almost exclusively on Google. Critical for towing companies." },
+    "meta": { "rating": 1, "note": "Not effective. Towing is urgency-driven — people don't browse Facebook when they need a tow." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "moving": {
+    "google": { "rating": 5, "note": "High-intent searches like 'movers near me' drive strong leads." },
+    "meta": { "rating": 4, "note": "Great for targeting people who recently listed homes for sale or posted about moving. Life event targeting is powerful." },
+    "linkedin": { "rating": 2, "note": "Some value for commercial/office moving services targeting facilities and office managers." }
+  },
+  "junk-removal": {
+    "google": { "rating": 5, "note": "Strong search intent for immediate service needs." },
+    "meta": { "rating": 3, "note": "Before/after cleanout photos work well. Garage/basement cleanout promos." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "cleaning": {
+    "google": { "rating": 5, "note": "High-volume local searches for house cleaning and commercial cleaning." },
+    "meta": { "rating": 4, "note": "Recurring service plan promotions work well. Great for first-clean discounts and seasonal deep cleans." },
+    "linkedin": { "rating": 2, "note": "Some value for commercial janitorial services targeting office managers and property management." }
+  },
+  "pressure-washing": {
+    "google": { "rating": 5, "note": "Strong seasonal search intent. High-converting local keywords." },
+    "meta": { "rating": 5, "note": "Transformation videos and before/after photos are extremely engaging. One of the best visual services for social ads." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "restoration": {
+    "google": { "rating": 5, "note": "Emergency water/fire damage searches. High urgency, high value." },
+    "meta": { "rating": 3, "note": "Awareness campaigns about storm prep and what to do after water damage." },
+    "linkedin": { "rating": 2, "note": "Some value for commercial restoration targeting property managers and insurance adjusters." }
+  },
+  "mold-remediation": {
+    "google": { "rating": 5, "note": "Health-urgency searches convert very well." },
+    "meta": { "rating": 3, "note": "Educational content about mold warning signs can generate awareness leads." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "insulation": {
+    "google": { "rating": 5, "note": "Energy efficiency searches drive leads, especially in extreme climates." },
+    "meta": { "rating": 3, "note": "Energy savings messaging and rebate awareness campaigns." },
+    "linkedin": { "rating": 2, "note": "Some value for commercial insulation targeting builders and contractors." }
+  },
+  "solar": {
+    "google": { "rating": 5, "note": "High-value leads. Solar installation cost searches are strong converters." },
+    "meta": { "rating": 5, "note": "Excellent for solar. Energy savings calculators, rebate awareness, and neighbor testimonials drive strong leads." },
+    "linkedin": { "rating": 3, "note": "Viable for commercial solar installations targeting business owners and facilities managers." }
+  },
+  "home-security": {
+    "google": { "rating": 5, "note": "Strong search intent for home security systems and monitoring." },
+    "meta": { "rating": 4, "note": "Fear-based messaging and smart home integration content drive engagement. Good for retargeting." },
+    "linkedin": { "rating": 2, "note": "Some value for commercial security systems targeting business owners." }
+  },
+  "locksmith": {
+    "google": { "rating": 5, "note": "Emergency lockout searches are almost exclusively on Google. Critical platform." },
+    "meta": { "rating": 2, "note": "Limited value. Locksmith needs are urgency-driven." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "appliance-repair": {
+    "google": { "rating": 5, "note": "High-intent emergency searches for broken appliances." },
+    "meta": { "rating": 2, "note": "Limited value. Appliance repair is urgency-driven." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "drywall": {
+    "google": { "rating": 4, "note": "Good for drywall repair and new construction subcontracting." },
+    "meta": { "rating": 2, "note": "Limited social appeal for drywall services." },
+    "linkedin": { "rating": 2, "note": "Some value targeting general contractors and builders." }
+  },
+  "cabinetry": {
+    "google": { "rating": 5, "note": "High-value kitchen cabinet searches with strong local intent." },
+    "meta": { "rating": 5, "note": "Highly visual — custom cabinet galleries and kitchen transformation photos drive excellent engagement." },
+    "linkedin": { "rating": 1, "note": "Not recommended for residential cabinetry." }
+  },
+  "glass": {
+    "google": { "rating": 5, "note": "Emergency glass replacement and commercial glass searches convert well." },
+    "meta": { "rating": 2, "note": "Limited social appeal for glass services." },
+    "linkedin": { "rating": 2, "note": "Some value for commercial glass services targeting architects and property managers." }
+  },
+  "irrigation": {
+    "google": { "rating": 4, "note": "Seasonal search intent for sprinkler system installation and repair." },
+    "meta": { "rating": 3, "note": "Spring startup and winterization promos work seasonally." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "well-service": {
+    "google": { "rating": 5, "note": "High-urgency searches when wells fail. Critical platform." },
+    "meta": { "rating": 2, "note": "Limited social appeal. Well services are urgency-driven." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "propane": {
+    "google": { "rating": 4, "note": "Seasonal search intent. Good for propane delivery and tank installation." },
+    "meta": { "rating": 3, "note": "Seasonal campaigns and new customer promos can drive sign-ups." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "marine": {
+    "google": { "rating": 4, "note": "Seasonal for boat repair and marine services." },
+    "meta": { "rating": 4, "note": "Boat lifestyle content and repair showcase photos drive engagement in coastal markets." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "heavy-equipment": {
+    "google": { "rating": 4, "note": "B2B searches for equipment rental and repair." },
+    "meta": { "rating": 2, "note": "Limited social appeal for heavy equipment." },
+    "linkedin": { "rating": 3, "note": "Good for targeting construction companies, mining operations, and fleet managers who need equipment services." }
+  },
+  "commercial-kitchen": {
+    "google": { "rating": 4, "note": "Good for commercial kitchen equipment repair and installation." },
+    "meta": { "rating": 2, "note": "Limited consumer appeal." },
+    "linkedin": { "rating": 3, "note": "Good for targeting restaurant owners, hotel managers, and food service operators." }
+  },
+  "sign-wraps": {
+    "google": { "rating": 5, "note": "Strong B2B and B2C searches for vehicle wraps and business signage." },
+    "meta": { "rating": 4, "note": "Highly visual — vehicle wrap galleries and storefront signage showcase photos drive strong engagement." },
+    "linkedin": { "rating": 3, "note": "Good for targeting small business owners and marketing managers who need signage and branding." }
+  },
+  "powder-coating": {
+    "google": { "rating": 4, "note": "Niche but strong intent for powder coating services." },
+    "meta": { "rating": 3, "note": "Before/after color transformation photos can drive engagement." },
+    "linkedin": { "rating": 2, "note": "Some value for industrial powder coating targeting manufacturers." }
+  },
+  "metal-roofing": {
+    "google": { "rating": 5, "note": "High-value leads. Metal roof installation cost searches convert well." },
+    "meta": { "rating": 4, "note": "Durability messaging and energy savings content drive awareness. Good visual appeal." },
+    "linkedin": { "rating": 1, "note": "Not recommended for residential metal roofing." }
+  },
+  "artificial-turf": {
+    "google": { "rating": 5, "note": "Growing niche with strong local search intent." },
+    "meta": { "rating": 5, "note": "Excellent visual platform — turf transformation photos are highly engaging. Drought-resistant messaging works well." },
+    "linkedin": { "rating": 2, "note": "Some value for commercial turf projects targeting property managers and HOAs." }
+  },
+  "machining": {
+    "google": { "rating": 4, "note": "B2B searches for custom machining and precision parts." },
+    "meta": { "rating": 2, "note": "Limited social appeal for machining services. B2B audience isn't on Facebook for this." },
+    "linkedin": { "rating": 4, "note": "Strong B2B platform for targeting procurement managers, engineers, and manufacturing decision-makers." }
+  },
+  "home-builders": {
+    "google": { "rating": 5, "note": "High-value lead category. New home construction searches drive expensive but valuable leads." },
+    "meta": { "rating": 5, "note": "Excellent for home builders. Model home tours, floor plan showcases, and community highlight ads perform very well." },
+    "linkedin": { "rating": 2, "note": "Limited value for residential builders unless targeting real estate investors." }
+  },
+  "auto-shipping": {
+    "google": { "rating": 5, "note": "High-intent searches for vehicle transport services." },
+    "meta": { "rating": 3, "note": "Can target people who recently moved or purchased vehicles out of state." },
+    "linkedin": { "rating": 2, "note": "Some value for B2B fleet transport and dealer-to-dealer shipping." }
+  },
+  "custom-engine": {
+    "google": { "rating": 4, "note": "Niche enthusiast searches with strong intent." },
+    "meta": { "rating": 4, "note": "Enthusiast community engagement — engine build photos and performance content drive strong engagement." },
+    "linkedin": { "rating": 1, "note": "Not recommended." }
+  },
+  "recycling": {
+    "google": { "rating": 4, "note": "B2B and B2C searches for recycling services." },
+    "meta": { "rating": 3, "note": "Sustainability messaging resonates on social. Good for community engagement." },
+    "linkedin": { "rating": 3, "note": "Good for targeting corporate sustainability officers and facilities managers for commercial recycling contracts." }
+  },
+  "waste": {
+    "google": { "rating": 4, "note": "Good for commercial and residential waste services." },
+    "meta": { "rating": 2, "note": "Limited social appeal for waste services." },
+    "linkedin": { "rating": 3, "note": "Good for targeting facilities managers and property management companies for commercial contracts." }
+  },
+  "installation": {
+    "google": { "rating": 4, "note": "Good for commercial installation and office setup services." },
+    "meta": { "rating": 2, "note": "Limited consumer appeal for B2B installation services." },
+    "linkedin": { "rating": 4, "note": "Strong for targeting office managers, facilities directors, and companies planning office moves or renovations." }
+  },
+  "printing": {
+    "google": { "rating": 4, "note": "Good for commercial printing searches. Local print shops benefit." },
+    "meta": { "rating": 3, "note": "Portfolio showcase of print work. Good for promotional product awareness." },
+    "linkedin": { "rating": 3, "note": "Good for targeting marketing managers and event planners who need commercial printing." }
+  },
+  "bolt-services": {
+    "google": { "rating": 4, "note": "B2B industrial searches for fastener and bolt services." },
+    "meta": { "rating": 1, "note": "Not recommended. B2B industrial supply is not a social media category." },
+    "linkedin": { "rating": 3, "note": "Good for targeting procurement managers and manufacturing engineers in industrial supply chains." }
+  },
+  "engineering": {
+    "google": { "rating": 4, "note": "Good for engineering firm lead generation across specialties." },
+    "meta": { "rating": 2, "note": "Limited social appeal for engineering services." },
+    "linkedin": { "rating": 5, "note": "Excellent platform for engineering firms. Target project managers, developers, and corporate decision-makers. Thought leadership content performs very well." }
+  },
+  "structural-engineers": {
+    "google": { "rating": 4, "note": "Good for structural engineering consultation searches." },
+    "meta": { "rating": 2, "note": "Limited social appeal." },
+    "linkedin": { "rating": 5, "note": "Excellent platform. Target architects, builders, developers, and construction managers who need structural engineering services." }
+  },
+  "tile-contractor": {
+    "google": { "rating": 5, "note": "Strong for kitchen and bathroom tile installation searches." },
+    "meta": { "rating": 4, "note": "Highly visual — tile design inspiration and bathroom/kitchen transformation photos drive engagement." },
+    "linkedin": { "rating": 1, "note": "Not recommended for residential tile work." }
+  },
+  "lodging": {
+    "google": { "rating": 5, "note": "Critical for direct bookings. Hotel and inn searches drive high-value reservations." },
+    "meta": { "rating": 5, "note": "Excellent for lodging. Property photos, virtual tours, seasonal deals, and travel inspiration content drive bookings. ROAS tracking works well for direct bookings." },
+    "linkedin": { "rating": 3, "note": "Good for targeting corporate travel managers and event planners for group bookings and corporate retreats." }
+  },
+  "construction": {
+    "google": { "rating": 5, "note": "Strong for general contractor and construction searches." },
+    "meta": { "rating": 3, "note": "Project showcase photos can drive awareness. Good for community presence." },
+    "linkedin": { "rating": 4, "note": "Strong for commercial construction. Target developers, architects, and corporate facilities teams." }
+  },
+  "motor-groups": {
+    "google": { "rating": 5, "note": "Strong for dealership inventory and service searches." },
+    "meta": { "rating": 5, "note": "Excellent for automotive. Inventory ads, special offers, and trade-in promotions perform very well on Facebook/Instagram." },
+    "linkedin": { "rating": 2, "note": "Limited value for consumer auto sales. Some value for fleet sales targeting fleet managers." }
+  },
+  "distribution": {
+    "google": { "rating": 4, "note": "B2B searches for distribution and logistics services." },
+    "meta": { "rating": 2, "note": "Limited social appeal for distribution services." },
+    "linkedin": { "rating": 5, "note": "Excellent platform for distribution companies. Target supply chain managers, procurement directors, and logistics decision-makers." }
+  },
+  "surveying": {
+    "google": { "rating": 4, "note": "Good for land surveying searches from property owners and developers." },
+    "meta": { "rating": 2, "note": "Limited social appeal for surveying." },
+    "linkedin": { "rating": 4, "note": "Good for targeting developers, real estate firms, and construction companies who need surveying services." }
+  },
+  "metal-fabrication": {
+    "google": { "rating": 4, "note": "B2B searches for custom metal fabrication." },
+    "meta": { "rating": 2, "note": "Limited social appeal. B2B fabrication audience isn't on Facebook for this." },
+    "linkedin": { "rating": 4, "note": "Strong for targeting procurement managers, engineers, and manufacturing decision-makers who source custom fabrication." }
+  },
+  "service-cabling": {
+    "google": { "rating": 4, "note": "Good for data cabling and network installation searches." },
+    "meta": { "rating": 2, "note": "Limited social appeal." },
+    "linkedin": { "rating": 4, "note": "Strong for targeting IT directors, facilities managers, and companies planning office buildouts or network upgrades." }
+  },
+  "vending": {
+    "google": { "rating": 4, "note": "Good for vending machine placement and service searches." },
+    "meta": { "rating": 2, "note": "Limited social appeal." },
+    "linkedin": { "rating": 4, "note": "Good for targeting facilities managers, office managers, and property managers looking for vending services." }
+  },
+  "metal-plating": {
+    "google": { "rating": 4, "note": "B2B industrial searches for plating and finishing services." },
+    "meta": { "rating": 1, "note": "Not recommended. Industrial plating is not a social media category." },
+    "linkedin": { "rating": 4, "note": "Good for targeting manufacturing engineers and procurement managers in industries needing plating (aerospace, medical, automotive)." }
+  },
+  "custom-home-builders": {
+    "google": { "rating": 5, "note": "Highest-value leads. Luxury home searches drive expensive but very valuable leads." },
+    "meta": { "rating": 5, "note": "Excellent for luxury/custom builders. Virtual tours, design inspiration, and lifestyle content drive high-quality leads." },
+    "linkedin": { "rating": 2, "note": "Some value targeting high-net-worth professionals, but Meta is more effective." }
+  },
+  "cnc-machining": {
+    "google": { "rating": 4, "note": "B2B searches for CNC machining and precision parts." },
+    "meta": { "rating": 2, "note": "Limited social appeal. B2B machining audience isn't on Facebook for this." },
+    "linkedin": { "rating": 5, "note": "Excellent platform for CNC shops. Target mechanical engineers, procurement managers, and R&D teams sourcing precision machined parts." }
+  },
+  "composite": {
+    "google": { "rating": 4, "note": "Niche B2B searches for composite manufacturing and repair." },
+    "meta": { "rating": 2, "note": "Limited social appeal for composite services." },
+    "linkedin": { "rating": 4, "note": "Good for targeting aerospace, automotive, and marine engineers who need composite manufacturing." }
+  },
+  "fabrication": {
+    "google": { "rating": 4, "note": "B2B searches for custom fabrication services." },
+    "meta": { "rating": 2, "note": "Limited social appeal." },
+    "linkedin": { "rating": 4, "note": "Strong for targeting procurement managers, architects, and construction firms sourcing custom fabrication." }
+  },
+  "consulting": {
+    "google": { "rating": 4, "note": "Good for consulting searches but competitive keywords." },
+    "meta": { "rating": 3, "note": "Lead gen campaigns and webinar promotions can work. Thought leadership content drives awareness." },
+    "linkedin": { "rating": 5, "note": "Best platform for consulting firms. Target C-suite executives, business owners, and decision-makers. Thought leadership, case studies, and InMail campaigns drive high-quality leads." }
+  }
+}
