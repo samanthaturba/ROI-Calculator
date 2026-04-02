@@ -13,8 +13,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://roi-calculator-sigma-livid.vercel.app"),
   title: "ROI Calculator — Cogent Analytics",
   description: "Estimate Google Ads revenue potential by industry, service mix, cost per lead, and close rate.",
+  openGraph: {
+    title: "Google Ads ROI Calculator — Cogent Analytics",
+    description: "Estimate revenue potential by industry benchmarks, service mix, and close rate.",
+    siteName: "Cogent Analytics",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Google Ads ROI Calculator — Cogent Analytics",
+    description: "Estimate revenue potential by industry benchmarks, service mix, and close rate.",
+  },
 };
 
 export default function RootLayout({
