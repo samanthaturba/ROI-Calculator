@@ -20,8 +20,8 @@ export default function ServiceSelection({
 
   if (!industryId) {
     return (
-      <section className="bg-white rounded-lg border border-gray-200 p-6">
-        <h2 className="text-lg font-semibold text-gray-900 mb-2">Service Selection</h2>
+      <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+        <h2 className="text-lg font-semibold text-cogent-navy mb-2">Service Selection</h2>
         <p className="text-sm text-gray-500">Select an industry above to see available services.</p>
       </section>
     );
@@ -129,8 +129,8 @@ export default function ServiceSelection({
   };
 
   return (
-    <section className="bg-white rounded-lg border border-gray-200 p-6">
-      <h2 className="text-lg font-semibold text-gray-900 mb-2">Service Selection</h2>
+    <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+      <h2 className="text-lg font-semibold text-cogent-navy mb-2">Service Selection</h2>
       <p className="text-sm text-gray-500 mb-4">
         {selectedCount} service{selectedCount !== 1 ? "s" : ""} selected
         {selectedCount > 0 && (
@@ -142,18 +142,18 @@ export default function ServiceSelection({
 
       {/* Extracted services notice */}
       {extractedServices.length > 0 && (
-        <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-md">
-          <p className="text-sm font-medium text-blue-800 mb-1">
+        <div className="mb-4 p-3 bg-cogent-ivory border border-cogent-sage rounded-md">
+          <p className="text-sm font-medium text-cogent-navy mb-1">
             Suggested services found from website text:
           </p>
-          <ul className="text-sm text-blue-700">
+          <ul className="text-sm text-cogent-navy">
             {extractedServices.map((es) => (
               <li key={es.name}>
-                {es.name} — <span className="text-blue-500">{confidenceLabel[es.confidence] ?? es.confidence}</span>
+                {es.name} — <span className="text-cogent-neutral">{confidenceLabel[es.confidence] ?? es.confidence}</span>
               </li>
             ))}
           </ul>
-          <p className="text-xs text-blue-600 mt-1">
+          <p className="text-xs text-cogent-navy mt-1">
             Review and confirm the selections below. These are suggestions, not certainties.
           </p>
         </div>
@@ -165,7 +165,7 @@ export default function ServiceSelection({
           <div
             key={service.serviceName}
             className={`border rounded-md p-3 transition-colors ${
-              service.selected ? "border-blue-300 bg-blue-50/30" : "border-gray-200"
+              service.selected ? "border-cogent-sage bg-cogent-ivory/30" : "border-gray-200"
             }`}
           >
             <div className="flex items-center gap-3">
@@ -173,7 +173,7 @@ export default function ServiceSelection({
                 type="checkbox"
                 checked={service.selected}
                 onChange={() => toggleService(index)}
-                className="h-4 w-4 text-blue-600 rounded"
+                className="h-4 w-4 text-cogent-navy rounded"
               />
               <span className="text-sm font-medium text-gray-900 flex-1">
                 {service.serviceName}
@@ -308,7 +308,7 @@ export default function ServiceSelection({
         <button
           onClick={addManualService}
           disabled={!newServiceName.trim()}
-          className="px-4 py-2 bg-gray-700 text-white text-sm rounded-md hover:bg-gray-800 disabled:bg-gray-300 disabled:cursor-not-allowed"
+          className="px-4 py-2 bg-cogent-navy text-white text-sm rounded-md hover:bg-cogent-navy-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
         >
           Add
         </button>

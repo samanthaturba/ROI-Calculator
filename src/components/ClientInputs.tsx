@@ -41,8 +41,8 @@ export default function ClientInputs({ value, onChange, onTextExtract }: Props) 
   }
 
   return (
-    <section className="bg-white rounded-lg border border-gray-200 p-6">
-      <h2 className="text-lg font-semibold text-gray-900 mb-4">Client Information</h2>
+    <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+      <h2 className="text-lg font-semibold text-cogent-navy mb-4">Client Information</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Client Name */}
@@ -54,7 +54,7 @@ export default function ClientInputs({ value, onChange, onTextExtract }: Props) 
             type="text"
             value={value.clientName}
             onChange={(e) => onChange({ ...value, clientName: e.target.value })}
-            className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
             placeholder="e.g. Smith Plumbing LLC"
           />
         </div>
@@ -75,7 +75,7 @@ export default function ClientInputs({ value, onChange, onTextExtract }: Props) 
               }
             }}
             onFocus={() => setShowDropdown(true)}
-            className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
             placeholder="Search industry..."
           />
           {showDropdown && (
@@ -88,7 +88,7 @@ export default function ClientInputs({ value, onChange, onTextExtract }: Props) 
                 industries.map((ind) => (
                   <button
                     key={ind.id}
-                    className="w-full text-left px-3 py-2 text-sm hover:bg-blue-50 focus:bg-blue-50"
+                    className="w-full text-left px-3 py-2 text-sm hover:bg-cogent-ivory focus:bg-cogent-ivory"
                     onClick={() => {
                       onChange({ ...value, industryId: ind.id });
                       setIndustrySearch("");
@@ -112,7 +112,7 @@ export default function ClientInputs({ value, onChange, onTextExtract }: Props) 
             type="url"
             value={value.websiteUrl}
             onChange={(e) => onChange({ ...value, websiteUrl: e.target.value })}
-            className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
             placeholder="https://example.com"
           />
         </div>
@@ -126,7 +126,7 @@ export default function ClientInputs({ value, onChange, onTextExtract }: Props) 
             type="text"
             value={value.gbpDescription}
             onChange={(e) => onChange({ ...value, gbpDescription: e.target.value })}
-            className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
             placeholder="e.g. Plumber, Water Heater Installation"
           />
         </div>
@@ -142,13 +142,13 @@ export default function ClientInputs({ value, onChange, onTextExtract }: Props) 
           value={pastedText}
           onChange={(e) => setPastedText(e.target.value)}
           rows={3}
-          className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
           placeholder="Paste homepage text, service page content, or business description here..."
         />
         <button
           onClick={handleExtract}
           disabled={!pastedText.trim() && !value.gbpDescription.trim()}
-          className="mt-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+          className="mt-2 px-4 py-2 bg-cogent-navy text-white text-sm font-medium rounded-md hover:bg-cogent-navy-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
         >
           Detect Services from Text
         </button>

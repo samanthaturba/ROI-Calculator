@@ -53,8 +53,8 @@ export default function ExportSummary({
   }
 
   return (
-    <section className="bg-white rounded-lg border border-gray-200 p-6">
-      <h2 className="text-lg font-semibold text-gray-900 mb-4">Export Summary</h2>
+    <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+      <h2 className="text-lg font-semibold text-cogent-navy mb-4">Export Summary</h2>
 
       {/* Client-facing summary */}
       <div className="mb-6">
@@ -62,7 +62,7 @@ export default function ExportSummary({
           <h3 className="text-sm font-medium text-gray-700">Client-Facing Summary</h3>
           <button
             onClick={() => copyToClipboard(clientSummary, "client")}
-            className="px-3 py-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+            className="px-3 py-1 text-xs bg-cogent-navy text-white rounded hover:bg-cogent-navy-dark transition-colors"
           >
             {copied === "client" ? "Copied!" : "Copy"}
           </button>
@@ -78,7 +78,7 @@ export default function ExportSummary({
           <h3 className="text-sm font-medium text-gray-700">Internal Notes</h3>
           <button
             onClick={() => copyToClipboard(internalSummary, "internal")}
-            className="px-3 py-1 text-xs bg-gray-700 text-white rounded hover:bg-gray-800 transition-colors"
+            className="px-3 py-1 text-xs bg-cogent-neutral-dark text-white rounded hover:bg-cogent-navy transition-colors"
           >
             {copied === "internal" ? "Copied!" : "Copy"}
           </button>

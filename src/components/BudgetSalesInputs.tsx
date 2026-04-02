@@ -19,8 +19,8 @@ export default function BudgetSalesInputs({
   spendWarning,
 }: Props) {
   return (
-    <section className="bg-white rounded-lg border border-gray-200 p-6">
-      <h2 className="text-lg font-semibold text-gray-900 mb-4">Budget & Sales Inputs</h2>
+    <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+      <h2 className="text-lg font-semibold text-cogent-navy mb-4">Budget & Sales Inputs</h2>
 
       {/* Recommended spend info */}
       {(recommendedMin || recommendedTarget) && (
@@ -34,7 +34,7 @@ export default function BudgetSalesInputs({
             )}
             {recommendedTarget && (
               <span className="text-gray-600">
-                Target: <span className="font-semibold text-blue-700">{formatCurrency(recommendedTarget)}/mo</span>
+                Target: <span className="font-semibold text-cogent-navy">{formatCurrency(recommendedTarget)}/mo</span>
               </span>
             )}
           </div>
@@ -57,7 +57,7 @@ export default function BudgetSalesInputs({
               onChange={(e) =>
                 onChange({ ...value, monthlyAdSpend: parseFloat(e.target.value) || 0 })
               }
-              className="w-full border border-gray-300 rounded-md pl-7 pr-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full border border-gray-300 rounded-md pl-7 pr-3 py-2 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
               placeholder="2000"
             />
           </div>
@@ -81,7 +81,7 @@ export default function BudgetSalesInputs({
               onChange={(e) =>
                 onChange({ ...value, closeRate: parseFloat(e.target.value) || 0 })
               }
-              className="w-full border border-gray-300 rounded-md px-3 py-2 pr-7 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 pr-7 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
               placeholder="40"
             />
             <span className="absolute right-3 top-2 text-gray-500 text-sm">%</span>
@@ -109,7 +109,7 @@ export default function BudgetSalesInputs({
                   grossMarginPercent: e.target.value ? parseFloat(e.target.value) : null,
                 })
               }
-              className="w-full border border-gray-300 rounded-md px-3 py-2 pr-7 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 pr-7 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
               placeholder="50"
             />
             <span className="absolute right-3 top-2 text-gray-500 text-sm">%</span>
@@ -128,7 +128,7 @@ export default function BudgetSalesInputs({
               value="exact"
               checked={value.roundingMode === "exact"}
               onChange={() => onChange({ ...value, roundingMode: "exact" as RoundingMode })}
-              className="text-blue-600"
+              className="text-cogent-navy"
             />
             <span className="text-sm text-gray-700">Exact math</span>
           </label>
@@ -139,7 +139,7 @@ export default function BudgetSalesInputs({
               value="conservative"
               checked={value.roundingMode === "conservative"}
               onChange={() => onChange({ ...value, roundingMode: "conservative" as RoundingMode })}
-              className="text-blue-600"
+              className="text-cogent-navy"
             />
             <span className="text-sm text-gray-700">Conservative (round down to whole jobs)</span>
           </label>
