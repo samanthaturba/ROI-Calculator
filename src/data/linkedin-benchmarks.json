@@ -9,8 +9,8 @@
     "avgJobValue": 15000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not cost-effective for residential HVAC. Only viable for targeting commercial facility managers and property managers for large HVAC contracts.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not cost-effective for residential HVAC. Only viable for targeting commercial facility managers and property managers for large HVAC contracts. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -23,8 +23,8 @@
     "avgJobValue": 12000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not cost-effective for residential plumbing. Only viable for targeting commercial property managers or GCs seeking plumbing subcontractors.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not cost-effective for residential plumbing. Only viable for targeting commercial property managers or GCs seeking plumbing subcontractors. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -37,9 +37,9 @@
     "avgJobValue": 45000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn can work for commercial roofing targeting property managers, facility directors, and GCs. High CPL but large contract values justify spend.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn can work for commercial roofing targeting property managers, facility directors, and GCs. High CPL but large contract values justify spend. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "roofing",
@@ -51,9 +51,9 @@
     "avgJobValue": 80000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "Target GCs and construction firms seeking roofing subcontractors for large projects. Sponsored Content with project portfolio performs best.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target GCs and construction firms seeking roofing subcontractors for large projects. Sponsored Content with project portfolio performs best. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "electrical",
@@ -65,9 +65,9 @@
     "avgJobValue": 25000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn viable for commercial electrical contractors targeting facility managers, property developers, and GCs. Not suitable for residential leads.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn viable for commercial electrical contractors targeting facility managers, property developers, and GCs. Not suitable for residential leads. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "septic",
@@ -79,8 +79,8 @@
     "avgJobValue": 8000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not recommended for septic services. Extremely niche residential service with no meaningful B2B audience on LinkedIn.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not recommended for septic services. Extremely niche residential service with no meaningful B2B audience on LinkedIn. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -93,8 +93,8 @@
     "avgJobValue": 6000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn only viable for commercial pest management targeting facility managers at restaurants, hotels, and office buildings. Very high CPL for limited audience.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn only viable for commercial pest management targeting facility managers at restaurants, hotels, and office buildings. Very high CPL for limited audience. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -107,8 +107,8 @@
     "avgJobValue": 15000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not cost-effective for pool services. Only marginal viability targeting HOA managers or hotel/resort facility managers.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not cost-effective for pool services. Only marginal viability targeting HOA managers or hotel/resort facility managers. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -121,9 +121,9 @@
     "avgJobValue": 25000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn can work for commercial landscaping targeting property managers, HOA boards, and facility directors. Large recurring contract values offset high CPL.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn can work for commercial landscaping targeting property managers, HOA boards, and facility directors. Large recurring contract values offset high CPL. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "landscaping",
@@ -135,9 +135,9 @@
     "avgJobValue": 50000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "Higher-end landscape design-build services targeting commercial developers and architects. Sponsored Content showcasing portfolio works well.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Higher-end landscape design-build services targeting commercial developers and architects. Sponsored Content showcasing portfolio works well. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "tree-service",
@@ -149,8 +149,8 @@
     "avgJobValue": 8000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not cost-effective for tree services. Primarily residential/consumer service with minimal B2B demand on the platform.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not cost-effective for tree services. Primarily residential/consumer service with minimal B2B demand on the platform. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -163,8 +163,8 @@
     "avgJobValue": 20000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn only viable for commercial painting targeting property managers and GCs. Not recommended for residential painting leads.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn only viable for commercial painting targeting property managers and GCs. Not recommended for residential painting leads. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -177,8 +177,8 @@
     "avgJobValue": 15000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not cost-effective for fencing. Very limited B2B audience; primarily a residential/consumer service.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not cost-effective for fencing. Very limited B2B audience; primarily a residential/consumer service. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -191,9 +191,9 @@
     "avgJobValue": 50000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn viable for commercial concrete contractors targeting GCs, developers, and construction firms. Large project values justify the spend.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn viable for commercial concrete contractors targeting GCs, developers, and construction firms. Large project values justify the spend. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "concrete",
@@ -205,9 +205,9 @@
     "avgJobValue": 75000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "Target GCs and construction project managers seeking concrete subcontractors. InMail campaigns with project case studies perform well.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target GCs and construction project managers seeking concrete subcontractors. InMail campaigns with project case studies perform well. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "stamped-concrete",
@@ -219,8 +219,8 @@
     "avgJobValue": 18000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not cost-effective for stamped concrete. Niche residential service with very limited B2B audience.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not cost-effective for stamped concrete. Niche residential service with very limited B2B audience. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -233,9 +233,9 @@
     "avgJobValue": 20000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn has moderate potential for commercial/industrial epoxy flooring targeting warehouse managers, facility directors, and manufacturing plant managers.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn has moderate potential for commercial/industrial epoxy flooring targeting warehouse managers, facility directors, and manufacturing plant managers. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "epoxy-flooring",
@@ -247,9 +247,9 @@
     "avgJobValue": 40000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "Target operations managers and facility directors at manufacturing and distribution centers. Higher contract values make LinkedIn CPL viable.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target operations managers and facility directors at manufacturing and distribution centers. Higher contract values make LinkedIn CPL viable. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "flooring",
@@ -261,8 +261,8 @@
     "avgJobValue": 30000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn only viable for commercial flooring targeting property managers, GCs, and interior designers. Not recommended for residential flooring.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn only viable for commercial flooring targeting property managers, GCs, and interior designers. Not recommended for residential flooring. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -275,8 +275,8 @@
     "avgJobValue": 15000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not cost-effective for countertops. Primarily a residential/consumer service with minimal B2B demand.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not cost-effective for countertops. Primarily a residential/consumer service with minimal B2B demand. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -289,8 +289,8 @@
     "avgJobValue": 25000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn has limited viability for window/door companies. Only useful targeting commercial property managers and GCs for large projects.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn has limited viability for window/door companies. Only useful targeting commercial property managers and GCs for large projects. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -303,8 +303,8 @@
     "avgJobValue": 20000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not cost-effective for siding. Primarily residential service with very limited commercial audience on LinkedIn.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not cost-effective for siding. Primarily residential service with very limited commercial audience on LinkedIn. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -317,8 +317,8 @@
     "avgJobValue": 10000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not cost-effective for garage door services. Primarily residential/consumer with limited commercial overhead door demand on LinkedIn.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not cost-effective for garage door services. Primarily residential/consumer with limited commercial overhead door demand on LinkedIn. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -331,9 +331,9 @@
     "avgJobValue": 40000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn viable for commercial paving targeting property managers, HOAs, and municipal contacts. Large contract values offset higher CPL.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn viable for commercial paving targeting property managers, HOAs, and municipal contacts. Large contract values offset higher CPL. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "paving",
@@ -345,9 +345,9 @@
     "avgJobValue": 100000,
     "recommendedMinAdSpend": 3500,
     "recommendedTargetAdSpend": 9000,
-    "notes": "Target municipal decision-makers and government facility managers. Very high contract values but long sales cycles. Sponsored Content with project portfolios works best.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target municipal decision-makers and government facility managers. Very high contract values but long sales cycles. Sponsored Content with project portfolios works best. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "foundation-repair",
@@ -359,8 +359,8 @@
     "avgJobValue": 20000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not cost-effective for foundation repair. Primarily residential service; homeowners do not search LinkedIn for foundation issues.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not cost-effective for foundation repair. Primarily residential service; homeowners do not search LinkedIn for foundation issues. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -373,8 +373,8 @@
     "avgJobValue": 30000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn has some viability for commercial waterproofing targeting property managers and construction firms. Better suited for large commercial projects.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn has some viability for commercial waterproofing targeting property managers and construction firms. Better suited for large commercial projects. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -387,9 +387,9 @@
     "avgJobValue": 60000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn viable for commercial demolition targeting developers, GCs, and construction project managers. Large contract values justify platform costs.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn viable for commercial demolition targeting developers, GCs, and construction project managers. Large contract values justify platform costs. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "demolition",
@@ -401,9 +401,9 @@
     "avgJobValue": 120000,
     "recommendedMinAdSpend": 3500,
     "recommendedTargetAdSpend": 9000,
-    "notes": "Target industrial facility managers and environmental compliance officers. Very high project values. InMail with safety certifications and case studies converts best.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target industrial facility managers and environmental compliance officers. Very high project values. InMail with safety certifications and case studies converts best. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "excavation",
@@ -415,9 +415,9 @@
     "avgJobValue": 50000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn viable for commercial excavation targeting GCs, developers, and construction firms. Subcontractor relationships drive high-value recurring work.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn viable for commercial excavation targeting GCs, developers, and construction firms. Subcontractor relationships drive high-value recurring work. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "excavation",
@@ -429,9 +429,9 @@
     "avgJobValue": 80000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "Target land developers and commercial builders for site prep and grading work. Long-term partnerships from LinkedIn connections can be very valuable.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target land developers and commercial builders for site prep and grading work. Long-term partnerships from LinkedIn connections can be very valuable. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "welding",
@@ -443,9 +443,9 @@
     "avgJobValue": 30000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn works well for industrial welding targeting manufacturing plant managers, oil & gas operations, and construction firms needing certified welders.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn works well for industrial welding targeting manufacturing plant managers, oil & gas operations, and construction firms needing certified welders. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "welding",
@@ -457,9 +457,9 @@
     "avgJobValue": 50000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "Target GCs and steel fabricators seeking certified welding subcontractors. Highlight certifications (AWS, ASME) in ad creative.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target GCs and steel fabricators seeking certified welding subcontractors. Highlight certifications (AWS, ASME) in ad creative. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "auto-body",
@@ -471,8 +471,8 @@
     "avgJobValue": 12000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not cost-effective for auto body shops. Only marginally viable targeting fleet managers for volume repair contracts.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not cost-effective for auto body shops. Only marginally viable targeting fleet managers for volume repair contracts. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -485,8 +485,8 @@
     "avgJobValue": 8000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not recommended for towing services. Emergency/consumer service with no meaningful B2B audience on the platform.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not recommended for towing services. Emergency/consumer service with no meaningful B2B audience on the platform. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -499,9 +499,9 @@
     "avgJobValue": 15000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn viable for corporate relocation targeting HR directors and office managers. Employee relocation packages drive high-value recurring contracts.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn viable for corporate relocation targeting HR directors and office managers. Employee relocation packages drive high-value recurring contracts. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "moving",
@@ -513,9 +513,9 @@
     "avgJobValue": 20000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "Target office managers and facilities teams planning relocations. Sponsored Content highlighting commercial moving expertise and insurance coverage works well.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target office managers and facilities teams planning relocations. Sponsored Content highlighting commercial moving expertise and insurance coverage works well. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "junk-removal",
@@ -527,8 +527,8 @@
     "avgJobValue": 5000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not cost-effective for junk removal. Consumer/residential service with very limited B2B application.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not cost-effective for junk removal. Consumer/residential service with very limited B2B application. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -541,9 +541,9 @@
     "avgJobValue": 24000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn is effective for commercial cleaning targeting office managers, property managers, and facility directors. Recurring contract values are high.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn is effective for commercial cleaning targeting office managers, property managers, and facility directors. Recurring contract values are high. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "cleaning",
@@ -555,9 +555,9 @@
     "avgJobValue": 35000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "Target plant managers and operations directors at manufacturing and industrial facilities. Specialized cleaning (clean rooms, food processing) commands premium pricing.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target plant managers and operations directors at manufacturing and industrial facilities. Specialized cleaning (clean rooms, food processing) commands premium pricing. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "pressure-washing",
@@ -569,8 +569,8 @@
     "avgJobValue": 8000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not cost-effective for pressure washing. Low-ticket consumer service with very limited B2B demand on the platform.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not cost-effective for pressure washing. Low-ticket consumer service with very limited B2B demand on the platform. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -583,9 +583,9 @@
     "avgJobValue": 35000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn viable for commercial restoration targeting property managers and insurance adjusters. Large commercial claims drive high contract values.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn viable for commercial restoration targeting property managers and insurance adjusters. Large commercial claims drive high contract values. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "restoration",
@@ -597,9 +597,9 @@
     "avgJobValue": 50000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "Target insurance claims managers and adjusters to build preferred vendor relationships. InMail with response time guarantees and certifications converts well.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target insurance claims managers and adjusters to build preferred vendor relationships. InMail with response time guarantees and certifications converts well. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "mold-remediation",
@@ -611,8 +611,8 @@
     "avgJobValue": 18000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn has limited viability for mold remediation. Some potential targeting property managers and facility directors for commercial buildings.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn has limited viability for mold remediation. Some potential targeting property managers and facility directors for commercial buildings. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -625,8 +625,8 @@
     "avgJobValue": 25000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn has limited viability for insulation. Some potential targeting GCs and commercial builders, but most insulation leads come through subcontractor networks.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn has limited viability for insulation. Some potential targeting GCs and commercial builders, but most insulation leads come through subcontractor networks. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -639,9 +639,9 @@
     "avgJobValue": 80000,
     "recommendedMinAdSpend": 3500,
     "recommendedTargetAdSpend": 10000,
-    "notes": "LinkedIn is effective for commercial solar targeting facility managers, CFOs, and sustainability officers. Very high contract values make the CPL justified.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "LinkedIn is effective for commercial solar targeting facility managers, CFOs, and sustainability officers. Very high contract values make the CPL justified. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "solar",
@@ -653,9 +653,9 @@
     "avgJobValue": 150000,
     "recommendedMinAdSpend": 4000,
     "recommendedTargetAdSpend": 12000,
-    "notes": "Target developers, property groups, and corporate sustainability teams for large-scale solar installations. Thought leadership content on ROI and tax incentives drives engagement.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target developers, property groups, and corporate sustainability teams for large-scale solar installations. Thought leadership content on ROI and tax incentives drives engagement. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "solar",
@@ -667,9 +667,9 @@
     "avgJobValue": 200000,
     "recommendedMinAdSpend": 4000,
     "recommendedTargetAdSpend": 12000,
-    "notes": "Target CFOs and VP Finance at mid-market companies for Power Purchase Agreements. Complex B2B sale ideal for LinkedIn's professional targeting.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target CFOs and VP Finance at mid-market companies for Power Purchase Agreements. Complex B2B sale ideal for LinkedIn's professional targeting. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "home-security",
@@ -681,9 +681,9 @@
     "avgJobValue": 20000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn has moderate potential for commercial security targeting facility managers and operations directors. Business security contracts are larger than residential.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn has moderate potential for commercial security targeting facility managers and operations directors. Business security contracts are larger than residential. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "locksmith",
@@ -695,8 +695,8 @@
     "avgJobValue": 5000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not cost-effective for locksmith services. Emergency/consumer service with minimal B2B demand on the platform.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not cost-effective for locksmith services. Emergency/consumer service with minimal B2B demand on the platform. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -709,8 +709,8 @@
     "avgJobValue": 6000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not cost-effective for appliance repair. Consumer service with very limited B2B application on the platform.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not cost-effective for appliance repair. Consumer service with very limited B2B application on the platform. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -723,8 +723,8 @@
     "avgJobValue": 30000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn has some viability for commercial drywall subcontractors targeting GCs and construction firms. Large commercial projects offset high CPL.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn has some viability for commercial drywall subcontractors targeting GCs and construction firms. Large commercial projects offset high CPL. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -737,8 +737,8 @@
     "avgJobValue": 20000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not cost-effective for cabinetry. Primarily residential service; limited commercial demand on the platform.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not cost-effective for cabinetry. Primarily residential service; limited commercial demand on the platform. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -751,9 +751,9 @@
     "avgJobValue": 35000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn viable for commercial glass/glazing targeting GCs, architects, and commercial property managers. Large curtain wall and storefront projects justify spend.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn viable for commercial glass/glazing targeting GCs, architects, and commercial property managers. Large curtain wall and storefront projects justify spend. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "irrigation",
@@ -765,8 +765,8 @@
     "avgJobValue": 15000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn has limited viability for irrigation. Some potential targeting commercial property managers and golf course managers, but niche audience.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn has limited viability for irrigation. Some potential targeting commercial property managers and golf course managers, but niche audience. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -779,8 +779,8 @@
     "avgJobValue": 10000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not cost-effective for well services. Rural/residential service with minimal B2B demand on the platform.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not cost-effective for well services. Rural/residential service with minimal B2B demand on the platform. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -793,8 +793,8 @@
     "avgJobValue": 20000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn has limited viability for propane. Some potential targeting facility managers and restaurant owners for commercial propane supply contracts.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn has limited viability for propane. Some potential targeting facility managers and restaurant owners for commercial propane supply contracts. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -807,9 +807,9 @@
     "avgJobValue": 30000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn viable for commercial marine services targeting fleet operators, shipping companies, and marina management. B2B marine contracts are high-value.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn viable for commercial marine services targeting fleet operators, shipping companies, and marina management. B2B marine contracts are high-value. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "heavy-equipment",
@@ -821,9 +821,9 @@
     "avgJobValue": 75000,
     "recommendedMinAdSpend": 3500,
     "recommendedTargetAdSpend": 10000,
-    "notes": "LinkedIn is effective for heavy equipment targeting construction company owners, fleet managers, and operations directors. High-ticket B2B sales align well with LinkedIn.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "LinkedIn is effective for heavy equipment targeting construction company owners, fleet managers, and operations directors. High-ticket B2B sales align well with LinkedIn. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "heavy-equipment",
@@ -835,9 +835,9 @@
     "avgJobValue": 40000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "Target fleet managers and equipment coordinators for recurring maintenance contracts. Sponsored Content highlighting uptime guarantees and response times performs well.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target fleet managers and equipment coordinators for recurring maintenance contracts. Sponsored Content highlighting uptime guarantees and response times performs well. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "heavy-equipment",
@@ -849,9 +849,9 @@
     "avgJobValue": 50000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 9000,
-    "notes": "Target construction project managers and GCs for equipment rental. LinkedIn's job title targeting excels for reaching decision-makers in this space.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target construction project managers and GCs for equipment rental. LinkedIn's job title targeting excels for reaching decision-makers in this space. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "commercial-kitchen",
@@ -863,9 +863,9 @@
     "avgJobValue": 40000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn works well for commercial kitchen targeting restaurant owners, hotel F&B directors, and healthcare facility managers. High-value B2B sales.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn works well for commercial kitchen targeting restaurant owners, hotel F&B directors, and healthcare facility managers. High-value B2B sales. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "commercial-kitchen",
@@ -877,9 +877,9 @@
     "avgJobValue": 60000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 9000,
-    "notes": "Target restaurant group owners and hospitality operators planning new locations. Portfolio-driven Sponsored Content showcasing kitchen build-outs performs best.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target restaurant group owners and hospitality operators planning new locations. Portfolio-driven Sponsored Content showcasing kitchen build-outs performs best. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "sign-wraps",
@@ -891,9 +891,9 @@
     "avgJobValue": 15000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn has moderate potential for commercial signage targeting marketing directors and franchise operators. Branding-focused messaging resonates well.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn has moderate potential for commercial signage targeting marketing directors and franchise operators. Branding-focused messaging resonates well. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "sign-wraps",
@@ -905,9 +905,9 @@
     "avgJobValue": 25000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "Target fleet managers and marketing directors for vehicle wrap programs. B2B fleet wrap deals are recurring and high-value.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target fleet managers and marketing directors for vehicle wrap programs. B2B fleet wrap deals are recurring and high-value. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "powder-coating",
@@ -919,9 +919,9 @@
     "avgJobValue": 20000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn viable for industrial powder coating targeting manufacturing purchasing managers and engineers. B2B finishing services are a good LinkedIn fit.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn viable for industrial powder coating targeting manufacturing purchasing managers and engineers. B2B finishing services are a good LinkedIn fit. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "powder-coating",
@@ -933,9 +933,9 @@
     "avgJobValue": 40000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "Target OEM purchasing managers and supply chain directors for ongoing powder coating partnerships. Long-term contracts with high lifetime value.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target OEM purchasing managers and supply chain directors for ongoing powder coating partnerships. Long-term contracts with high lifetime value. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "metal-roofing",
@@ -947,9 +947,9 @@
     "avgJobValue": 50000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn viable for commercial metal roofing targeting property managers, GCs, and facility directors. Large commercial roof replacements justify the CPL.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn viable for commercial metal roofing targeting property managers, GCs, and facility directors. Large commercial roof replacements justify the CPL. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "artificial-turf",
@@ -961,8 +961,8 @@
     "avgJobValue": 25000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn has limited viability for artificial turf. Some potential targeting sports facility managers and commercial property managers, but niche audience.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn has limited viability for artificial turf. Some potential targeting sports facility managers and commercial property managers, but niche audience. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -975,9 +975,9 @@
     "avgJobValue": 30000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is effective for precision machining targeting manufacturing engineers, purchasing managers, and supply chain directors. Strong B2B fit.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "LinkedIn is effective for precision machining targeting manufacturing engineers, purchasing managers, and supply chain directors. Strong B2B fit. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "machining",
@@ -989,9 +989,9 @@
     "avgJobValue": 15000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "Target R&D engineers and product development managers for prototype machining. Sponsored Content highlighting capabilities and tolerances converts well.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target R&D engineers and product development managers for prototype machining. Sponsored Content highlighting capabilities and tolerances converts well. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "machining",
@@ -1003,9 +1003,9 @@
     "avgJobValue": 50000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "Target OEM purchasing managers and supply chain directors for ongoing parts contracts. LinkedIn's industry and company size targeting is ideal for this.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target OEM purchasing managers and supply chain directors for ongoing parts contracts. LinkedIn's industry and company size targeting is ideal for this. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "home-builders",
@@ -1017,9 +1017,9 @@
     "avgJobValue": 200000,
     "recommendedMinAdSpend": 3500,
     "recommendedTargetAdSpend": 10000,
-    "notes": "LinkedIn viable for home builders targeting land developers, real estate investors, and financial partners. Very high deal values justify platform costs.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn viable for home builders targeting land developers, real estate investors, and financial partners. Very high deal values justify platform costs. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "home-builders",
@@ -1031,9 +1031,9 @@
     "avgJobValue": 100000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "Target skilled trade professionals and subcontractors for builder partnerships. LinkedIn Recruiter-style ads and InMail effective for finding quality subs.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target skilled trade professionals and subcontractors for builder partnerships. LinkedIn Recruiter-style ads and InMail effective for finding quality subs. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "auto-shipping",
@@ -1045,9 +1045,9 @@
     "avgJobValue": 20000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn viable for auto shipping targeting dealership GMs, fleet managers, and auto auction operators. B2B transport contracts are recurring and high-value.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn viable for auto shipping targeting dealership GMs, fleet managers, and auto auction operators. B2B transport contracts are recurring and high-value. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "auto-shipping",
@@ -1059,9 +1059,9 @@
     "avgJobValue": 8000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "Target HR directors and relocation managers at companies with employee relocation programs. Bundled with corporate moving services for better conversion.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target HR directors and relocation managers at companies with employee relocation programs. Bundled with corporate moving services for better conversion. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "custom-engine",
@@ -1073,9 +1073,9 @@
     "avgJobValue": 25000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn has moderate potential for custom engine builders targeting fleet managers, marine operators, and industrial equipment companies.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn has moderate potential for custom engine builders targeting fleet managers, marine operators, and industrial equipment companies. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "recycling",
@@ -1087,9 +1087,9 @@
     "avgJobValue": 30000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn is effective for commercial recycling targeting sustainability officers, facility managers, and operations directors. ESG messaging resonates well.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn is effective for commercial recycling targeting sustainability officers, facility managers, and operations directors. ESG messaging resonates well. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "recycling",
@@ -1101,9 +1101,9 @@
     "avgJobValue": 50000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 9000,
-    "notes": "Target manufacturing plant managers and environmental compliance officers. Sustainability and regulatory compliance messaging drives engagement.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target manufacturing plant managers and environmental compliance officers. Sustainability and regulatory compliance messaging drives engagement. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "waste",
@@ -1115,9 +1115,9 @@
     "avgJobValue": 36000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn effective for commercial waste management targeting facility managers, property management companies, and operations directors. Recurring contracts drive high LTV.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn effective for commercial waste management targeting facility managers, property management companies, and operations directors. Recurring contracts drive high LTV. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "waste",
@@ -1129,9 +1129,9 @@
     "avgJobValue": 60000,
     "recommendedMinAdSpend": 3500,
     "recommendedTargetAdSpend": 10000,
-    "notes": "Target plant managers and EHS directors at manufacturing facilities. Compliance-driven messaging and safety certifications are key differentiators.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target plant managers and EHS directors at manufacturing facilities. Compliance-driven messaging and safety certifications are key differentiators. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "waste",
@@ -1143,9 +1143,9 @@
     "avgJobValue": 15000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "Target GCs and construction project managers for ongoing roll-off and waste hauling needs. Volume accounts with recurring revenue potential.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target GCs and construction project managers for ongoing roll-off and waste hauling needs. Volume accounts with recurring revenue potential. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "installation",
@@ -1157,9 +1157,9 @@
     "avgJobValue": 20000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn has moderate potential for commercial installation companies targeting GCs and property managers. Varies widely by installation type.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "low"
+    "notes": "LinkedIn has moderate potential for commercial installation companies targeting GCs and property managers. Varies widely by installation type. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "printing",
@@ -1171,9 +1171,9 @@
     "avgJobValue": 15000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn viable for commercial printing targeting marketing directors and procurement managers. Recurring print contracts drive steady revenue.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn viable for commercial printing targeting marketing directors and procurement managers. Recurring print contracts drive steady revenue. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "printing",
@@ -1185,9 +1185,9 @@
     "avgJobValue": 20000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "Target event managers, marketing directors, and retail operations for large format printing. Sponsored Content with portfolio examples drives engagement.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target event managers, marketing directors, and retail operations for large format printing. Sponsored Content with portfolio examples drives engagement. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "bolt-services",
@@ -1199,9 +1199,9 @@
     "avgJobValue": 25000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn effective for industrial bolt/fastener supply targeting manufacturing purchasing managers and maintenance engineers. Recurring B2B supply contracts.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "LinkedIn effective for industrial bolt/fastener supply targeting manufacturing purchasing managers and maintenance engineers. Recurring B2B supply contracts. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "bolt-services",
@@ -1213,9 +1213,9 @@
     "avgJobValue": 35000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "Target plant managers and maintenance directors at refineries, power plants, and industrial facilities. Specialized service with limited competition on LinkedIn.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target plant managers and maintenance directors at refineries, power plants, and industrial facilities. Specialized service with limited competition on LinkedIn. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "engineering",
@@ -1227,9 +1227,9 @@
     "avgJobValue": 50000,
     "recommendedMinAdSpend": 3500,
     "recommendedTargetAdSpend": 10000,
-    "notes": "LinkedIn is excellent for engineering firms targeting project managers, VPs of operations, and C-suite at mid-market companies. Thought leadership content drives pipeline.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "LinkedIn is excellent for engineering firms targeting project managers, VPs of operations, and C-suite at mid-market companies. Thought leadership content drives pipeline. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "engineering",
@@ -1241,9 +1241,9 @@
     "avgJobValue": 40000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 9000,
-    "notes": "Target architects, developers, and GCs for MEP engineering on commercial projects. Sponsored Content with project case studies and certifications performs well.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target architects, developers, and GCs for MEP engineering on commercial projects. Sponsored Content with project case studies and certifications performs well. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "engineering",
@@ -1255,9 +1255,9 @@
     "avgJobValue": 60000,
     "recommendedMinAdSpend": 3500,
     "recommendedTargetAdSpend": 10000,
-    "notes": "Target municipal planners, developers, and environmental compliance officers. LinkedIn's targeting by government and construction industry segments is very effective.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target municipal planners, developers, and environmental compliance officers. LinkedIn's targeting by government and construction industry segments is very effective. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "structural-engineers",
@@ -1269,9 +1269,9 @@
     "avgJobValue": 45000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 9000,
-    "notes": "LinkedIn is excellent for structural engineering firms targeting architects, GCs, and developers. Professional services with long sales cycles benefit from LinkedIn's relationship-building.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "LinkedIn is excellent for structural engineering firms targeting architects, GCs, and developers. Professional services with long sales cycles benefit from LinkedIn's relationship-building. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "structural-engineers",
@@ -1283,9 +1283,9 @@
     "avgJobValue": 30000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "Target insurance companies, property managers, and attorneys for forensic structural assessments. Niche expertise commands premium fees.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target insurance companies, property managers, and attorneys for forensic structural assessments. Niche expertise commands premium fees. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "structural-engineers",
@@ -1297,9 +1297,9 @@
     "avgJobValue": 70000,
     "recommendedMinAdSpend": 3500,
     "recommendedTargetAdSpend": 10000,
-    "notes": "Target manufacturing facility managers and industrial developers for structural design of warehouses, plants, and heavy industrial buildings.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target manufacturing facility managers and industrial developers for structural design of warehouses, plants, and heavy industrial buildings. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "tile-contractor",
@@ -1311,8 +1311,8 @@
     "avgJobValue": 15000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is not cost-effective for tile contractors. Primarily residential trade with limited commercial decision-makers on the platform.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn is not cost-effective for tile contractors. Primarily residential trade with limited commercial decision-makers on the platform. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
   },
   {
@@ -1325,9 +1325,9 @@
     "avgJobValue": 40000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 9000,
-    "notes": "LinkedIn viable for lodging/hospitality targeting hotel owners, resort managers, and hospitality group executives. High-value service contracts for properties.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn viable for lodging/hospitality targeting hotel owners, resort managers, and hospitality group executives. High-value service contracts for properties. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "lodging",
@@ -1339,9 +1339,9 @@
     "avgJobValue": 60000,
     "recommendedMinAdSpend": 3500,
     "recommendedTargetAdSpend": 9000,
-    "notes": "Target hospitality group procurement managers and operations VPs. Preferred vendor relationships with hotel chains drive significant recurring revenue.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target hospitality group procurement managers and operations VPs. Preferred vendor relationships with hotel chains drive significant recurring revenue. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "construction",
@@ -1353,9 +1353,9 @@
     "avgJobValue": 150000,
     "recommendedMinAdSpend": 4000,
     "recommendedTargetAdSpend": 12000,
-    "notes": "LinkedIn is excellent for commercial construction targeting developers, corporate facility managers, and real estate investment firms. Very high contract values.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "LinkedIn is excellent for commercial construction targeting developers, corporate facility managers, and real estate investment firms. Very high contract values. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "construction",
@@ -1367,9 +1367,9 @@
     "avgJobValue": 250000,
     "recommendedMinAdSpend": 4000,
     "recommendedTargetAdSpend": 12000,
-    "notes": "Target architects, developers, and corporate real estate teams. Thought leadership content on project delivery methods and case studies drives high-quality leads.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target architects, developers, and corporate real estate teams. Thought leadership content on project delivery methods and case studies drives high-quality leads. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "construction",
@@ -1381,9 +1381,9 @@
     "avgJobValue": 100000,
     "recommendedMinAdSpend": 3500,
     "recommendedTargetAdSpend": 10000,
-    "notes": "Target property owners and developers for CM services. LinkedIn InMail with track record and safety metrics converts well for construction management leads.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target property owners and developers for CM services. LinkedIn InMail with track record and safety metrics converts well for construction management leads. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "motor-groups",
@@ -1395,9 +1395,9 @@
     "avgJobValue": 50000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn viable for motor groups targeting corporate fleet managers and procurement directors. Fleet deals involve high volumes and recurring service contracts.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn viable for motor groups targeting corporate fleet managers and procurement directors. Fleet deals involve high volumes and recurring service contracts. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "motor-groups",
@@ -1409,9 +1409,9 @@
     "avgJobValue": 80000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 9000,
-    "notes": "Target fleet management companies and leasing firms for wholesale vehicle supply. LinkedIn's company size and industry targeting helps reach key buyers.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target fleet management companies and leasing firms for wholesale vehicle supply. LinkedIn's company size and industry targeting helps reach key buyers. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "distribution",
@@ -1423,9 +1423,9 @@
     "avgJobValue": 60000,
     "recommendedMinAdSpend": 3500,
     "recommendedTargetAdSpend": 10000,
-    "notes": "LinkedIn is excellent for distribution companies targeting purchasing managers, supply chain directors, and procurement VPs. Core B2B platform for this industry.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "LinkedIn is excellent for distribution companies targeting purchasing managers, supply chain directors, and procurement VPs. Core B2B platform for this industry. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "distribution",
@@ -1437,9 +1437,9 @@
     "avgJobValue": 80000,
     "recommendedMinAdSpend": 3500,
     "recommendedTargetAdSpend": 10000,
-    "notes": "Target VP Supply Chain, COO, and logistics managers at manufacturing and retail companies. Thought leadership on supply chain optimization drives engagement.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target VP Supply Chain, COO, and logistics managers at manufacturing and retail companies. Thought leadership on supply chain optimization drives engagement. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "distribution",
@@ -1451,9 +1451,9 @@
     "avgJobValue": 100000,
     "recommendedMinAdSpend": 3500,
     "recommendedTargetAdSpend": 10000,
-    "notes": "Target e-commerce operations managers and supply chain directors seeking 3PL partnerships. High contract values with long-term recurring revenue.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target e-commerce operations managers and supply chain directors seeking 3PL partnerships. High contract values with long-term recurring revenue. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "surveying",
@@ -1465,8 +1465,8 @@
     "avgJobValue": 15000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn viable for surveying firms targeting developers, GCs, and civil engineers. Professional service that aligns well with LinkedIn's B2B audience.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn viable for surveying firms targeting developers, GCs, and civil engineers. Professional service that aligns well with LinkedIn's B2B audience. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "medium"
   },
   {
@@ -1479,8 +1479,8 @@
     "avgJobValue": 20000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "Target GCs and construction project managers for ongoing surveying needs. Recurring relationships with builders drive steady work.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "Target GCs and construction project managers for ongoing surveying needs. Recurring relationships with builders drive steady work. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "medium"
   },
   {
@@ -1493,9 +1493,9 @@
     "avgJobValue": 35000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is effective for metal fabrication targeting manufacturing engineers, purchasing managers, and OEM supply chain directors. Strong B2B fit.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "LinkedIn is effective for metal fabrication targeting manufacturing engineers, purchasing managers, and OEM supply chain directors. Strong B2B fit. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "metal-fabrication",
@@ -1507,9 +1507,9 @@
     "avgJobValue": 60000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "Target GCs, architects, and structural engineers for commercial steel fabrication projects. LinkedIn Sponsored Content with project portfolios drives quality leads.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target GCs, architects, and structural engineers for commercial steel fabrication projects. LinkedIn Sponsored Content with project portfolios drives quality leads. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "metal-fabrication",
@@ -1521,9 +1521,9 @@
     "avgJobValue": 45000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "Target OEM purchasing managers and manufacturing engineers for ongoing component supply. Long-term contracts with high lifetime value make LinkedIn CPL worthwhile.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target OEM purchasing managers and manufacturing engineers for ongoing component supply. Long-term contracts with high lifetime value make LinkedIn CPL worthwhile. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "service-cabling",
@@ -1535,8 +1535,8 @@
     "avgJobValue": 25000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn effective for service cabling targeting IT directors, facility managers, and GCs. Data center and office cabling projects are solidly B2B.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn effective for service cabling targeting IT directors, facility managers, and GCs. Data center and office cabling projects are solidly B2B. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "medium"
   },
   {
@@ -1549,9 +1549,9 @@
     "avgJobValue": 50000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 9000,
-    "notes": "Target data center managers and IT infrastructure VPs. High-value projects with recurring maintenance contracts. LinkedIn's tech industry targeting is ideal.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target data center managers and IT infrastructure VPs. High-value projects with recurring maintenance contracts. LinkedIn's tech industry targeting is ideal. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "vending",
@@ -1563,8 +1563,8 @@
     "avgJobValue": 20000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn viable for vending targeting office managers, facility directors, and HR leaders. Corporate wellness tie-ins and healthy vending options resonate well.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "LinkedIn viable for vending targeting office managers, facility directors, and HR leaders. Corporate wellness tie-ins and healthy vending options resonate well. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "medium"
   },
   {
@@ -1577,8 +1577,8 @@
     "avgJobValue": 15000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "Target property managers, hotel operators, and large employer HR teams for vending placements. Recurring revenue model with low churn once placed.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
+    "notes": "Target property managers, hotel operators, and large employer HR teams for vending placements. Recurring revenue model with low churn once placed. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "medium"
   },
   {
@@ -1591,9 +1591,9 @@
     "avgJobValue": 25000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn effective for metal plating targeting manufacturing engineers, purchasing managers, and quality directors. B2B finishing services align well with LinkedIn.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "LinkedIn effective for metal plating targeting manufacturing engineers, purchasing managers, and quality directors. B2B finishing services align well with LinkedIn. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "metal-plating",
@@ -1605,9 +1605,9 @@
     "avgJobValue": 50000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "Target aerospace/defense purchasing managers and engineers for NADCAP-certified plating services. Specialized niche with premium pricing and long-term contracts.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target aerospace/defense purchasing managers and engineers for NADCAP-certified plating services. Specialized niche with premium pricing and long-term contracts. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "custom-home-builders",
@@ -1619,9 +1619,9 @@
     "avgJobValue": 500000,
     "recommendedMinAdSpend": 4000,
     "recommendedTargetAdSpend": 12000,
-    "notes": "LinkedIn can work for custom home builders targeting executives and high-net-worth individuals. Very high home values justify expensive lead acquisition.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "LinkedIn can work for custom home builders targeting executives and high-net-worth individuals. Very high home values justify expensive lead acquisition. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "custom-home-builders",
@@ -1633,9 +1633,9 @@
     "avgJobValue": 300000,
     "recommendedMinAdSpend": 3500,
     "recommendedTargetAdSpend": 10000,
-    "notes": "Target real estate developers and land investors for custom build partnerships. LinkedIn's wealth and seniority targeting helps reach the right audience.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "medium"
+    "notes": "Target real estate developers and land investors for custom build partnerships. LinkedIn's wealth and seniority targeting helps reach the right audience. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   },
   {
     "industryId": "cnc-machining",
@@ -1647,9 +1647,9 @@
     "avgJobValue": 30000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is excellent for CNC machining targeting manufacturing engineers, purchasing managers, and R&D directors. Core B2B manufacturing service ideal for LinkedIn.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "LinkedIn is excellent for CNC machining targeting manufacturing engineers, purchasing managers, and R&D directors. Core B2B manufacturing service ideal for LinkedIn. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "cnc-machining",
@@ -1661,9 +1661,9 @@
     "avgJobValue": 50000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "Target aerospace and medical device purchasing managers for precision CNC work. AS9100 and ISO 13485 certifications in ad creative drive quality leads.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target aerospace and medical device purchasing managers for precision CNC work. AS9100 and ISO 13485 certifications in ad creative drive quality leads. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "cnc-machining",
@@ -1675,9 +1675,9 @@
     "avgJobValue": 15000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "Target product development engineers and R&D managers for rapid prototyping. LinkedIn's function-level targeting reaches decision-makers efficiently.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target product development engineers and R&D managers for rapid prototyping. LinkedIn's function-level targeting reaches decision-makers efficiently. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "composite",
@@ -1689,9 +1689,9 @@
     "avgJobValue": 40000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "LinkedIn effective for composite manufacturers targeting aerospace engineers, automotive OEMs, and defense procurement. High-tech B2B niche with strong LinkedIn fit.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "LinkedIn effective for composite manufacturers targeting aerospace engineers, automotive OEMs, and defense procurement. High-tech B2B niche with strong LinkedIn fit. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "composite",
@@ -1703,9 +1703,9 @@
     "avgJobValue": 25000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "Target MRO managers at airlines and aerospace companies for composite repair services. Specialized skills and certifications differentiate on LinkedIn.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target MRO managers at airlines and aerospace companies for composite repair services. Specialized skills and certifications differentiate on LinkedIn. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "fabrication",
@@ -1717,9 +1717,9 @@
     "avgJobValue": 35000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "LinkedIn is effective for fabrication shops targeting manufacturing engineers, purchasing managers, and GCs. B2B fabrication aligns perfectly with LinkedIn's professional audience.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "LinkedIn is effective for fabrication shops targeting manufacturing engineers, purchasing managers, and GCs. B2B fabrication aligns perfectly with LinkedIn's professional audience. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "fabrication",
@@ -1731,9 +1731,9 @@
     "avgJobValue": 60000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
-    "notes": "Target GCs, developers, and industrial facility managers for large structural fabrication projects. High contract values make LinkedIn CPL very viable.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target GCs, developers, and industrial facility managers for large structural fabrication projects. High contract values make LinkedIn CPL very viable. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "fabrication",
@@ -1745,9 +1745,9 @@
     "avgJobValue": 45000,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 7000,
-    "notes": "Target OEM purchasing managers for ongoing fabricated component supply. Long-term contracts with predictable revenue make the LinkedIn investment worthwhile.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target OEM purchasing managers for ongoing fabricated component supply. Long-term contracts with predictable revenue make the LinkedIn investment worthwhile. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "consulting",
@@ -1759,9 +1759,9 @@
     "avgJobValue": 25000,
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 7500,
-    "notes": "LinkedIn InMail and Sponsored Content targeting C-suite and VP-level decision-makers. Thought leadership articles drive highest engagement and lowest CPL.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "LinkedIn InMail and Sponsored Content targeting C-suite and VP-level decision-makers. Thought leadership articles drive highest engagement and lowest CPL. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "consulting",
@@ -1773,9 +1773,9 @@
     "avgJobValue": 40000,
     "recommendedMinAdSpend": 3500,
     "recommendedTargetAdSpend": 10000,
-    "notes": "Target COOs and VPs of Operations at mid-market and enterprise companies. LinkedIn's seniority and function targeting is ideal for reaching these buyers.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target COOs and VPs of Operations at mid-market and enterprise companies. LinkedIn's seniority and function targeting is ideal for reaching these buyers. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   },
   {
     "industryId": "consulting",
@@ -1787,8 +1787,8 @@
     "avgJobValue": 50000,
     "recommendedMinAdSpend": 3500,
     "recommendedTargetAdSpend": 10000,
-    "notes": "Target CIOs, CTOs, and IT directors for technology consulting engagements. Case studies and ROI-focused content in Sponsored Posts convert well.",
-    "source": "LinkedIn Marketing Solutions 2025 Benchmarks; HubSpot B2B Ad Benchmarks 2025",
-    "confidence": "high"
+    "notes": "Target CIOs, CTOs, and IT directors for technology consulting engagements. Case studies and ROI-focused content in Sponsored Posts convert well. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   }
 ]
