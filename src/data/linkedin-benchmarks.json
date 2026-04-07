@@ -1790,5 +1790,47 @@
     "notes": "Target CIOs, CTOs, and IT directors for technology consulting engagements. Case studies and ROI-focused content in Sponsored Posts convert well. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
     "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "medium"
+  },
+  {
+    "industryId": "commercial-contractor",
+    "industryName": "Commercial Contractor",
+    "serviceName": "Commercial General Contracting",
+    "cplLow": 110,
+    "cplMid": 175,
+    "cplHigh": 265,
+    "avgJobValue": 150000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 8000,
+    "notes": "Strong fit for LinkedIn. Target facility managers, property managers, CFOs, and COOs at mid-market and enterprise companies. Sponsored Content with case studies drives best results. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "commercial-contractor",
+    "industryName": "Commercial Contractor",
+    "serviceName": "Tenant Improvement / Build-Out",
+    "cplLow": 95,
+    "cplMid": 155,
+    "cplHigh": 240,
+    "avgJobValue": 85000,
+    "recommendedMinAdSpend": 2500,
+    "recommendedTargetAdSpend": 7000,
+    "notes": "Target commercial real estate, office managers, and tenant reps. LinkedIn account targeting works well for known property portfolios. Estimated from industry benchmarks — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "commercial-contractor",
+    "industryName": "Commercial Contractor",
+    "serviceName": "Design-Build Services",
+    "cplLow": 130,
+    "cplMid": 200,
+    "cplHigh": 310,
+    "avgJobValue": 250000,
+    "recommendedMinAdSpend": 3500,
+    "recommendedTargetAdSpend": 10000,
+    "notes": "Highest value B2B leads. Target C-suite at growing companies planning facility expansions. Long sales cycle but high ACV. Estimated from industry benchmarks — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
   }
 ]

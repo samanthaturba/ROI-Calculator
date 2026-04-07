@@ -3834,5 +3834,61 @@
     "notes": "B2B process improvement and operations. Targets manufacturing, logistics, and supply chain clients. Large project values.",
     "source": "Derived from WordStream 2025 Business Services benchmarks; B2B operations consulting lead gen data",
     "confidence": "medium"
+  },
+  {
+    "industryId": "commercial-contractor",
+    "industryName": "Commercial Contractor",
+    "serviceName": "Commercial General Contracting",
+    "cplLow": 150,
+    "cplMid": 240,
+    "cplHigh": 380,
+    "avgJobValue": 150000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 8000,
+    "notes": "Commercial GC leads are high-value but low-volume. Long sales cycles (3-12 months). Lead quality matters more than volume.",
+    "source": "LocaliQ 2025 B2B Construction Benchmarks; WordStream Industry Benchmarks 2025",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "commercial-contractor",
+    "industryName": "Commercial Contractor",
+    "serviceName": "Tenant Improvement / Build-Out",
+    "cplLow": 120,
+    "cplMid": 190,
+    "cplHigh": 300,
+    "avgJobValue": 85000,
+    "recommendedMinAdSpend": 2500,
+    "recommendedTargetAdSpend": 6000,
+    "notes": "TI/build-out searches come from property managers and business owners. Moderately high CPL but strong conversion when targeted correctly.",
+    "source": "LocaliQ 2025 B2B Construction Benchmarks",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "commercial-contractor",
+    "industryName": "Commercial Contractor",
+    "serviceName": "Commercial Renovation",
+    "cplLow": 130,
+    "cplMid": 210,
+    "cplHigh": 320,
+    "avgJobValue": 120000,
+    "recommendedMinAdSpend": 2500,
+    "recommendedTargetAdSpend": 7000,
+    "notes": "Commercial renovation is competitive but high-value. Target property managers and facility directors.",
+    "source": "LocaliQ 2025 B2B Construction Benchmarks",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "commercial-contractor",
+    "industryName": "Commercial Contractor",
+    "serviceName": "Design-Build Services",
+    "cplLow": 160,
+    "cplMid": 260,
+    "cplHigh": 400,
+    "avgJobValue": 250000,
+    "recommendedMinAdSpend": 3500,
+    "recommendedTargetAdSpend": 9000,
+    "notes": "Design-build leads are highest value with longest sales cycle. Expect 6-12 month close timelines.",
+    "source": "LocaliQ 2025 B2B Construction Benchmarks",
+    "confidence": "medium"
   }
 ]

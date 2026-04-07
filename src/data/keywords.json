@@ -1917,5 +1917,37 @@
     "business operations advisor",
     "hire operations consultant",
     "operational efficiency consulting"
+  ],
+  "commercial-contractor|Commercial General Contracting": [
+    "commercial general contractor",
+    "commercial construction company",
+    "commercial contractor near me",
+    "commercial building contractor",
+    "commercial construction services",
+    "general contractor commercial"
+  ],
+  "commercial-contractor|Tenant Improvement / Build-Out": [
+    "tenant improvement contractor",
+    "commercial build out contractor",
+    "office build out",
+    "retail build out",
+    "tenant improvement services",
+    "commercial space build out"
+  ],
+  "commercial-contractor|Commercial Renovation": [
+    "commercial renovation contractor",
+    "office renovation",
+    "commercial remodeling",
+    "retail renovation",
+    "restaurant renovation contractor",
+    "commercial interior renovation"
+  ],
+  "commercial-contractor|Design-Build Services": [
+    "design build contractor",
+    "commercial design build",
+    "design build firm",
+    "commercial design build services",
+    "turnkey commercial construction",
+    "design build construction company"
   ]
 }

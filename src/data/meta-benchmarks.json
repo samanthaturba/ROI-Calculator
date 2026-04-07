@@ -3204,5 +3204,33 @@
     "notes": "Lead gen campaigns and webinar promotions can work. Thought leadership content drives awareness. Estimated from Google Ads benchmarks adjusted for Meta platform dynamics. Meta CPL is typically lower than Google but lead intent is also lower. Use as a directional estimate — actual Meta CPL will vary based on creative quality, audience targeting, and campaign type.",
     "source": "Estimated from Google Ads industry benchmarks adjusted for Meta platform cost dynamics. Not sourced from a specific published Meta Ads benchmark study.",
     "confidence": "medium"
+  },
+  {
+    "industryId": "commercial-contractor",
+    "industryName": "Commercial Contractor",
+    "serviceName": "Commercial General Contracting",
+    "cplLow": 120,
+    "cplMid": 192,
+    "cplHigh": 307,
+    "avgJobValue": 150000,
+    "recommendedMinAdSpend": 2000,
+    "recommendedTargetAdSpend": 5000,
+    "notes": "Moderate fit. Meta can build brand awareness with property managers and local business owners, but intent is low. Best used for retargeting and project showcase content. Estimated from Google Ads benchmarks adjusted for Meta platform dynamics. Use as a directional estimate.",
+    "source": "Estimated from Google Ads industry benchmarks adjusted for Meta platform cost dynamics. Not sourced from a specific published Meta Ads benchmark study.",
+    "confidence": "low"
+  },
+  {
+    "industryId": "commercial-contractor",
+    "industryName": "Commercial Contractor",
+    "serviceName": "Commercial Renovation",
+    "cplLow": 105,
+    "cplMid": 168,
+    "cplHigh": 269,
+    "avgJobValue": 120000,
+    "recommendedMinAdSpend": 2000,
+    "recommendedTargetAdSpend": 5000,
+    "notes": "Before/after renovation photos can perform well on Instagram. Use for awareness and portfolio building, not direct lead gen. Estimated from Google Ads benchmarks. Use as a directional estimate.",
+    "source": "Estimated from Google Ads industry benchmarks adjusted for Meta platform cost dynamics. Not sourced from a specific published Meta Ads benchmark study.",
+    "confidence": "low"
   }
 ]
