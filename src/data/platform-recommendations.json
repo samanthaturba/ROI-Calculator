@@ -1090,5 +1090,47 @@
       "rating": 5,
       "note": "Excellent platform. Target facility managers, property managers, CFOs, and real estate directors. Account-based targeting works especially well for going after known commercial real estate portfolios and property management firms."
     }
+  },
+  "fleet-maintenance": {
+    "google": {
+      "rating": 5,
+      "note": "Best platform for fleet maintenance. High-intent searches from fleet managers and owner-operators looking for reliable service providers. \"Fleet maintenance near me\" and \"DOT inspection\" keywords convert well."
+    },
+    "meta": {
+      "rating": 2,
+      "note": "Limited value for direct lead gen. Can target fleet managers by job title for awareness, but most fleet repair decisions happen via search, not social browsing."
+    },
+    "linkedin": {
+      "rating": 4,
+      "note": "Strong for targeting logistics directors, fleet managers, and transportation company executives. Sponsored Content with uptime stats and cost savings resonates well."
+    }
+  },
+  "truck-repair": {
+    "google": {
+      "rating": 5,
+      "note": "Excellent platform. Truck repair searches are urgent and high-intent — \"truck repair near me\", \"diesel mechanic\", \"trailer repair\". Strong conversion rates for both owner-operators and fleet managers."
+    },
+    "meta": {
+      "rating": 2,
+      "note": "Limited. Truck repair is mostly urgency-driven. Some value in showcasing custom fabrication work and building local brand awareness."
+    },
+    "linkedin": {
+      "rating": 2,
+      "note": "Not ideal for most truck repair services. Only viable for pursuing large fleet maintenance contracts with logistics companies."
+    }
+  },
+  "rv-auto-repair": {
+    "google": {
+      "rating": 5,
+      "note": "Top platform. \"RV repair near me\", \"auto repair\", \"engine repair\" — high-intent searches with strong conversion. Seasonal RV peaks in spring/summer."
+    },
+    "meta": {
+      "rating": 4,
+      "note": "Strong for RV specifically — RV owners are very active in Facebook groups and communities. Seasonal campaigns, service reminders, and lifestyle content perform well. Auto repair is more moderate."
+    },
+    "linkedin": {
+      "rating": 1,
+      "note": "Not recommended. RV and auto repair is a consumer service — LinkedIn is not where these customers look for vehicle service."
+    }
   }
 }

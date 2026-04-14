@@ -1832,5 +1832,61 @@
     "notes": "Highest value B2B leads. Target C-suite at growing companies planning facility expansions. Long sales cycle but high ACV. Estimated from industry benchmarks — use as a directional estimate.",
     "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "medium"
+  },
+  {
+    "industryId": "fleet-maintenance",
+    "industryName": "Fleet Maintenance",
+    "serviceName": "Fleet Maintenance & Repair",
+    "cplLow": 100,
+    "cplMid": 165,
+    "cplHigh": 250,
+    "avgJobValue": 5000,
+    "recommendedMinAdSpend": 2500,
+    "recommendedTargetAdSpend": 6000,
+    "notes": "Good fit for targeting fleet managers, logistics directors, and transportation companies. Sponsored Content with case studies on fleet uptime and cost savings. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "fleet-maintenance",
+    "industryName": "Fleet Maintenance",
+    "serviceName": "Preventive Maintenance Programs",
+    "cplLow": 85,
+    "cplMid": 140,
+    "cplHigh": 215,
+    "avgJobValue": 3500,
+    "recommendedMinAdSpend": 2500,
+    "recommendedTargetAdSpend": 6000,
+    "notes": "PM programs sell well to operations managers focused on minimizing downtime. Target logistics, construction, and distribution companies. Estimated from industry benchmarks — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "truck-repair",
+    "industryName": "Truck Repair Shop",
+    "serviceName": "Truck Repair & Service",
+    "cplLow": 150,
+    "cplMid": 240,
+    "cplHigh": 370,
+    "avgJobValue": 3500,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 7000,
+    "notes": "LinkedIn is not ideal for truck repair — most needs are urgent. Only viable for targeting fleet managers of large trucking companies for service contracts. Estimated from industry benchmarks — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
+  },
+  {
+    "industryId": "rv-auto-repair",
+    "industryName": "RV & Auto Repair",
+    "serviceName": "RV Repair & Service",
+    "cplLow": 250,
+    "cplMid": 380,
+    "cplHigh": 520,
+    "avgJobValue": 2500,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 7000,
+    "notes": "LinkedIn is not cost-effective for RV and auto repair. Consumer service — LinkedIn users are not searching for vehicle repair on this platform. Estimated from industry benchmarks — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   }
 ]

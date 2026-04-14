@@ -1949,5 +1949,99 @@
     "commercial design build services",
     "turnkey commercial construction",
     "design build construction company"
+  ],
+  "fleet-maintenance|Fleet Maintenance & Repair": [
+    "fleet maintenance near me",
+    "fleet repair service",
+    "commercial fleet maintenance",
+    "fleet vehicle service",
+    "fleet mechanic near me",
+    "truck fleet repair"
+  ],
+  "fleet-maintenance|Fleet Diagnostics": [
+    "fleet diagnostics",
+    "commercial vehicle diagnostics",
+    "truck diagnostic service",
+    "fleet vehicle inspection",
+    "computerized truck diagnostics"
+  ],
+  "fleet-maintenance|Preventive Maintenance Programs": [
+    "fleet preventive maintenance",
+    "fleet PM service",
+    "fleet maintenance program",
+    "commercial vehicle PM",
+    "scheduled fleet maintenance"
+  ],
+  "fleet-maintenance|DOT Inspections & Compliance": [
+    "DOT inspection near me",
+    "DOT truck inspection",
+    "annual DOT inspection",
+    "commercial vehicle inspection",
+    "DOT compliance inspection"
+  ],
+  "truck-repair|Truck Repair & Service": [
+    "truck repair near me",
+    "truck mechanic near me",
+    "semi truck repair",
+    "heavy duty truck repair",
+    "commercial truck repair",
+    "truck service center"
+  ],
+  "truck-repair|Diesel Engine Repair": [
+    "diesel engine repair near me",
+    "diesel mechanic near me",
+    "diesel truck repair",
+    "diesel engine rebuild",
+    "heavy duty diesel repair"
+  ],
+  "truck-repair|Trailer Repair": [
+    "trailer repair near me",
+    "semi trailer repair",
+    "trailer service",
+    "trailer maintenance",
+    "commercial trailer repair"
+  ],
+  "truck-repair|Transmission Repair & Rebuild": [
+    "truck transmission repair",
+    "transmission rebuild near me",
+    "heavy duty transmission repair",
+    "semi truck transmission",
+    "commercial transmission service"
+  ],
+  "truck-repair|Welding & Fabrication": [
+    "truck welding repair",
+    "mobile welding near me",
+    "trailer welding",
+    "custom truck fabrication",
+    "structural welding repair"
+  ],
+  "rv-auto-repair|RV Repair & Service": [
+    "RV repair near me",
+    "RV service center",
+    "RV mechanic near me",
+    "motorhome repair",
+    "camper repair near me",
+    "RV maintenance"
+  ],
+  "rv-auto-repair|Auto Repair & Maintenance": [
+    "auto repair near me",
+    "car repair shop",
+    "mechanic near me",
+    "auto service center",
+    "car maintenance near me"
+  ],
+  "rv-auto-repair|Engine & Transmission Service": [
+    "engine repair near me",
+    "transmission repair near me",
+    "engine rebuild",
+    "JASPER engine dealer",
+    "engine replacement near me"
+  ],
+  "rv-auto-repair|Alignment & Inspections": [
+    "wheel alignment near me",
+    "state inspection near me",
+    "vehicle inspection",
+    "car alignment",
+    "PA state inspection"
   ]
 }
