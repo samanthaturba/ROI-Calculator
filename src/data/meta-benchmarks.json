@@ -3316,5 +3316,47 @@
     "notes": "General auto repair has high volume on Meta but low intent. Works for seasonal promos and service reminders. Estimated from Google Ads benchmarks. Use as a directional estimate.",
     "source": "Estimated from Google Ads industry benchmarks adjusted for Meta platform cost dynamics. Not sourced from a specific published Meta Ads benchmark study.",
     "confidence": "medium"
+  },
+  {
+    "industryId": "truck-fleet-service",
+    "industryName": "Truck & Fleet Service Center",
+    "serviceName": "Truck & Fleet Repair",
+    "cplLow": 70,
+    "cplMid": 116,
+    "cplHigh": 186,
+    "avgJobValue": 3500,
+    "recommendedMinAdSpend": 1500,
+    "recommendedTargetAdSpend": 4000,
+    "notes": "Limited Meta fit for truck and fleet repair — most searches are urgent or B2B. Use for retargeting website visitors and building local brand awareness with fleet operators. Estimated from Google Ads benchmarks adjusted for Meta platform dynamics. Use as a directional estimate.",
+    "source": "Estimated from Google Ads industry benchmarks adjusted for Meta platform cost dynamics. Not sourced from a specific published Meta Ads benchmark study.",
+    "confidence": "low"
+  },
+  {
+    "industryId": "truck-fleet-service",
+    "industryName": "Truck & Fleet Service Center",
+    "serviceName": "RV Repair & Service",
+    "cplLow": 42,
+    "cplMid": 72,
+    "cplHigh": 115,
+    "avgJobValue": 2500,
+    "recommendedMinAdSpend": 1000,
+    "recommendedTargetAdSpend": 3000,
+    "notes": "RV owners are active on Facebook in RV groups and communities. Seasonal campaigns and service reminders work well. Target RV lifestyle interests. Estimated from Google Ads benchmarks adjusted for Meta. Use as a directional estimate.",
+    "source": "Estimated from Google Ads industry benchmarks adjusted for Meta platform cost dynamics. Not sourced from a specific published Meta Ads benchmark study.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "truck-fleet-service",
+    "industryName": "Truck & Fleet Service Center",
+    "serviceName": "Welding & Fabrication",
+    "cplLow": 56,
+    "cplMid": 96,
+    "cplHigh": 148,
+    "avgJobValue": 3000,
+    "recommendedMinAdSpend": 1000,
+    "recommendedTargetAdSpend": 3500,
+    "notes": "Custom fabrication work can showcase well visually on Meta — before/after photos of truck builds and frame repairs. Estimated from Google Ads benchmarks. Use as a directional estimate.",
+    "source": "Estimated from Google Ads industry benchmarks adjusted for Meta platform cost dynamics. Not sourced from a specific published Meta Ads benchmark study.",
+    "confidence": "low"
   }
 ]

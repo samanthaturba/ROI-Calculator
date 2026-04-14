@@ -38,7 +38,9 @@ export function getAllIndustries(platform: AdPlatform = "google"): { id: string;
       seen.set(b.industryId, b.industryName);
     }
   }
-  return Array.from(seen.entries()).map(([id, name]) => ({ id, name }));
+  return Array.from(seen.entries())
+    .map(([id, name]) => ({ id, name }))
+    .sort((a, b) => a.name.localeCompare(b.name));
 }
 
 export function searchIndustries(query: string, platform: AdPlatform = "google"): { id: string; name: string }[] {

@@ -1132,5 +1132,19 @@
       "rating": 1,
       "note": "Not recommended. RV and auto repair is a consumer service — LinkedIn is not where these customers look for vehicle service."
     }
+  },
+  "truck-fleet-service": {
+    "google": {
+      "rating": 5,
+      "note": "Best platform for full-service truck and fleet centers. Captures high-intent searches across all service types — truck repair, fleet maintenance, towing, RV service, DOT inspections. Strong conversion from both owner-operators and fleet managers."
+    },
+    "meta": {
+      "rating": 3,
+      "note": "Moderate value. RV service and custom fabrication showcase well visually. Retargeting website visitors is effective. Not ideal for urgent truck repair or B2B fleet leads."
+    },
+    "linkedin": {
+      "rating": 3,
+      "note": "Moderate for the fleet/commercial side of the business. Can target logistics directors and fleet managers for maintenance contracts. Not useful for consumer services like RV repair or towing."
+    }
   }
 }

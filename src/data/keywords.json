@@ -2043,5 +2043,61 @@
     "vehicle inspection",
     "car alignment",
     "PA state inspection"
+  ],
+  "truck-fleet-service|Truck & Fleet Repair": [
+    "truck repair near me",
+    "fleet repair service",
+    "commercial truck repair",
+    "heavy duty truck repair",
+    "fleet maintenance near me",
+    "truck service center near me"
+  ],
+  "truck-fleet-service|Diesel Engine & Transmission": [
+    "diesel engine repair near me",
+    "diesel mechanic near me",
+    "truck transmission repair",
+    "diesel engine rebuild",
+    "JASPER engine dealer near me",
+    "heavy duty transmission repair"
+  ],
+  "truck-fleet-service|Trailer Repair & Service": [
+    "trailer repair near me",
+    "semi trailer repair",
+    "trailer service center",
+    "flatbed trailer repair",
+    "utility trailer repair",
+    "commercial trailer service"
+  ],
+  "truck-fleet-service|RV Repair & Service": [
+    "RV repair near me",
+    "RV service center",
+    "RV mechanic near me",
+    "motorhome repair",
+    "camper repair near me",
+    "RV maintenance service"
+  ],
+  "truck-fleet-service|Towing & Road Service": [
+    "towing service near me",
+    "24 hour towing",
+    "heavy duty towing",
+    "roadside assistance",
+    "truck towing service",
+    "emergency towing near me"
+  ],
+  "truck-fleet-service|Welding & Fabrication": [
+    "mobile welding near me",
+    "truck welding repair",
+    "custom fabrication near me",
+    "trailer welding service",
+    "structural welding repair",
+    "custom metal fabrication"
+  ],
+  "truck-fleet-service|DOT Inspections & Alignments": [
+    "DOT inspection near me",
+    "truck alignment near me",
+    "DOT truck inspection",
+    "commercial vehicle inspection",
+    "annual DOT inspection",
+    "heavy duty alignment"
   ]
 }

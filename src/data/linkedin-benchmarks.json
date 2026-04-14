@@ -1888,5 +1888,33 @@
     "notes": "LinkedIn is not cost-effective for RV and auto repair. Consumer service — LinkedIn users are not searching for vehicle repair on this platform. Estimated from industry benchmarks — use as a directional estimate.",
     "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
     "confidence": "low"
+  },
+  {
+    "industryId": "truck-fleet-service",
+    "industryName": "Truck & Fleet Service Center",
+    "serviceName": "Truck & Fleet Repair",
+    "cplLow": 105,
+    "cplMid": 170,
+    "cplHigh": 260,
+    "avgJobValue": 3500,
+    "recommendedMinAdSpend": 2500,
+    "recommendedTargetAdSpend": 6000,
+    "notes": "Viable for targeting fleet managers and logistics directors at mid-market trucking and distribution companies. Sponsored Content about fleet uptime and maintenance programs. Estimated from industry benchmarks and LinkedIn platform cost data — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
+  },
+  {
+    "industryId": "truck-fleet-service",
+    "industryName": "Truck & Fleet Service Center",
+    "serviceName": "Diesel Engine & Transmission",
+    "cplLow": 130,
+    "cplMid": 210,
+    "cplHigh": 320,
+    "avgJobValue": 7000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 7000,
+    "notes": "Can target fleet operations managers for high-value engine and transmission service contracts. Long sales cycle. Estimated from industry benchmarks — use as a directional estimate.",
+    "source": "Estimated from LinkedIn Marketing Solutions 2025 cost ranges and industry fit analysis. Not sourced from a specific published benchmark study.",
+    "confidence": "low"
   }
 ]
