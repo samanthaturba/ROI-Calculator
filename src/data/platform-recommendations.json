@@ -1475,6 +1475,24 @@
       "note": "Weak LSA fit. Fleet service is B2B-oriented and not suited for LSA's consumer model."
     }
   },
+  "interior-design": {
+    "google": {
+      "rating": 4,
+      "note": "Google Ads captures high-intent searches for design services. Strong for targeting homeowners actively looking for designers."
+    },
+    "meta": {
+      "rating": 5,
+      "note": "Interior design is highly visual — Instagram and Facebook are ideal for showcasing portfolio work, before/after transformations, and targeting style-conscious homeowners."
+    },
+    "linkedin": {
+      "rating": 2,
+      "note": "Limited B2C reach. May work for commercial interior design targeting facility managers or corporate clients."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "LSA is available for some design services. Lower competition than trades but also lower search volume for design-specific queries."
+    }
+  },
   "other": {
     "google": {
       "rating": 3,

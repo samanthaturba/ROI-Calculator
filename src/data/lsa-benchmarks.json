@@ -334,5 +334,47 @@
     "notes": "LSA pay-per-lead. Uses water damage restoration CPL as comparable remediation category.",
     "source": "Estimated from Water Damage Restoration LSA CPL (~$120) as comparable remediation service category",
     "confidence": "low"
+  },
+  {
+    "industryId": "interior-design",
+    "industryName": "Interior Design Services",
+    "serviceName": "Room Redesign / Makeover",
+    "cplLow": 50,
+    "cplMid": 70,
+    "cplHigh": 95,
+    "avgJobValue": 3000,
+    "recommendedMinAdSpend": 800,
+    "recommendedTargetAdSpend": 2000,
+    "notes": "LSA pay-per-lead. Interior design falls under home services and is LSA-eligible. Lower competition than trades but also lower search volume for design-specific queries.",
+    "source": "Estimated from home services LSA CPL ranges and interior design project values",
+    "confidence": "low"
+  },
+  {
+    "industryId": "interior-design",
+    "industryName": "Interior Design Services",
+    "serviceName": "Full Home Interior Design",
+    "cplLow": 65,
+    "cplMid": 90,
+    "cplHigh": 120,
+    "avgJobValue": 25000,
+    "recommendedMinAdSpend": 1000,
+    "recommendedTargetAdSpend": 3000,
+    "notes": "LSA pay-per-lead. Full home design projects are high-value. LSA's flat CPL makes this very cost-effective given the large project values.",
+    "source": "Estimated from home services LSA CPL ranges and interior design project values",
+    "confidence": "low"
+  },
+  {
+    "industryId": "interior-design",
+    "industryName": "Interior Design Services",
+    "serviceName": "Home Staging",
+    "cplLow": 38,
+    "cplMid": 55,
+    "cplHigh": 75,
+    "avgJobValue": 2500,
+    "recommendedMinAdSpend": 600,
+    "recommendedTargetAdSpend": 1500,
+    "notes": "LSA pay-per-lead. Home staging has lower CPL due to less LSA competition. Good for capturing real estate agent referrals and home sellers.",
+    "source": "Estimated from home services LSA CPL ranges and interior design project values",
+    "confidence": "low"
   }
 ]
