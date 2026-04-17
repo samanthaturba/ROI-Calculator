@@ -17,6 +17,7 @@ import {
   getPlatformRecommendations,
   hasBenchmarksForPlatform,
   getBenchmarkForService,
+  getIndustryCloseRate,
 } from "../lib/benchmarks";
 import { calculate, checkSpendWarning } from "../lib/calculations";
 import { extractServicesFromText } from "../lib/service-extraction";
@@ -31,7 +32,7 @@ import SaveLoad from "../components/SaveLoad";
 import PlatformRecommendations from "../components/PlatformRecommendations";
 import PowerPointExport from "../components/PowerPointExport";
 
-const DEFAULT_CLOSE_RATE = 40;
+const DEFAULT_CLOSE_RATE = 20; // Fallback before industry is selected; actual default comes from industry data
 
 const PLATFORM_INFO: Record<AdPlatform, { label: string; icon: string; description: string }> = {
   google: {
@@ -95,6 +96,8 @@ export default function Home() {
   const [targetAreas, setTargetAreas] = useState<TargetAreaEntry[]>([
     { id: `area-${areaIdCounter++}`, name: "", tier: "", budgetPercent: 100 },
   ]);
+  const [closeRateManuallySet, setCloseRateManuallySet] = useState(false);
+
   const [selectedPlatforms, setSelectedPlatforms] = useState<AdPlatform[]>(["google"]);
   const [platformAllocations, setPlatformAllocations] = useState<Record<AdPlatform, number>>({
     google: 100, meta: 0, linkedin: 0, lsa: 0,
@@ -273,13 +276,22 @@ export default function Home() {
             monthlyAdSpend: spend.target!,
           }));
         }
+
+        // Set industry-specific close rate (unless user has manually set one)
+        if (!closeRateManuallySet) {
+          const industryCloseRate = getIndustryCloseRate(newInputs.industryId);
+          setBudgetInputs((prev) => ({
+            ...prev,
+            closeRate: industryCloseRate.closeRate,
+          }));
+        }
       } else if (!newInputs.industryId) {
         setServices([]);
         setExtractedServices([]);
       }
       setClientInputs(newInputs);
     },
-    [clientInputs.industryId, budgetInputs.monthlyAdSpend, platform]
+    [clientInputs.industryId, budgetInputs.monthlyAdSpend, platform, closeRateManuallySet]
   );
 
   // Handle text extraction for service detection
@@ -321,6 +333,9 @@ export default function Home() {
   const selectedIndustry = getAllIndustries(platform).find(
     (i) => i.id === clientInputs.industryId
   );
+  const currentIndustryCloseRate = clientInputs.industryId
+    ? getIndustryCloseRate(clientInputs.industryId)
+    : null;
   const recommendedSpend = clientInputs.industryId
     ? getRecommendedSpend(clientInputs.industryId, platform)
     : { min: null, target: null };
@@ -823,6 +838,15 @@ export default function Home() {
           recommendedMin={recommendedSpend.min}
           recommendedTarget={recommendedSpend.target}
           spendWarning={spendWarning}
+          industryCloseRate={currentIndustryCloseRate}
+          closeRateManuallySet={closeRateManuallySet}
+          onCloseRateManualChange={() => setCloseRateManuallySet(true)}
+          onResetCloseRate={() => {
+            if (currentIndustryCloseRate) {
+              setBudgetInputs((prev) => ({ ...prev, closeRate: currentIndustryCloseRate.closeRate }));
+              setCloseRateManuallySet(false);
+            }
+          }}
         />
 
         {/* Section D: Results */}
@@ -865,13 +889,14 @@ export default function Home() {
           targetAreas={targetAreas}
           monthlyAdSpend={budgetInputs.monthlyAdSpend}
           closeRate={budgetInputs.closeRate}
-          closeRateIsDefault={budgetInputs.closeRate === DEFAULT_CLOSE_RATE}
+          closeRateIsDefault={!closeRateManuallySet}
           grossMarginPercent={budgetInputs.grossMarginPercent}
           blendedMultiplier={blendedMultiplier}
           websiteUrl={clientInputs.websiteUrl}
           selectedPlatforms={selectedPlatforms}
           platformAllocations={platformAllocations}
           platformResults={platformResults}
+          industryCloseRate={currentIndustryCloseRate}
         />
 
         {/* Section H: Save & Load */}

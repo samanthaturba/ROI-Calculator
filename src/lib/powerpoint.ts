@@ -47,6 +47,7 @@ interface PowerPointData {
   selectedPlatforms?: AdPlatform[];
   platformAllocations?: Record<AdPlatform, number>;
   platformResults?: Record<AdPlatform, CalculationResult | null>;
+  industryCloseRate?: { closeRate: number; source: string };
 }
 
 function addRoasSlide(
@@ -421,11 +422,18 @@ function addAssumptionsSlide(
 
   // Footnote for assumed values
   const assumptions: string[] = [];
-  if (data.closeRateIsDefault) assumptions.push("closing rate (industry default of 40%)");
+  if (data.closeRateIsDefault) {
+    const crInfo = data.industryCloseRate;
+    if (crInfo) {
+      assumptions.push(`closing rate (industry avg of ${crInfo.closeRate}%, source: ${crInfo.source})`);
+    } else {
+      assumptions.push("closing rate (general industry avg of 20%)");
+    }
+  }
   if (gpIsAssumed) assumptions.push("gross margin (industry avg estimate of 52.5%)");
   if (assumptions.length > 0) {
     slide.addText(`* Not provided \u2014 using ${assumptions.join(" and ")}. Update in the ROI calculator for accuracy.`, {
-      x: 0.35, y: 2.65, w: 4.6, h: 0.2,
+      x: 0.35, y: 2.65, w: 4.6, h: 0.25,
       fontSize: 7, fontFace: "Arial",
       color: "CC6600", italic: true,
       margin: 0,

@@ -4,6 +4,7 @@ import metaBenchmarkData from "../data/meta-benchmarks.json";
 import linkedinBenchmarkData from "../data/linkedin-benchmarks.json";
 import lsaBenchmarkData from "../data/lsa-benchmarks.json";
 import platformRecommendationData from "../data/platform-recommendations.json";
+import industryCloseRates from "../data/industry-close-rates.json";
 
 const googleBenchmarks: IndustryBenchmark[] = googleBenchmarkData as IndustryBenchmark[];
 const metaBenchmarks: IndustryBenchmark[] = metaBenchmarkData as IndustryBenchmark[];
@@ -101,6 +102,11 @@ export function getPlatformRecommendations(
 
 export function hasBenchmarksForPlatform(industryId: string, platform: AdPlatform): boolean {
   return getServicesForIndustry(industryId, platform).length > 0;
+}
+
+export function getIndustryCloseRate(industryId: string): { closeRate: number; source: string } {
+  const data = industryCloseRates as Record<string, { closeRate: number; source: string }>;
+  return data[industryId] ?? { closeRate: 20, source: "General industry average" };
 }
 
 export { googleBenchmarks as benchmarks };

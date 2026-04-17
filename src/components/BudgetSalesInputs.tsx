@@ -9,6 +9,10 @@ interface Props {
   recommendedMin: number | null;
   recommendedTarget: number | null;
   spendWarning: string | null;
+  industryCloseRate?: { closeRate: number; source: string } | null;
+  closeRateManuallySet?: boolean;
+  onCloseRateManualChange?: () => void;
+  onResetCloseRate?: () => void;
 }
 
 export default function BudgetSalesInputs({
@@ -17,6 +21,10 @@ export default function BudgetSalesInputs({
   recommendedMin,
   recommendedTarget,
   spendWarning,
+  industryCloseRate,
+  closeRateManuallySet,
+  onCloseRateManualChange,
+  onResetCloseRate,
 }: Props) {
   return (
     <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
@@ -78,16 +86,37 @@ export default function BudgetSalesInputs({
               max={100}
               step={1}
               value={value.closeRate || ""}
-              onChange={(e) =>
-                onChange({ ...value, closeRate: parseFloat(e.target.value) || 0 })
-              }
+              onChange={(e) => {
+                onCloseRateManualChange?.();
+                onChange({ ...value, closeRate: parseFloat(e.target.value) || 0 });
+              }}
               className="w-full border border-gray-300 rounded-md px-3 py-2 pr-7 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
-              placeholder="40"
+              placeholder="20"
             />
             <span className="absolute right-3 top-2 text-gray-500 text-sm">%</span>
           </div>
           {value.closeRate > 100 && (
             <p className="mt-1 text-xs text-red-600">Close rate exceeds 100%</p>
+          )}
+          {industryCloseRate && !closeRateManuallySet && (
+            <p className="mt-1 text-xs text-green-700">
+              Using industry average close rate ({industryCloseRate.closeRate}%)
+              <span className="block text-gray-500 mt-0.5">Source: {industryCloseRate.source}</span>
+            </p>
+          )}
+          {industryCloseRate && closeRateManuallySet && (
+            <p className="mt-1 text-xs text-blue-700">
+              Industry average is {industryCloseRate.closeRate}% — you are using a custom rate
+              {onResetCloseRate && (
+                <button
+                  type="button"
+                  onClick={onResetCloseRate}
+                  className="ml-2 text-cogent-navy underline hover:text-cogent-navy-dark"
+                >
+                  Reset to industry avg
+                </button>
+              )}
+            </p>
           )}
         </div>
 
