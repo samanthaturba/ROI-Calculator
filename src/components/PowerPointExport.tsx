@@ -18,6 +18,9 @@ interface Props {
   grossMarginPercent: number | null;
   blendedMultiplier: number;
   websiteUrl: string;
+  selectedPlatforms: AdPlatform[];
+  platformAllocations: Record<AdPlatform, number>;
+  platformResults: Record<AdPlatform, CalculationResult | null>;
 }
 
 async function fetchLogoAsBase64(url: string): Promise<string | undefined> {
@@ -72,6 +75,9 @@ export default function PowerPointExport({
   grossMarginPercent,
   blendedMultiplier,
   websiteUrl,
+  selectedPlatforms,
+  platformAllocations,
+  platformResults,
 }: Props) {
   const [generating, setGenerating] = useState(false);
   const [status, setStatus] = useState("");
@@ -114,6 +120,9 @@ export default function PowerPointExport({
         cogentLogoBase64,
         clientLogoBase64,
         clientWebsiteUrl: websiteUrl,
+        selectedPlatforms,
+        platformAllocations,
+        platformResults,
       });
 
       setStatus("Done!");

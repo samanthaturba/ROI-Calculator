@@ -44,51 +44,53 @@ interface PowerPointData {
   cogentLogoBase64: string;
   clientLogoBase64?: string;
   clientWebsiteUrl?: string;
+  selectedPlatforms?: AdPlatform[];
+  platformAllocations?: Record<AdPlatform, number>;
+  platformResults?: Record<AdPlatform, CalculationResult | null>;
 }
 
-export async function generatePowerPoint(data: PowerPointData): Promise<void> {
-  const pres = new PptxGenJS();
-  pres.layout = "LAYOUT_16x9";
-  pres.author = "Cogent Analytics";
-  pres.title = `ROAS Report — ${data.clientName || "Client"}`;
-
+function addRoasSlide(
+  pres: PptxGenJS,
+  data: PowerPointData,
+  platformForSlide: AdPlatform,
+  resultForSlide: CalculationResult,
+  budgetForSlide: number,
+  slideNumber: number,
+  isMultiPlatform: boolean,
+  allocationPercent?: number,
+) {
   const selectedServices = data.services.filter((s) => s.selected);
   const isConservative = data.roundingMode === "conservative";
-  const platformLabel = PLATFORM_LABELS[data.platform];
+  const platformLabel = PLATFORM_LABELS[platformForSlide];
   const areasWithTier = data.targetAreas.filter((a) => a.tier);
 
-  // Revenue and ROAS calculations
-  const revenue = isConservative ? data.result.totalRevenueRounded : data.result.totalRevenue;
-  const roas = data.result.totalSpend > 0 ? revenue / data.result.totalSpend : 0;
+  const revenue = isConservative ? resultForSlide.totalRevenueRounded : resultForSlide.totalRevenue;
   const gpPercent = data.grossMarginPercent ?? 52.5;
   const gpIsAssumed = data.grossMarginPercent === null;
 
-  // ========================
-  // SLIDE 1: ROAS/ROI Data
-  // ========================
-  const slide1 = pres.addSlide();
-  slide1.background = { color: WHITE };
+  const slide = pres.addSlide();
+  slide.background = { color: WHITE };
 
   // -- Header bar --
-  slide1.addShape('rect' as PptxGenJS.ShapeType, {
+  slide.addShape('rect' as PptxGenJS.ShapeType, {
     x: 0, y: 0, w: 10, h: 1.1,
     fill: { color: WHITE },
   });
 
   // Client logo (top-left) or placeholder
   if (data.clientLogoBase64) {
-    slide1.addImage({
+    slide.addImage({
       data: data.clientLogoBase64,
       x: 0.3, y: 0.15, w: 1.5, h: 0.8,
       sizing: { type: "contain", w: 1.5, h: 0.8 },
     });
   } else {
-    slide1.addShape('rect' as PptxGenJS.ShapeType, {
+    slide.addShape('rect' as PptxGenJS.ShapeType, {
       x: 0.3, y: 0.15, w: 1.5, h: 0.8,
       fill: { color: LIGHT_GRAY },
       line: { color: MED_GRAY, width: 1 },
     });
-    slide1.addText("Add Client\nLogo Here", {
+    slide.addText("Add Client\nLogo Here", {
       x: 0.3, y: 0.15, w: 1.5, h: 0.8,
       fontSize: 8, color: "999999",
       align: "center", valign: "middle",
@@ -97,24 +99,27 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
   }
 
   // Title
-  slide1.addText(`Potential ROAS/ROI from\n${platformLabel} Advertising Strategy`, {
+  const titleSuffix = isMultiPlatform && allocationPercent !== undefined
+    ? `\n${platformLabel} (${allocationPercent}% of budget)`
+    : `\n${platformLabel} Advertising Strategy`;
+  slide.addText(`Potential ROAS/ROI from${titleSuffix}`, {
     x: 2.0, y: 0.1, w: 5.5, h: 0.95,
     fontSize: 22, fontFace: "Georgia",
     color: BLACK, bold: true, align: "center", valign: "middle",
     margin: 0,
   });
 
-  // Cogent logo area (top-right) — icon + text on muted background
-  slide1.addShape('rect' as PptxGenJS.ShapeType, {
+  // Cogent logo area (top-right)
+  slide.addShape('rect' as PptxGenJS.ShapeType, {
     x: 7.8, y: 0.0, w: 2.2, h: 1.1,
     fill: { color: "E8E8E0" },
   });
-  slide1.addImage({
+  slide.addImage({
     data: data.cogentLogoBase64,
     x: 7.9, y: 0.1, w: 0.7, h: 0.7,
     sizing: { type: "contain", w: 0.7, h: 0.7 },
   });
-  slide1.addText([
+  slide.addText([
     { text: "Cogent", options: { fontSize: 16, color: COGENT_SAGE_DARK, bold: true } },
     { text: " Analytics", options: { fontSize: 16, color: COGENT_SAGE_DARK } },
   ], {
@@ -125,30 +130,28 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
   });
 
   // -- Calculate layout dimensions dynamically --
-  // Available space: y=1.15 to y=4.95 (disclaimer at 5.0) = 3.8" total
   const namedAreas = areasWithTier.filter((a) => a.name && a.name.trim() !== "");
   const hasLocations = namedAreas.length > 0;
   const numServices = selectedServices.length;
   const numLocations = namedAreas.length;
 
-  // Count total data rows to determine sizing
-  const totalRows = (hasLocations ? numLocations + 1 : 0) + (numServices + 1) + (numServices + 2); // loc + svc + results+total
-  const isCompact = totalRows > 10; // shrink fonts when lots of rows
+  const totalRows = (hasLocations ? numLocations + 1 : 0) + (numServices + 1) + (numServices + 2);
+  const isCompact = totalRows > 10;
   const rowH = isCompact ? 0.2 : 0.23;
   const headerH = isCompact ? 0.22 : 0.25;
   const fontSize = isCompact ? 8 : 9;
   const headerFontSize = isCompact ? 9 : 10;
 
   // -- Content area border --
-  slide1.addShape('rect' as PptxGenJS.ShapeType, {
+  slide.addShape('rect' as PptxGenJS.ShapeType, {
     x: 0.2, y: 1.15, w: 9.6, h: 3.85,
     fill: { color: WHITE },
     line: { color: MED_GRAY, width: 1 },
   });
 
   // -- Recommendation line --
-  const recText = `Recommendation: ${fmt$(data.monthlyAdSpend)}/month advertising budget for ${platformLabel} Ads`;
-  slide1.addText(recText, {
+  const recText = `Recommendation: ${fmt$(budgetForSlide)}/month advertising budget for ${platformLabel} Ads`;
+  slide.addText(recText, {
     x: 0.3, y: 1.18, w: 9.4, h: 0.3,
     fontSize: 12, fontFace: "Arial",
     color: BLACK, align: "center", valign: "middle",
@@ -167,10 +170,10 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
     const locRows: PptxGenJS.TableCell[][] = namedAreas.map((area) => [
       { text: area.name, options: { fontSize, fontFace: "Arial", align: "center" } },
       { text: String(area.budgetPercent), options: { fontSize, fontFace: "Arial", align: "center" } },
-      { text: fmt$(Math.round(data.monthlyAdSpend * area.budgetPercent / 100)), options: { fontSize, fontFace: "Arial", align: "center" } },
+      { text: fmt$(Math.round(budgetForSlide * area.budgetPercent / 100)), options: { fontSize, fontFace: "Arial", align: "center" } },
     ]);
 
-    slide1.addTable([...locHeader, ...locRows], {
+    slide.addTable([...locHeader, ...locRows], {
       x: 2.0, y: currentY, w: 6.0,
       colW: [2.5, 1.5, 2.0],
       border: { pt: 0.5, color: MED_GRAY },
@@ -191,17 +194,17 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
   ]];
 
   const svcRows: PptxGenJS.TableCell[][] = selectedServices.map((svc) => {
-    const sr = data.result.serviceResults.find((r) => r.serviceName === svc.serviceName);
+    const sr = resultForSlide.serviceResults.find((r) => r.serviceName === svc.serviceName);
     return [
       { text: svc.serviceName, options: { fontSize, fontFace: "Arial", align: "center" } },
       { text: String(svc.allocationPercent), options: { fontSize, fontFace: "Arial", align: "center" } },
-      { text: fmt$(Math.round(data.monthlyAdSpend * svc.allocationPercent / 100)), options: { fontSize, fontFace: "Arial", align: "center" } },
-      { text: sr ? fmt$(sr.cplUsed) : "—", options: { fontSize, fontFace: "Arial", align: "center" } },
-      { text: sr ? fmt$(sr.jobValue) : "—", options: { fontSize, fontFace: "Arial", align: "center" } },
+      { text: fmt$(Math.round(budgetForSlide * svc.allocationPercent / 100)), options: { fontSize, fontFace: "Arial", align: "center" } },
+      { text: sr ? fmt$(sr.cplUsed) : "\u2014", options: { fontSize, fontFace: "Arial", align: "center" } },
+      { text: sr ? fmt$(sr.jobValue) : "\u2014", options: { fontSize, fontFace: "Arial", align: "center" } },
     ];
   });
 
-  slide1.addTable([...svcHeader, ...svcRows], {
+  slide.addTable([...svcHeader, ...svcRows], {
     x: 0.3, y: currentY, w: 9.4,
     colW: [2.8, 1.2, 1.2, 1.6, 1.6],
     border: { pt: 0.5, color: MED_GRAY },
@@ -212,7 +215,7 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
   currentY += headerH + rowH * numServices + 0.12;
 
   // -- "Potential for Return" heading --
-  slide1.addText("Potential for Return", {
+  slide.addText("Potential for Return", {
     x: 0.3, y: currentY, w: 9.4, h: 0.25,
     fontSize: 13, fontFace: "Arial",
     color: BLACK, bold: true, align: "center",
@@ -221,7 +224,6 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
   currentY += 0.28;
 
   // -- Results Table --
-  // Conditionally include GP column only if gross margin was provided
   const resHeaderCells: PptxGenJS.TableCell[] = [
     { text: "Sample Service Offerings", options: { bold: true, fontSize, fontFace: "Arial", fill: { color: WHITE }, color: BLACK, align: "center" } },
     { text: "Ad Spend", options: { bold: true, fontSize, fontFace: "Arial", fill: { color: WHITE }, color: BLACK, align: "center" } },
@@ -239,7 +241,7 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
 
   const resHeader: PptxGenJS.TableCell[][] = [resHeaderCells];
 
-  const resRows: PptxGenJS.TableCell[][] = data.result.serviceResults.map((sr) => {
+  const resRows: PptxGenJS.TableCell[][] = resultForSlide.serviceResults.map((sr) => {
     const jobs = isConservative ? sr.jobsRounded : sr.jobs;
     const rev = isConservative ? sr.revenueRounded : sr.revenue;
     const gp = rev * (gpPercent / 100);
@@ -258,13 +260,13 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
   });
 
   // Total row
-  const totalJobs = isConservative ? data.result.totalJobsRounded : data.result.totalJobs;
+  const totalJobs = isConservative ? resultForSlide.totalJobsRounded : resultForSlide.totalJobs;
   const totalGP = revenue * (gpPercent / 100);
   const totalRowCells: PptxGenJS.TableCell[] = [
     { text: "Total", options: { bold: true, fontSize, fontFace: "Arial", align: "center" } },
-    { text: fmt$(data.result.totalSpend), options: { bold: true, fontSize, fontFace: "Arial", align: "center" } },
-    { text: fmt$(Math.round(data.result.weightedAvgCpl)), options: { bold: true, fontSize, fontFace: "Arial", align: "center" } },
-    { text: `~${fmtNum(data.result.totalLeads)}`, options: { bold: true, fontSize, fontFace: "Arial", align: "center" } },
+    { text: fmt$(resultForSlide.totalSpend), options: { bold: true, fontSize, fontFace: "Arial", align: "center" } },
+    { text: fmt$(Math.round(resultForSlide.weightedAvgCpl)), options: { bold: true, fontSize, fontFace: "Arial", align: "center" } },
+    { text: `~${fmtNum(resultForSlide.totalLeads)}`, options: { bold: true, fontSize, fontFace: "Arial", align: "center" } },
     { text: `~${fmtNum(totalJobs)}`, options: { bold: true, fontSize, fontFace: "Arial", align: "center" } },
     { text: `~${fmt$(revenue)}`, options: { bold: true, fontSize, fontFace: "Arial", align: "center", border: [{ pt: 0.5, color: MED_GRAY }, { pt: 2, color: BLACK }, { pt: 0.5, color: MED_GRAY }, { pt: 2, color: BLACK }] } },
   ];
@@ -272,16 +274,16 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
     totalRowCells.push({ text: `~${fmt$(totalGP)}`, options: { bold: true, fontSize, fontFace: "Arial", align: "center" } });
   }
 
-  slide1.addTable([...resHeader, ...resRows, totalRowCells], {
+  slide.addTable([...resHeader, ...resRows, totalRowCells], {
     x: 0.3, y: currentY, w: 9.4,
     colW: resColW,
     border: { pt: 0.5, color: MED_GRAY },
-    rowH: [headerH, ...data.result.serviceResults.map(() => rowH), rowH],
+    rowH: [headerH, ...resultForSlide.serviceResults.map(() => rowH), rowH],
     margin: 2,
   });
 
-  // -- Disclaimer (positioned at bottom of slide) --
-  slide1.addText([
+  // -- Disclaimer --
+  slide.addText([
     { text: "DISCLAIMER", options: { bold: true } },
     { text: ": The projections shown above are " },
     { text: "estimates based on published industry benchmarks", options: { bold: true, underline: { style: "sng" } } },
@@ -299,32 +301,44 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
   });
 
   // Page number
-  slide1.addText("1", {
+  slide.addText(String(slideNumber), {
     x: 9.5, y: 5.35, w: 0.3, h: 0.2,
     fontSize: 8, fontFace: "Arial",
     color: "999999", align: "right",
   });
+}
 
-  // ========================
-  // SLIDE 2: Assumptions & KPIs
-  // ========================
-  const slide2 = pres.addSlide();
-  slide2.background = { color: WHITE };
+function addAssumptionsSlide(
+  pres: PptxGenJS,
+  data: PowerPointData,
+  platformForSlide: AdPlatform,
+  resultForSlide: CalculationResult,
+  slideNumber: number,
+) {
+  const isConservative = data.roundingMode === "conservative";
+  const platformLabel = PLATFORM_LABELS[platformForSlide];
+  const revenue = isConservative ? resultForSlide.totalRevenueRounded : resultForSlide.totalRevenue;
+  const gpPercent = data.grossMarginPercent ?? 52.5;
+  const gpIsAssumed = data.grossMarginPercent === null;
+  const roas = resultForSlide.totalSpend > 0 ? revenue / resultForSlide.totalSpend : 0;
+
+  const slide = pres.addSlide();
+  slide.background = { color: WHITE };
 
   // -- Header --
   if (data.clientLogoBase64) {
-    slide2.addImage({
+    slide.addImage({
       data: data.clientLogoBase64,
       x: 0.3, y: 0.15, w: 1.5, h: 0.8,
       sizing: { type: "contain", w: 1.5, h: 0.8 },
     });
   } else {
-    slide2.addShape('rect' as PptxGenJS.ShapeType, {
+    slide.addShape('rect' as PptxGenJS.ShapeType, {
       x: 0.3, y: 0.15, w: 1.5, h: 0.8,
       fill: { color: LIGHT_GRAY },
       line: { color: MED_GRAY, width: 1 },
     });
-    slide2.addText("Add Client\nLogo Here", {
+    slide.addText("Add Client\nLogo Here", {
       x: 0.3, y: 0.15, w: 1.5, h: 0.8,
       fontSize: 8, color: "999999",
       align: "center", valign: "middle",
@@ -332,23 +346,23 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
     });
   }
 
-  slide2.addText("Assumptions, KPIs, and\nOther Considerations", {
+  slide.addText("Assumptions, KPIs, and\nOther Considerations", {
     x: 2.0, y: 0.1, w: 5.5, h: 0.95,
     fontSize: 22, fontFace: "Georgia",
     color: BLACK, bold: true, align: "center", valign: "middle",
     margin: 0,
   });
 
-  slide2.addShape('rect' as PptxGenJS.ShapeType, {
+  slide.addShape('rect' as PptxGenJS.ShapeType, {
     x: 7.8, y: 0.0, w: 2.2, h: 1.1,
     fill: { color: "E8E8E0" },
   });
-  slide2.addImage({
+  slide.addImage({
     data: data.cogentLogoBase64,
     x: 7.9, y: 0.1, w: 0.7, h: 0.7,
     sizing: { type: "contain", w: 0.7, h: 0.7 },
   });
-  slide2.addText([
+  slide.addText([
     { text: "Cogent", options: { fontSize: 16, color: COGENT_SAGE_DARK, bold: true } },
     { text: " Analytics", options: { fontSize: 16, color: COGENT_SAGE_DARK } },
   ], {
@@ -359,14 +373,13 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
   });
 
   // -- Content border --
-  slide2.addShape('rect' as PptxGenJS.ShapeType, {
+  slide.addShape('rect' as PptxGenJS.ShapeType, {
     x: 0.2, y: 1.15, w: 9.6, h: 3.85,
     fill: { color: WHITE },
     line: { color: MED_GRAY, width: 1 },
   });
 
-  // -- Assumptions & KPIs Table (left side) --
-  // Flag which values are assumed vs user-provided
+  // -- Assumptions & KPIs Table --
   const closeRateNote = data.closeRateIsDefault ? " *" : "";
   const gpNote = gpIsAssumed ? " *" : "";
 
@@ -390,7 +403,7 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
     [
       { text: "Estimated Cost per Lead (CPL)", options: { fontSize: 10, fontFace: "Arial", align: "center" } },
       { text: "KPI", options: { fontSize: 10, fontFace: "Arial", align: "center" } },
-      { text: fmt$(Math.round(data.result.weightedAvgCpl)), options: { fontSize: 10, fontFace: "Arial", align: "center" } },
+      { text: fmt$(Math.round(resultForSlide.weightedAvgCpl)), options: { fontSize: 10, fontFace: "Arial", align: "center" } },
     ],
     [
       { text: "Estimated Return on Ad Spend\n(ROAS)", options: { fontSize: 10, fontFace: "Arial", align: "center" } },
@@ -399,19 +412,19 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
     ],
   ];
 
-  slide2.addTable([...kpiHeader, ...kpiRows], {
+  slide.addTable([...kpiHeader, ...kpiRows], {
     x: 0.35, y: 1.3, w: 4.6,
     colW: [2.5, 0.8, 1.3],
     border: { pt: 0.5, color: MED_GRAY },
     margin: 3,
   });
 
-  // Show footnote for assumed values
+  // Footnote for assumed values
   const assumptions: string[] = [];
   if (data.closeRateIsDefault) assumptions.push("closing rate (industry default of 40%)");
   if (gpIsAssumed) assumptions.push("gross margin (industry avg estimate of 52.5%)");
   if (assumptions.length > 0) {
-    slide2.addText(`* Not provided — using ${assumptions.join(" and ")}. Update in the ROI calculator for accuracy.`, {
+    slide.addText(`* Not provided \u2014 using ${assumptions.join(" and ")}. Update in the ROI calculator for accuracy.`, {
       x: 0.35, y: 2.65, w: 4.6, h: 0.2,
       fontSize: 7, fontFace: "Arial",
       color: "CC6600", italic: true,
@@ -419,7 +432,7 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
     });
   }
 
-  // -- Other Factors Table (right side) --
+  // -- Other Factors Table --
   const factorsHeader: PptxGenJS.TableCell[][] = [[
     { text: "Other Factors That Affect Return", options: { bold: true, fontSize: 11, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center", colspan: 2 } },
   ]];
@@ -443,7 +456,7 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
     ],
   ];
 
-  slide2.addTable([...factorsHeader, ...factorsRows], {
+  slide.addTable([...factorsHeader, ...factorsRows], {
     x: 5.15, y: 1.3, w: 4.5,
     colW: [2.25, 2.25],
     border: { pt: 0.5, color: MED_GRAY },
@@ -452,24 +465,23 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
 
   // -- Learning & Ramp-Up Period --
   const learnY = 3.3;
-  slide2.addText(`${platformLabel} Ads Learning & Ramp-Up Period*`, {
+  slide.addText(`${platformLabel} Ads Learning & Ramp-Up Period*`, {
     x: 0.4, y: learnY, w: 9.2, h: 0.3,
     fontSize: 13, fontFace: "Arial",
     color: BLACK, bold: true,
     margin: 0,
   });
 
-  // Three columns for learning phases
   const phaseY = learnY + 0.35;
-  const phases = data.platform === "google" ? [
+  const phases = platformForSlide === "google" ? [
     { title: "Weeks 1-2: Learning Phase", body: "Google's algorithm is gathering data. Expect higher CPL and fewer conversions. Do not make major changes during this period." },
     { title: "Weeks 3-6: Optimization", body: "Data builds, CPL stabilizes. Campaign adjustments begin. Results start trending toward benchmarks shown above." },
     { title: "Months 2-3+: Mature Performance", body: "Campaigns are optimized and performing at or near projected benchmarks. Continuous optimization drives improvement." },
-  ] : data.platform === "meta" ? [
+  ] : platformForSlide === "meta" ? [
     { title: "Weeks 1-2: Learning Phase", body: "Meta's algorithm is learning your audience. Ad delivery will fluctuate. Avoid editing ads or audiences during this phase." },
     { title: "Weeks 3-6: Optimization", body: "Audience data matures. Retargeting audiences build. CPL begins to stabilize as winning ad creatives emerge." },
     { title: "Months 2-3+: Mature Performance", body: "Lookalike audiences and retargeting are fully built. Campaigns running at steady-state performance with consistent lead flow." },
-  ] : data.platform === "lsa" ? [
+  ] : platformForSlide === "lsa" ? [
     { title: "Weeks 1-2: Building Visibility", body: "Your LSA profile is building visibility. Lead volume starts low as Google verifies your business and profile completeness." },
     { title: "Weeks 3-6: Growing Momentum", body: "Lead volume increases as reviews accumulate and your profile ranks higher. Respond quickly to leads to maintain your ranking." },
     { title: "Months 2-3+: Established Profile", body: "Established profile with consistent lead flow. Maintain high review ratings and fast response times to keep top placement." },
@@ -481,7 +493,7 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
 
   phases.forEach((phase, i) => {
     const px = 0.4 + i * 3.1;
-    slide2.addText([
+    slide.addText([
       { text: phase.title, options: { bold: true, fontSize: 9, breakLine: true } },
       { text: phase.body, options: { fontSize: 8 } },
     ], {
@@ -491,8 +503,7 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
     });
   });
 
-  // Footnote
-  slide2.addText(`*Most ${platformLabel} Ads campaigns require 60-90 days to reach full optimization. The estimates above represent mature campaign performance, not Day 1 results.`, {
+  slide.addText(`*Most ${platformLabel} Ads campaigns require 60-90 days to reach full optimization. The estimates above represent mature campaign performance, not Day 1 results.`, {
     x: 0.4, y: phaseY + 0.85, w: 9.2, h: 0.2,
     fontSize: 7, fontFace: "Arial",
     color: "666666", italic: true,
@@ -500,7 +511,7 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
   });
 
   // -- Disclaimer --
-  slide2.addText([
+  slide.addText([
     { text: "DISCLAIMER", options: { bold: true } },
     { text: ": The projections shown above are " },
     { text: "estimates based on published industry benchmarks", options: { bold: true, underline: { style: "sng" } } },
@@ -518,11 +529,43 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
   });
 
   // Page number
-  slide2.addText("2", {
+  slide.addText(String(slideNumber), {
     x: 9.5, y: 5.35, w: 0.3, h: 0.2,
     fontSize: 8, fontFace: "Arial",
     color: "999999", align: "right",
   });
+}
+
+export async function generatePowerPoint(data: PowerPointData): Promise<void> {
+  const pres = new PptxGenJS();
+  pres.layout = "LAYOUT_16x9";
+  pres.author = "Cogent Analytics";
+  pres.title = `ROAS Report — ${data.clientName || "Client"}`;
+
+  const platforms = data.selectedPlatforms ?? [data.platform];
+  const isMultiPlatform = platforms.length > 1;
+
+  let slideNum = 1;
+
+  if (isMultiPlatform && data.platformResults && data.platformAllocations) {
+    // Multi-platform: one ROAS slide per platform, then one Assumptions slide
+    for (const plat of platforms) {
+      const platResult = data.platformResults[plat];
+      if (!platResult) continue;
+      const platBudget = data.monthlyAdSpend * (data.platformAllocations[plat] / 100);
+
+      addRoasSlide(pres, data, plat, platResult, platBudget, slideNum, true, data.platformAllocations[plat]);
+      slideNum++;
+    }
+
+    // Assumptions slide uses the primary platform
+    const primaryResult = data.platformResults[platforms[0]] ?? data.result;
+    addAssumptionsSlide(pres, data, platforms[0], primaryResult, slideNum);
+  } else {
+    // Single platform: exactly as before (2 slides)
+    addRoasSlide(pres, data, data.platform, data.result, data.monthlyAdSpend, 1, false);
+    addAssumptionsSlide(pres, data, data.platform, data.result, 2);
+  }
 
   // Generate and download
   await pres.writeFile({ fileName: `${data.clientName || "Client"} - ROAS Report.pptx` });

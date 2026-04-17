@@ -8,6 +8,7 @@ import type {
   ServiceSelection as ServiceSelectionType,
   ExtractedService,
   AdPlatform,
+  CalculationResult,
 } from "../lib/types";
 import {
   getAllIndustries,
@@ -15,6 +16,7 @@ import {
   getRecommendedSpend,
   getPlatformRecommendations,
   hasBenchmarksForPlatform,
+  getBenchmarkForService,
 } from "../lib/benchmarks";
 import { calculate, checkSpendWarning } from "../lib/calculations";
 import { extractServicesFromText } from "../lib/service-extraction";
@@ -93,7 +95,15 @@ export default function Home() {
   const [targetAreas, setTargetAreas] = useState<TargetAreaEntry[]>([
     { id: `area-${areaIdCounter++}`, name: "", tier: "", budgetPercent: 100 },
   ]);
-  const [platform, setPlatform] = useState<AdPlatform>("google");
+  const [selectedPlatforms, setSelectedPlatforms] = useState<AdPlatform[]>(["google"]);
+  const [platformAllocations, setPlatformAllocations] = useState<Record<AdPlatform, number>>({
+    google: 100, meta: 0, linkedin: 0, lsa: 0,
+  });
+
+  // Primary platform = first selected, used for loading services and single-platform contexts
+  const primaryPlatform = selectedPlatforms[0];
+  // Backward compat alias
+  const platform = primaryPlatform;
 
   // Compute blended market multiplier from all areas
   const blendedMultiplier = useMemo(() => {
@@ -147,9 +157,70 @@ export default function Home() {
 
   const totalAreaPercent = targetAreas.reduce((s, a) => s + a.budgetPercent, 0);
 
-  // When platform changes, reload services for the current industry
-  function handlePlatformChange(newPlatform: AdPlatform) {
-    setPlatform(newPlatform);
+  // Rebalance platform allocations evenly across selected platforms
+  function rebalancePlatformAllocations(platforms: AdPlatform[]): Record<AdPlatform, number> {
+    const alloc: Record<AdPlatform, number> = { google: 0, meta: 0, linkedin: 0, lsa: 0 };
+    if (platforms.length === 0) return alloc;
+    const even = Math.round((100 / platforms.length) * 10) / 10;
+    for (const p of platforms) {
+      alloc[p] = even;
+    }
+    // Fix rounding so it sums to 100
+    const total = platforms.reduce((s, p) => s + alloc[p], 0);
+    if (Math.abs(total - 100) > 0.01 && platforms.length > 0) {
+      alloc[platforms[0]] += Math.round((100 - total) * 10) / 10;
+    }
+    return alloc;
+  }
+
+  function evenSplitPlatforms() {
+    setPlatformAllocations(rebalancePlatformAllocations(selectedPlatforms));
+  }
+
+  const totalPlatformPercent = selectedPlatforms.reduce((s, p) => s + platformAllocations[p], 0);
+
+  // Toggle a platform on or off
+  function handlePlatformToggle(toggledPlatform: AdPlatform) {
+    setSelectedPlatforms((prev) => {
+      const isSelected = prev.includes(toggledPlatform);
+
+      if (isSelected) {
+        // Don't allow deselecting the last platform
+        if (prev.length <= 1) return prev;
+        const next = prev.filter((p) => p !== toggledPlatform);
+        setPlatformAllocations(rebalancePlatformAllocations(next));
+        // If we removed the primary platform, reload services for new primary
+        if (prev[0] === toggledPlatform && clientInputs.industryId) {
+          const newPrimary = next[0];
+          const benchmarks = getServicesForIndustry(clientInputs.industryId, newPrimary);
+          const newServices: ServiceSelectionType[] = benchmarks.map((b) => ({
+            serviceName: b.serviceName,
+            selected: false,
+            allocationPercent: 0,
+            cplChoice: "mid" as const,
+            customCpl: null,
+            customJobValue: null,
+            benchmark: b,
+            isManual: false,
+          }));
+          setServices(newServices);
+          setExtractedServices([]);
+        }
+        return next;
+      } else {
+        // Toggle ON
+        const next = [...prev, toggledPlatform];
+        setPlatformAllocations(rebalancePlatformAllocations(next));
+        return next;
+      }
+    });
+  }
+
+  // Legacy: when only one platform is selected and user clicks a different one, switch to it
+  // This preserves the old single-select UX for quick switching
+  function handlePlatformSwitch(newPlatform: AdPlatform) {
+    setSelectedPlatforms([newPlatform]);
+    setPlatformAllocations({ google: 0, meta: 0, linkedin: 0, lsa: 0, [newPlatform]: 100 } as Record<AdPlatform, number>);
     if (clientInputs.industryId) {
       const benchmarks = getServicesForIndustry(clientInputs.industryId, newPlatform);
       const newServices: ServiceSelectionType[] = benchmarks.map((b) => ({
@@ -269,37 +340,110 @@ export default function Home() {
     ? hasBenchmarksForPlatform(clientInputs.industryId, platform)
     : true;
 
-  // Calculate results with blended market multiplier
-  const result = useMemo(() => {
+  // Calculate results per platform with blended market multiplier
+  const platformResults = useMemo(() => {
+    const results: Record<AdPlatform, CalculationResult | null> = {
+      google: null, meta: null, linkedin: null, lsa: null,
+    };
+
     const selectedServices = services.filter((s) => s.selected);
     if (
       selectedServices.length === 0 ||
       budgetInputs.monthlyAdSpend <= 0 ||
       budgetInputs.closeRate <= 0
     ) {
-      return null;
+      return results;
     }
-    if (blendedMultiplier !== 1.0) {
-      const adjustedServices = services.map((s) => {
-        if (!s.selected || !s.benchmark) return s;
-        const adjusted = { ...s, benchmark: { ...s.benchmark } };
-        if (s.cplChoice !== "custom") {
-          if (adjusted.benchmark!.cplLow !== null) adjusted.benchmark!.cplLow = Math.round(adjusted.benchmark!.cplLow! * blendedMultiplier);
-          if (adjusted.benchmark!.cplMid !== null) adjusted.benchmark!.cplMid = Math.round(adjusted.benchmark!.cplMid! * blendedMultiplier);
-          if (adjusted.benchmark!.cplHigh !== null) adjusted.benchmark!.cplHigh = Math.round(adjusted.benchmark!.cplHigh! * blendedMultiplier);
+
+    for (const plat of selectedPlatforms) {
+      const platBudget = budgetInputs.monthlyAdSpend * (platformAllocations[plat] / 100);
+      if (platBudget <= 0) continue;
+
+      // Build services with platform-specific benchmarks
+      const platServices = services.map((s) => {
+        if (!s.selected) return s;
+
+        // For the primary platform, use the service as-is
+        // For secondary platforms, look up that platform's benchmark
+        let benchmark = s.benchmark;
+        if (plat !== primaryPlatform && clientInputs.industryId) {
+          const platBenchmark = getBenchmarkForService(clientInputs.industryId, s.serviceName, plat);
+          if (platBenchmark) {
+            benchmark = platBenchmark;
+          }
+          // If no benchmark on this platform, fall back to primary platform benchmark
         }
+
+        const adjusted = { ...s, benchmark: benchmark ? { ...benchmark } : null };
+
+        // Apply market multiplier
+        if (blendedMultiplier !== 1.0 && adjusted.benchmark && s.cplChoice !== "custom") {
+          if (adjusted.benchmark.cplLow !== null) adjusted.benchmark.cplLow = Math.round(adjusted.benchmark.cplLow * blendedMultiplier);
+          if (adjusted.benchmark.cplMid !== null) adjusted.benchmark.cplMid = Math.round(adjusted.benchmark.cplMid * blendedMultiplier);
+          if (adjusted.benchmark.cplHigh !== null) adjusted.benchmark.cplHigh = Math.round(adjusted.benchmark.cplHigh * blendedMultiplier);
+        }
+
         return adjusted;
       });
-      return calculate(adjustedServices, budgetInputs);
+
+      const platBudgetInputs = { ...budgetInputs, monthlyAdSpend: platBudget };
+      results[plat] = calculate(platServices, platBudgetInputs);
     }
-    return calculate(services, budgetInputs);
-  }, [services, budgetInputs, blendedMultiplier]);
+
+    return results;
+  }, [services, budgetInputs, blendedMultiplier, selectedPlatforms, platformAllocations, primaryPlatform, clientInputs.industryId]);
+
+  // Combined result across all platforms (for single-platform backward compat, this equals the single result)
+  const combinedResult = useMemo(() => {
+    const activeResults = selectedPlatforms
+      .map((p) => platformResults[p])
+      .filter((r): r is CalculationResult => r !== null);
+
+    if (activeResults.length === 0) return null;
+    if (activeResults.length === 1) return activeResults[0];
+
+    // Sum across platforms
+    const allServiceResults = activeResults.flatMap((r) => r.serviceResults);
+    const totalSpend = activeResults.reduce((s, r) => s + r.totalSpend, 0);
+    const totalLeads = activeResults.reduce((s, r) => s + r.totalLeads, 0);
+    const totalJobs = activeResults.reduce((s, r) => s + r.totalJobs, 0);
+    const totalJobsRounded = activeResults.reduce((s, r) => s + r.totalJobsRounded, 0);
+    const totalRevenue = activeResults.reduce((s, r) => s + r.totalRevenue, 0);
+    const totalRevenueRounded = activeResults.reduce((s, r) => s + r.totalRevenueRounded, 0);
+    const grossProfit = activeResults.every((r) => r.grossProfit !== null)
+      ? activeResults.reduce((s, r) => s + r.grossProfit!, 0) : null;
+    const grossProfitRounded = activeResults.every((r) => r.grossProfitRounded !== null)
+      ? activeResults.reduce((s, r) => s + r.grossProfitRounded!, 0) : null;
+    const weightedAvgCpl = totalLeads > 0 ? totalSpend / totalLeads : 0;
+    const warnings = activeResults.flatMap((r) => r.warnings);
+
+    return {
+      totalSpend,
+      weightedAvgCpl,
+      totalLeads,
+      totalJobs,
+      totalJobsRounded,
+      totalRevenue,
+      totalRevenueRounded,
+      grossProfit,
+      grossProfitRounded,
+      closeRate: budgetInputs.closeRate,
+      serviceResults: allServiceResults,
+      hasCustomEstimates: activeResults.some((r) => r.hasCustomEstimates),
+      hasLowConfidence: activeResults.some((r) => r.hasLowConfidence),
+      warnings,
+    } as CalculationResult;
+  }, [platformResults, selectedPlatforms, budgetInputs.closeRate]);
+
+  // Backward compat: single result for components that still expect it
+  const result = combinedResult;
 
   // Save/Load state management
   const getCurrentState = useCallback(() => {
     return {
-      version: 2,
-      platform,
+      version: 3,
+      selectedPlatforms,
+      platformAllocations,
       clientInputs,
       budgetInputs,
       targetAreas,
@@ -313,12 +457,15 @@ export default function Home() {
         isManual: s.isManual,
       })),
     };
-  }, [clientInputs, budgetInputs, targetAreas, services, platform]);
+  }, [clientInputs, budgetInputs, targetAreas, services, selectedPlatforms, platformAllocations]);
 
   const loadSavedState = useCallback((data: Record<string, unknown>) => {
     try {
       const d = data as {
+        version?: number;
         platform?: AdPlatform;
+        selectedPlatforms?: AdPlatform[];
+        platformAllocations?: Record<AdPlatform, number>;
         clientInputs?: ClientInputsType;
         budgetInputs?: BudgetInputs;
         targetAreas?: TargetAreaEntry[];
@@ -333,8 +480,20 @@ export default function Home() {
         }>;
       };
 
-      const loadPlatform = d.platform ?? "google";
-      setPlatform(loadPlatform);
+      // Handle version 2 backward compat: single platform -> multi-platform
+      let loadPlatforms: AdPlatform[];
+      let loadAllocations: Record<AdPlatform, number>;
+      if (d.selectedPlatforms && d.platformAllocations) {
+        loadPlatforms = d.selectedPlatforms;
+        loadAllocations = d.platformAllocations;
+      } else {
+        const singlePlatform = d.platform ?? "google";
+        loadPlatforms = [singlePlatform];
+        loadAllocations = { google: 0, meta: 0, linkedin: 0, lsa: 0, [singlePlatform]: 100 } as Record<AdPlatform, number>;
+      }
+      setSelectedPlatforms(loadPlatforms);
+      setPlatformAllocations(loadAllocations);
+      const loadPlatform = loadPlatforms[0];
 
       if (d.clientInputs) {
         setClientInputs(d.clientInputs);
@@ -411,38 +570,91 @@ export default function Home() {
       <main className="max-w-5xl mx-auto px-6 py-6 space-y-6">
         {/* Platform Selector */}
         <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-cogent-navy mb-1">Ad Platform</h2>
+          <h2 className="text-lg font-semibold text-cogent-navy mb-1">Ad Platform{selectedPlatforms.length > 1 ? "s" : ""}</h2>
           <p className="text-sm text-cogent-neutral mb-4">
-            Select which advertising platform to calculate ROI for. Each platform has different benchmarks, cost structures, and strengths.
+            {selectedPlatforms.length > 1
+              ? "Multiple platforms selected. Click to toggle platforms on/off. Budget will be split across selected platforms."
+              : "Click a platform to select it, or hold Shift and click to add multiple platforms for a combined strategy."}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
             {(Object.entries(PLATFORM_INFO) as [AdPlatform, typeof PLATFORM_INFO[AdPlatform]][]).map(
-              ([key, info]) => (
-                <button
-                  key={key}
-                  onClick={() => handlePlatformChange(key)}
-                  className={`p-4 rounded-lg border-2 text-left transition-all ${
-                    platform === key
-                      ? "border-cogent-navy bg-cogent-navy/5 ring-1 ring-cogent-navy/20"
-                      : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
-                  }`}
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-xl">{info.icon}</span>
-                    <span className={`font-semibold ${platform === key ? "text-cogent-navy" : "text-gray-700"}`}>
-                      {info.label}
-                    </span>
-                    {platform === key && (
-                      <span className="ml-auto text-[10px] font-medium text-white bg-cogent-navy px-2 py-0.5 rounded-full">
-                        ACTIVE
+              ([key, info]) => {
+                const isActive = selectedPlatforms.includes(key);
+                return (
+                  <button
+                    key={key}
+                    onClick={(e) => {
+                      if (e.shiftKey || selectedPlatforms.length > 1) {
+                        handlePlatformToggle(key);
+                      } else {
+                        handlePlatformSwitch(key);
+                      }
+                    }}
+                    className={`p-4 rounded-lg border-2 text-left transition-all ${
+                      isActive
+                        ? "border-cogent-navy bg-cogent-navy/5 ring-1 ring-cogent-navy/20"
+                        : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-xl">{info.icon}</span>
+                      <span className={`font-semibold ${isActive ? "text-cogent-navy" : "text-gray-700"}`}>
+                        {info.label}
                       </span>
-                    )}
-                  </div>
-                  <p className="text-xs text-cogent-neutral">{info.description}</p>
-                </button>
-              )
+                      {isActive && (
+                        <span className="ml-auto text-[10px] font-medium text-white bg-cogent-navy px-2 py-0.5 rounded-full">
+                          ACTIVE
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-xs text-cogent-neutral">{info.description}</p>
+                  </button>
+                );
+              }
             )}
           </div>
+
+          {/* Platform Budget Split — shown when 2+ platforms selected */}
+          {selectedPlatforms.length > 1 && (
+            <div className="mt-4 p-4 border border-gray-200 rounded-lg bg-cogent-ivory/30">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-sm font-semibold text-cogent-navy">Platform Budget Split</h3>
+                <button
+                  onClick={evenSplitPlatforms}
+                  className="text-xs text-cogent-navy hover:underline"
+                >
+                  Even split
+                </button>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+                {selectedPlatforms.map((plat) => (
+                  <div key={plat} className="flex items-center gap-2">
+                    <span className="text-sm">{PLATFORM_INFO[plat].icon}</span>
+                    <span className="text-sm font-medium text-gray-700 min-w-0 truncate">{PLATFORM_INFO[plat].label}</span>
+                    <div className="relative ml-auto w-20">
+                      <input
+                        type="number"
+                        min={0}
+                        max={100}
+                        step={1}
+                        value={platformAllocations[plat]}
+                        onChange={(e) => {
+                          const val = parseFloat(e.target.value) || 0;
+                          setPlatformAllocations((prev) => ({ ...prev, [plat]: val }));
+                        }}
+                        className="w-full border border-gray-300 rounded-md px-2 py-1.5 pr-6 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
+                      />
+                      <span className="absolute right-2 top-1.5 text-gray-500 text-sm">%</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className={`mt-2 text-sm ${Math.abs(totalPlatformPercent - 100) > 0.5 ? "text-red-600 font-medium" : "text-cogent-neutral"}`}>
+                Total: {totalPlatformPercent.toFixed(1)}%
+                {Math.abs(totalPlatformPercent - 100) > 0.5 && " — should equal 100%"}
+              </div>
+            </div>
+          )}
         </section>
 
         {/* Section A: Client Inputs */}
@@ -615,16 +827,18 @@ export default function Home() {
 
         {/* Section D: Results */}
         <Results
-          result={result}
+          results={platformResults}
+          selectedPlatforms={selectedPlatforms}
+          platformAllocations={platformAllocations}
           roundingMode={budgetInputs.roundingMode}
           targetArea={areasSummary}
           marketTier={targetAreas.length === 1 ? targetAreas[0]?.tier : "blended"}
           marketMultiplier={blendedMultiplier}
-          platform={platform}
+          monthlyAdSpend={budgetInputs.monthlyAdSpend}
         />
 
         {/* Section E: Keyword Suggestions (Google only) */}
-        {platform === "google" && (
+        {selectedPlatforms.includes("google") && (
           <KeywordSuggestions
             services={services}
             industryId={clientInputs.industryId}
@@ -644,7 +858,7 @@ export default function Home() {
         <PowerPointExport
           clientName={clientInputs.clientName}
           industryName={selectedIndustry?.name ?? "—"}
-          platform={platform}
+          platform={primaryPlatform}
           result={result}
           services={services}
           roundingMode={budgetInputs.roundingMode}
@@ -655,6 +869,9 @@ export default function Home() {
           grossMarginPercent={budgetInputs.grossMarginPercent}
           blendedMultiplier={blendedMultiplier}
           websiteUrl={clientInputs.websiteUrl}
+          selectedPlatforms={selectedPlatforms}
+          platformAllocations={platformAllocations}
+          platformResults={platformResults}
         />
 
         {/* Section H: Save & Load */}

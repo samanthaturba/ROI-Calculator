@@ -5,12 +5,14 @@ import type { CalculationResult, RoundingMode, AdPlatform } from "../lib/types";
 import { formatCurrency, formatNumber } from "../lib/calculations";
 
 interface Props {
-  result: CalculationResult | null;
+  results: Record<AdPlatform, CalculationResult | null>;
+  selectedPlatforms: AdPlatform[];
+  platformAllocations: Record<AdPlatform, number>;
   roundingMode: RoundingMode;
   targetArea?: string;
   marketTier?: string;
   marketMultiplier?: number;
-  platform?: AdPlatform;
+  monthlyAdSpend?: number;
 }
 
 const PLATFORM_NAMES: Record<AdPlatform, string> = {
@@ -18,6 +20,13 @@ const PLATFORM_NAMES: Record<AdPlatform, string> = {
   meta: "Meta Ads",
   linkedin: "LinkedIn Ads",
   lsa: "Google Local Services Ads",
+};
+
+const PLATFORM_ICONS: Record<AdPlatform, string> = {
+  google: "\uD83D\uDD0D",
+  meta: "\uD83D\uDCF1",
+  linkedin: "\uD83D\uDCBC",
+  lsa: "\uD83D\uDCCD",
 };
 
 function MetricTooltip({ label, explanation }: { label: string; explanation: string }) {
@@ -30,7 +39,7 @@ function MetricTooltip({ label, explanation }: { label: string; explanation: str
       onMouseLeave={() => setShow(false)}
     >
       <span className="cursor-help border-b border-dotted border-gray-400">{label}</span>
-      <span className="ml-1 text-gray-400 cursor-help text-[10px]">ⓘ</span>
+      <span className="ml-1 text-gray-400 cursor-help text-[10px]">{"\u24D8"}</span>
       {show && (
         <span className="absolute z-10 bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 p-2 bg-cogent-navy text-white text-xs rounded-md shadow-lg">
           {explanation}
@@ -41,39 +50,39 @@ function MetricTooltip({ label, explanation }: { label: string; explanation: str
   );
 }
 
-export default function Results({ result, roundingMode, targetArea, marketTier, marketMultiplier, platform = "google" }: Props) {
+// Single-platform result view (unchanged from original)
+function SinglePlatformResults({
+  result,
+  roundingMode,
+  targetArea,
+  marketMultiplier,
+  platform,
+}: {
+  result: CalculationResult;
+  roundingMode: RoundingMode;
+  targetArea?: string;
+  marketTier?: string;
+  marketMultiplier?: number;
+  platform: AdPlatform;
+}) {
   const platformName = PLATFORM_NAMES[platform];
-
-  if (!result) {
-    return (
-      <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
-        <h2 className="text-lg font-semibold text-cogent-navy mb-2">Estimated Revenue Potential</h2>
-        <p className="text-sm text-gray-500">
-          Fill in the inputs above to see projected revenue potential.
-        </p>
-      </section>
-    );
-  }
-
   const isConservative = roundingMode === "conservative";
   const jobs = isConservative ? result.totalJobsRounded : result.totalJobs;
   const revenue = isConservative ? result.totalRevenueRounded : result.totalRevenue;
   const gp = isConservative ? result.grossProfitRounded : result.grossProfit;
 
-  // Calculate ranges (conservative to optimistic)
   const conservativeRevenue = result.totalRevenueRounded;
   const optimisticRevenue = result.totalRevenue;
   const showRange = Math.abs(conservativeRevenue - optimisticRevenue) > 100;
 
-  // Advanced metrics
-  const avgCpc = result.weightedAvgCpl * 0.15; // Approximate CPC as ~15% of CPL (varies by platform)
+  const avgCpc = result.weightedAvgCpl * 0.15;
   const cpcMultiplier = platform === "google" ? 1.0 : platform === "meta" ? 0.6 : platform === "linkedin" ? 2.5 : 0;
   const estimatedCpc = platform === "lsa" ? 0 : avgCpc * cpcMultiplier;
 
   const roas = result.totalSpend > 0 ? revenue / result.totalSpend : 0;
 
   return (
-    <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+    <>
       <h2 className="text-lg font-semibold text-cogent-navy mb-1">
         Estimated Revenue Potential — {platformName}
       </h2>
@@ -84,7 +93,7 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
       {/* Market adjustment note */}
       {marketMultiplier && marketMultiplier !== 1.0 && (
         <div className="mb-4 p-3 bg-cogent-ivory border border-gray-200 rounded-md text-sm text-cogent-neutral">
-          CPL adjusted {marketMultiplier > 1 ? "+" : ""}{Math.round((marketMultiplier - 1) * 100)}% for {targetArea || (marketTier ? "selected market size" : "market")}
+          CPL adjusted {marketMultiplier > 1 ? "+" : ""}{Math.round((marketMultiplier - 1) * 100)}% for {targetArea || "selected market size"}
         </div>
       )}
 
@@ -207,7 +216,7 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
             />
           </div>
           <div className="text-lg font-bold text-cogent-navy-dark">
-            {roas > 0 ? `${roas.toFixed(1)}x` : "—"}
+            {roas > 0 ? `${roas.toFixed(1)}x` : "\u2014"}
           </div>
           <div className="text-xs text-gray-400">revenue per $1 ad spend</div>
         </div>
@@ -405,6 +414,308 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
           <p>est. revenue = jobs &times; avg_job_value = ~{formatCurrency(revenue)}</p>
           {roas > 0 && <p>est. ROAS = revenue / ad_spend = ~{formatCurrency(revenue)} / {formatCurrency(result.totalSpend)} = ~{roas.toFixed(1)}x</p>}
         </div>
+      </div>
+    </>
+  );
+}
+
+export default function Results({
+  results,
+  selectedPlatforms,
+  platformAllocations,
+  roundingMode,
+  targetArea,
+  marketTier,
+  marketMultiplier,
+  monthlyAdSpend,
+}: Props) {
+  // Check if any platform has results
+  const hasAnyResults = selectedPlatforms.some((p) => results[p] !== null);
+
+  if (!hasAnyResults) {
+    return (
+      <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+        <h2 className="text-lg font-semibold text-cogent-navy mb-2">Estimated Revenue Potential</h2>
+        <p className="text-sm text-gray-500">
+          Fill in the inputs above to see projected revenue potential.
+        </p>
+      </section>
+    );
+  }
+
+  // Single platform selected — show exactly as before
+  if (selectedPlatforms.length === 1) {
+    const platform = selectedPlatforms[0];
+    const result = results[platform];
+    if (!result) return null;
+
+    return (
+      <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+        <SinglePlatformResults
+          result={result}
+          roundingMode={roundingMode}
+          targetArea={targetArea}
+          marketTier={marketTier}
+          marketMultiplier={marketMultiplier}
+          platform={platform}
+        />
+      </section>
+    );
+  }
+
+  // Multi-platform view
+  const activeResults = selectedPlatforms
+    .map((p) => ({ platform: p, result: results[p] }))
+    .filter((r): r is { platform: AdPlatform; result: CalculationResult } => r.result !== null);
+
+  if (activeResults.length === 0) return null;
+
+  // Calculate combined totals
+  const isConservative = roundingMode === "conservative";
+  const combinedSpend = activeResults.reduce((s, r) => s + r.result.totalSpend, 0);
+  const combinedLeads = activeResults.reduce((s, r) => s + r.result.totalLeads, 0);
+  const combinedJobs = isConservative
+    ? activeResults.reduce((s, r) => s + r.result.totalJobsRounded, 0)
+    : activeResults.reduce((s, r) => s + r.result.totalJobs, 0);
+  const combinedRevenue = isConservative
+    ? activeResults.reduce((s, r) => s + r.result.totalRevenueRounded, 0)
+    : activeResults.reduce((s, r) => s + r.result.totalRevenue, 0);
+  const combinedGP = activeResults.every((r) => (isConservative ? r.result.grossProfitRounded : r.result.grossProfit) !== null)
+    ? activeResults.reduce((s, r) => s + (isConservative ? r.result.grossProfitRounded! : r.result.grossProfit!), 0)
+    : null;
+  const combinedRoas = combinedSpend > 0 ? combinedRevenue / combinedSpend : 0;
+  const combinedCloseRate = activeResults[0].result.closeRate;
+
+  return (
+    <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+      <h2 className="text-lg font-semibold text-cogent-navy mb-1">
+        Estimated Revenue Potential — Combined ({selectedPlatforms.length} Platforms)
+      </h2>
+      <p className="text-xs text-cogent-neutral mb-4">
+        Combined projections across {activeResults.map((r) => PLATFORM_NAMES[r.platform]).join(", ")}. Actual results will vary by platform.
+      </p>
+
+      {/* Market adjustment note */}
+      {marketMultiplier && marketMultiplier !== 1.0 && (
+        <div className="mb-4 p-3 bg-cogent-ivory border border-gray-200 rounded-md text-sm text-cogent-neutral">
+          CPL adjusted {marketMultiplier > 1 ? "+" : ""}{Math.round((marketMultiplier - 1) * 100)}% for {targetArea || "selected market size"}
+        </div>
+      )}
+
+      {/* Combined Summary Cards */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
+        <div className="bg-cogent-ivory rounded-lg p-4 border border-gray-100">
+          <div className="text-xs text-cogent-neutral uppercase tracking-wide">Total Ad Spend</div>
+          <div className="text-xl font-bold text-cogent-navy-dark mt-1">
+            {formatCurrency(combinedSpend)}
+          </div>
+          <div className="text-xs text-gray-400">/month combined</div>
+        </div>
+        <div className="bg-cogent-ivory rounded-lg p-4 border border-gray-100">
+          <div className="text-xs text-cogent-neutral uppercase tracking-wide">Avg CPL</div>
+          <div className="text-xl font-bold text-cogent-navy-dark mt-1">
+            {formatCurrency(Math.round(combinedLeads > 0 ? combinedSpend / combinedLeads : 0))}
+          </div>
+          <div className="text-xs text-gray-400">blended avg</div>
+        </div>
+        <div className="rounded-lg p-4 border border-cogent-sage/30" style={{ background: "rgba(188, 194, 106, 0.1)" }}>
+          <div className="text-xs text-cogent-navy uppercase tracking-wide">Est. Leads/Mo</div>
+          <div className="text-xl font-bold text-cogent-navy mt-1">
+            ~{formatNumber(combinedLeads)}
+          </div>
+          <div className="text-xs text-gray-400 mt-0.5">all platforms</div>
+        </div>
+        <div className="rounded-lg p-4 border border-cogent-sage/30" style={{ background: "rgba(188, 194, 106, 0.15)" }}>
+          <div className="text-xs text-cogent-navy uppercase tracking-wide">Est. Jobs/Mo</div>
+          <div className="text-xl font-bold text-cogent-navy mt-1">
+            ~{isConservative ? combinedJobs : formatNumber(combinedJobs)}
+          </div>
+          <div className="text-xs text-gray-400">
+            at {combinedCloseRate}% close rate
+          </div>
+        </div>
+        <div className="rounded-lg p-4 border border-cogent-sage/50" style={{ background: "rgba(188, 194, 106, 0.22)" }}>
+          <div className="text-xs font-medium text-cogent-navy uppercase tracking-wide">Est. Revenue/Mo</div>
+          <div className="text-xl font-bold text-cogent-navy-dark mt-1">
+            ~{formatCurrency(combinedRevenue)}
+          </div>
+          {combinedGP !== null && (
+            <div className="text-xs text-cogent-neutral mt-0.5">
+              Est. GP: ~{formatCurrency(combinedGP)}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Combined ROAS */}
+      <div className="grid grid-cols-2 gap-4 mb-6">
+        <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+          <div className="text-xs text-cogent-neutral uppercase tracking-wide mb-1">
+            <MetricTooltip
+              label="Combined ROAS"
+              explanation="Return on Ad Spend across all selected platforms combined."
+            />
+          </div>
+          <div className="text-lg font-bold text-cogent-navy-dark">
+            {combinedRoas > 0 ? `${combinedRoas.toFixed(1)}x` : "\u2014"}
+          </div>
+          <div className="text-xs text-gray-400">revenue per $1 ad spend</div>
+        </div>
+        <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+          <div className="text-xs text-cogent-neutral uppercase tracking-wide mb-1">Platforms</div>
+          <div className="text-sm font-medium text-cogent-navy-dark mt-1">
+            {activeResults.map((r) => (
+              <span key={r.platform} className="inline-flex items-center gap-1 mr-3">
+                {PLATFORM_ICONS[r.platform]} {PLATFORM_NAMES[r.platform]} ({platformAllocations[r.platform]}%)
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Per-platform breakdown sections */}
+      <div className="space-y-6 mt-6">
+        {activeResults.map(({ platform, result: platResult }) => {
+          const platRevenue = isConservative ? platResult.totalRevenueRounded : platResult.totalRevenue;
+          const platJobs = isConservative ? platResult.totalJobsRounded : platResult.totalJobs;
+          const platRoas = platResult.totalSpend > 0 ? platRevenue / platResult.totalSpend : 0;
+
+          return (
+            <div key={platform} className="border border-gray-200 rounded-lg p-4 bg-cogent-ivory/20">
+              <h3 className="text-sm font-semibold text-cogent-navy mb-3 flex items-center gap-2">
+                <span className="text-lg">{PLATFORM_ICONS[platform]}</span>
+                {PLATFORM_NAMES[platform]} — {formatCurrency(platResult.totalSpend)}/month ({platformAllocations[platform]}%)
+              </h3>
+
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-3">
+                <div className="text-center p-2 bg-white rounded border border-gray-100">
+                  <div className="text-[10px] text-cogent-neutral uppercase">Spend</div>
+                  <div className="text-sm font-bold text-cogent-navy-dark">{formatCurrency(platResult.totalSpend)}</div>
+                </div>
+                <div className="text-center p-2 bg-white rounded border border-gray-100">
+                  <div className="text-[10px] text-cogent-neutral uppercase">Avg CPL</div>
+                  <div className="text-sm font-bold text-cogent-navy-dark">{formatCurrency(Math.round(platResult.weightedAvgCpl))}</div>
+                </div>
+                <div className="text-center p-2 bg-white rounded border border-gray-100">
+                  <div className="text-[10px] text-cogent-neutral uppercase">Leads/Mo</div>
+                  <div className="text-sm font-bold text-cogent-navy">~{formatNumber(platResult.totalLeads)}</div>
+                </div>
+                <div className="text-center p-2 bg-white rounded border border-gray-100">
+                  <div className="text-[10px] text-cogent-neutral uppercase">Jobs/Mo</div>
+                  <div className="text-sm font-bold text-cogent-navy">~{isConservative ? platJobs : formatNumber(platJobs)}</div>
+                </div>
+                <div className="text-center p-2 bg-white rounded border border-cogent-sage/30" style={{ background: "rgba(188, 194, 106, 0.12)" }}>
+                  <div className="text-[10px] text-cogent-navy uppercase">Revenue/Mo</div>
+                  <div className="text-sm font-bold text-cogent-navy-dark">~{formatCurrency(platRevenue)}</div>
+                  {platRoas > 0 && <div className="text-[10px] text-gray-400">{platRoas.toFixed(1)}x ROAS</div>}
+                </div>
+              </div>
+
+              {/* Per-service table for this platform */}
+              {platResult.serviceResults.length > 1 && (
+                <div className="overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b border-gray-200">
+                        <th className="text-left py-1.5 px-2 text-cogent-navy font-medium">Service</th>
+                        <th className="text-right py-1.5 px-2 text-cogent-navy font-medium">Spend</th>
+                        <th className="text-right py-1.5 px-2 text-cogent-navy font-medium">CPL</th>
+                        <th className="text-right py-1.5 px-2 text-cogent-navy font-medium">Leads</th>
+                        <th className="text-right py-1.5 px-2 text-cogent-navy font-medium">Jobs</th>
+                        <th className="text-right py-1.5 px-2 text-cogent-navy font-medium">Revenue</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {platResult.serviceResults.map((sr) => (
+                        <tr key={sr.serviceName} className="border-b border-gray-50">
+                          <td className="py-1.5 px-2 text-gray-900">{sr.serviceName}</td>
+                          <td className="text-right py-1.5 px-2">{formatCurrency(sr.allocatedSpend)}</td>
+                          <td className="text-right py-1.5 px-2">{formatCurrency(sr.cplUsed)}</td>
+                          <td className="text-right py-1.5 px-2">~{formatNumber(sr.leads)}</td>
+                          <td className="text-right py-1.5 px-2">~{isConservative ? sr.jobsRounded : formatNumber(sr.jobs)}</td>
+                          <td className="text-right py-1.5 px-2 font-medium">~{formatCurrency(isConservative ? sr.revenueRounded : sr.revenue)}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Learning period — show for primary platform only */}
+      <div className="mt-6 p-4 bg-cogent-navy/5 border border-cogent-navy/10 rounded-lg">
+        <h3 className="text-sm font-semibold text-cogent-navy mb-2">
+          Learning &amp; Ramp-Up Period
+        </h3>
+        <p className="text-xs text-cogent-neutral mb-3">
+          Most ad platform campaigns require 60-90 days to reach full optimization. The estimates above represent mature campaign performance, not Day 1 results.
+        </p>
+        <div className="text-xs text-cogent-neutral space-y-1">
+          {activeResults.map(({ platform: plat }) => (
+            <p key={plat}>
+              <span className="font-medium">{PLATFORM_ICONS[plat]} {PLATFORM_NAMES[plat]}:</span>{" "}
+              {plat === "google" ? "Weeks 1-2 learning, weeks 3-6 optimization, months 2-3+ mature performance."
+                : plat === "meta" ? "Weeks 1-2 audience learning, weeks 3-6 retargeting builds, months 2-3+ steady-state."
+                : plat === "lsa" ? "Weeks 1-2 building visibility, weeks 3-6 review accumulation, months 2-3+ established."
+                : "Weeks 1-2 audience calibration, weeks 3-6 A/B testing, months 2-3+ pipeline established."}
+            </p>
+          ))}
+        </div>
+      </div>
+
+      {/* Results Depend On */}
+      <div className="mt-4 p-4 bg-amber-50/50 border border-amber-200/50 rounded-lg">
+        <h3 className="text-sm font-semibold text-amber-900 mb-2">Important: Results Depend On Multiple Factors</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1 text-xs text-amber-800">
+          <div className="flex items-start gap-2 py-1">
+            <span className="text-amber-500 mt-0.5">&#9679;</span>
+            <span><strong>Lead follow-up speed</strong> — responding within 5 minutes vs. 24 hours dramatically impacts close rate</span>
+          </div>
+          <div className="flex items-start gap-2 py-1">
+            <span className="text-amber-500 mt-0.5">&#9679;</span>
+            <span><strong>Phone answer rate</strong> — missed calls = missed revenue. Every unanswered call is a lost lead</span>
+          </div>
+          <div className="flex items-start gap-2 py-1">
+            <span className="text-amber-500 mt-0.5">&#9679;</span>
+            <span><strong>Landing page quality</strong> — conversion rate depends on clear CTAs, trust signals, and mobile experience</span>
+          </div>
+          <div className="flex items-start gap-2 py-1">
+            <span className="text-amber-500 mt-0.5">&#9679;</span>
+            <span><strong>Sales process</strong> — how quickly and effectively leads are quoted and followed up on</span>
+          </div>
+          <div className="flex items-start gap-2 py-1">
+            <span className="text-amber-500 mt-0.5">&#9679;</span>
+            <span><strong>Seasonal demand</strong> — some industries see 2-3x swings between peak and off-season</span>
+          </div>
+          <div className="flex items-start gap-2 py-1">
+            <span className="text-amber-500 mt-0.5">&#9679;</span>
+            <span><strong>Local competition</strong> — more competitors bidding = higher CPL in your area</span>
+          </div>
+          <div className="flex items-start gap-2 py-1">
+            <span className="text-amber-500 mt-0.5">&#9679;</span>
+            <span><strong>Review reputation</strong> — businesses with strong reviews see higher click and conversion rates</span>
+          </div>
+          <div className="flex items-start gap-2 py-1">
+            <span className="text-amber-500 mt-0.5">&#9679;</span>
+            <span><strong>Budget consistency</strong> — pausing and restarting campaigns resets the learning period</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Disclaimer */}
+      <div className="mt-4 p-4 border-2 border-cogent-navy/20 rounded-lg bg-white">
+        <h3 className="text-sm font-semibold text-cogent-navy mb-2">Disclaimer</h3>
+        <p className="text-xs text-cogent-neutral leading-relaxed">
+          The projections shown above are <strong>estimates based on published industry benchmarks</strong> and the inputs provided.
+          They represent the <strong>potential opportunity</strong>, not a guarantee of results. Actual lead volume, cost per lead,
+          close rate, and revenue will vary based on campaign setup, market conditions, competition, seasonality, and the
+          client&apos;s ability to effectively respond to and close leads. Cogent Analytics does not guarantee any specific number
+          of leads, jobs, or revenue. These figures are intended to illustrate the potential return on investment from advertising
+          and to help set realistic expectations for campaign performance once fully optimized (typically 60-90 days).
+        </p>
       </div>
     </section>
   );
