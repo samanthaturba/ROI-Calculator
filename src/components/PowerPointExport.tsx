@@ -14,6 +14,7 @@ interface Props {
   targetAreas: TargetAreaEntry[];
   monthlyAdSpend: number;
   closeRate: number;
+  closeRateIsDefault: boolean;
   grossMarginPercent: number | null;
   blendedMultiplier: number;
   websiteUrl: string;
@@ -67,6 +68,7 @@ export default function PowerPointExport({
   targetAreas,
   monthlyAdSpend,
   closeRate,
+  closeRateIsDefault,
   grossMarginPercent,
   blendedMultiplier,
   websiteUrl,
@@ -106,6 +108,7 @@ export default function PowerPointExport({
         targetAreas,
         monthlyAdSpend,
         closeRate,
+        closeRateIsDefault,
         grossMarginPercent,
         blendedMultiplier,
         cogentLogoBase64,

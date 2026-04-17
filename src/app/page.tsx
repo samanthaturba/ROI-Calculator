@@ -646,6 +646,7 @@ export default function Home() {
           targetAreas={targetAreas}
           monthlyAdSpend={budgetInputs.monthlyAdSpend}
           closeRate={budgetInputs.closeRate}
+          closeRateIsDefault={budgetInputs.closeRate === DEFAULT_CLOSE_RATE}
           grossMarginPercent={budgetInputs.grossMarginPercent}
           blendedMultiplier={blendedMultiplier}
           websiteUrl={clientInputs.websiteUrl}

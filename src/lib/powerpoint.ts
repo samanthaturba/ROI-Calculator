@@ -37,6 +37,7 @@ interface PowerPointData {
   targetAreas: TargetAreaEntry[];
   monthlyAdSpend: number;
   closeRate: number;
+  closeRateIsDefault: boolean;
   grossMarginPercent: number | null;
   blendedMultiplier: number;
   cogentLogoBase64: string;
@@ -55,12 +56,11 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
   const platformLabel = PLATFORM_LABELS[data.platform];
   const areasWithTier = data.targetAreas.filter((a) => a.tier);
 
-  // CPC and ROAS calculations
-  const avgCpc = data.result.weightedAvgCpl * 0.15;
-  const cpcMultiplier = data.platform === "google" ? 1.0 : data.platform === "meta" ? 0.6 : 2.5;
-  const estimatedCpc = avgCpc * cpcMultiplier;
+  // Revenue and ROAS calculations
   const revenue = isConservative ? data.result.totalRevenueRounded : data.result.totalRevenue;
   const roas = data.result.totalSpend > 0 ? revenue / data.result.totalSpend : 0;
+  const gpPercent = data.grossMarginPercent ?? 52.5;
+  const gpIsAssumed = data.grossMarginPercent === null;
 
   // ========================
   // SLIDE 1: ROAS/ROI Data
@@ -123,9 +123,24 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
     margin: 0,
   });
 
+  // -- Calculate layout dimensions dynamically --
+  // Available space: y=1.15 to y=4.95 (disclaimer at 5.0) = 3.8" total
+  const namedAreas = areasWithTier.filter((a) => a.name && a.name.trim() !== "");
+  const hasLocations = namedAreas.length > 0;
+  const numServices = selectedServices.length;
+  const numLocations = namedAreas.length;
+
+  // Count total data rows to determine sizing
+  const totalRows = (hasLocations ? numLocations + 1 : 0) + (numServices + 1) + (numServices + 2); // loc + svc + results+total
+  const isCompact = totalRows > 10; // shrink fonts when lots of rows
+  const rowH = isCompact ? 0.2 : 0.23;
+  const headerH = isCompact ? 0.22 : 0.25;
+  const fontSize = isCompact ? 8 : 9;
+  const headerFontSize = isCompact ? 9 : 10;
+
   // -- Content area border --
   slide1.addShape('rect' as PptxGenJS.ShapeType, {
-    x: 0.2, y: 1.15, w: 9.6, h: 4.1,
+    x: 0.2, y: 1.15, w: 9.6, h: 3.85,
     fill: { color: WHITE },
     line: { color: MED_GRAY, width: 1 },
   });
@@ -133,54 +148,55 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
   // -- Recommendation line --
   const recText = `Recommendation: ${fmt$(data.monthlyAdSpend)}/month advertising budget for ${platformLabel} Ads`;
   slide1.addText(recText, {
-    x: 0.3, y: 1.2, w: 9.4, h: 0.35,
-    fontSize: 13, fontFace: "Arial",
+    x: 0.3, y: 1.18, w: 9.4, h: 0.3,
+    fontSize: 12, fontFace: "Arial",
     color: BLACK, align: "center", valign: "middle",
     bold: true,
   });
 
-  // -- Locations Table --
-  let currentY = 1.6;
+  // -- Locations Table (only if locations have names) --
+  let currentY = 1.5;
 
-  if (areasWithTier.length > 0) {
+  if (hasLocations) {
     const locHeader: PptxGenJS.TableCell[][] = [[
-      { text: "Locations", options: { bold: true, fontSize: 11, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
-      { text: "Budget %", options: { bold: true, fontSize: 11, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
-      { text: "Budget $", options: { bold: true, fontSize: 11, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
+      { text: "Locations", options: { bold: true, fontSize: headerFontSize, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
+      { text: "Budget %", options: { bold: true, fontSize: headerFontSize, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
+      { text: "Budget $", options: { bold: true, fontSize: headerFontSize, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
     ]];
-    const locRows: PptxGenJS.TableCell[][] = areasWithTier.map((area) => [
-      { text: area.name || "—", options: { fontSize: 10, fontFace: "Arial", align: "center" } },
-      { text: String(area.budgetPercent), options: { fontSize: 10, fontFace: "Arial", align: "center" } },
-      { text: fmt$(Math.round(data.monthlyAdSpend * area.budgetPercent / 100)), options: { fontSize: 10, fontFace: "Arial", align: "center" } },
+    const locRows: PptxGenJS.TableCell[][] = namedAreas.map((area) => [
+      { text: area.name, options: { fontSize, fontFace: "Arial", align: "center" } },
+      { text: String(area.budgetPercent), options: { fontSize, fontFace: "Arial", align: "center" } },
+      { text: fmt$(Math.round(data.monthlyAdSpend * area.budgetPercent / 100)), options: { fontSize, fontFace: "Arial", align: "center" } },
     ]);
 
     slide1.addTable([...locHeader, ...locRows], {
       x: 2.0, y: currentY, w: 6.0,
       colW: [2.5, 1.5, 2.0],
       border: { pt: 0.5, color: MED_GRAY },
-      margin: 3,
+      rowH: [headerH, ...namedAreas.map(() => rowH)],
+      margin: 2,
     });
 
-    currentY += 0.28 * (areasWithTier.length + 1) + 0.15;
+    currentY += headerH + rowH * numLocations + 0.08;
   }
 
   // -- Service Offerings Table --
   const svcHeader: PptxGenJS.TableCell[][] = [[
-    { text: "Sample Service Offerings", options: { bold: true, fontSize: 10, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
-    { text: "Budget %", options: { bold: true, fontSize: 10, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
-    { text: "Budget $", options: { bold: true, fontSize: 10, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
-    { text: "Average CPL", options: { bold: true, fontSize: 10, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
-    { text: "Avg Job Value", options: { bold: true, fontSize: 10, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
+    { text: "Sample Service Offerings", options: { bold: true, fontSize: headerFontSize, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
+    { text: "Budget %", options: { bold: true, fontSize: headerFontSize, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
+    { text: "Budget $", options: { bold: true, fontSize: headerFontSize, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
+    { text: "Average CPL", options: { bold: true, fontSize: headerFontSize, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
+    { text: "Avg Job Value", options: { bold: true, fontSize: headerFontSize, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
   ]];
 
   const svcRows: PptxGenJS.TableCell[][] = selectedServices.map((svc) => {
     const sr = data.result.serviceResults.find((r) => r.serviceName === svc.serviceName);
     return [
-      { text: svc.serviceName, options: { fontSize: 9, fontFace: "Arial", align: "center" } },
-      { text: String(svc.allocationPercent), options: { fontSize: 9, fontFace: "Arial", align: "center" } },
-      { text: fmt$(Math.round(data.monthlyAdSpend * svc.allocationPercent / 100)), options: { fontSize: 9, fontFace: "Arial", align: "center" } },
-      { text: sr ? fmt$(sr.cplUsed) : "—", options: { fontSize: 9, fontFace: "Arial", align: "center" } },
-      { text: sr ? fmt$(sr.jobValue) : "—", options: { fontSize: 9, fontFace: "Arial", align: "center" } },
+      { text: svc.serviceName, options: { fontSize, fontFace: "Arial", align: "center" } },
+      { text: String(svc.allocationPercent), options: { fontSize, fontFace: "Arial", align: "center" } },
+      { text: fmt$(Math.round(data.monthlyAdSpend * svc.allocationPercent / 100)), options: { fontSize, fontFace: "Arial", align: "center" } },
+      { text: sr ? fmt$(sr.cplUsed) : "—", options: { fontSize, fontFace: "Arial", align: "center" } },
+      { text: sr ? fmt$(sr.jobValue) : "—", options: { fontSize, fontFace: "Arial", align: "center" } },
     ];
   });
 
@@ -188,69 +204,82 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
     x: 0.3, y: currentY, w: 9.4,
     colW: [2.8, 1.2, 1.2, 1.6, 1.6],
     border: { pt: 0.5, color: MED_GRAY },
-    margin: 3,
+    rowH: [headerH, ...selectedServices.map(() => rowH)],
+    margin: 2,
   });
 
-  currentY += 0.28 * (selectedServices.length + 1) + 0.2;
+  currentY += headerH + rowH * numServices + 0.12;
 
   // -- "Potential for Return" heading --
   slide1.addText("Potential for Return", {
-    x: 0.3, y: currentY, w: 9.4, h: 0.3,
-    fontSize: 14, fontFace: "Arial",
+    x: 0.3, y: currentY, w: 9.4, h: 0.25,
+    fontSize: 13, fontFace: "Arial",
     color: BLACK, bold: true, align: "center",
     margin: 0,
   });
-  currentY += 0.35;
+  currentY += 0.28;
 
   // -- Results Table --
-  const resHeader: PptxGenJS.TableCell[][] = [[
-    { text: "Sample Service Offerings", options: { bold: true, fontSize: 9, fontFace: "Arial", fill: { color: WHITE }, color: BLACK, align: "center" } },
-    { text: "Ad Spend", options: { bold: true, fontSize: 9, fontFace: "Arial", fill: { color: WHITE }, color: BLACK, align: "center" } },
-    { text: "Weighted Avg CPL", options: { bold: true, fontSize: 9, fontFace: "Arial", fill: { color: WHITE }, color: BLACK, align: "center" } },
-    { text: "Est. Leads/Mth", options: { bold: true, fontSize: 9, fontFace: "Arial", fill: { color: WHITE }, color: BLACK, align: "center" } },
-    { text: "Est. Jobs/Mth", options: { bold: true, fontSize: 9, fontFace: "Arial", fill: { color: WHITE }, color: BLACK, align: "center" } },
-    { text: "Est. Additional Revenue/Mth", options: { bold: true, fontSize: 9, fontFace: "Arial", fill: { color: WHITE }, color: BLACK, align: "center", border: [{ pt: 2, color: BLACK }, { pt: 2, color: BLACK }, { pt: 0.5, color: MED_GRAY }, { pt: 2, color: BLACK }] } },
-    { text: "Est. Addtl GP/Mth", options: { bold: true, fontSize: 9, fontFace: "Arial", fill: { color: WHITE }, color: BLACK, align: "center" } },
-  ]];
+  // Conditionally include GP column only if gross margin was provided
+  const resHeaderCells: PptxGenJS.TableCell[] = [
+    { text: "Sample Service Offerings", options: { bold: true, fontSize, fontFace: "Arial", fill: { color: WHITE }, color: BLACK, align: "center" } },
+    { text: "Ad Spend", options: { bold: true, fontSize, fontFace: "Arial", fill: { color: WHITE }, color: BLACK, align: "center" } },
+    { text: "Weighted Avg CPL", options: { bold: true, fontSize, fontFace: "Arial", fill: { color: WHITE }, color: BLACK, align: "center" } },
+    { text: "Est. Leads/Mth", options: { bold: true, fontSize, fontFace: "Arial", fill: { color: WHITE }, color: BLACK, align: "center" } },
+    { text: "Est. Jobs/Mth", options: { bold: true, fontSize, fontFace: "Arial", fill: { color: WHITE }, color: BLACK, align: "center" } },
+    { text: "Est. Additional Revenue/Mth", options: { bold: true, fontSize, fontFace: "Arial", fill: { color: WHITE }, color: BLACK, align: "center", border: [{ pt: 2, color: BLACK }, { pt: 2, color: BLACK }, { pt: 0.5, color: MED_GRAY }, { pt: 2, color: BLACK }] } },
+  ];
+  let resColW = [1.8, 1.0, 1.3, 1.1, 1.0, 2.2];
 
-  const gpPercent = data.grossMarginPercent ?? 52.5;
+  if (!gpIsAssumed) {
+    resHeaderCells.push({ text: "Est. Addtl GP/Mth", options: { bold: true, fontSize, fontFace: "Arial", fill: { color: WHITE }, color: BLACK, align: "center" } });
+    resColW = [1.5, 0.9, 1.2, 1.0, 0.9, 2.0, 1.5];
+  }
+
+  const resHeader: PptxGenJS.TableCell[][] = [resHeaderCells];
 
   const resRows: PptxGenJS.TableCell[][] = data.result.serviceResults.map((sr) => {
     const jobs = isConservative ? sr.jobsRounded : sr.jobs;
     const rev = isConservative ? sr.revenueRounded : sr.revenue;
     const gp = rev * (gpPercent / 100);
-    return [
-      { text: sr.serviceName, options: { fontSize: 9, fontFace: "Arial", align: "center" } },
-      { text: fmt$(sr.allocatedSpend), options: { fontSize: 9, fontFace: "Arial", align: "center" } },
-      { text: fmt$(sr.cplUsed), options: { fontSize: 9, fontFace: "Arial", align: "center" } },
-      { text: `~${fmtNum(sr.leads)}`, options: { fontSize: 9, fontFace: "Arial", align: "center" } },
-      { text: `~${fmtNum(jobs)}`, options: { fontSize: 9, fontFace: "Arial", align: "center" } },
-      { text: `~${fmt$(rev)}`, options: { fontSize: 9, fontFace: "Arial", align: "center", border: [{ pt: 0.5, color: MED_GRAY }, { pt: 2, color: BLACK }, { pt: 0.5, color: MED_GRAY }, { pt: 2, color: BLACK }] } },
-      { text: `~${fmt$(gp)}`, options: { fontSize: 9, fontFace: "Arial", align: "center" } },
+    const row: PptxGenJS.TableCell[] = [
+      { text: sr.serviceName, options: { fontSize, fontFace: "Arial", align: "center" } },
+      { text: fmt$(sr.allocatedSpend), options: { fontSize, fontFace: "Arial", align: "center" } },
+      { text: fmt$(sr.cplUsed), options: { fontSize, fontFace: "Arial", align: "center" } },
+      { text: `~${fmtNum(sr.leads)}`, options: { fontSize, fontFace: "Arial", align: "center" } },
+      { text: `~${fmtNum(jobs)}`, options: { fontSize, fontFace: "Arial", align: "center" } },
+      { text: `~${fmt$(rev)}`, options: { fontSize, fontFace: "Arial", align: "center", border: [{ pt: 0.5, color: MED_GRAY }, { pt: 2, color: BLACK }, { pt: 0.5, color: MED_GRAY }, { pt: 2, color: BLACK }] } },
     ];
+    if (!gpIsAssumed) {
+      row.push({ text: `~${fmt$(gp)}`, options: { fontSize, fontFace: "Arial", align: "center" } });
+    }
+    return row;
   });
 
   // Total row
   const totalJobs = isConservative ? data.result.totalJobsRounded : data.result.totalJobs;
   const totalGP = revenue * (gpPercent / 100);
-  const totalRow: PptxGenJS.TableCell[] = [
-    { text: "Total", options: { bold: true, fontSize: 9, fontFace: "Arial", align: "center" } },
-    { text: fmt$(data.result.totalSpend), options: { bold: true, fontSize: 9, fontFace: "Arial", align: "center" } },
-    { text: fmt$(Math.round(data.result.weightedAvgCpl)), options: { bold: true, fontSize: 9, fontFace: "Arial", align: "center" } },
-    { text: `~${fmtNum(data.result.totalLeads)}`, options: { bold: true, fontSize: 9, fontFace: "Arial", align: "center" } },
-    { text: `~${fmtNum(totalJobs)}`, options: { bold: true, fontSize: 9, fontFace: "Arial", align: "center" } },
-    { text: `~${fmt$(revenue)}`, options: { bold: true, fontSize: 9, fontFace: "Arial", align: "center", border: [{ pt: 0.5, color: MED_GRAY }, { pt: 2, color: BLACK }, { pt: 0.5, color: MED_GRAY }, { pt: 2, color: BLACK }] } },
-    { text: `~${fmt$(totalGP)}`, options: { bold: true, fontSize: 9, fontFace: "Arial", align: "center" } },
+  const totalRowCells: PptxGenJS.TableCell[] = [
+    { text: "Total", options: { bold: true, fontSize, fontFace: "Arial", align: "center" } },
+    { text: fmt$(data.result.totalSpend), options: { bold: true, fontSize, fontFace: "Arial", align: "center" } },
+    { text: fmt$(Math.round(data.result.weightedAvgCpl)), options: { bold: true, fontSize, fontFace: "Arial", align: "center" } },
+    { text: `~${fmtNum(data.result.totalLeads)}`, options: { bold: true, fontSize, fontFace: "Arial", align: "center" } },
+    { text: `~${fmtNum(totalJobs)}`, options: { bold: true, fontSize, fontFace: "Arial", align: "center" } },
+    { text: `~${fmt$(revenue)}`, options: { bold: true, fontSize, fontFace: "Arial", align: "center", border: [{ pt: 0.5, color: MED_GRAY }, { pt: 2, color: BLACK }, { pt: 0.5, color: MED_GRAY }, { pt: 2, color: BLACK }] } },
   ];
+  if (!gpIsAssumed) {
+    totalRowCells.push({ text: `~${fmt$(totalGP)}`, options: { bold: true, fontSize, fontFace: "Arial", align: "center" } });
+  }
 
-  slide1.addTable([...resHeader, ...resRows, [totalRow[0], totalRow[1], totalRow[2], totalRow[3], totalRow[4], totalRow[5], totalRow[6]]], {
+  slide1.addTable([...resHeader, ...resRows, totalRowCells], {
     x: 0.3, y: currentY, w: 9.4,
-    colW: [1.7, 0.9, 1.2, 1.1, 1.0, 2.0, 1.5],
+    colW: resColW,
     border: { pt: 0.5, color: MED_GRAY },
-    margin: 3,
+    rowH: [headerH, ...data.result.serviceResults.map(() => rowH), rowH],
+    margin: 2,
   });
 
-  // -- Disclaimer --
+  // -- Disclaimer (positioned at bottom of slide) --
   slide1.addText([
     { text: "DISCLAIMER", options: { bold: true } },
     { text: ": The projections shown above are " },
@@ -261,7 +290,7 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
     { text: `${platformLabel} Ads` },
     { text: " and to set realistic expectations for campaign performance once fully optimized (typically 60-90 days)." },
   ], {
-    x: 0.2, y: 5.05, w: 9.6, h: 0.55,
+    x: 0.2, y: 5.0, w: 9.6, h: 0.55,
     fontSize: 6.5, fontFace: "Arial",
     color: DARK_GRAY, valign: "top",
     fill: { color: DISCLAIMER_BG },
@@ -336,6 +365,10 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
   });
 
   // -- Assumptions & KPIs Table (left side) --
+  // Flag which values are assumed vs user-provided
+  const closeRateNote = data.closeRateIsDefault ? " *" : "";
+  const gpNote = gpIsAssumed ? " *" : "";
+
   const kpiHeader: PptxGenJS.TableCell[][] = [[
     { text: "Assumptions and KPIs", options: { bold: true, fontSize: 11, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
     { text: "A/KPI", options: { bold: true, fontSize: 11, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
@@ -344,19 +377,14 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
 
   const kpiRows: PptxGenJS.TableCell[][] = [
     [
-      { text: "Sales Closing Rate", options: { fontSize: 10, fontFace: "Arial", align: "center" } },
+      { text: `Sales Closing Rate${closeRateNote}`, options: { fontSize: 10, fontFace: "Arial", align: "center" } },
       { text: "A", options: { fontSize: 10, fontFace: "Arial", align: "center" } },
       { text: `${data.closeRate}%`, options: { fontSize: 10, fontFace: "Arial", align: "center" } },
     ],
     [
-      { text: "Gross Margin", options: { fontSize: 10, fontFace: "Arial", align: "center" } },
+      { text: `Gross Margin${gpNote}`, options: { fontSize: 10, fontFace: "Arial", align: "center" } },
       { text: "A", options: { fontSize: 10, fontFace: "Arial", align: "center" } },
       { text: `${gpPercent}%`, options: { fontSize: 10, fontFace: "Arial", align: "center" } },
-    ],
-    [
-      { text: "Estimated Cost per Click (CPC)", options: { fontSize: 10, fontFace: "Arial", align: "center" } },
-      { text: "KPI", options: { fontSize: 10, fontFace: "Arial", align: "center" } },
-      { text: `$${estimatedCpc.toFixed(2)}`, options: { fontSize: 10, fontFace: "Arial", align: "center" } },
     ],
     [
       { text: "Estimated Cost per Lead (CPL)", options: { fontSize: 10, fontFace: "Arial", align: "center" } },
@@ -376,6 +404,19 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
     border: { pt: 0.5, color: MED_GRAY },
     margin: 3,
   });
+
+  // Show footnote for assumed values
+  const assumptions: string[] = [];
+  if (data.closeRateIsDefault) assumptions.push("closing rate (industry default of 40%)");
+  if (gpIsAssumed) assumptions.push("gross margin (industry avg estimate of 52.5%)");
+  if (assumptions.length > 0) {
+    slide2.addText(`* Not provided — using ${assumptions.join(" and ")}. Update in the ROI calculator for accuracy.`, {
+      x: 0.35, y: 2.65, w: 4.6, h: 0.2,
+      fontSize: 7, fontFace: "Arial",
+      color: "CC6600", italic: true,
+      margin: 0,
+    });
+  }
 
   // -- Other Factors Table (right side) --
   const factorsHeader: PptxGenJS.TableCell[][] = [[
