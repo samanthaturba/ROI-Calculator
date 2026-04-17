@@ -675,9 +675,10 @@ export default function Home() {
               Cogent Analytics — Estimates are projections only and do not guarantee results.
             </span>
           </div>
-          <span className="text-xs text-gray-500">
-            Benchmark data sourced from published industry reports.
-          </span>
+          <div className="text-xs text-gray-500 text-right max-w-md">
+            <p>Google Ads data: <a href="https://www.localiq.com/blog/search-advertising-benchmarks/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">LocaliQ 2025 Search Ad Benchmarks</a> · <a href="https://searchlightdigital.com/benchmarks" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">SearchLight Digital 2026 Benchmarks</a> · <a href="https://www.wordstream.com/blog/ws/2016/02/29/google-adwords-industry-benchmarks" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">WordStream Industry Benchmarks</a></p>
+            <p className="mt-0.5">Meta & LinkedIn data: Estimated from Google Ads benchmarks adjusted for platform dynamics.</p>
+          </div>
         </div>
       </footer>
     </div>
