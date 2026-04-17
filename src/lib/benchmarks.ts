@@ -2,16 +2,19 @@ import type { IndustryBenchmark, AdPlatform, PlatformRecommendation } from "./ty
 import googleBenchmarkData from "../data/benchmarks.json";
 import metaBenchmarkData from "../data/meta-benchmarks.json";
 import linkedinBenchmarkData from "../data/linkedin-benchmarks.json";
+import lsaBenchmarkData from "../data/lsa-benchmarks.json";
 import platformRecommendationData from "../data/platform-recommendations.json";
 
 const googleBenchmarks: IndustryBenchmark[] = googleBenchmarkData as IndustryBenchmark[];
 const metaBenchmarks: IndustryBenchmark[] = metaBenchmarkData as IndustryBenchmark[];
 const linkedinBenchmarks: IndustryBenchmark[] = linkedinBenchmarkData as IndustryBenchmark[];
+const lsaBenchmarks: IndustryBenchmark[] = lsaBenchmarkData as IndustryBenchmark[];
 
 const platformBenchmarks: Record<AdPlatform, IndustryBenchmark[]> = {
   google: googleBenchmarks,
   meta: metaBenchmarks,
   linkedin: linkedinBenchmarks,
+  lsa: lsaBenchmarks,
 };
 
 const platformRecommendations = platformRecommendationData as Record<

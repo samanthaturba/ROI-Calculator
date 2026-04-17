@@ -47,6 +47,11 @@ const PLATFORM_INFO: Record<AdPlatform, { label: string; icon: string; descripti
     icon: "💼",
     description: "Professional targeting for B2B services, C-suite decision makers",
   },
+  lsa: {
+    label: "Google LSA",
+    icon: "📍",
+    description: "Pay-per-lead local ads with Google Verified badge for service businesses",
+  },
 };
 
 export const MARKET_TIERS: Record<string, { label: string; multiplier: number; description: string }> = {
@@ -410,7 +415,7 @@ export default function Home() {
           <p className="text-sm text-cogent-neutral mb-4">
             Select which advertising platform to calculate ROI for. Each platform has different benchmarks, cost structures, and strengths.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
             {(Object.entries(PLATFORM_INFO) as [AdPlatform, typeof PLATFORM_INFO[AdPlatform]][]).map(
               ([key, info]) => (
                 <button
@@ -679,6 +684,7 @@ export default function Home() {
           <div className="text-xs text-gray-500 text-right max-w-md">
             <p>Google Ads data: <a href="https://www.localiq.com/blog/search-advertising-benchmarks/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">LocaliQ 2025 Search Ad Benchmarks</a> · <a href="https://www.webfx.com/blog/marketing/google-ads-benchmarks/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">WebFX 2026 Google Ads Cost Data</a> · <a href="https://www.wordstream.com/blog/ws/2016/02/29/google-adwords-industry-benchmarks" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">WordStream Industry Benchmarks</a></p>
             <p className="mt-0.5">Meta & LinkedIn data: Estimated from Google Ads benchmarks adjusted for platform dynamics.</p>
+            <p className="mt-0.5">Google LSA data: Estimated from <a href="https://homeservicedirect.net/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">HomeServiceDirect.net 2026</a> and industry reports.</p>
           </div>
         </div>
       </footer>

@@ -4,7 +4,7 @@ export type CplChoice = "low" | "mid" | "high" | "custom";
 
 export type RoundingMode = "exact" | "conservative";
 
-export type AdPlatform = "google" | "meta" | "linkedin";
+export type AdPlatform = "google" | "meta" | "linkedin" | "lsa";
 
 export interface PlatformRecommendation {
   rating: number; // 1-5

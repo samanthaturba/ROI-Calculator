@@ -17,6 +17,7 @@ const PLATFORM_NAMES: Record<AdPlatform, string> = {
   google: "Google Ads",
   meta: "Meta Ads",
   linkedin: "LinkedIn Ads",
+  lsa: "Google Local Services Ads",
 };
 
 function MetricTooltip({ label, explanation }: { label: string; explanation: string }) {
@@ -66,8 +67,8 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
 
   // Advanced metrics
   const avgCpc = result.weightedAvgCpl * 0.15; // Approximate CPC as ~15% of CPL (varies by platform)
-  const cpcMultiplier = platform === "google" ? 1.0 : platform === "meta" ? 0.6 : 2.5;
-  const estimatedCpc = avgCpc * cpcMultiplier;
+  const cpcMultiplier = platform === "google" ? 1.0 : platform === "meta" ? 0.6 : platform === "linkedin" ? 2.5 : 0;
+  const estimatedCpc = platform === "lsa" ? 0 : avgCpc * cpcMultiplier;
 
   const roas = result.totalSpend > 0 ? revenue / result.totalSpend : 0;
 
@@ -166,18 +167,37 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
       {/* Advanced Metrics Row */}
       <div className="grid grid-cols-2 gap-4 mb-6">
         <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-          <div className="text-xs text-cogent-neutral uppercase tracking-wide mb-1">
-            <MetricTooltip
-              label="Est. CPC"
-              explanation="Cost Per Click — the estimated average cost each time someone clicks your ad. Varies by keyword competition, ad quality, and platform."
-            />
-          </div>
-          <div className="text-lg font-bold text-cogent-navy-dark">
-            ${estimatedCpc.toFixed(2)}
-          </div>
-          <div className="text-xs text-gray-400">
-            {platform === "google" ? "search click avg" : platform === "meta" ? "social click avg" : "professional click avg"}
-          </div>
+          {platform === "lsa" ? (
+            <>
+              <div className="text-xs text-cogent-neutral uppercase tracking-wide mb-1">
+                <MetricTooltip
+                  label="CPC"
+                  explanation="Local Services Ads charge per lead, not per click. There is no CPC — Google charges a flat fee for each verified lead."
+                />
+              </div>
+              <div className="text-lg font-bold text-cogent-navy-dark">
+                N/A
+              </div>
+              <div className="text-xs text-gray-400">
+                LSA charges per lead, not per click
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="text-xs text-cogent-neutral uppercase tracking-wide mb-1">
+                <MetricTooltip
+                  label="Est. CPC"
+                  explanation="Cost Per Click — the estimated average cost each time someone clicks your ad. Varies by keyword competition, ad quality, and platform."
+                />
+              </div>
+              <div className="text-lg font-bold text-cogent-navy-dark">
+                ${estimatedCpc.toFixed(2)}
+              </div>
+              <div className="text-xs text-gray-400">
+                {platform === "google" ? "search click avg" : platform === "meta" ? "social click avg" : "professional click avg"}
+              </div>
+            </>
+          )}
         </div>
         <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
           <div className="text-xs text-cogent-neutral uppercase tracking-wide mb-1">
@@ -273,6 +293,8 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
                 ? "Google's algorithm is gathering data. Expect higher CPL and fewer conversions. Do not make major changes during this period."
                 : platform === "meta"
                 ? "Meta's algorithm is learning your audience. Ad delivery will fluctuate. Avoid editing ads or audiences during this phase."
+                : platform === "lsa"
+                ? "Your LSA profile is building visibility. Lead volume starts low as Google verifies your business and profile completeness."
                 : "LinkedIn's audience targeting is calibrating. Expect higher CPL initially as the algorithm identifies your ideal prospects."}
             </p>
           </div>
@@ -283,6 +305,8 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
                 ? "Data builds, CPL stabilizes. Campaign adjustments begin. Results start trending toward benchmarks shown above."
                 : platform === "meta"
                 ? "Audience data matures. Retargeting audiences build. CPL begins to stabilize as winning ad creatives emerge."
+                : platform === "lsa"
+                ? "Lead volume increases as reviews accumulate and your profile ranks higher. Respond quickly to leads to maintain your ranking."
                 : "Sponsored Content and InMail performance stabilizes. A/B test messaging and audience segments for better CPL."}
             </p>
           </div>
@@ -293,6 +317,8 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
                 ? "Campaigns are optimized and performing at or near projected benchmarks. Continuous optimization drives improvement."
                 : platform === "meta"
                 ? "Lookalike audiences and retargeting are fully built. Campaigns running at steady-state performance with consistent lead flow."
+                : platform === "lsa"
+                ? "Established profile with consistent lead flow. Maintain high review ratings and fast response times to keep top placement."
                 : "Pipeline of B2B leads is established. Account-based targeting refined. Ongoing optimization for lower CPL and higher-quality leads."}
             </p>
           </div>
@@ -332,7 +358,7 @@ export default function Results({ result, roundingMode, targetArea, marketTier, 
           </div>
           <div className="flex items-start gap-2 py-1">
             <span className="text-amber-500 mt-0.5">&#9679;</span>
-            <span><strong>Review reputation</strong> — businesses with strong {platform === "google" ? "Google" : "online"} reviews see higher click and conversion rates</span>
+            <span><strong>Review reputation</strong> — businesses with strong {platform === "google" || platform === "lsa" ? "Google" : "online"} reviews see higher click and conversion rates{platform === "lsa" ? ". Reviews directly impact LSA ranking" : ""}</span>
           </div>
           <div className="flex items-start gap-2 py-1">
             <span className="text-amber-500 mt-0.5">&#9679;</span>

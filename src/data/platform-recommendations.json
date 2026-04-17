@@ -10,7 +10,11 @@
     },
     "linkedin": {
       "rating": 1,
-      "note": "Not recommended. HVAC is a local consumer service — LinkedIn users aren't searching for AC repair."
+      "note": "Not recommended. HVAC is a local consumer service \u2014 LinkedIn users aren't searching for AC repair."
+    },
+    "lsa": {
+      "rating": 5,
+      "note": "Ideal LSA fit. HVAC emergency and service calls convert at high rates with Google Verified badge. Proximity-based targeting reaches nearby homeowners in need."
     }
   },
   "plumbing": {
@@ -25,6 +29,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended for residential plumbing. Commercial plumbing contractors may see some B2B value."
+    },
+    "lsa": {
+      "rating": 5,
+      "note": "Ideal LSA fit. Emergency plumbing leads are perfectly suited for pay-per-lead. Proximity targeting ensures relevant local leads."
     }
   },
   "roofing": {
@@ -39,6 +47,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended for residential roofing."
+    },
+    "lsa": {
+      "rating": 5,
+      "note": "Ideal LSA fit. High job values make LSA's flat CPL very cost-effective. Storm damage leads convert quickly."
     }
   },
   "electrical": {
@@ -53,6 +65,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended for residential electrical services."
+    },
+    "lsa": {
+      "rating": 5,
+      "note": "Ideal LSA fit. Emergency electrical work and panel upgrades convert well through LSA. Google Verified badge builds trust."
     }
   },
   "septic": {
@@ -67,6 +83,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Moderate LSA fit. Septic services may be LSA-eligible in some markets. Emergency calls benefit from proximity targeting."
     }
   },
   "pest-control": {
@@ -81,6 +101,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended for residential pest control."
+    },
+    "lsa": {
+      "rating": 4,
+      "note": "Strong LSA fit. Affordable CPL and recurring service potential. Seasonal pest leads convert well with Google Verified badge."
     }
   },
   "pool": {
@@ -90,11 +114,15 @@
     },
     "meta": {
       "rating": 5,
-      "note": "Excellent visual platform — pool builds, before/after photos perform very well. Great for seasonal promos."
+      "note": "Excellent visual platform \u2014 pool builds, before/after photos perform very well. Great for seasonal promos."
     },
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Moderate LSA fit. Pool services may be LSA-eligible in some markets. Seasonal demand varies."
     }
   },
   "landscaping": {
@@ -104,11 +132,15 @@
     },
     "meta": {
       "rating": 5,
-      "note": "Excellent for visual showcase — before/after transformations. Great for seasonal promos and recurring maintenance plans."
+      "note": "Excellent for visual showcase \u2014 before/after transformations. Great for seasonal promos and recurring maintenance plans."
     },
     "linkedin": {
       "rating": 2,
       "note": "Only viable for commercial landscaping contracts targeting property managers."
+    },
+    "lsa": {
+      "rating": 4,
+      "note": "Strong LSA fit. Moderate CPL with good lead volume in suburban markets. Seasonal demand aligns well."
     }
   },
   "tree-service": {
@@ -123,6 +155,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 4,
+      "note": "Strong LSA fit. Affordable CPL and emergency tree removal leads benefit from proximity targeting."
     }
   },
   "painting": {
@@ -137,6 +173,10 @@
     "linkedin": {
       "rating": 2,
       "note": "Only viable for commercial painting contracts targeting property managers and facilities teams."
+    },
+    "lsa": {
+      "rating": 4,
+      "note": "Strong LSA fit. Moderate CPL with high job values for interior/exterior projects."
     }
   },
   "fencing": {
@@ -146,11 +186,15 @@
     },
     "meta": {
       "rating": 4,
-      "note": "Visual platform works well — showcase fence styles and completed projects."
+      "note": "Visual platform works well \u2014 showcase fence styles and completed projects."
     },
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Moderate LSA fit. Higher CPL but strong job values. Not as urgency-driven as other LSA categories."
     }
   },
   "concrete": {
@@ -165,6 +209,10 @@
     "linkedin": {
       "rating": 2,
       "note": "Only for commercial/industrial concrete contractors targeting construction firms."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Moderate LSA fit. Concrete services may be available through LSA in some markets."
     }
   },
   "stamped-concrete": {
@@ -174,11 +222,15 @@
     },
     "meta": {
       "rating": 4,
-      "note": "Highly visual — before/after stamped concrete photos drive strong engagement and leads."
+      "note": "Highly visual \u2014 before/after stamped concrete photos drive strong engagement and leads."
     },
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Moderate LSA fit. Falls under concrete/masonry LSA categories where available."
     }
   },
   "epoxy-flooring": {
@@ -193,6 +245,10 @@
     "linkedin": {
       "rating": 2,
       "note": "Some value for commercial/industrial epoxy flooring targeting facilities managers."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Moderate LSA fit. May fall under flooring or concrete LSA categories."
     }
   },
   "flooring": {
@@ -207,6 +263,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended for residential flooring."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Moderate LSA fit. Flooring services may be LSA-eligible in some markets."
     }
   },
   "countertops": {
@@ -221,6 +281,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Moderate LSA fit. May be available under home improvement LSA categories in some markets."
     }
   },
   "window-door": {
@@ -235,6 +299,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended for residential."
+    },
+    "lsa": {
+      "rating": 4,
+      "note": "Strong LSA fit. Window installation services are LSA-eligible with good local search volume."
     }
   },
   "siding": {
@@ -249,6 +317,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Moderate LSA fit. May fall under general contractor or roofing LSA categories."
     }
   },
   "garage-door": {
@@ -263,6 +335,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 4,
+      "note": "Strong LSA fit. Emergency garage door repair leads are well-suited for proximity-based pay-per-lead."
     }
   },
   "paving": {
@@ -277,6 +353,10 @@
     "linkedin": {
       "rating": 2,
       "note": "Some value for commercial paving targeting property managers."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Moderate LSA fit. Paving may be LSA-eligible in some markets."
     }
   },
   "foundation-repair": {
@@ -291,6 +371,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Moderate LSA fit. Available in some markets. High job values offset higher CPL."
     }
   },
   "waterproofing": {
@@ -305,6 +389,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Moderate LSA fit. Available in some markets for basement waterproofing services."
     }
   },
   "demolition": {
@@ -319,6 +407,10 @@
     "linkedin": {
       "rating": 2,
       "note": "Some value for commercial demolition targeting developers and construction firms."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Weak LSA fit. Demolition services are generally not LSA-eligible."
     }
   },
   "excavation": {
@@ -333,6 +425,10 @@
     "linkedin": {
       "rating": 2,
       "note": "Some value targeting construction companies and developers."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Weak LSA fit. Excavation services are generally not LSA-eligible."
     }
   },
   "welding": {
@@ -347,6 +443,10 @@
     "linkedin": {
       "rating": 2,
       "note": "Some value for industrial welding services targeting manufacturing firms."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Welding services are not LSA-eligible."
     }
   },
   "auto-body": {
@@ -361,6 +461,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended for consumer auto body services."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Moderate LSA fit. Auto services are LSA-eligible but less commonly used than home services."
     }
   },
   "towing": {
@@ -370,11 +474,15 @@
     },
     "meta": {
       "rating": 1,
-      "note": "Not effective. Towing is urgency-driven — people don't browse Facebook when they need a tow."
+      "note": "Not effective. Towing is urgency-driven \u2014 people don't browse Facebook when they need a tow."
     },
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 4,
+      "note": "Strong LSA fit. Emergency towing is perfectly suited for proximity-based pay-per-lead targeting."
     }
   },
   "moving": {
@@ -389,6 +497,10 @@
     "linkedin": {
       "rating": 2,
       "note": "Some value for commercial/office moving services targeting facilities and office managers."
+    },
+    "lsa": {
+      "rating": 4,
+      "note": "Strong LSA fit. Moving services benefit from Google Verified badge and local proximity targeting."
     }
   },
   "junk-removal": {
@@ -403,6 +515,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 4,
+      "note": "Strong LSA fit. Affordable CPL for local service calls."
     }
   },
   "cleaning": {
@@ -417,6 +533,10 @@
     "linkedin": {
       "rating": 2,
       "note": "Some value for commercial janitorial services targeting office managers and property management."
+    },
+    "lsa": {
+      "rating": 4,
+      "note": "Strong LSA fit. Very affordable CPL makes LSA cost-effective for recurring cleaning service sign-ups."
     }
   },
   "pressure-washing": {
@@ -431,6 +551,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 4,
+      "note": "Strong LSA fit. Affordable local service that benefits from proximity-based targeting."
     }
   },
   "restoration": {
@@ -445,6 +569,10 @@
     "linkedin": {
       "rating": 2,
       "note": "Some value for commercial restoration targeting property managers and insurance adjusters."
+    },
+    "lsa": {
+      "rating": 4,
+      "note": "Strong LSA fit. Emergency water/fire damage leads are well-suited for proximity-based pay-per-lead."
     }
   },
   "mold-remediation": {
@@ -459,6 +587,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 4,
+      "note": "Strong LSA fit. Health-urgency leads convert well. High job values offset higher CPL."
     }
   },
   "insulation": {
@@ -473,6 +605,10 @@
     "linkedin": {
       "rating": 2,
       "note": "Some value for commercial insulation targeting builders and contractors."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Moderate LSA fit. Available in some markets as a home improvement service."
     }
   },
   "solar": {
@@ -487,6 +623,10 @@
     "linkedin": {
       "rating": 3,
       "note": "Viable for commercial solar installations targeting business owners and facilities managers."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Weak LSA fit. Solar installation is not a standard LSA category. Google Ads search is more effective."
     }
   },
   "home-security": {
@@ -501,6 +641,10 @@
     "linkedin": {
       "rating": 2,
       "note": "Some value for commercial security systems targeting business owners."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Weak LSA fit. Home security is not a core LSA category. Better suited for Google Ads search campaigns."
     }
   },
   "locksmith": {
@@ -515,6 +659,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 5,
+      "note": "Ideal LSA fit. Emergency lockout calls are the quintessential LSA use case \u2014 proximity-based, immediate need."
     }
   },
   "appliance-repair": {
@@ -529,6 +677,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 4,
+      "note": "Strong LSA fit. Emergency appliance repair is well-suited for proximity-based leads."
     }
   },
   "drywall": {
@@ -543,6 +695,10 @@
     "linkedin": {
       "rating": 2,
       "note": "Some value targeting general contractors and builders."
+    },
+    "lsa": {
+      "rating": 4,
+      "note": "Strong LSA fit. Handyman/drywall services benefit from affordable CPL and local targeting."
     }
   },
   "cabinetry": {
@@ -552,11 +708,15 @@
     },
     "meta": {
       "rating": 5,
-      "note": "Highly visual — custom cabinet galleries and kitchen transformation photos drive excellent engagement."
+      "note": "Highly visual \u2014 custom cabinet galleries and kitchen transformation photos drive excellent engagement."
     },
     "linkedin": {
       "rating": 1,
       "note": "Not recommended for residential cabinetry."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Weak LSA fit. Custom cabinetry is not a standard LSA category."
     }
   },
   "glass": {
@@ -571,6 +731,10 @@
     "linkedin": {
       "rating": 2,
       "note": "Some value for commercial glass services targeting architects and property managers."
+    },
+    "lsa": {
+      "rating": 4,
+      "note": "Strong LSA fit. Emergency glass repair benefits from proximity-based targeting."
     }
   },
   "irrigation": {
@@ -585,6 +749,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Weak LSA fit. Irrigation services are not a standard LSA category. May fall under landscaping in some markets."
     }
   },
   "well-service": {
@@ -599,6 +767,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Weak LSA fit. Well services are not a standard LSA category."
     }
   },
   "propane": {
@@ -613,6 +785,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Weak LSA fit. Propane delivery is not a standard LSA category."
     }
   },
   "marine": {
@@ -627,6 +803,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Weak LSA fit. Marine services are not a standard LSA category."
     }
   },
   "heavy-equipment": {
@@ -641,6 +821,10 @@
     "linkedin": {
       "rating": 3,
       "note": "Good for targeting construction companies, mining operations, and fleet managers who need equipment services."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Heavy equipment is a B2B service and not LSA-eligible."
     }
   },
   "commercial-kitchen": {
@@ -655,6 +839,10 @@
     "linkedin": {
       "rating": 3,
       "note": "Good for targeting restaurant owners, hotel managers, and food service operators."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Commercial kitchen services are B2B and not LSA-eligible."
     }
   },
   "sign-wraps": {
@@ -664,11 +852,15 @@
     },
     "meta": {
       "rating": 4,
-      "note": "Highly visual — vehicle wrap galleries and storefront signage showcase photos drive strong engagement."
+      "note": "Highly visual \u2014 vehicle wrap galleries and storefront signage showcase photos drive strong engagement."
     },
     "linkedin": {
       "rating": 3,
       "note": "Good for targeting small business owners and marketing managers who need signage and branding."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Signs and graphics are not LSA-eligible."
     }
   },
   "powder-coating": {
@@ -683,6 +875,10 @@
     "linkedin": {
       "rating": 2,
       "note": "Some value for industrial powder coating targeting manufacturers."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Powder coating is not LSA-eligible."
     }
   },
   "metal-roofing": {
@@ -697,6 +893,10 @@
     "linkedin": {
       "rating": 1,
       "note": "Not recommended for residential metal roofing."
+    },
+    "lsa": {
+      "rating": 4,
+      "note": "Strong LSA fit. Falls under roofing LSA category. Very high job values make LSA cost-effective."
     }
   },
   "artificial-turf": {
@@ -706,11 +906,15 @@
     },
     "meta": {
       "rating": 5,
-      "note": "Excellent visual platform — turf transformation photos are highly engaging. Drought-resistant messaging works well."
+      "note": "Excellent visual platform \u2014 turf transformation photos are highly engaging. Drought-resistant messaging works well."
     },
     "linkedin": {
       "rating": 2,
       "note": "Some value for commercial turf projects targeting property managers and HOAs."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Artificial turf is not a standard LSA category."
     }
   },
   "machining": {
@@ -725,6 +929,10 @@
     "linkedin": {
       "rating": 4,
       "note": "Strong B2B platform for targeting procurement managers, engineers, and manufacturing decision-makers."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Machine works is a B2B service and not LSA-eligible."
     }
   },
   "home-builders": {
@@ -739,6 +947,10 @@
     "linkedin": {
       "rating": 2,
       "note": "Limited value for residential builders unless targeting real estate investors."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Weak LSA fit. Home building is not a standard LSA service category."
     }
   },
   "auto-shipping": {
@@ -753,6 +965,10 @@
     "linkedin": {
       "rating": 2,
       "note": "Some value for B2B fleet transport and dealer-to-dealer shipping."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Weak LSA fit. Auto shipping is not a standard LSA service category."
     }
   },
   "custom-engine": {
@@ -762,11 +978,15 @@
     },
     "meta": {
       "rating": 4,
-      "note": "Enthusiast community engagement — engine build photos and performance content drive strong engagement."
+      "note": "Enthusiast community engagement \u2014 engine build photos and performance content drive strong engagement."
     },
     "linkedin": {
       "rating": 1,
       "note": "Not recommended."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Custom engine building is not LSA-eligible."
     }
   },
   "recycling": {
@@ -781,6 +1001,10 @@
     "linkedin": {
       "rating": 3,
       "note": "Good for targeting corporate sustainability officers and facilities managers for commercial recycling contracts."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Recycling services are not LSA-eligible."
     }
   },
   "waste": {
@@ -795,6 +1019,10 @@
     "linkedin": {
       "rating": 3,
       "note": "Good for targeting facilities managers and property management companies for commercial contracts."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Waste services are not LSA-eligible."
     }
   },
   "installation": {
@@ -809,6 +1037,10 @@
     "linkedin": {
       "rating": 4,
       "note": "Strong for targeting office managers, facilities directors, and companies planning office moves or renovations."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. B2B installation services are not LSA-eligible."
     }
   },
   "printing": {
@@ -823,6 +1055,10 @@
     "linkedin": {
       "rating": 3,
       "note": "Good for targeting marketing managers and event planners who need commercial printing."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Printing services are not LSA-eligible."
     }
   },
   "bolt-services": {
@@ -837,6 +1073,10 @@
     "linkedin": {
       "rating": 3,
       "note": "Good for targeting procurement managers and manufacturing engineers in industrial supply chains."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. B2B industrial supply is not LSA-eligible."
     }
   },
   "engineering": {
@@ -851,6 +1091,10 @@
     "linkedin": {
       "rating": 5,
       "note": "Excellent platform for engineering firms. Target project managers, developers, and corporate decision-makers. Thought leadership content performs very well."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Engineering firms are B2B and not LSA-eligible."
     }
   },
   "structural-engineers": {
@@ -865,6 +1109,10 @@
     "linkedin": {
       "rating": 5,
       "note": "Excellent platform. Target architects, builders, developers, and construction managers who need structural engineering services."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Structural engineering is B2B and not LSA-eligible."
     }
   },
   "tile-contractor": {
@@ -874,11 +1122,15 @@
     },
     "meta": {
       "rating": 4,
-      "note": "Highly visual — tile design inspiration and bathroom/kitchen transformation photos drive engagement."
+      "note": "Highly visual \u2014 tile design inspiration and bathroom/kitchen transformation photos drive engagement."
     },
     "linkedin": {
       "rating": 1,
       "note": "Not recommended for residential tile work."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Moderate LSA fit. Tile work may be available under general contractor LSA categories."
     }
   },
   "lodging": {
@@ -893,6 +1145,10 @@
     "linkedin": {
       "rating": 3,
       "note": "Good for targeting corporate travel managers and event planners for group bookings and corporate retreats."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Weak LSA fit. Hotels and lodging are not LSA-eligible. Use Google Hotel Ads instead."
     }
   },
   "construction": {
@@ -907,6 +1163,10 @@
     "linkedin": {
       "rating": 4,
       "note": "Strong for commercial construction. Target developers, architects, and corporate facilities teams."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Weak LSA fit. General construction is too broad for LSA's service-specific model."
     }
   },
   "motor-groups": {
@@ -921,6 +1181,10 @@
     "linkedin": {
       "rating": 2,
       "note": "Limited value for consumer auto sales. Some value for fleet sales targeting fleet managers."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Weak LSA fit. Auto dealerships are not a standard LSA category."
     }
   },
   "distribution": {
@@ -935,6 +1199,10 @@
     "linkedin": {
       "rating": 5,
       "note": "Excellent platform for distribution companies. Target supply chain managers, procurement directors, and logistics decision-makers."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Distribution is a B2B service and not LSA-eligible."
     }
   },
   "surveying": {
@@ -949,6 +1217,10 @@
     "linkedin": {
       "rating": 4,
       "note": "Good for targeting developers, real estate firms, and construction companies who need surveying services."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Surveying is a B2B service and not LSA-eligible."
     }
   },
   "metal-fabrication": {
@@ -963,6 +1235,10 @@
     "linkedin": {
       "rating": 4,
       "note": "Strong for targeting procurement managers, engineers, and manufacturing decision-makers who source custom fabrication."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Metal fabrication is a B2B service and not LSA-eligible."
     }
   },
   "service-cabling": {
@@ -977,6 +1253,10 @@
     "linkedin": {
       "rating": 4,
       "note": "Strong for targeting IT directors, facilities managers, and companies planning office buildouts or network upgrades."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Data cabling is a B2B service and not LSA-eligible."
     }
   },
   "vending": {
@@ -991,6 +1271,10 @@
     "linkedin": {
       "rating": 4,
       "note": "Good for targeting facilities managers, office managers, and property managers looking for vending services."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Vending services are B2B and not LSA-eligible."
     }
   },
   "metal-plating": {
@@ -1005,6 +1289,10 @@
     "linkedin": {
       "rating": 4,
       "note": "Good for targeting manufacturing engineers and procurement managers in industries needing plating (aerospace, medical, automotive)."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Metal plating is a B2B industrial service and not LSA-eligible."
     }
   },
   "custom-home-builders": {
@@ -1019,6 +1307,10 @@
     "linkedin": {
       "rating": 2,
       "note": "Some value targeting high-net-worth professionals, but Meta is more effective."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Weak LSA fit. Custom home building is not a standard LSA service category."
     }
   },
   "cnc-machining": {
@@ -1033,6 +1325,10 @@
     "linkedin": {
       "rating": 5,
       "note": "Excellent platform for CNC shops. Target mechanical engineers, procurement managers, and R&D teams sourcing precision machined parts."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. CNC machining is a B2B service and not LSA-eligible."
     }
   },
   "composite": {
@@ -1047,6 +1343,10 @@
     "linkedin": {
       "rating": 4,
       "note": "Good for targeting aerospace, automotive, and marine engineers who need composite manufacturing."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Composite services are B2B and not LSA-eligible."
     }
   },
   "fabrication": {
@@ -1061,6 +1361,10 @@
     "linkedin": {
       "rating": 4,
       "note": "Strong for targeting procurement managers, architects, and construction firms sourcing custom fabrication."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Fabrication is a B2B service and not LSA-eligible."
     }
   },
   "consulting": {
@@ -1075,6 +1379,10 @@
     "linkedin": {
       "rating": 5,
       "note": "Best platform for consulting firms. Target C-suite executives, business owners, and decision-makers. Thought leadership, case studies, and InMail campaigns drive high-quality leads."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Consulting is a B2B service and not LSA-eligible."
     }
   },
   "commercial-contractor": {
@@ -1089,6 +1397,10 @@
     "linkedin": {
       "rating": 5,
       "note": "Excellent platform. Target facility managers, property managers, CFOs, and real estate directors. Account-based targeting works especially well for going after known commercial real estate portfolios and property management firms."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Commercial contracting is B2B and not suited for LSA's consumer model."
     }
   },
   "fleet-maintenance": {
@@ -1103,12 +1415,16 @@
     "linkedin": {
       "rating": 4,
       "note": "Strong for targeting logistics directors, fleet managers, and transportation company executives. Sponsored Content with uptime stats and cost savings resonates well."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Weak LSA fit. Fleet maintenance is B2B-oriented and not suited for LSA's consumer model."
     }
   },
   "truck-repair": {
     "google": {
       "rating": 5,
-      "note": "Excellent platform. Truck repair searches are urgent and high-intent — \"truck repair near me\", \"diesel mechanic\", \"trailer repair\". Strong conversion rates for both owner-operators and fleet managers."
+      "note": "Excellent platform. Truck repair searches are urgent and high-intent \u2014 \"truck repair near me\", \"diesel mechanic\", \"trailer repair\". Strong conversion rates for both owner-operators and fleet managers."
     },
     "meta": {
       "rating": 2,
@@ -1117,26 +1433,34 @@
     "linkedin": {
       "rating": 2,
       "note": "Not ideal for most truck repair services. Only viable for pursuing large fleet maintenance contracts with logistics companies."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Weak LSA fit. Truck repair is not a standard LSA service category."
     }
   },
   "rv-auto-repair": {
     "google": {
       "rating": 5,
-      "note": "Top platform. \"RV repair near me\", \"auto repair\", \"engine repair\" — high-intent searches with strong conversion. Seasonal RV peaks in spring/summer."
+      "note": "Top platform. \"RV repair near me\", \"auto repair\", \"engine repair\" \u2014 high-intent searches with strong conversion. Seasonal RV peaks in spring/summer."
     },
     "meta": {
       "rating": 4,
-      "note": "Strong for RV specifically — RV owners are very active in Facebook groups and communities. Seasonal campaigns, service reminders, and lifestyle content perform well. Auto repair is more moderate."
+      "note": "Strong for RV specifically \u2014 RV owners are very active in Facebook groups and communities. Seasonal campaigns, service reminders, and lifestyle content perform well. Auto repair is more moderate."
     },
     "linkedin": {
       "rating": 1,
-      "note": "Not recommended. RV and auto repair is a consumer service — LinkedIn is not where these customers look for vehicle service."
+      "note": "Not recommended. RV and auto repair is a consumer service \u2014 LinkedIn is not where these customers look for vehicle service."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Moderate LSA fit. Auto repair is LSA-eligible. RV-specific coverage may be limited."
     }
   },
   "truck-fleet-service": {
     "google": {
       "rating": 5,
-      "note": "Best platform for full-service truck and fleet centers. Captures high-intent searches across all service types — truck repair, fleet maintenance, towing, RV service, DOT inspections. Strong conversion from both owner-operators and fleet managers."
+      "note": "Best platform for full-service truck and fleet centers. Captures high-intent searches across all service types \u2014 truck repair, fleet maintenance, towing, RV service, DOT inspections. Strong conversion from both owner-operators and fleet managers."
     },
     "meta": {
       "rating": 3,
@@ -1145,6 +1469,10 @@
     "linkedin": {
       "rating": 3,
       "note": "Moderate for the fleet/commercial side of the business. Can target logistics directors and fleet managers for maintenance contracts. Not useful for consumer services like RV repair or towing."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Weak LSA fit. Fleet service is B2B-oriented and not suited for LSA's consumer model."
     }
   },
   "other": {
@@ -1159,6 +1487,10 @@
     "linkedin": {
       "rating": 3,
       "note": "Effectiveness depends on your specific industry. LinkedIn works best for B2B services targeting professionals and decision-makers."
+    },
+    "lsa": {
+      "rating": 0,
+      "note": "Local Services Ads availability depends on your specific industry. Check Google's LSA eligibility tool for your service type."
     }
   }
 }

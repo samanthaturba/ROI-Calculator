@@ -17,6 +17,7 @@ const PLATFORM_LABELS: Record<AdPlatform, string> = {
   google: "Google",
   meta: "Meta (Facebook/Instagram)",
   linkedin: "LinkedIn",
+  lsa: "Google Local Services Ads (LSA)",
 };
 
 function fmt$(n: number): string {
@@ -468,6 +469,10 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
     { title: "Weeks 1-2: Learning Phase", body: "Meta's algorithm is learning your audience. Ad delivery will fluctuate. Avoid editing ads or audiences during this phase." },
     { title: "Weeks 3-6: Optimization", body: "Audience data matures. Retargeting audiences build. CPL begins to stabilize as winning ad creatives emerge." },
     { title: "Months 2-3+: Mature Performance", body: "Lookalike audiences and retargeting are fully built. Campaigns running at steady-state performance with consistent lead flow." },
+  ] : data.platform === "lsa" ? [
+    { title: "Weeks 1-2: Building Visibility", body: "Your LSA profile is building visibility. Lead volume starts low as Google verifies your business and profile completeness." },
+    { title: "Weeks 3-6: Growing Momentum", body: "Lead volume increases as reviews accumulate and your profile ranks higher. Respond quickly to leads to maintain your ranking." },
+    { title: "Months 2-3+: Established Profile", body: "Established profile with consistent lead flow. Maintain high review ratings and fast response times to keep top placement." },
   ] : [
     { title: "Weeks 1-2: Learning Phase", body: "LinkedIn's audience targeting is calibrating. Expect higher CPL initially as the algorithm identifies your ideal prospects." },
     { title: "Weeks 3-6: Optimization", body: "Sponsored Content and InMail performance stabilizes. A/B test messaging and audience segments for better CPL." },

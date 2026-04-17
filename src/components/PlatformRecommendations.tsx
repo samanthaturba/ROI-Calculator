@@ -12,12 +12,14 @@ const platformLabels: Record<AdPlatform, string> = {
   google: "Google Ads",
   meta: "Meta Ads",
   linkedin: "LinkedIn Ads",
+  lsa: "Google LSA",
 };
 
 const platformIcons: Record<AdPlatform, string> = {
   google: "🔍",
   meta: "📱",
   linkedin: "💼",
+  lsa: "📍",
 };
 
 function StarRating({ rating, max = 5 }: { rating: number; max?: number }) {
@@ -40,7 +42,8 @@ function getRatingLabel(rating: number): { text: string; color: string } {
   if (rating >= 4) return { text: "Strong", color: "text-blue-700 bg-blue-50 border-blue-200" };
   if (rating >= 3) return { text: "Moderate", color: "text-yellow-700 bg-yellow-50 border-yellow-200" };
   if (rating >= 2) return { text: "Limited", color: "text-orange-700 bg-orange-50 border-orange-200" };
-  return { text: "Not Recommended", color: "text-red-700 bg-red-50 border-red-200" };
+  if (rating >= 1) return { text: "Not Recommended", color: "text-red-700 bg-red-50 border-red-200" };
+  return { text: "Not Available", color: "text-gray-500 bg-gray-50 border-gray-200" };
 }
 
 export default function PlatformRecommendations({
@@ -50,7 +53,7 @@ export default function PlatformRecommendations({
 }: Props) {
   if (!recommendations) return null;
 
-  const platforms: AdPlatform[] = ["google", "meta", "linkedin"];
+  const platforms: AdPlatform[] = ["google", "meta", "linkedin", "lsa"];
 
   // Find platforms rated 4+ that aren't the current one (for recommendation callout)
   const goodAlternatives = platforms.filter(
@@ -60,9 +63,9 @@ export default function PlatformRecommendations({
   return (
     <div className="space-y-3">
       {/* Star rating cards for all platforms */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
         {platforms.map((platform) => {
-          const rec = recommendations[platform];
+          const rec = recommendations[platform] ?? { rating: 0, note: "No data available for this platform." };
           const label = getRatingLabel(rec.rating);
           const isCurrent = platform === currentPlatform;
 
