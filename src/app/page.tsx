@@ -29,7 +29,7 @@ import Results from "../components/Results";
 import KeywordSuggestions from "../components/KeywordSuggestions";
 import ExportSummary from "../components/ExportSummary";
 import SaveLoad from "../components/SaveLoad";
-import PlatformRecommendations from "../components/PlatformRecommendations";
+
 import PowerPointExport from "../components/PowerPointExport";
 
 const DEFAULT_CLOSE_RATE = 20; // Fallback before industry is selected; actual default comes from industry data
@@ -629,39 +629,32 @@ export default function Home() {
           onTextExtract={handleTextExtract}
         />
 
-        {/* Platform Recommendations (shown when industry is selected, before platform selector) */}
-        {clientInputs.industryId && platformRecs && (
-          <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-cogent-navy mb-1">
-              Platform Fit — {selectedIndustry?.name ?? "Industry"}
-            </h2>
-            <p className="text-sm text-cogent-neutral mb-4">
-              How well each advertising platform performs for this industry. Select one or more platforms below to build your strategy.
-            </p>
-            <PlatformRecommendations
-              recommendations={platformRecs}
-              currentPlatform={platform}
-              industryName={selectedIndustry?.name ?? "this industry"}
-            />
-          </section>
-        )}
-
-        {/* Platform Selector */}
+        {/* Unified Platform Selection & Fit */}
         <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-cogent-navy mb-1">Ad Platform{selectedPlatforms.length > 1 ? "s" : ""}</h2>
+          <h2 className="text-lg font-semibold text-cogent-navy mb-1">
+            {clientInputs.industryId
+              ? `Ad Platforms — ${selectedIndustry?.name ?? "Industry"} Fit`
+              : "Ad Platforms"}
+          </h2>
           <p className="text-sm text-cogent-neutral mb-4">
-            {selectedPlatforms.length > 1
-              ? "Multiple platforms selected. Click to toggle platforms on/off."
-              : clientInputs.industryId
-                ? "Select your primary platform, or click multiple to build a multi-platform strategy."
-                : "Select an industry above first, then choose your ad platform(s)."}
+            {clientInputs.industryId
+              ? "Click a platform to select it. Click additional platforms to build a multi-platform strategy."
+              : "Select an industry above to see platform fit ratings, or choose a platform to get started."}
           </p>
+
           <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
             {(Object.entries(PLATFORM_INFO) as [AdPlatform, typeof PLATFORM_INFO[AdPlatform]][]).map(
               ([key, info]) => {
                 const isActive = selectedPlatforms.includes(key);
                 const rec = platformRecs?.[key];
                 const stars = rec?.rating ?? 0;
+                const ratingLabel = stars >= 5 ? { text: "Excellent", color: "text-green-700 bg-green-50 border-green-200" }
+                  : stars >= 4 ? { text: "Strong", color: "text-blue-700 bg-blue-50 border-blue-200" }
+                  : stars >= 3 ? { text: "Moderate", color: "text-yellow-700 bg-yellow-50 border-yellow-200" }
+                  : stars >= 2 ? { text: "Limited", color: "text-orange-700 bg-orange-50 border-orange-200" }
+                  : stars >= 1 ? { text: "Not Recommended", color: "text-red-700 bg-red-50 border-red-200" }
+                  : null;
+
                 return (
                   <button
                     key={key}
@@ -689,13 +682,32 @@ export default function Home() {
                         </span>
                       )}
                     </div>
-                    <p className="text-xs text-cogent-neutral">{info.description}</p>
-                    {clientInputs.industryId && stars > 0 && (
-                      <p className="mt-1 text-xs">
-                        <span className="text-amber-500">{"★".repeat(stars)}</span>
-                        <span className="text-gray-300">{"★".repeat(5 - stars)}</span>
-                      </p>
+
+                    {/* Star rating & fit label (when industry is selected) */}
+                    {clientInputs.industryId && rec && (
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <span className="inline-flex gap-0.5">
+                          {Array.from({ length: 5 }, (_, i) => (
+                            <span key={i} className={`text-sm ${i < stars ? "text-yellow-400" : "text-gray-300"}`}>★</span>
+                          ))}
+                        </span>
+                        {ratingLabel && stars > 0 && (
+                          <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded border ${ratingLabel.color}`}>
+                            {ratingLabel.text}
+                          </span>
+                        )}
+                        {stars === 0 && (
+                          <span className="text-[10px] font-medium px-1.5 py-0.5 rounded border text-gray-500 bg-gray-50 border-gray-200">
+                            Not Available
+                          </span>
+                        )}
+                      </div>
                     )}
+
+                    {/* Description or platform note */}
+                    <p className="text-xs text-cogent-neutral leading-relaxed">
+                      {clientInputs.industryId && rec ? rec.note : info.description}
+                    </p>
                   </button>
                 );
               }
@@ -703,11 +715,37 @@ export default function Home() {
           </div>
 
           {/* Multi-select hint */}
-          {selectedPlatforms.length === 1 && clientInputs.industryId && (
+          {selectedPlatforms.length === 1 && (
             <p className="mt-3 text-xs text-cogent-neutral">
-              💡 <strong>Tip:</strong> Hold Shift and click another platform to build a multi-platform strategy with a recommended budget split.
+              💡 <strong>Tip:</strong> Hold Shift and click another platform to build a multi-platform strategy
+              {clientInputs.industryId ? " with a recommended budget split." : "."}
             </p>
           )}
+
+          {/* Recommendation callout for strong alternatives */}
+          {clientInputs.industryId && platformRecs && (() => {
+            const allPlatforms: AdPlatform[] = ["google", "meta", "linkedin", "lsa"];
+            const goodAlternatives = allPlatforms.filter(
+              (p) => !selectedPlatforms.includes(p) && platformRecs[p].rating >= 4
+            );
+            if (goodAlternatives.length === 0) return null;
+            return (
+              <div className="mt-3 p-3 bg-cogent-sage/10 border border-cogent-sage/30 rounded-md">
+                <p className="text-sm text-cogent-navy">
+                  <span className="font-semibold">💡 Recommendation:</span>{" "}
+                  {selectedIndustry?.name ?? "This industry"} also performs well on{" "}
+                  {goodAlternatives.map((p, i) => (
+                    <span key={p}>
+                      {i > 0 && (i === goodAlternatives.length - 1 ? " and " : ", ")}
+                      <strong>{PLATFORM_INFO[p].label}</strong>
+                      {" "}({platformRecs[p].rating}★)
+                    </span>
+                  ))}
+                  . Click to add {goodAlternatives.length === 1 ? "it" : "them"} for a multi-platform strategy.
+                </p>
+              </div>
+            );
+          })()}
 
           {/* Platform Budget Split — shown when 2+ platforms selected AND industry is chosen */}
           {selectedPlatforms.length > 1 && clientInputs.industryId && (
