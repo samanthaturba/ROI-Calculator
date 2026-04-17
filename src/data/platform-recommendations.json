@@ -1146,5 +1146,19 @@
       "rating": 3,
       "note": "Moderate for the fleet/commercial side of the business. Can target logistics directors and fleet managers for maintenance contracts. Not useful for consumer services like RV repair or towing."
     }
+  },
+  "other": {
+    "google": {
+      "rating": 3,
+      "note": "Effectiveness depends on your specific industry. Google Ads works best when people actively search for your services."
+    },
+    "meta": {
+      "rating": 3,
+      "note": "Effectiveness depends on your specific industry. Meta works best for visual services and consumer-facing businesses."
+    },
+    "linkedin": {
+      "rating": 3,
+      "note": "Effectiveness depends on your specific industry. LinkedIn works best for B2B services targeting professionals and decision-makers."
+    }
   }
 }

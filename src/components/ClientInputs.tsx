@@ -82,7 +82,17 @@ export default function ClientInputs({ value, onChange, onTextExtract }: Props) 
             <div className="absolute z-10 mt-1 w-full bg-white border border-gray-200 rounded-md shadow-lg max-h-48 overflow-y-auto">
               {industries.length === 0 ? (
                 <div className="px-3 py-2 text-sm text-gray-500">
-                  No matching industries
+                  No matching industries found.{" "}
+                  <button
+                    className="text-cogent-navy underline"
+                    onClick={() => {
+                      onChange({ ...value, industryId: "other" });
+                      setIndustrySearch("");
+                      setShowDropdown(false);
+                    }}
+                  >
+                    Select &quot;Other - Manual Input&quot;
+                  </button>
                 </div>
               ) : (
                 industries.map((ind) => (
@@ -100,6 +110,11 @@ export default function ClientInputs({ value, onChange, onTextExtract }: Props) 
                 ))
               )}
             </div>
+          )}
+          {!value.industryId && !showDropdown && (
+            <p className="mt-1 text-xs text-cogent-neutral">
+              Don&apos;t see your industry? Select &quot;Other - Manual Input&quot; to enter your own CPL and job values.
+            </p>
           )}
         </div>
 

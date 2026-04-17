@@ -27,6 +27,7 @@ import KeywordSuggestions from "../components/KeywordSuggestions";
 import ExportSummary from "../components/ExportSummary";
 import SaveLoad from "../components/SaveLoad";
 import PlatformRecommendations from "../components/PlatformRecommendations";
+import PowerPointExport from "../components/PowerPointExport";
 
 const DEFAULT_CLOSE_RATE = 40;
 
@@ -634,7 +635,23 @@ export default function Home() {
           roundingMode={budgetInputs.roundingMode}
         />
 
-        {/* Section G: Save & Load */}
+        {/* Section G: PowerPoint Export */}
+        <PowerPointExport
+          clientName={clientInputs.clientName}
+          industryName={selectedIndustry?.name ?? "—"}
+          platform={platform}
+          result={result}
+          services={services}
+          roundingMode={budgetInputs.roundingMode}
+          targetAreas={targetAreas}
+          monthlyAdSpend={budgetInputs.monthlyAdSpend}
+          closeRate={budgetInputs.closeRate}
+          grossMarginPercent={budgetInputs.grossMarginPercent}
+          blendedMultiplier={blendedMultiplier}
+          websiteUrl={clientInputs.websiteUrl}
+        />
+
+        {/* Section H: Save & Load */}
         <SaveLoad
           getCurrentState={getCurrentState}
           loadState={loadSavedState}

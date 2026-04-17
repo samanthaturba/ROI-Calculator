@@ -4170,5 +4170,19 @@
     "notes": "High-volume, low-CPL entry point. DOT inspection and alignment searches are time-sensitive and convert well. Lower job value but drives customers into higher-value repair services.",
     "source": "LocaliQ 2025 B2B Auto & Fleet Benchmarks",
     "confidence": "medium"
+  },
+  {
+    "industryId": "other",
+    "industryName": "Other - Manual Input",
+    "serviceName": "Custom Service (enter your own)",
+    "cplLow": null,
+    "cplMid": null,
+    "cplHigh": null,
+    "avgJobValue": null,
+    "recommendedMinAdSpend": null,
+    "recommendedTargetAdSpend": null,
+    "notes": "Manual input industry. Enter your own CPL and job values for services not covered by existing industry benchmarks.",
+    "source": "User-provided data",
+    "confidence": "custom"
   }
 ]
