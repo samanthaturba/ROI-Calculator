@@ -1493,6 +1493,24 @@
       "note": "LSA is available for some design services. Lower competition than trades but also lower search volume for design-specific queries."
     }
   },
+  "architecture": {
+    "google": {
+      "rating": 4,
+      "note": "Google Ads captures high-intent searches for architecture firms. Strong for both commercial and residential — people actively search for architects when they have a project."
+    },
+    "meta": {
+      "rating": 3,
+      "note": "Meta works for showcasing portfolio work and building brand awareness. Better for residential architecture than commercial. Use Instagram for visual portfolio content."
+    },
+    "linkedin": {
+      "rating": 4,
+      "note": "LinkedIn is strong for commercial architecture — target developers, property managers, corporate real estate directors, and healthcare facility planners."
+    },
+    "lsa": {
+      "rating": 0,
+      "note": "Not Available. Architecture is not an LSA-eligible service category."
+    }
+  },
   "other": {
     "google": {
       "rating": 3,

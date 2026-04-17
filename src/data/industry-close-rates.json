@@ -82,6 +82,7 @@
   "rv-auto-repair": { "closeRate": 25, "source": "Estimated based on automotive repair close rate data" },
   "truck-fleet-service": { "closeRate": 22, "source": "Estimated based on commercial/recurring services close rate data" },
   "interior-design": { "closeRate": 15, "source": "HiRise Digital 2025 Interior Design Lead Conversion Study" },
+  "architecture": { "closeRate": 14, "source": "Estimated based on B2B professional services close rates (First Page Sage 2026) and architecture industry sales cycle data" },
   "other": { "closeRate": 20, "source": "General industry average" },
   "dental": { "closeRate": 30, "source": "Dental Economics 2025 Practice Marketing Benchmarks (lead-to-patient)" },
   "legal-services": { "closeRate": 19, "source": "First Page Sage 2026 SQL-to-Closed-Won Report" },

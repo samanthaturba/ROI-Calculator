@@ -19,7 +19,7 @@ import {
   getBenchmarkForService,
   getIndustryCloseRate,
 } from "../lib/benchmarks";
-import { calculate, checkSpendWarning } from "../lib/calculations";
+import { calculate, checkSpendWarning, formatCurrency } from "../lib/calculations";
 import { extractServicesFromText } from "../lib/service-extraction";
 
 import ClientInputsComponent from "../components/ClientInputs";
@@ -182,6 +182,45 @@ export default function Home() {
 
   const totalPlatformPercent = selectedPlatforms.reduce((s, p) => s + platformAllocations[p], 0);
 
+  // Compute recommended budget split based on platform star ratings for the industry
+  function getRecommendedPlatformSplit(platforms: AdPlatform[]): Record<AdPlatform, number> {
+    const alloc: Record<AdPlatform, number> = { google: 0, meta: 0, linkedin: 0, lsa: 0 };
+    if (platforms.length === 0) return alloc;
+    if (platforms.length === 1) {
+      alloc[platforms[0]] = 100;
+      return alloc;
+    }
+
+    const recs = clientInputs.industryId ? getPlatformRecommendations(clientInputs.industryId) : null;
+    if (!recs) {
+      // No industry selected, fall back to even split
+      return rebalancePlatformAllocations(platforms);
+    }
+
+    // Use star ratings as weights (minimum 1 to avoid zero allocation)
+    const weights: Record<AdPlatform, number> = { google: 0, meta: 0, linkedin: 0, lsa: 0 };
+    let totalWeight = 0;
+    for (const p of platforms) {
+      const rating = recs[p]?.rating ?? 1;
+      const weight = Math.max(rating, 1);
+      weights[p] = weight;
+      totalWeight += weight;
+    }
+
+    // Convert weights to percentages, rounded to nearest 5%
+    let remaining = 100;
+    const sorted = [...platforms].sort((a, b) => weights[b] - weights[a]);
+    for (let i = 0; i < sorted.length - 1; i++) {
+      const pct = Math.round((weights[sorted[i]] / totalWeight) * 100 / 5) * 5;
+      alloc[sorted[i]] = pct;
+      remaining -= pct;
+    }
+    // Last platform gets the remainder
+    alloc[sorted[sorted.length - 1]] = remaining;
+
+    return alloc;
+  }
+
   // Toggle a platform on or off
   function handlePlatformToggle(toggledPlatform: AdPlatform) {
     setSelectedPlatforms((prev) => {
@@ -191,7 +230,7 @@ export default function Home() {
         // Don't allow deselecting the last platform
         if (prev.length <= 1) return prev;
         const next = prev.filter((p) => p !== toggledPlatform);
-        setPlatformAllocations(rebalancePlatformAllocations(next));
+        setPlatformAllocations(getRecommendedPlatformSplit(next));
         // If we removed the primary platform, reload services for new primary
         if (prev[0] === toggledPlatform && clientInputs.industryId) {
           const newPrimary = next[0];
@@ -213,7 +252,7 @@ export default function Home() {
       } else {
         // Toggle ON
         const next = [...prev, toggledPlatform];
-        setPlatformAllocations(rebalancePlatformAllocations(next));
+        setPlatformAllocations(getRecommendedPlatformSplit(next));
         return next;
       }
     });
@@ -583,18 +622,46 @@ export default function Home() {
 
       {/* Main content */}
       <main className="max-w-5xl mx-auto px-6 py-6 space-y-6">
+        {/* Section A: Client Inputs (first — so industry drives platform recommendations) */}
+        <ClientInputsComponent
+          value={clientInputs}
+          onChange={handleClientInputsChange}
+          onTextExtract={handleTextExtract}
+        />
+
+        {/* Platform Recommendations (shown when industry is selected, before platform selector) */}
+        {clientInputs.industryId && platformRecs && (
+          <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+            <h2 className="text-lg font-semibold text-cogent-navy mb-1">
+              Platform Fit — {selectedIndustry?.name ?? "Industry"}
+            </h2>
+            <p className="text-sm text-cogent-neutral mb-4">
+              How well each advertising platform performs for this industry. Select one or more platforms below to build your strategy.
+            </p>
+            <PlatformRecommendations
+              recommendations={platformRecs}
+              currentPlatform={platform}
+              industryName={selectedIndustry?.name ?? "this industry"}
+            />
+          </section>
+        )}
+
         {/* Platform Selector */}
         <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
           <h2 className="text-lg font-semibold text-cogent-navy mb-1">Ad Platform{selectedPlatforms.length > 1 ? "s" : ""}</h2>
           <p className="text-sm text-cogent-neutral mb-4">
             {selectedPlatforms.length > 1
-              ? "Multiple platforms selected. Click to toggle platforms on/off. Budget will be split across selected platforms."
-              : "Click a platform to select it, or hold Shift and click to add multiple platforms for a combined strategy."}
+              ? "Multiple platforms selected. Click to toggle platforms on/off."
+              : clientInputs.industryId
+                ? "Select your primary platform, or click multiple to build a multi-platform strategy."
+                : "Select an industry above first, then choose your ad platform(s)."}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
             {(Object.entries(PLATFORM_INFO) as [AdPlatform, typeof PLATFORM_INFO[AdPlatform]][]).map(
               ([key, info]) => {
                 const isActive = selectedPlatforms.includes(key);
+                const rec = platformRecs?.[key];
+                const stars = rec?.rating ?? 0;
                 return (
                   <button
                     key={key}
@@ -623,46 +690,77 @@ export default function Home() {
                       )}
                     </div>
                     <p className="text-xs text-cogent-neutral">{info.description}</p>
+                    {clientInputs.industryId && stars > 0 && (
+                      <p className="mt-1 text-xs">
+                        <span className="text-amber-500">{"★".repeat(stars)}</span>
+                        <span className="text-gray-300">{"★".repeat(5 - stars)}</span>
+                      </p>
+                    )}
                   </button>
                 );
               }
             )}
           </div>
 
-          {/* Platform Budget Split — shown when 2+ platforms selected */}
-          {selectedPlatforms.length > 1 && (
+          {/* Multi-select hint */}
+          {selectedPlatforms.length === 1 && clientInputs.industryId && (
+            <p className="mt-3 text-xs text-cogent-neutral">
+              💡 <strong>Tip:</strong> Hold Shift and click another platform to build a multi-platform strategy with a recommended budget split.
+            </p>
+          )}
+
+          {/* Platform Budget Split — shown when 2+ platforms selected AND industry is chosen */}
+          {selectedPlatforms.length > 1 && clientInputs.industryId && (
             <div className="mt-4 p-4 border border-gray-200 rounded-lg bg-cogent-ivory/30">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-sm font-semibold text-cogent-navy">Platform Budget Split</h3>
-                <button
-                  onClick={evenSplitPlatforms}
-                  className="text-xs text-cogent-navy hover:underline"
-                >
-                  Even split
-                </button>
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => setPlatformAllocations(getRecommendedPlatformSplit(selectedPlatforms))}
+                    className="text-xs text-cogent-navy hover:underline font-medium"
+                  >
+                    Use recommended split
+                  </button>
+                  <button
+                    onClick={evenSplitPlatforms}
+                    className="text-xs text-cogent-neutral hover:underline"
+                  >
+                    Even split
+                  </button>
+                </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-                {selectedPlatforms.map((plat) => (
-                  <div key={plat} className="flex items-center gap-2">
-                    <span className="text-sm">{PLATFORM_INFO[plat].icon}</span>
-                    <span className="text-sm font-medium text-gray-700 min-w-0 truncate">{PLATFORM_INFO[plat].label}</span>
-                    <div className="relative ml-auto w-20">
-                      <input
-                        type="number"
-                        min={0}
-                        max={100}
-                        step={1}
-                        value={platformAllocations[plat]}
-                        onChange={(e) => {
-                          const val = parseFloat(e.target.value) || 0;
-                          setPlatformAllocations((prev) => ({ ...prev, [plat]: val }));
-                        }}
-                        className="w-full border border-gray-300 rounded-md px-2 py-1.5 pr-6 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
-                      />
-                      <span className="absolute right-2 top-1.5 text-gray-500 text-sm">%</span>
+                {selectedPlatforms.map((plat) => {
+                  const rec = platformRecs?.[plat];
+                  return (
+                    <div key={plat}>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm">{PLATFORM_INFO[plat].icon}</span>
+                        <span className="text-sm font-medium text-gray-700 min-w-0 truncate">{PLATFORM_INFO[plat].label}</span>
+                        <div className="relative ml-auto w-20">
+                          <input
+                            type="number"
+                            min={0}
+                            max={100}
+                            step={5}
+                            value={platformAllocations[plat]}
+                            onChange={(e) => {
+                              const val = parseFloat(e.target.value) || 0;
+                              setPlatformAllocations((prev) => ({ ...prev, [plat]: val }));
+                            }}
+                            className="w-full border border-gray-300 rounded-md px-2 py-1.5 pr-6 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
+                          />
+                          <span className="absolute right-2 top-1.5 text-gray-500 text-sm">%</span>
+                        </div>
+                      </div>
+                      {rec && budgetInputs.monthlyAdSpend > 0 && (
+                        <p className="text-[11px] text-cogent-neutral mt-1 ml-6">
+                          {formatCurrency(budgetInputs.monthlyAdSpend * platformAllocations[plat] / 100)}/mo
+                        </p>
+                      )}
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
               <div className={`mt-2 text-sm ${Math.abs(totalPlatformPercent - 100) > 0.5 ? "text-red-600 font-medium" : "text-cogent-neutral"}`}>
                 Total: {totalPlatformPercent.toFixed(1)}%
@@ -670,31 +768,16 @@ export default function Home() {
               </div>
             </div>
           )}
+
+          {/* Budget split placeholder when no industry yet */}
+          {selectedPlatforms.length > 1 && !clientInputs.industryId && (
+            <div className="mt-4 p-4 border border-amber-200 rounded-lg bg-amber-50">
+              <p className="text-sm text-amber-800">
+                Select an industry above to see recommended budget splits across your selected platforms.
+              </p>
+            </div>
+          )}
         </section>
-
-        {/* Section A: Client Inputs */}
-        <ClientInputsComponent
-          value={clientInputs}
-          onChange={handleClientInputsChange}
-          onTextExtract={handleTextExtract}
-        />
-
-        {/* Platform Recommendations (shown when industry is selected) */}
-        {clientInputs.industryId && platformRecs && (
-          <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-cogent-navy mb-1">
-              Platform Fit — {selectedIndustry?.name ?? "Industry"}
-            </h2>
-            <p className="text-sm text-cogent-neutral mb-4">
-              How well each advertising platform performs for this industry based on audience behavior, lead quality, and historical data.
-            </p>
-            <PlatformRecommendations
-              recommendations={platformRecs}
-              currentPlatform={platform}
-              industryName={selectedIndustry?.name ?? "this industry"}
-            />
-          </section>
-        )}
 
         {/* No benchmarks warning */}
         {clientInputs.industryId && !platformHasBenchmarks && (
