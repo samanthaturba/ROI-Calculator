@@ -1,6 +1,6 @@
 "use client";
 
-import type { BudgetInputs, RoundingMode } from "../lib/types";
+import type { BudgetInputs, RoundingMode, AdPlatform } from "../lib/types";
 import { formatCurrency } from "../lib/calculations";
 
 interface Props {
@@ -13,7 +13,23 @@ interface Props {
   closeRateManuallySet?: boolean;
   onCloseRateManualChange?: () => void;
   onResetCloseRate?: () => void;
+  selectedPlatforms?: AdPlatform[];
+  platformAllocations?: Record<AdPlatform, number>;
 }
+
+const PLATFORM_LABELS: Record<AdPlatform, string> = {
+  google: "Google Ads",
+  meta: "Meta Ads",
+  linkedin: "LinkedIn Ads",
+  lsa: "Google LSA",
+};
+
+const PLATFORM_ICONS: Record<AdPlatform, string> = {
+  google: "🔍",
+  meta: "📱",
+  linkedin: "💼",
+  lsa: "📍",
+};
 
 export default function BudgetSalesInputs({
   value,
@@ -25,7 +41,10 @@ export default function BudgetSalesInputs({
   closeRateManuallySet,
   onCloseRateManualChange,
   onResetCloseRate,
+  selectedPlatforms,
+  platformAllocations,
 }: Props) {
+  const isMultiPlatform = selectedPlatforms && selectedPlatforms.length > 1 && platformAllocations;
   return (
     <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
       <h2 className="text-lg font-semibold text-cogent-navy mb-4">Budget & Sales Inputs</h2>
@@ -71,6 +90,27 @@ export default function BudgetSalesInputs({
           </div>
           {spendWarning && (
             <p className="mt-1 text-xs text-amber-600">{spendWarning}</p>
+          )}
+          {/* Per-platform spend breakdown */}
+          {isMultiPlatform && value.monthlyAdSpend > 0 && (
+            <div className="mt-2 space-y-1 pl-1">
+              {selectedPlatforms.map((plat) => {
+                const pct = platformAllocations[plat] ?? 0;
+                const amount = value.monthlyAdSpend * pct / 100;
+                return (
+                  <div key={plat} className="flex items-center gap-1.5 text-xs text-cogent-neutral">
+                    <span>{PLATFORM_ICONS[plat]}</span>
+                    <span>{PLATFORM_LABELS[plat]}:</span>
+                    <span className="font-medium text-gray-700">{formatCurrency(amount)}/mo</span>
+                    <span className="text-gray-400">({pct}%)</span>
+                  </div>
+                );
+              })}
+              <div className="flex items-center gap-1.5 text-xs font-medium text-cogent-navy pt-1 border-t border-gray-200">
+                <span>Total:</span>
+                <span>{formatCurrency(value.monthlyAdSpend)}/mo</span>
+              </div>
+            </div>
           )}
         </div>
 

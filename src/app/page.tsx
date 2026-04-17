@@ -968,6 +968,8 @@ export default function Home() {
               setCloseRateManuallySet(false);
             }
           }}
+          selectedPlatforms={selectedPlatforms}
+          platformAllocations={platformAllocations}
         />
 
         {/* Section D: Results */}
