@@ -452,8 +452,34 @@ export default function Home() {
   const currentIndustryCloseRate = clientInputs.industryId
     ? getIndustryCloseRate(clientInputs.industryId)
     : null;
+  // Per-platform recommended spend (industry-based). When multiple platforms are
+  // selected, the combined recommendation is the SUM across platforms — each platform
+  // needs its own minimum to be effective, so running two platforms roughly doubles
+  // the recommended budget.
+  const perPlatformRecommendedSpend: Partial<Record<AdPlatform, { min: number | null; target: number | null }>> =
+    clientInputs.industryId
+      ? Object.fromEntries(
+          selectedPlatforms.map((p) => [p, getRecommendedSpend(clientInputs.industryId!, p)])
+        )
+      : {};
+
   const recommendedSpend = clientInputs.industryId
-    ? getRecommendedSpend(clientInputs.industryId, platform)
+    ? (() => {
+        let minSum = 0;
+        let targetSum = 0;
+        let hasMin = false;
+        let hasTarget = false;
+        for (const p of selectedPlatforms) {
+          const r = perPlatformRecommendedSpend[p];
+          if (!r) continue;
+          if (r.min !== null) { minSum += r.min; hasMin = true; }
+          if (r.target !== null) { targetSum += r.target; hasTarget = true; }
+        }
+        return {
+          min: hasMin ? minSum : null,
+          target: hasTarget ? targetSum : null,
+        };
+      })()
     : { min: null, target: null };
 
   const spendWarning = checkSpendWarning(
@@ -1052,6 +1078,7 @@ export default function Home() {
           }}
           selectedPlatforms={selectedPlatforms}
           platformAllocations={platformAllocations}
+          perPlatformRecommendedSpend={perPlatformRecommendedSpend}
         />
 
         {/* Section D: Results */}

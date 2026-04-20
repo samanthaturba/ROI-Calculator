@@ -15,6 +15,7 @@ interface Props {
   onResetCloseRate?: () => void;
   selectedPlatforms?: AdPlatform[];
   platformAllocations?: Record<AdPlatform, number>;
+  perPlatformRecommendedSpend?: Partial<Record<AdPlatform, { min: number | null; target: number | null }>>;
 }
 
 const PLATFORM_LABELS: Record<AdPlatform, string> = {
@@ -43,6 +44,7 @@ export default function BudgetSalesInputs({
   onResetCloseRate,
   selectedPlatforms,
   platformAllocations,
+  perPlatformRecommendedSpend,
 }: Props) {
   const isMultiPlatform = selectedPlatforms && selectedPlatforms.length > 1 && platformAllocations;
   return (
@@ -52,7 +54,9 @@ export default function BudgetSalesInputs({
       {/* Recommended spend info */}
       {(recommendedMin || recommendedTarget) && (
         <div className="mb-4 p-3 bg-gray-50 border border-gray-200 rounded-md text-sm">
-          <p className="font-medium text-gray-700">Recommended Ad Spend (based on industry benchmarks):</p>
+          <p className="font-medium text-gray-700">
+            Recommended Ad Spend {isMultiPlatform ? "— Combined across selected platforms" : ""} (based on industry benchmarks):
+          </p>
           <div className="flex gap-6 mt-1">
             {recommendedMin && (
               <span className="text-gray-600">
@@ -65,6 +69,32 @@ export default function BudgetSalesInputs({
               </span>
             )}
           </div>
+          {/* Per-platform breakdown when multi-platform */}
+          {isMultiPlatform && perPlatformRecommendedSpend && (
+            <div className="mt-2 pt-2 border-t border-gray-200 space-y-0.5">
+              {selectedPlatforms!.map((plat) => {
+                const rec = perPlatformRecommendedSpend[plat];
+                if (!rec || (rec.min === null && rec.target === null)) return null;
+                return (
+                  <div key={plat} className="flex items-center gap-1.5 text-xs text-gray-600">
+                    <span>{PLATFORM_ICONS[plat]}</span>
+                    <span className="font-medium">{PLATFORM_LABELS[plat]}:</span>
+                    {rec.min !== null && <span>min {formatCurrency(rec.min)}</span>}
+                    {rec.min !== null && rec.target !== null && <span className="text-gray-400">·</span>}
+                    {rec.target !== null && (
+                      <span>
+                        target <span className="font-medium text-cogent-navy">{formatCurrency(rec.target)}</span>/mo
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
+              <p className="text-[11px] text-cogent-neutral italic pt-1">
+                Running multiple platforms means each one needs its own minimum budget to be effective. The combined
+                total is the sum of each platform&apos;s recommended spend.
+              </p>
+            </div>
+          )}
         </div>
       )}
 
