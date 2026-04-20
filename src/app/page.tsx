@@ -182,7 +182,43 @@ export default function Home() {
 
   const totalPlatformPercent = selectedPlatforms.reduce((s, p) => s + platformAllocations[p], 0);
 
-  // Compute recommended budget split based on platform star ratings for the industry
+  // Project a platform's standalone revenue if it received the entire budget.
+  // Used by the recommended-split function to compare platforms on projected economics.
+  function projectPlatformRevenueStandalone(plat: AdPlatform, budget: number): number {
+    const selectedServices = services.filter((s) => s.selected);
+    if (
+      selectedServices.length === 0 ||
+      budget <= 0 ||
+      budgetInputs.closeRate <= 0 ||
+      !clientInputs.industryId
+    ) {
+      return 0;
+    }
+
+    const platServices = services.map((s) => {
+      if (!s.selected) return s;
+      let benchmark = s.benchmark;
+      if (plat !== primaryPlatform) {
+        const platBenchmark = getBenchmarkForService(clientInputs.industryId!, s.serviceName, plat);
+        if (platBenchmark) benchmark = platBenchmark;
+      }
+      const adjusted = { ...s, benchmark: benchmark ? { ...benchmark } : null };
+      if (blendedMultiplier !== 1.0 && adjusted.benchmark && s.cplChoice !== "custom") {
+        if (adjusted.benchmark.cplLow !== null) adjusted.benchmark.cplLow = Math.round(adjusted.benchmark.cplLow * blendedMultiplier);
+        if (adjusted.benchmark.cplMid !== null) adjusted.benchmark.cplMid = Math.round(adjusted.benchmark.cplMid * blendedMultiplier);
+        if (adjusted.benchmark.cplHigh !== null) adjusted.benchmark.cplHigh = Math.round(adjusted.benchmark.cplHigh * blendedMultiplier);
+      }
+      return adjusted;
+    });
+
+    const result = calculate(platServices, { ...budgetInputs, monthlyAdSpend: budget });
+    return budgetInputs.roundingMode === "conservative" ? result.totalRevenueRounded : result.totalRevenue;
+  }
+
+  // Compute recommended budget split. Uses projected revenue per platform when services
+  // + budget + close rate are filled in (so ties on star rating still produce a real
+  // recommendation), with a diversification floor so no platform gets over-concentrated.
+  // Falls back to star-rating weighting when the calculator can't project yet.
   function getRecommendedPlatformSplit(platforms: AdPlatform[]): Record<AdPlatform, number> {
     const alloc: Record<AdPlatform, number> = { google: 0, meta: 0, linkedin: 0, lsa: 0 };
     if (platforms.length === 0) return alloc;
@@ -193,30 +229,71 @@ export default function Home() {
 
     const recs = clientInputs.industryId ? getPlatformRecommendations(clientInputs.industryId) : null;
     if (!recs) {
-      // No industry selected, fall back to even split
       return rebalancePlatformAllocations(platforms);
     }
 
-    // Use star ratings as weights (minimum 1 to avoid zero allocation)
+    // Primary weighting: projected revenue if each platform got the full budget.
+    // This captures real economics (CPL, job value, conversion) the rating alone misses.
     const weights: Record<AdPlatform, number> = { google: 0, meta: 0, linkedin: 0, lsa: 0 };
-    let totalWeight = 0;
-    for (const p of platforms) {
-      const rating = recs[p]?.rating ?? 1;
-      const weight = Math.max(rating, 1);
-      weights[p] = weight;
-      totalWeight += weight;
+    let totalRevenueWeight = 0;
+    const budget = budgetInputs.monthlyAdSpend;
+    const canProject = budget > 0 && services.some((s) => s.selected) && budgetInputs.closeRate > 0;
+
+    if (canProject) {
+      for (const p of platforms) {
+        const revenue = projectPlatformRevenueStandalone(p, budget);
+        weights[p] = revenue;
+        totalRevenueWeight += revenue;
+      }
     }
 
-    // Convert weights to percentages, rounded to nearest 5%
+    // Fall back to star ratings if we couldn't project revenue (or every platform came back 0)
+    if (totalRevenueWeight <= 0) {
+      for (const p of platforms) {
+        weights[p] = Math.max(recs[p]?.rating ?? 1, 1);
+      }
+    }
+
+    const totalWeight = platforms.reduce((s, p) => s + weights[p], 0);
+    if (totalWeight <= 0) return rebalancePlatformAllocations(platforms);
+
+    // Raw percentages (unrounded) based on weights
+    const raw: Record<AdPlatform, number> = { google: 0, meta: 0, linkedin: 0, lsa: 0 };
+    for (const p of platforms) {
+      raw[p] = (weights[p] / totalWeight) * 100;
+    }
+
+    // Enforce a diversification floor so the recommendation doesn't concentrate 100% on
+    // the "best" platform. Multi-platform exists to spread risk — a 95/5 split is not a
+    // useful recommendation even if the math says so.
+    const minFloor = platforms.length === 2 ? 25 : platforms.length === 3 ? 15 : 10;
+    let deficit = 0;
+    const aboveFloor: AdPlatform[] = [];
+    for (const p of platforms) {
+      if (raw[p] < minFloor) {
+        deficit += minFloor - raw[p];
+        raw[p] = minFloor;
+      } else {
+        aboveFloor.push(p);
+      }
+    }
+    // Redistribute the deficit proportionally among platforms that are above the floor
+    if (deficit > 0 && aboveFloor.length > 0) {
+      const totalAbove = aboveFloor.reduce((s, p) => s + raw[p], 0);
+      for (const p of aboveFloor) {
+        raw[p] = Math.max(minFloor, raw[p] - deficit * (raw[p] / totalAbove));
+      }
+    }
+
+    // Round each to nearest 5%, assign remainder to the largest platform
+    const sorted = [...platforms].sort((a, b) => raw[b] - raw[a]);
     let remaining = 100;
-    const sorted = [...platforms].sort((a, b) => weights[b] - weights[a]);
     for (let i = 0; i < sorted.length - 1; i++) {
-      const pct = Math.round((weights[sorted[i]] / totalWeight) * 100 / 5) * 5;
+      const pct = Math.round(raw[sorted[i]] / 5) * 5;
       alloc[sorted[i]] = pct;
       remaining -= pct;
     }
-    // Last platform gets the remainder
-    alloc[sorted[sorted.length - 1]] = remaining;
+    alloc[sorted[sorted.length - 1]] = Math.max(0, remaining);
 
     return alloc;
   }
@@ -750,7 +827,7 @@ export default function Home() {
           {/* Platform Budget Split — shown when 2+ platforms selected AND industry is chosen */}
           {selectedPlatforms.length > 1 && clientInputs.industryId && (
             <div className="mt-4 p-4 border border-gray-200 rounded-lg bg-cogent-ivory/30">
-              <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center justify-between mb-2">
                 <h3 className="text-sm font-semibold text-cogent-navy">Platform Budget Split</h3>
                 <div className="flex gap-3">
                   <button
@@ -767,6 +844,11 @@ export default function Home() {
                   </button>
                 </div>
               </div>
+              <p className="text-[11px] text-cogent-neutral mb-3">
+                {budgetInputs.monthlyAdSpend > 0 && services.some((s) => s.selected) && budgetInputs.closeRate > 0
+                  ? "Recommended split is weighted by projected revenue for the selected services on each platform, with a minimum floor per platform to maintain diversification."
+                  : "Recommended split is currently based on platform fit ratings. It will update to use projected revenue once you select services and enter a budget + close rate."}
+              </p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                 {selectedPlatforms.map((plat) => {
                   const rec = platformRecs?.[plat];
