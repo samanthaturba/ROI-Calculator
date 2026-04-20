@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import Image from "next/image";
 import type {
   ClientInputs as ClientInputsType,
@@ -102,6 +102,10 @@ export default function Home() {
   const [platformAllocations, setPlatformAllocations] = useState<Record<AdPlatform, number>>({
     google: 100, meta: 0, linkedin: 0, lsa: 0,
   });
+  // Tracks whether the user has manually typed a custom split in the number inputs. When
+  // true, we don't auto-refresh allocations from the recommended split — the user's edits win.
+  const [platformAllocationsManuallyEdited, setPlatformAllocationsManuallyEdited] =
+    useState<boolean>(false);
 
   // Primary platform = first selected, used for loading services and single-platform contexts
   const primaryPlatform = selectedPlatforms[0];
@@ -297,6 +301,39 @@ export default function Home() {
 
     return alloc;
   }
+
+  // Auto-refresh the recommended split when the data needed to compute it changes.
+  // This means if the user toggled platforms early (before picking services), the
+  // initial star-rating-based fallback will get replaced by the revenue-weighted
+  // recommendation as soon as services + budget + close rate are filled in.
+  // Respects manual edits: if the user typed a custom split, we don't overwrite it.
+  useEffect(() => {
+    if (platformAllocationsManuallyEdited) return;
+    if (selectedPlatforms.length < 2) return;
+    if (!clientInputs.industryId) return;
+    if (budgetInputs.monthlyAdSpend <= 0) return;
+    if (budgetInputs.closeRate <= 0) return;
+    if (!services.some((s) => s.selected)) return;
+
+    const recommended = getRecommendedPlatformSplit(selectedPlatforms);
+    // Only update if the recommendation actually differs from current allocations
+    // (avoids infinite render loops)
+    const changed = selectedPlatforms.some(
+      (p) => Math.abs((platformAllocations[p] ?? 0) - (recommended[p] ?? 0)) > 0.5
+    );
+    if (changed) {
+      setPlatformAllocations(recommended);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    services,
+    budgetInputs.monthlyAdSpend,
+    budgetInputs.closeRate,
+    selectedPlatforms,
+    blendedMultiplier,
+    clientInputs.industryId,
+    platformAllocationsManuallyEdited,
+  ]);
 
   // Toggle a platform on or off
   function handlePlatformToggle(toggledPlatform: AdPlatform) {
@@ -857,13 +894,19 @@ export default function Home() {
                 <h3 className="text-sm font-semibold text-cogent-navy">Platform Budget Split</h3>
                 <div className="flex gap-3">
                   <button
-                    onClick={() => setPlatformAllocations(getRecommendedPlatformSplit(selectedPlatforms))}
+                    onClick={() => {
+                      setPlatformAllocations(getRecommendedPlatformSplit(selectedPlatforms));
+                      setPlatformAllocationsManuallyEdited(false);
+                    }}
                     className="text-xs text-cogent-navy hover:underline font-medium"
                   >
                     Use recommended split
                   </button>
                   <button
-                    onClick={evenSplitPlatforms}
+                    onClick={() => {
+                      evenSplitPlatforms();
+                      setPlatformAllocationsManuallyEdited(true);
+                    }}
                     className="text-xs text-cogent-neutral hover:underline"
                   >
                     Even split
@@ -871,9 +914,11 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-[11px] text-cogent-neutral mb-3">
-                {budgetInputs.monthlyAdSpend > 0 && services.some((s) => s.selected) && budgetInputs.closeRate > 0
-                  ? "Recommended split is weighted by projected revenue for the selected services on each platform, with a minimum floor per platform to maintain diversification."
-                  : "Recommended split is currently based on platform fit ratings. It will update to use projected revenue once you select services and enter a budget + close rate."}
+                {platformAllocationsManuallyEdited
+                  ? "You've set a custom split — auto-recommendation is paused. Click \"Use recommended split\" to switch back to the industry-based recommendation."
+                  : budgetInputs.monthlyAdSpend > 0 && services.some((s) => s.selected) && budgetInputs.closeRate > 0
+                    ? "Recommended split is weighted by projected revenue for the selected services on each platform, with a minimum floor per platform to maintain diversification."
+                    : "Recommended split is currently based on platform fit ratings. It will update to use projected revenue once you select services and enter a budget + close rate."}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                 {selectedPlatforms.map((plat) => {
@@ -893,6 +938,7 @@ export default function Home() {
                             onChange={(e) => {
                               const val = parseFloat(e.target.value) || 0;
                               setPlatformAllocations((prev) => ({ ...prev, [plat]: val }));
+                              setPlatformAllocationsManuallyEdited(true);
                             }}
                             className="w-full border border-gray-300 rounded-md px-2 py-1.5 pr-6 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
                           />
