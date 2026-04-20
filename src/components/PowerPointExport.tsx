@@ -27,39 +27,23 @@ interface Props {
 async function fetchLogoAsBase64(url: string): Promise<string | undefined> {
   try {
     // Extract domain from URL
-    let domain = url.replace(/^https?:\/\//, "").replace(/\/.*$/, "");
+    const domain = url.replace(/^https?:\/\//, "").replace(/\/.*$/, "").trim();
     if (!domain) return undefined;
 
-    // Try multiple logo sources in order of quality
-    const sources = [
-      `https://img.logo.dev/${domain}?token=pk_anonymous&size=200&format=png`,
-      `https://favicon.im/${domain}?larger=true`,
-      `https://www.google.com/s2/favicons?domain=${domain}&sz=128`,
-    ];
+    // Call our server-side API route. The server fetches from Logo.dev / DuckDuckGo /
+    // Google / favicon.im (which block browser CORS) and streams the image back to us.
+    const response = await fetch(`/api/logo?domain=${encodeURIComponent(domain)}`);
+    if (!response.ok) return undefined;
 
-    for (const logoUrl of sources) {
-      try {
-        const response = await fetch(logoUrl);
-        if (!response.ok) continue;
+    const blob = await response.blob();
+    if (blob.size < 500) return undefined;
 
-        const blob = await response.blob();
-        // Skip tiny/empty responses (likely a default placeholder icon)
-        if (blob.size < 500) continue;
-
-        const base64: string | undefined = await new Promise((resolve) => {
-          const reader = new FileReader();
-          reader.onloadend = () => resolve(reader.result as string);
-          reader.onerror = () => resolve(undefined);
-          reader.readAsDataURL(blob);
-        });
-
-        if (base64) return base64;
-      } catch {
-        continue;
-      }
-    }
-
-    return undefined;
+    return await new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result as string);
+      reader.onerror = () => resolve(undefined);
+      reader.readAsDataURL(blob);
+    });
   } catch {
     return undefined;
   }
