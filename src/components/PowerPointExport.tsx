@@ -30,18 +30,36 @@ async function fetchLogoAsBase64(url: string): Promise<string | undefined> {
     let domain = url.replace(/^https?:\/\//, "").replace(/\/.*$/, "");
     if (!domain) return undefined;
 
-    // Try Clearbit Logo API (high quality)
-    const logoUrl = `https://logo.clearbit.com/${domain}`;
-    const response = await fetch(logoUrl);
-    if (!response.ok) return undefined;
+    // Try multiple logo sources in order of quality
+    const sources = [
+      `https://img.logo.dev/${domain}?token=pk_anonymous&size=200&format=png`,
+      `https://favicon.im/${domain}?larger=true`,
+      `https://www.google.com/s2/favicons?domain=${domain}&sz=128`,
+    ];
 
-    const blob = await response.blob();
-    return new Promise((resolve) => {
-      const reader = new FileReader();
-      reader.onloadend = () => resolve(reader.result as string);
-      reader.onerror = () => resolve(undefined);
-      reader.readAsDataURL(blob);
-    });
+    for (const logoUrl of sources) {
+      try {
+        const response = await fetch(logoUrl);
+        if (!response.ok) continue;
+
+        const blob = await response.blob();
+        // Skip tiny/empty responses (likely a default placeholder icon)
+        if (blob.size < 500) continue;
+
+        const base64: string | undefined = await new Promise((resolve) => {
+          const reader = new FileReader();
+          reader.onloadend = () => resolve(reader.result as string);
+          reader.onerror = () => resolve(undefined);
+          reader.readAsDataURL(blob);
+        });
+
+        if (base64) return base64;
+      } catch {
+        continue;
+      }
+    }
+
+    return undefined;
   } catch {
     return undefined;
   }

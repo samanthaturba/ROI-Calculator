@@ -315,9 +315,12 @@ function addAssumptionsSlide(
   platformForSlide: AdPlatform,
   resultForSlide: CalculationResult,
   slideNumber: number,
+  allPlatforms?: AdPlatform[],
 ) {
   const isConservative = data.roundingMode === "conservative";
   const platformLabel = PLATFORM_LABELS[platformForSlide];
+  const platforms = allPlatforms && allPlatforms.length > 0 ? allPlatforms : [platformForSlide];
+  const isMulti = platforms.length > 1;
   const revenue = isConservative ? resultForSlide.totalRevenueRounded : resultForSlide.totalRevenue;
   const gpPercent = data.grossMarginPercent ?? 52.5;
   const gpIsAssumed = data.grossMarginPercent === null;
@@ -473,23 +476,25 @@ function addAssumptionsSlide(
 
   // -- Learning & Ramp-Up Period --
   const learnY = 3.3;
-  slide.addText(`${platformLabel} Ads Learning & Ramp-Up Period*`, {
+  const sectionTitle = isMulti
+    ? "Learning & Ramp-Up Period by Platform*"
+    : `${platformLabel} Ads Learning & Ramp-Up Period*`;
+  slide.addText(sectionTitle, {
     x: 0.4, y: learnY, w: 9.2, h: 0.3,
     fontSize: 13, fontFace: "Arial",
     color: BLACK, bold: true,
     margin: 0,
   });
 
-  const phaseY = learnY + 0.35;
-  const phases = platformForSlide === "google" ? [
+  const getPhasesForPlatform = (p: AdPlatform) => p === "google" ? [
     { title: "Weeks 1-2: Learning Phase", body: "Google's algorithm is gathering data. Expect higher CPL and fewer conversions. Do not make major changes during this period." },
     { title: "Weeks 3-6: Optimization", body: "Data builds, CPL stabilizes. Campaign adjustments begin. Results start trending toward benchmarks shown above." },
     { title: "Months 2-3+: Mature Performance", body: "Campaigns are optimized and performing at or near projected benchmarks. Continuous optimization drives improvement." },
-  ] : platformForSlide === "meta" ? [
+  ] : p === "meta" ? [
     { title: "Weeks 1-2: Learning Phase", body: "Meta's algorithm is learning your audience. Ad delivery will fluctuate. Avoid editing ads or audiences during this phase." },
     { title: "Weeks 3-6: Optimization", body: "Audience data matures. Retargeting audiences build. CPL begins to stabilize as winning ad creatives emerge." },
     { title: "Months 2-3+: Mature Performance", body: "Lookalike audiences and retargeting are fully built. Campaigns running at steady-state performance with consistent lead flow." },
-  ] : platformForSlide === "lsa" ? [
+  ] : p === "lsa" ? [
     { title: "Weeks 1-2: Building Visibility", body: "Your LSA profile is building visibility. Lead volume starts low as Google verifies your business and profile completeness." },
     { title: "Weeks 3-6: Growing Momentum", body: "Lead volume increases as reviews accumulate and your profile ranks higher. Respond quickly to leads to maintain your ranking." },
     { title: "Months 2-3+: Established Profile", body: "Established profile with consistent lead flow. Maintain high review ratings and fast response times to keep top placement." },
@@ -499,26 +504,81 @@ function addAssumptionsSlide(
     { title: "Months 2-3+: Mature Performance", body: "Pipeline of B2B leads is established. Account-based targeting refined. Ongoing optimization for lower CPL." },
   ];
 
-  phases.forEach((phase, i) => {
-    const px = 0.4 + i * 3.1;
-    slide.addText([
-      { text: phase.title, options: { bold: true, fontSize: 9, breakLine: true } },
-      { text: phase.body, options: { fontSize: 8 } },
-    ], {
-      x: px, y: phaseY, w: 2.9, h: 0.85,
-      fontFace: "Arial", color: DARK_GRAY,
-      valign: "top", margin: [2, 3, 2, 3],
+  if (!isMulti) {
+    // Single platform: original 3-box layout
+    const phaseY = learnY + 0.35;
+    const phases = getPhasesForPlatform(platformForSlide);
+    phases.forEach((phase, i) => {
+      const px = 0.4 + i * 3.1;
+      slide.addText([
+        { text: phase.title, options: { bold: true, fontSize: 9, breakLine: true } },
+        { text: phase.body, options: { fontSize: 8 } },
+      ], {
+        x: px, y: phaseY, w: 2.9, h: 0.85,
+        fontFace: "Arial", color: DARK_GRAY,
+        valign: "top", margin: [2, 3, 2, 3],
+      });
     });
-  });
 
-  slide.addText(`*Most ${platformLabel} Ads campaigns require 60-90 days to reach full optimization. The estimates above represent mature campaign performance, not Day 1 results.`, {
-    x: 0.4, y: phaseY + 0.85, w: 9.2, h: 0.2,
-    fontSize: 7, fontFace: "Arial",
-    color: "666666", italic: true,
-    margin: 0,
-  });
+    slide.addText(`*Most ${platformLabel} Ads campaigns require 60-90 days to reach full optimization. The estimates above represent mature campaign performance, not Day 1 results.`, {
+      x: 0.4, y: phaseY + 0.85, w: 9.2, h: 0.2,
+      fontSize: 7, fontFace: "Arial",
+      color: "666666", italic: true,
+      margin: 0,
+    });
+  } else {
+    // Multi-platform: one compact row per platform
+    const phaseY = learnY + 0.35;
+    const availableHeight = 1.35;
+    const rowHeight = Math.min(0.42, availableHeight / platforms.length);
+    const fontSizeTitle = platforms.length <= 2 ? 8.5 : 7.5;
+    const fontSizeBody = platforms.length <= 2 ? 7 : 6.5;
+
+    platforms.forEach((p, idx) => {
+      const py = phaseY + idx * rowHeight;
+      const pLabel = PLATFORM_LABELS[p];
+      const pPhases = getPhasesForPlatform(p);
+
+      // Platform label on left
+      slide.addText(`${pLabel}`, {
+        x: 0.4, y: py, w: 1.3, h: rowHeight,
+        fontSize: fontSizeTitle, fontFace: "Arial",
+        color: BLACK, bold: true, valign: "middle",
+        margin: 0,
+      });
+
+      // Three phase columns
+      pPhases.forEach((phase, i) => {
+        const px = 1.75 + i * 2.7;
+        slide.addText([
+          { text: phase.title.split(":")[0] + ":", options: { bold: true, fontSize: fontSizeBody - 0.5, color: COGENT_NAVY } },
+          { text: " " + phase.body, options: { fontSize: fontSizeBody, color: DARK_GRAY } },
+        ], {
+          x: px, y: py, w: 2.65, h: rowHeight,
+          fontFace: "Arial",
+          valign: "middle", margin: [1, 2, 1, 2],
+        });
+      });
+    });
+
+    slide.addText(`*Each platform requires 60-90 days to reach full optimization. With multiple platforms running, learning phases happen in parallel. The estimates above represent mature campaign performance across all selected platforms, not Day 1 results.`, {
+      x: 0.4, y: phaseY + platforms.length * rowHeight + 0.02, w: 9.2, h: 0.25,
+      fontSize: 6.5, fontFace: "Arial",
+      color: "666666", italic: true,
+      margin: 0,
+    });
+  }
 
   // -- Disclaimer --
+  const disclaimerPlatformText = isMulti
+    ? platforms.map((p, i) => {
+        const lbl = `${PLATFORM_LABELS[p]} Ads`;
+        if (i === 0) return lbl;
+        if (i === platforms.length - 1) return ` and ${lbl}`;
+        return `, ${lbl}`;
+      }).join("")
+    : `${platformLabel} Ads`;
+
   slide.addText([
     { text: "DISCLAIMER", options: { bold: true } },
     { text: ": The projections shown above are " },
@@ -526,7 +586,7 @@ function addAssumptionsSlide(
     { text: " and the inputs provided. They represent the " },
     { text: "potential opportunity", options: { bold: true } },
     { text: ", not a guarantee of results. Actual lead volume, cost per lead, close rate, and revenue will vary based on campaign setup, market conditions, competition, seasonality, and the client's ability to effectively respond to and close leads. Cogent Analytics does not guarantee any specific number of leads, jobs, or revenue. These figures are intended to illustrate the potential return on investment from " },
-    { text: `${platformLabel} Ads` },
+    { text: disclaimerPlatformText },
     { text: " and to set realistic expectations for campaign performance once fully optimized (typically 60-90 days)." },
   ], {
     x: 0.2, y: 5.05, w: 9.6, h: 0.55,
@@ -566,9 +626,9 @@ export async function generatePowerPoint(data: PowerPointData): Promise<void> {
       slideNum++;
     }
 
-    // Assumptions slide uses the primary platform
-    const primaryResult = data.platformResults[platforms[0]] ?? data.result;
-    addAssumptionsSlide(pres, data, platforms[0], primaryResult, slideNum);
+    // Assumptions slide: use the combined result for aggregated KPIs, and pass all platforms so
+    // the learning & ramp-up period is shown for every selected platform.
+    addAssumptionsSlide(pres, data, platforms[0], data.result, slideNum, platforms);
   } else {
     // Single platform: exactly as before (2 slides)
     addRoasSlide(pres, data, data.platform, data.result, data.monthlyAdSpend, 1, false);
