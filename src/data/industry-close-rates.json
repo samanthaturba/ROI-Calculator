@@ -1,94 +1,374 @@
 {
-  "hvac": { "closeRate": 29, "source": "First Page Sage 2026 SQL-to-Closed-Won Report" },
-  "plumbing": { "closeRate": 35, "source": "ServiceTitan 2025 Home Services Statistics (emergency services)" },
-  "roofing": { "closeRate": 20, "source": "Roofing Contractor Magazine 2025 Sales Benchmarks" },
-  "electrical": { "closeRate": 25, "source": "ServiceTitan 2025 Home Services Statistics" },
-  "septic": { "closeRate": 30, "source": "Estimated based on plumbing/emergency home services close rate data" },
-  "pest-control": { "closeRate": 30, "source": "PCT Magazine 2025 Pest Control Industry Benchmarks (recurring services)" },
-  "pool": { "closeRate": 22, "source": "Estimated based on scheduled home services close rate data" },
-  "landscaping": { "closeRate": 25, "source": "Landscape Management 2025 Industry Survey" },
-  "tree-service": { "closeRate": 25, "source": "Estimated based on landscaping/outdoor services close rate data" },
-  "painting": { "closeRate": 25, "source": "Estimated based on scheduled home services close rate data" },
-  "fencing": { "closeRate": 20, "source": "Estimated based on construction/home improvement close rate data" },
-  "concrete": { "closeRate": 18, "source": "Estimated based on construction trades close rate data" },
-  "stamped-concrete": { "closeRate": 18, "source": "Estimated based on concrete/construction close rate data" },
-  "epoxy-flooring": { "closeRate": 20, "source": "Estimated based on flooring close rate data" },
-  "flooring": { "closeRate": 20, "source": "Floor Covering Weekly 2025 Industry Benchmarks" },
-  "countertops": { "closeRate": 22, "source": "Estimated based on home improvement close rate data" },
-  "window-door": { "closeRate": 20, "source": "Estimated based on home improvement close rate data" },
-  "siding": { "closeRate": 18, "source": "Estimated based on exterior home improvement close rate data" },
-  "garage-door": { "closeRate": 30, "source": "IDA 2025 Garage Door Industry Report (emergency + scheduled services)" },
-  "paving": { "closeRate": 18, "source": "Estimated based on concrete/paving close rate data" },
-  "foundation-repair": { "closeRate": 22, "source": "Estimated based on specialty construction close rate data" },
-  "waterproofing": { "closeRate": 22, "source": "Estimated based on specialty construction close rate data" },
-  "demolition": { "closeRate": 16, "source": "Estimated based on construction services close rate data" },
-  "excavation": { "closeRate": 16, "source": "Estimated based on construction services close rate data" },
-  "welding": { "closeRate": 18, "source": "Estimated based on specialty trades close rate data" },
-  "auto-body": { "closeRate": 20, "source": "First Page Sage 2026 SQL-to-Closed-Won Report (automotive)" },
-  "towing": { "closeRate": 40, "source": "Estimated based on emergency services close rate data (immediate need)" },
-  "moving": { "closeRate": 22, "source": "Estimated based on scheduled home services close rate data" },
-  "junk-removal": { "closeRate": 30, "source": "Estimated based on convenience/on-demand services close rate data" },
-  "cleaning": { "closeRate": 35, "source": "ISSA 2025 Cleaning Industry Benchmarks (recurring services)" },
-  "pressure-washing": { "closeRate": 28, "source": "Estimated based on cleaning/scheduled home services close rate data" },
-  "restoration": { "closeRate": 35, "source": "Estimated based on emergency home services close rate data" },
-  "mold-remediation": { "closeRate": 30, "source": "Estimated based on restoration/emergency services close rate data" },
-  "insulation": { "closeRate": 20, "source": "Estimated based on home improvement close rate data" },
-  "solar": { "closeRate": 13, "source": "First Page Sage 2026 SQL-to-Closed-Won Report" },
-  "home-security": { "closeRate": 22, "source": "Estimated based on home services close rate data" },
-  "locksmith": { "closeRate": 45, "source": "Estimated based on emergency services close rate data (immediate need)" },
-  "appliance-repair": { "closeRate": 32, "source": "Estimated based on emergency home services close rate data" },
-  "drywall": { "closeRate": 20, "source": "Estimated based on construction trades close rate data" },
-  "cabinetry": { "closeRate": 18, "source": "Estimated based on home improvement close rate data" },
-  "glass": { "closeRate": 28, "source": "Estimated based on emergency/repair services close rate data" },
-  "irrigation": { "closeRate": 22, "source": "Estimated based on landscaping/outdoor services close rate data" },
-  "well-service": { "closeRate": 25, "source": "Estimated based on essential home services close rate data" },
-  "propane": { "closeRate": 28, "source": "Estimated based on essential/utility services close rate data" },
-  "marine": { "closeRate": 18, "source": "Estimated based on specialty services close rate data" },
-  "heavy-equipment": { "closeRate": 15, "source": "Estimated based on B2B/commercial services close rate data" },
-  "commercial-kitchen": { "closeRate": 18, "source": "Estimated based on commercial services close rate data" },
-  "sign-wraps": { "closeRate": 20, "source": "Estimated based on commercial services close rate data" },
-  "powder-coating": { "closeRate": 20, "source": "Estimated based on specialty trades close rate data" },
-  "metal-roofing": { "closeRate": 20, "source": "Estimated based on roofing close rate data" },
-  "artificial-turf": { "closeRate": 22, "source": "Estimated based on landscaping/home improvement close rate data" },
-  "machining": { "closeRate": 16, "source": "Estimated based on B2B/manufacturing close rate data" },
-  "home-builders": { "closeRate": 16, "source": "First Page Sage 2026 SQL-to-Closed-Won Report (construction)" },
-  "auto-shipping": { "closeRate": 20, "source": "First Page Sage 2026 SQL-to-Closed-Won Report (automotive)" },
-  "custom-engine": { "closeRate": 18, "source": "Estimated based on automotive/specialty services close rate data" },
-  "recycling": { "closeRate": 15, "source": "Estimated based on environmental services close rate data" },
-  "waste": { "closeRate": 25, "source": "Estimated based on essential/recurring services close rate data" },
-  "installation": { "closeRate": 22, "source": "Estimated based on home services close rate data" },
-  "printing": { "closeRate": 20, "source": "Estimated based on commercial services close rate data" },
-  "bolt-services": { "closeRate": 18, "source": "Estimated based on specialty trades close rate data" },
-  "engineering": { "closeRate": 14, "source": "First Page Sage 2026 SQL-to-Closed-Won Report" },
-  "structural-engineers": { "closeRate": 14, "source": "First Page Sage 2026 SQL-to-Closed-Won Report (engineering)" },
-  "tile-contractor": { "closeRate": 20, "source": "Estimated based on flooring/home improvement close rate data" },
-  "lodging": { "closeRate": 25, "source": "Estimated based on hospitality services close rate data" },
-  "construction": { "closeRate": 16, "source": "First Page Sage 2026 SQL-to-Closed-Won Report" },
-  "motor-groups": { "closeRate": 20, "source": "First Page Sage 2026 SQL-to-Closed-Won Report (automotive)" },
-  "distribution": { "closeRate": 15, "source": "Estimated based on B2B/commercial services close rate data" },
-  "surveying": { "closeRate": 16, "source": "Estimated based on engineering/construction close rate data" },
-  "metal-fabrication": { "closeRate": 16, "source": "Estimated based on manufacturing/B2B close rate data" },
-  "service-cabling": { "closeRate": 20, "source": "Estimated based on commercial services close rate data" },
-  "vending": { "closeRate": 22, "source": "Estimated based on commercial services close rate data" },
-  "metal-plating": { "closeRate": 16, "source": "Estimated based on manufacturing/B2B close rate data" },
-  "custom-home-builders": { "closeRate": 16, "source": "Estimated based on construction close rate data" },
-  "cnc-machining": { "closeRate": 16, "source": "Estimated based on manufacturing/B2B close rate data" },
-  "composite": { "closeRate": 16, "source": "Estimated based on manufacturing/B2B close rate data" },
-  "fabrication": { "closeRate": 16, "source": "Estimated based on manufacturing/B2B close rate data" },
-  "consulting": { "closeRate": 15, "source": "Estimated based on B2B professional services close rate data" },
-  "commercial-contractor": { "closeRate": 16, "source": "Estimated based on construction close rate data" },
-  "fleet-maintenance": { "closeRate": 22, "source": "Estimated based on commercial/recurring services close rate data" },
-  "truck-repair": { "closeRate": 28, "source": "Estimated based on automotive repair/emergency services close rate data" },
-  "rv-auto-repair": { "closeRate": 25, "source": "Estimated based on automotive repair close rate data" },
-  "truck-fleet-service": { "closeRate": 22, "source": "Estimated based on commercial/recurring services close rate data" },
-  "interior-design": { "closeRate": 15, "source": "HiRise Digital 2025 Interior Design Lead Conversion Study" },
-  "architecture": { "closeRate": 14, "source": "Estimated based on B2B professional services close rates (First Page Sage 2026) and architecture industry sales cycle data" },
-  "other": { "closeRate": 20, "source": "General industry average" },
-  "dental": { "closeRate": 30, "source": "Dental Economics 2025 Practice Marketing Benchmarks (lead-to-patient)" },
-  "legal-services": { "closeRate": 19, "source": "First Page Sage 2026 SQL-to-Closed-Won Report" },
-  "financial-services": { "closeRate": 16, "source": "First Page Sage 2026 SQL-to-Closed-Won Report" },
-  "real-estate": { "closeRate": 14, "source": "First Page Sage 2026 SQL-to-Closed-Won Report" },
-  "healthcare": { "closeRate": 13, "source": "First Page Sage 2026 SQL-to-Closed-Won Report" },
-  "manufacturing": { "closeRate": 13, "source": "First Page Sage 2026 SQL-to-Closed-Won Report" },
-  "environmental-services": { "closeRate": 13, "source": "First Page Sage 2026 SQL-to-Closed-Won Report" }
+  "hvac": {
+    "closeRate": 29,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report"
+  },
+  "plumbing": {
+    "closeRate": 35,
+    "source": "ServiceTitan 2025 Home Services Statistics (emergency services)"
+  },
+  "roofing": {
+    "closeRate": 20,
+    "source": "Roofing Contractor Magazine 2025 Sales Benchmarks"
+  },
+  "electrical": {
+    "closeRate": 25,
+    "source": "ServiceTitan 2025 Home Services Statistics"
+  },
+  "septic": {
+    "closeRate": 30,
+    "source": "Estimated based on plumbing/emergency home services close rate data"
+  },
+  "pest-control": {
+    "closeRate": 30,
+    "source": "PCT Magazine 2025 Pest Control Industry Benchmarks (recurring services)"
+  },
+  "pool": {
+    "closeRate": 22,
+    "source": "Estimated based on scheduled home services close rate data"
+  },
+  "landscaping": {
+    "closeRate": 25,
+    "source": "Landscape Management 2025 Industry Survey"
+  },
+  "tree-service": {
+    "closeRate": 25,
+    "source": "Estimated based on landscaping/outdoor services close rate data"
+  },
+  "painting": {
+    "closeRate": 25,
+    "source": "Estimated based on scheduled home services close rate data"
+  },
+  "fencing": {
+    "closeRate": 20,
+    "source": "Estimated based on construction/home improvement close rate data"
+  },
+  "concrete": {
+    "closeRate": 18,
+    "source": "Estimated based on construction trades close rate data"
+  },
+  "stamped-concrete": {
+    "closeRate": 18,
+    "source": "Estimated based on concrete/construction close rate data"
+  },
+  "epoxy-flooring": {
+    "closeRate": 20,
+    "source": "Estimated based on flooring close rate data"
+  },
+  "flooring": {
+    "closeRate": 20,
+    "source": "Floor Covering Weekly 2025 Industry Benchmarks"
+  },
+  "countertops": {
+    "closeRate": 22,
+    "source": "Estimated based on home improvement close rate data"
+  },
+  "window-door": {
+    "closeRate": 20,
+    "source": "Estimated based on home improvement close rate data"
+  },
+  "siding": {
+    "closeRate": 18,
+    "source": "Estimated based on exterior home improvement close rate data"
+  },
+  "garage-door": {
+    "closeRate": 30,
+    "source": "IDA 2025 Garage Door Industry Report (emergency + scheduled services)"
+  },
+  "paving": {
+    "closeRate": 18,
+    "source": "Estimated based on concrete/paving close rate data"
+  },
+  "foundation-repair": {
+    "closeRate": 22,
+    "source": "Estimated based on specialty construction close rate data"
+  },
+  "waterproofing": {
+    "closeRate": 22,
+    "source": "Estimated based on specialty construction close rate data"
+  },
+  "demolition": {
+    "closeRate": 16,
+    "source": "Estimated based on construction services close rate data"
+  },
+  "excavation": {
+    "closeRate": 16,
+    "source": "Estimated based on construction services close rate data"
+  },
+  "welding": {
+    "closeRate": 18,
+    "source": "Estimated based on specialty trades close rate data"
+  },
+  "auto-body": {
+    "closeRate": 20,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report (automotive)"
+  },
+  "towing": {
+    "closeRate": 40,
+    "source": "Estimated based on emergency services close rate data (immediate need)"
+  },
+  "moving": {
+    "closeRate": 22,
+    "source": "Estimated based on scheduled home services close rate data"
+  },
+  "junk-removal": {
+    "closeRate": 30,
+    "source": "Estimated based on convenience/on-demand services close rate data"
+  },
+  "cleaning": {
+    "closeRate": 35,
+    "source": "ISSA 2025 Cleaning Industry Benchmarks (recurring services)"
+  },
+  "pressure-washing": {
+    "closeRate": 28,
+    "source": "Estimated based on cleaning/scheduled home services close rate data"
+  },
+  "restoration": {
+    "closeRate": 35,
+    "source": "Estimated based on emergency home services close rate data"
+  },
+  "mold-remediation": {
+    "closeRate": 30,
+    "source": "Estimated based on restoration/emergency services close rate data"
+  },
+  "insulation": {
+    "closeRate": 20,
+    "source": "Estimated based on home improvement close rate data"
+  },
+  "solar": {
+    "closeRate": 13,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report"
+  },
+  "home-security": {
+    "closeRate": 22,
+    "source": "Estimated based on home services close rate data"
+  },
+  "locksmith": {
+    "closeRate": 45,
+    "source": "Estimated based on emergency services close rate data (immediate need)"
+  },
+  "appliance-repair": {
+    "closeRate": 32,
+    "source": "Estimated based on emergency home services close rate data"
+  },
+  "drywall": {
+    "closeRate": 20,
+    "source": "Estimated based on construction trades close rate data"
+  },
+  "cabinetry": {
+    "closeRate": 18,
+    "source": "Estimated based on home improvement close rate data"
+  },
+  "glass": {
+    "closeRate": 28,
+    "source": "Estimated based on emergency/repair services close rate data"
+  },
+  "irrigation": {
+    "closeRate": 22,
+    "source": "Estimated based on landscaping/outdoor services close rate data"
+  },
+  "well-service": {
+    "closeRate": 25,
+    "source": "Estimated based on essential home services close rate data"
+  },
+  "propane": {
+    "closeRate": 28,
+    "source": "Estimated based on essential/utility services close rate data"
+  },
+  "marine": {
+    "closeRate": 18,
+    "source": "Estimated based on specialty services close rate data"
+  },
+  "heavy-equipment": {
+    "closeRate": 15,
+    "source": "Estimated based on B2B/commercial services close rate data"
+  },
+  "commercial-kitchen": {
+    "closeRate": 18,
+    "source": "Estimated based on commercial services close rate data"
+  },
+  "sign-wraps": {
+    "closeRate": 20,
+    "source": "Estimated based on commercial services close rate data"
+  },
+  "powder-coating": {
+    "closeRate": 20,
+    "source": "Estimated based on specialty trades close rate data"
+  },
+  "metal-roofing": {
+    "closeRate": 20,
+    "source": "Estimated based on roofing close rate data"
+  },
+  "artificial-turf": {
+    "closeRate": 22,
+    "source": "Estimated based on landscaping/home improvement close rate data"
+  },
+  "machining": {
+    "closeRate": 16,
+    "source": "Estimated based on B2B/manufacturing close rate data"
+  },
+  "home-builders": {
+    "closeRate": 16,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report (construction)"
+  },
+  "auto-shipping": {
+    "closeRate": 20,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report (automotive)"
+  },
+  "custom-engine": {
+    "closeRate": 18,
+    "source": "Estimated based on automotive/specialty services close rate data"
+  },
+  "recycling": {
+    "closeRate": 15,
+    "source": "Estimated based on environmental services close rate data"
+  },
+  "waste": {
+    "closeRate": 25,
+    "source": "Estimated based on essential/recurring services close rate data"
+  },
+  "installation": {
+    "closeRate": 22,
+    "source": "Estimated based on home services close rate data"
+  },
+  "printing": {
+    "closeRate": 20,
+    "source": "Estimated based on commercial services close rate data"
+  },
+  "bolt-services": {
+    "closeRate": 18,
+    "source": "Estimated based on specialty trades close rate data"
+  },
+  "engineering": {
+    "closeRate": 14,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report"
+  },
+  "structural-engineers": {
+    "closeRate": 14,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report (engineering)"
+  },
+  "tile-contractor": {
+    "closeRate": 20,
+    "source": "Estimated based on flooring/home improvement close rate data"
+  },
+  "lodging": {
+    "closeRate": 25,
+    "source": "Estimated based on hospitality services close rate data"
+  },
+  "construction": {
+    "closeRate": 16,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report"
+  },
+  "motor-groups": {
+    "closeRate": 20,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report (automotive)"
+  },
+  "distribution": {
+    "closeRate": 15,
+    "source": "Estimated based on B2B/commercial services close rate data"
+  },
+  "surveying": {
+    "closeRate": 16,
+    "source": "Estimated based on engineering/construction close rate data"
+  },
+  "metal-fabrication": {
+    "closeRate": 16,
+    "source": "Estimated based on manufacturing/B2B close rate data"
+  },
+  "service-cabling": {
+    "closeRate": 20,
+    "source": "Estimated based on commercial services close rate data"
+  },
+  "vending": {
+    "closeRate": 22,
+    "source": "Estimated based on commercial services close rate data"
+  },
+  "metal-plating": {
+    "closeRate": 16,
+    "source": "Estimated based on manufacturing/B2B close rate data"
+  },
+  "custom-home-builders": {
+    "closeRate": 16,
+    "source": "Estimated based on construction close rate data"
+  },
+  "cnc-machining": {
+    "closeRate": 16,
+    "source": "Estimated based on manufacturing/B2B close rate data"
+  },
+  "composite": {
+    "closeRate": 16,
+    "source": "Estimated based on manufacturing/B2B close rate data"
+  },
+  "fabrication": {
+    "closeRate": 16,
+    "source": "Estimated based on manufacturing/B2B close rate data"
+  },
+  "consulting": {
+    "closeRate": 15,
+    "source": "Estimated based on B2B professional services close rate data"
+  },
+  "commercial-contractor": {
+    "closeRate": 16,
+    "source": "Estimated based on construction close rate data"
+  },
+  "fleet-maintenance": {
+    "closeRate": 22,
+    "source": "Estimated based on commercial/recurring services close rate data"
+  },
+  "truck-repair": {
+    "closeRate": 28,
+    "source": "Estimated based on automotive repair/emergency services close rate data"
+  },
+  "rv-auto-repair": {
+    "closeRate": 25,
+    "source": "Estimated based on automotive repair close rate data"
+  },
+  "truck-fleet-service": {
+    "closeRate": 22,
+    "source": "Estimated based on commercial/recurring services close rate data"
+  },
+  "interior-design": {
+    "closeRate": 15,
+    "source": "HiRise Digital 2025 Interior Design Lead Conversion Study"
+  },
+  "architecture": {
+    "closeRate": 14,
+    "source": "Estimated based on B2B professional services close rates (First Page Sage 2026) and architecture industry sales cycle data"
+  },
+  "other": {
+    "closeRate": 20,
+    "source": "General industry average"
+  },
+  "dental": {
+    "closeRate": 30,
+    "source": "Dental Economics 2025 Practice Marketing Benchmarks (lead-to-patient)"
+  },
+  "legal-services": {
+    "closeRate": 19,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report"
+  },
+  "financial-services": {
+    "closeRate": 16,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report"
+  },
+  "real-estate": {
+    "closeRate": 14,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report"
+  },
+  "healthcare": {
+    "closeRate": 13,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report"
+  },
+  "manufacturing": {
+    "closeRate": 13,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report"
+  },
+  "environmental-services": {
+    "closeRate": 13,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report"
+  },
+  "pressure-washing-landscape-care": {
+    "closeRate": 35,
+    "source": "Blended estimate: pressure washing (~35%, ServiceTitan 2025 home services benchmarks), restaurant hood cleaning (~45%, compliance-driven B2B close rates), and lawn/landscape maintenance (~30%)"
+  }
 }

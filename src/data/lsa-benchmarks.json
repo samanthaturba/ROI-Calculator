@@ -9,8 +9,8 @@
     "avgJobValue": 3200,
     "recommendedMinAdSpend": 1000,
     "recommendedTargetAdSpend": 3000,
-    "notes": "LSA pay-per-lead. CPL varies by market size: small ~$53, medium ~$73, large ~$103. Google charges a flat fee per lead — no keyword bidding.",
-    "source": "HomeServiceDirect.net 2026 LSA CPL data — HVAC: Small $45-60, Medium $60-85, Large $85-120 (midpoints used)",
+    "notes": "LSA pay-per-lead. CPL varies by market size: small ~$53, medium ~$73, large ~$103. Google charges a flat fee per lead \u2014 no keyword bidding.",
+    "source": "HomeServiceDirect.net 2026 LSA CPL data \u2014 HVAC: Small $45-60, Medium $60-85, Large $85-120 (midpoints used)",
     "confidence": "medium"
   },
   {
@@ -24,7 +24,7 @@
     "recommendedMinAdSpend": 800,
     "recommendedTargetAdSpend": 2500,
     "notes": "LSA pay-per-lead. CPL varies by market size: small ~$48, medium ~$65, large ~$88. Emergency plumbing leads convert well through LSA.",
-    "source": "HomeServiceDirect.net 2026 LSA CPL data — Plumbing: Small $40-55, Medium $55-75, Large $75-100 (midpoints used)",
+    "source": "HomeServiceDirect.net 2026 LSA CPL data \u2014 Plumbing: Small $40-55, Medium $55-75, Large $75-100 (midpoints used)",
     "confidence": "medium"
   },
   {
@@ -38,7 +38,7 @@
     "recommendedMinAdSpend": 800,
     "recommendedTargetAdSpend": 2000,
     "notes": "LSA pay-per-lead. CPL varies by market size: small ~$43, medium ~$60, large ~$83. Emergency electrical work performs well on LSA.",
-    "source": "HomeServiceDirect.net 2026 LSA CPL data — Electrical: Small $35-50, Medium $50-70, Large $70-95 (midpoints used)",
+    "source": "HomeServiceDirect.net 2026 LSA CPL data \u2014 Electrical: Small $35-50, Medium $50-70, Large $70-95 (midpoints used)",
     "confidence": "medium"
   },
   {
@@ -52,7 +52,7 @@
     "recommendedMinAdSpend": 1500,
     "recommendedTargetAdSpend": 4000,
     "notes": "LSA pay-per-lead. CPL varies by market size: small ~$60, medium ~$83, large ~$118. High job values make LSA very cost-effective for roofing.",
-    "source": "HomeServiceDirect.net 2026 LSA CPL data — Roofing: Small $50-70, Medium $70-95, Large $95-140 (midpoints used)",
+    "source": "HomeServiceDirect.net 2026 LSA CPL data \u2014 Roofing: Small $50-70, Medium $70-95, Large $95-140 (midpoints used)",
     "confidence": "medium"
   },
   {
@@ -66,7 +66,7 @@
     "recommendedMinAdSpend": 500,
     "recommendedTargetAdSpend": 1500,
     "notes": "LSA pay-per-lead. CPL varies by market size: small ~$33, medium ~$53, large ~$80. One of the more affordable LSA categories.",
-    "source": "HomeServiceDirect.net 2026 LSA CPL data — Tree Services: Small $25-40, Medium $40-65, Large $65-95 (midpoints used)",
+    "source": "HomeServiceDirect.net 2026 LSA CPL data \u2014 Tree Services: Small $25-40, Medium $40-65, Large $65-95 (midpoints used)",
     "confidence": "medium"
   },
   {
@@ -80,7 +80,7 @@
     "recommendedMinAdSpend": 500,
     "recommendedTargetAdSpend": 1500,
     "notes": "LSA pay-per-lead. CPL varies by market size: small ~$38, medium ~$55, large ~$78. Emergency repair leads are particularly strong on LSA.",
-    "source": "HomeServiceDirect.net 2026 LSA CPL data — Garage Door: Small $30-45, Medium $45-65, Large $65-90 (midpoints used)",
+    "source": "HomeServiceDirect.net 2026 LSA CPL data \u2014 Garage Door: Small $30-45, Medium $45-65, Large $65-90 (midpoints used)",
     "confidence": "medium"
   },
   {
@@ -94,7 +94,7 @@
     "recommendedMinAdSpend": 500,
     "recommendedTargetAdSpend": 1500,
     "notes": "LSA pay-per-lead. One of the most affordable LSA categories at approximately $25 per lead.",
-    "source": "Multiple industry sources — Pest Control LSA CPL range $20-30, midpoint $25 used",
+    "source": "Multiple industry sources \u2014 Pest Control LSA CPL range $20-30, midpoint $25 used",
     "confidence": "medium"
   },
   {
@@ -108,7 +108,7 @@
     "recommendedMinAdSpend": 400,
     "recommendedTargetAdSpend": 1000,
     "notes": "LSA pay-per-lead. Very affordable CPL range. Good for recurring service sign-ups.",
-    "source": "Multiple industry sources — House Cleaning LSA CPL range $12-30, midpoint $20 used",
+    "source": "Multiple industry sources \u2014 House Cleaning LSA CPL range $12-30, midpoint $20 used",
     "confidence": "medium"
   },
   {
@@ -122,7 +122,7 @@
     "recommendedMinAdSpend": 500,
     "recommendedTargetAdSpend": 1500,
     "notes": "LSA pay-per-lead. Moderate CPL with good volume in suburban markets.",
-    "source": "Multiple industry sources — Landscaping LSA CPL range $20-55, midpoint $35 used",
+    "source": "Multiple industry sources \u2014 Landscaping LSA CPL range $20-55, midpoint $35 used",
     "confidence": "medium"
   },
   {
@@ -136,7 +136,7 @@
     "recommendedMinAdSpend": 500,
     "recommendedTargetAdSpend": 1200,
     "notes": "LSA pay-per-lead. Emergency lockout leads are a perfect fit for LSA's proximity-based model.",
-    "source": "Multiple industry sources — Locksmith LSA CPL approximately $34",
+    "source": "Multiple industry sources \u2014 Locksmith LSA CPL approximately $34",
     "confidence": "medium"
   },
   {
@@ -150,7 +150,7 @@
     "recommendedMinAdSpend": 600,
     "recommendedTargetAdSpend": 1800,
     "notes": "LSA pay-per-lead. Moderate CPL with strong job values for interior/exterior painting projects.",
-    "source": "Multiple industry sources — Painter LSA CPL approximately $40",
+    "source": "Multiple industry sources \u2014 Painter LSA CPL approximately $40",
     "confidence": "medium"
   },
   {
@@ -164,7 +164,7 @@
     "recommendedMinAdSpend": 800,
     "recommendedTargetAdSpend": 2500,
     "notes": "LSA pay-per-lead. Higher CPL but strong job values offset the cost.",
-    "source": "Multiple industry sources — Fencing LSA CPL approximately $71",
+    "source": "Multiple industry sources \u2014 Fencing LSA CPL approximately $71",
     "confidence": "medium"
   },
   {
@@ -178,7 +178,7 @@
     "recommendedMinAdSpend": 500,
     "recommendedTargetAdSpend": 1200,
     "notes": "LSA pay-per-lead. Affordable CPL for handyman and drywall services.",
-    "source": "Multiple industry sources — Drywall/Handyman LSA CPL approximately $34",
+    "source": "Multiple industry sources \u2014 Drywall/Handyman LSA CPL approximately $34",
     "confidence": "medium"
   },
   {
@@ -192,7 +192,7 @@
     "recommendedMinAdSpend": 1500,
     "recommendedTargetAdSpend": 4000,
     "notes": "LSA pay-per-lead. Higher CPL but extremely high job values. Emergency leads convert quickly.",
-    "source": "Multiple industry sources — Water Damage Restoration LSA CPL range $80-180, midpoint $120 used",
+    "source": "Multiple industry sources \u2014 Water Damage Restoration LSA CPL range $80-180, midpoint $120 used",
     "confidence": "medium"
   },
   {
@@ -205,8 +205,8 @@
     "avgJobValue": 15000,
     "recommendedMinAdSpend": 1500,
     "recommendedTargetAdSpend": 4000,
-    "notes": "LSA pay-per-lead. Uses roofing CPL ranges — metal roofing falls under the roofing LSA category. Very high job values.",
-    "source": "HomeServiceDirect.net 2026 LSA CPL data — Roofing category: Small $50-70, Medium $70-95, Large $95-140 (midpoints used)",
+    "notes": "LSA pay-per-lead. Uses roofing CPL ranges \u2014 metal roofing falls under the roofing LSA category. Very high job values.",
+    "source": "HomeServiceDirect.net 2026 LSA CPL data \u2014 Roofing category: Small $50-70, Medium $70-95, Large $95-140 (midpoints used)",
     "confidence": "low"
   },
   {
@@ -248,7 +248,7 @@
     "recommendedMinAdSpend": 600,
     "recommendedTargetAdSpend": 2000,
     "notes": "LSA pay-per-lead. Auto services are LSA-eligible. Uses painter CPL as comparable service type.",
-    "source": "Estimated from Painter LSA CPL (~$40) as comparable service category — auto services LSA data limited",
+    "source": "Estimated from Painter LSA CPL (~$40) as comparable service category \u2014 auto services LSA data limited",
     "confidence": "low"
   },
   {
@@ -276,7 +276,7 @@
     "recommendedMinAdSpend": 600,
     "recommendedTargetAdSpend": 2000,
     "notes": "LSA pay-per-lead. Moving services are LSA-eligible with strong local search volume.",
-    "source": "Estimated from Painter LSA CPL (~$40) as comparable local service category — moving LSA data limited",
+    "source": "Estimated from Painter LSA CPL (~$40) as comparable local service category \u2014 moving LSA data limited",
     "confidence": "low"
   },
   {
@@ -376,5 +376,75 @@
     "notes": "LSA pay-per-lead. Home staging has lower CPL due to less LSA competition. Good for capturing real estate agent referrals and home sellers.",
     "source": "Estimated from home services LSA CPL ranges and interior design project values",
     "confidence": "low"
+  },
+  {
+    "industryId": "pressure-washing-landscape-care",
+    "industryName": "Pressure Washing, Hood Cleaning & Lawn Care",
+    "serviceName": "House Washing",
+    "cplLow": 20,
+    "cplMid": 35,
+    "cplHigh": 55,
+    "avgJobValue": 400,
+    "recommendedMinAdSpend": 800,
+    "recommendedTargetAdSpend": 2500,
+    "notes": "LSA pay-per-lead. Pressure washing is an LSA-eligible category \u2014 Google Verified badge drives strong conversion.",
+    "source": "Home Service Direct 2026 and Blue Grid Media 2026 LSA benchmarks \u2014 home services LSA CPL range $20-55. Pressure washing and landscaping are LSA-eligible; restaurant hood cleaning is not LSA-eligible (not listed as a Google Screened/LSA category).",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "pressure-washing-landscape-care",
+    "industryName": "Pressure Washing, Hood Cleaning & Lawn Care",
+    "serviceName": "Driveway & Concrete Pressure Washing",
+    "cplLow": 20,
+    "cplMid": 35,
+    "cplHigh": 55,
+    "avgJobValue": 250,
+    "recommendedMinAdSpend": 800,
+    "recommendedTargetAdSpend": 2500,
+    "notes": "LSA pay-per-lead. High local search intent converts well at low CPL with LSA.",
+    "source": "Home Service Direct 2026 and Blue Grid Media 2026 LSA benchmarks \u2014 home services LSA CPL range $20-55. Pressure washing and landscaping are LSA-eligible; restaurant hood cleaning is not LSA-eligible (not listed as a Google Screened/LSA category).",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "pressure-washing-landscape-care",
+    "industryName": "Pressure Washing, Hood Cleaning & Lawn Care",
+    "serviceName": "Gutter Cleaning",
+    "cplLow": 20,
+    "cplMid": 35,
+    "cplHigh": 55,
+    "avgJobValue": 200,
+    "recommendedMinAdSpend": 800,
+    "recommendedTargetAdSpend": 2500,
+    "notes": "LSA pay-per-lead. Seasonal (fall) peaks \u2014 budget accordingly.",
+    "source": "Home Service Direct 2026 and Blue Grid Media 2026 LSA benchmarks \u2014 home services LSA CPL range $20-55. Pressure washing and landscaping are LSA-eligible; restaurant hood cleaning is not LSA-eligible (not listed as a Google Screened/LSA category).",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "pressure-washing-landscape-care",
+    "industryName": "Pressure Washing, Hood Cleaning & Lawn Care",
+    "serviceName": "Lawn Mowing & Maintenance",
+    "cplLow": 20,
+    "cplMid": 35,
+    "cplHigh": 55,
+    "avgJobValue": 200,
+    "recommendedMinAdSpend": 800,
+    "recommendedTargetAdSpend": 2500,
+    "notes": "LSA pay-per-lead. Landscaping is LSA-eligible; strong fit for recurring lawn service.",
+    "source": "Home Service Direct 2026 and Blue Grid Media 2026 LSA benchmarks \u2014 home services LSA CPL range $20-55. Pressure washing and landscaping are LSA-eligible; restaurant hood cleaning is not LSA-eligible (not listed as a Google Screened/LSA category).",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "pressure-washing-landscape-care",
+    "industryName": "Pressure Washing, Hood Cleaning & Lawn Care",
+    "serviceName": "Mulching & Seasonal Landscaping",
+    "cplLow": 20,
+    "cplMid": 35,
+    "cplHigh": 55,
+    "avgJobValue": 500,
+    "recommendedMinAdSpend": 800,
+    "recommendedTargetAdSpend": 2500,
+    "notes": "LSA pay-per-lead. Seasonal peaks drive most leads; plan budget around spring and fall windows.",
+    "source": "Home Service Direct 2026 and Blue Grid Media 2026 LSA benchmarks \u2014 home services LSA CPL range $20-55. Pressure washing and landscaping are LSA-eligible; restaurant hood cleaning is not LSA-eligible (not listed as a Google Screened/LSA category).",
+    "confidence": "medium"
   }
 ]

@@ -9,7 +9,7 @@
     "avgJobValue": 3200,
     "recommendedMinAdSpend": 2000,
     "recommendedTargetAdSpend": 5000,
-    "notes": "SearchLight Jan 2026: AC repair CPL $231, 37% book rate, $3,174 avg ticket. Highly seasonal — summer peaks can 3x costs.",
+    "notes": "SearchLight Jan 2026: AC repair CPL $231, 37% book rate, $3,174 avg ticket. Highly seasonal \u2014 summer peaks can 3x costs.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; SearchLight Digital HVAC Benchmark Jan 2026 ($14.9M spend, 816 contractors)",
     "confidence": "high"
   },
@@ -149,8 +149,8 @@
     "avgJobValue": 9500,
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 6000,
-    "notes": "Roof replacement drives the $228.15 avg CPL. Extremely competitive — storm season can spike CPCs to $60+.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (CPC $10.70, CVR 3.70%, CPL $228.15 — highest in home services)",
+    "notes": "Roof replacement drives the $228.15 avg CPL. Extremely competitive \u2014 storm season can spike CPCs to $60+.",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (CPC $10.70, CVR 3.70%, CPL $228.15 \u2014 highest in home services)",
     "confidence": "high"
   },
   {
@@ -164,7 +164,7 @@
     "recommendedMinAdSpend": 1500,
     "recommendedTargetAdSpend": 4000,
     "notes": "Repair CPL below replacement due to lower ticket size and slightly less competition.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (CPC $10.70, CVR 3.70%, CPL $228.15 — highest in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (CPC $10.70, CVR 3.70%, CPL $228.15 \u2014 highest in home services)",
     "confidence": "medium"
   },
   {
@@ -178,7 +178,7 @@
     "recommendedMinAdSpend": 800,
     "recommendedTargetAdSpend": 2000,
     "notes": "Lower CPL for inspection/assessment keywords. Often used as lead-in to replacement sales.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (CPC $10.70, CVR 3.70%, CPL $228.15 — highest in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (CPC $10.70, CVR 3.70%, CPL $228.15 \u2014 highest in home services)",
     "confidence": "medium"
   },
   {
@@ -192,7 +192,7 @@
     "recommendedMinAdSpend": 1000,
     "recommendedTargetAdSpend": 2500,
     "notes": "Grouped with roofing in LocaliQ data. Lower competition than roof replacement keywords.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (CPC $10.70, CVR 3.70%, CPL $228.15 — highest in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (CPC $10.70, CVR 3.70%, CPL $228.15 \u2014 highest in home services)",
     "confidence": "medium"
   },
   {
@@ -233,7 +233,7 @@
     "avgJobValue": 1200,
     "recommendedMinAdSpend": 1000,
     "recommendedTargetAdSpend": 2500,
-    "notes": "Lower CPL than electrical average — consumer-friendly searches with good conversion rates.",
+    "notes": "Lower CPL than electrical average \u2014 consumer-friendly searches with good conversion rates.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (CPC $12.18, CVR 9.08%, CPL $93.69); SearchLight Digital Jan 2026 ($163 non-branded CPL)",
     "confidence": "medium"
   },
@@ -303,7 +303,7 @@
     "avgJobValue": 2500,
     "recommendedMinAdSpend": 1000,
     "recommendedTargetAdSpend": 2500,
-    "notes": "Moderate CPL — emergency repairs have higher intent but less competition than mainstream plumbing.",
+    "notes": "Moderate CPL \u2014 emergency repairs have higher intent but less competition than mainstream plumbing.",
     "source": "Derived from LocaliQ 2025 Home Services avg CPL $90.92; niche service with lower competition than mainstream trades",
     "confidence": "medium"
   },
@@ -402,7 +402,7 @@
     "recommendedMinAdSpend": 800,
     "recommendedTargetAdSpend": 1800,
     "notes": "Below-average CPL for recurring maintenance. Good for building client base.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Pools & Spas CPL $45.15, CPC $5.81 — best CPL in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Pools & Spas CPL $45.15, CPC $5.81 \u2014 best CPL in home services)",
     "confidence": "high"
   },
   {
@@ -416,7 +416,7 @@
     "recommendedMinAdSpend": 1000,
     "recommendedTargetAdSpend": 2500,
     "notes": "Moderate CPL aligned with pools overall $45.15. Repair intent converts well.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Pools & Spas CPL $45.15, CPC $5.81 — best CPL in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Pools & Spas CPL $45.15, CPC $5.81 \u2014 best CPL in home services)",
     "confidence": "high"
   },
   {
@@ -429,8 +429,8 @@
     "avgJobValue": 45000,
     "recommendedMinAdSpend": 2000,
     "recommendedTargetAdSpend": 5000,
-    "notes": "Higher CPL for installation — high ticket justifies premium lead costs. PE investment driving up competition.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Pools & Spas CPL $45.15, CPC $5.81 — best CPL in home services)",
+    "notes": "Higher CPL for installation \u2014 high ticket justifies premium lead costs. PE investment driving up competition.",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Pools & Spas CPL $45.15, CPC $5.81 \u2014 best CPL in home services)",
     "confidence": "medium"
   },
   {
@@ -444,7 +444,7 @@
     "recommendedMinAdSpend": 1500,
     "recommendedTargetAdSpend": 3500,
     "notes": "Moderate-high CPL for renovation/resurfacing. Strong ROI due to high job value.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Pools & Spas CPL $45.15, CPC $5.81 — best CPL in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Pools & Spas CPL $45.15, CPC $5.81 \u2014 best CPL in home services)",
     "confidence": "medium"
   },
   {
@@ -458,7 +458,7 @@
     "recommendedMinAdSpend": 800,
     "recommendedTargetAdSpend": 1800,
     "notes": "Lower CPL for maintenance services. High volume, recurring revenue. Seasonal spring/summer peaks.",
-    "source": "LocaliQ 2025 Home Services Benchmarks (Landscaping CTR 4.69% — lowest in home services); The Media Captain LSA data ($30-$80 CPL range)",
+    "source": "LocaliQ 2025 Home Services Benchmarks (Landscaping CTR 4.69% \u2014 lowest in home services); The Media Captain LSA data ($30-$80 CPL range)",
     "confidence": "medium"
   },
   {
@@ -472,7 +472,7 @@
     "recommendedMinAdSpend": 1500,
     "recommendedTargetAdSpend": 3500,
     "notes": "Higher CPL for design/install projects. High job value justifies cost.",
-    "source": "LocaliQ 2025 Home Services Benchmarks (Landscaping CTR 4.69% — lowest in home services); The Media Captain LSA data ($30-$80 CPL range)",
+    "source": "LocaliQ 2025 Home Services Benchmarks (Landscaping CTR 4.69% \u2014 lowest in home services); The Media Captain LSA data ($30-$80 CPL range)",
     "confidence": "medium"
   },
   {
@@ -486,7 +486,7 @@
     "recommendedMinAdSpend": 800,
     "recommendedTargetAdSpend": 1800,
     "notes": "Moderate CPL. Often bundled with lawn care for recurring clients.",
-    "source": "LocaliQ 2025 Home Services Benchmarks (Landscaping CTR 4.69% — lowest in home services); The Media Captain LSA data ($30-$80 CPL range)",
+    "source": "LocaliQ 2025 Home Services Benchmarks (Landscaping CTR 4.69% \u2014 lowest in home services); The Media Captain LSA data ($30-$80 CPL range)",
     "confidence": "medium"
   },
   {
@@ -500,7 +500,7 @@
     "recommendedMinAdSpend": 1500,
     "recommendedTargetAdSpend": 3500,
     "notes": "Higher CPL for hardscape keywords. Construction-adjacent with high job value.",
-    "source": "LocaliQ 2025 Home Services Benchmarks (Landscaping CTR 4.69% — lowest in home services); The Media Captain LSA data ($30-$80 CPL range)",
+    "source": "LocaliQ 2025 Home Services Benchmarks (Landscaping CTR 4.69% \u2014 lowest in home services); The Media Captain LSA data ($30-$80 CPL range)",
     "confidence": "medium"
   },
   {
@@ -514,7 +514,7 @@
     "recommendedMinAdSpend": 800,
     "recommendedTargetAdSpend": 2000,
     "notes": "Lower competition niche. Good conversion rates on specific intent keywords.",
-    "source": "LocaliQ 2025 Home Services Benchmarks (Landscaping CTR 4.69% — lowest in home services); The Media Captain LSA data ($30-$80 CPL range)",
+    "source": "LocaliQ 2025 Home Services Benchmarks (Landscaping CTR 4.69% \u2014 lowest in home services); The Media Captain LSA data ($30-$80 CPL range)",
     "confidence": "medium"
   },
   {
@@ -584,7 +584,7 @@
     "recommendedMinAdSpend": 1500,
     "recommendedTargetAdSpend": 3500,
     "notes": "High CPC ($13.74) but decent conversion. Residential interior is high-volume.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Paint & Painting CPC $13.74 — highest CPC in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Paint & Painting CPC $13.74 \u2014 highest CPC in home services)",
     "confidence": "medium"
   },
   {
@@ -598,7 +598,7 @@
     "recommendedMinAdSpend": 1500,
     "recommendedTargetAdSpend": 3500,
     "notes": "Seasonal (spring/summer). Higher job value offsets premium CPL.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Paint & Painting CPC $13.74 — highest CPC in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Paint & Painting CPC $13.74 \u2014 highest CPC in home services)",
     "confidence": "medium"
   },
   {
@@ -612,7 +612,7 @@
     "recommendedMinAdSpend": 2000,
     "recommendedTargetAdSpend": 5000,
     "notes": "B2B leads cost more but deliver much higher job values.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Paint & Painting CPC $13.74 — highest CPC in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Paint & Painting CPC $13.74 \u2014 highest CPC in home services)",
     "confidence": "medium"
   },
   {
@@ -626,7 +626,7 @@
     "recommendedMinAdSpend": 1000,
     "recommendedTargetAdSpend": 2500,
     "notes": "Niche within painting. Lower competition than general painting keywords.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Paint & Painting CPC $13.74 — highest CPC in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Paint & Painting CPC $13.74 \u2014 highest CPC in home services)",
     "confidence": "medium"
   },
   {
@@ -653,7 +653,7 @@
     "avgJobValue": 2500,
     "recommendedMinAdSpend": 600,
     "recommendedTargetAdSpend": 1500,
-    "notes": "Lower CPL than wood — less competitive keywords. Budget-focused customers.",
+    "notes": "Lower CPL than wood \u2014 less competitive keywords. Budget-focused customers.",
     "source": "WebTheory PPC Fence Company Google Ads data (CPL $25-$75 in season); LocaliQ 2025 Home Services Benchmarks",
     "confidence": "medium"
   },
@@ -681,7 +681,7 @@
     "avgJobValue": 6000,
     "recommendedMinAdSpend": 800,
     "recommendedTargetAdSpend": 2000,
-    "notes": "Slightly higher CPL — premium product with higher job value.",
+    "notes": "Slightly higher CPL \u2014 premium product with higher job value.",
     "source": "WebTheory PPC Fence Company Google Ads data (CPL $25-$75 in season); LocaliQ 2025 Home Services Benchmarks",
     "confidence": "medium"
   },
@@ -849,7 +849,7 @@
     "avgJobValue": 3000,
     "recommendedMinAdSpend": 1000,
     "recommendedTargetAdSpend": 2500,
-    "notes": "Lower CPL than hardwood — more price-sensitive market.",
+    "notes": "Lower CPL than hardwood \u2014 more price-sensitive market.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (home services avg CPL $90.92); Max Conversion flooring contractor data",
     "confidence": "medium"
   },
@@ -962,7 +962,7 @@
     "recommendedMinAdSpend": 2000,
     "recommendedTargetAdSpend": 5000,
     "notes": "LocaliQ 2025: $200.34 CPL for doors & windows. Highly competitive market.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Doors & Windows Sales CPL $200.34 — second highest in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Doors & Windows Sales CPL $200.34 \u2014 second highest in home services)",
     "confidence": "high"
   },
   {
@@ -976,7 +976,7 @@
     "recommendedMinAdSpend": 1500,
     "recommendedTargetAdSpend": 3500,
     "notes": "Slightly below window replacement CPL. Good conversion on specific door types.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Doors & Windows Sales CPL $200.34 — second highest in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Doors & Windows Sales CPL $200.34 \u2014 second highest in home services)",
     "confidence": "medium"
   },
   {
@@ -990,7 +990,7 @@
     "recommendedMinAdSpend": 800,
     "recommendedTargetAdSpend": 2000,
     "notes": "Repair CPL significantly lower than replacement. Lower job value.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Doors & Windows Sales CPL $200.34 — second highest in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Doors & Windows Sales CPL $200.34 \u2014 second highest in home services)",
     "confidence": "medium"
   },
   {
@@ -1004,7 +1004,7 @@
     "recommendedMinAdSpend": 1500,
     "recommendedTargetAdSpend": 3500,
     "notes": "Specialty within doors. Moderate-high CPL.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Doors & Windows Sales CPL $200.34 — second highest in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Doors & Windows Sales CPL $200.34 \u2014 second highest in home services)",
     "confidence": "medium"
   },
   {
@@ -1578,7 +1578,7 @@
     "recommendedMinAdSpend": 800,
     "recommendedTargetAdSpend": 1800,
     "notes": "Below-average CPL. High volume, strong conversion on local intent keywords.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Cleaning/Maid/Butler CPL $46.99 — second-lowest CPL in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Cleaning/Maid/Butler CPL $46.99 \u2014 second-lowest CPL in home services)",
     "confidence": "high"
   },
   {
@@ -1592,7 +1592,7 @@
     "recommendedMinAdSpend": 800,
     "recommendedTargetAdSpend": 2000,
     "notes": "Aligned with cleaning CPL $46.99. One-time service with moderate value.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Cleaning/Maid/Butler CPL $46.99 — second-lowest CPL in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Cleaning/Maid/Butler CPL $46.99 \u2014 second-lowest CPL in home services)",
     "confidence": "high"
   },
   {
@@ -1606,7 +1606,7 @@
     "recommendedMinAdSpend": 1200,
     "recommendedTargetAdSpend": 3000,
     "notes": "B2B leads cost more. Recurring contract value is very high.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Cleaning/Maid/Butler CPL $46.99 — second-lowest CPL in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Cleaning/Maid/Butler CPL $46.99 \u2014 second-lowest CPL in home services)",
     "confidence": "medium"
   },
   {
@@ -1620,7 +1620,7 @@
     "recommendedMinAdSpend": 600,
     "recommendedTargetAdSpend": 1500,
     "notes": "Seasonal alignment with moving. Good conversion rates.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Cleaning/Maid/Butler CPL $46.99 — second-lowest CPL in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Cleaning/Maid/Butler CPL $46.99 \u2014 second-lowest CPL in home services)",
     "confidence": "medium"
   },
   {
@@ -3202,7 +3202,7 @@
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
     "notes": "LocaliQ 2025: Construction CPL $165.67 with only 2.61% CVR. High job value.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Construction & Contractors CPL $165.67, CPC $5.31, CVR 2.61% — lowest CVR in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Construction & Contractors CPL $165.67, CPC $5.31, CVR 2.61% \u2014 lowest CVR in home services)",
     "confidence": "high"
   },
   {
@@ -3216,7 +3216,7 @@
     "recommendedMinAdSpend": 5000,
     "recommendedTargetAdSpend": 12000,
     "notes": "Above average CPL for commercial. Very high project values.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Construction & Contractors CPL $165.67, CPC $5.31, CVR 2.61% — lowest CVR in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Construction & Contractors CPL $165.67, CPC $5.31, CVR 2.61% \u2014 lowest CVR in home services)",
     "confidence": "medium"
   },
   {
@@ -3230,7 +3230,7 @@
     "recommendedMinAdSpend": 2500,
     "recommendedTargetAdSpend": 6000,
     "notes": "Moderate-high CPL aligned with contractor benchmarks.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Construction & Contractors CPL $165.67, CPC $5.31, CVR 2.61% — lowest CVR in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Construction & Contractors CPL $165.67, CPC $5.31, CVR 2.61% \u2014 lowest CVR in home services)",
     "confidence": "medium"
   },
   {
@@ -3244,7 +3244,7 @@
     "recommendedMinAdSpend": 3000,
     "recommendedTargetAdSpend": 8000,
     "notes": "B2B commercial. High CPL but very high project values.",
-    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Construction & Contractors CPL $165.67, CPC $5.31, CVR 2.61% — lowest CVR in home services)",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Construction & Contractors CPL $165.67, CPC $5.31, CVR 2.61% \u2014 lowest CVR in home services)",
     "confidence": "medium"
   },
   {
@@ -3285,7 +3285,7 @@
     "avgJobValue": 500,
     "recommendedMinAdSpend": 1500,
     "recommendedTargetAdSpend": 3500,
-    "notes": "WordStream 2025: Auto Repair CPL $28.50, CVR 14.67% — lowest CPL across all industries.",
+    "notes": "WordStream 2025: Auto Repair CPL $28.50, CVR 14.67% \u2014 lowest CPL across all industries.",
     "source": "WordStream 2025 Google Ads Benchmarks (Automotive For Sale CPC $2.41, CVR 7.76%, CPL $38.86); LocaliQ 2026 Automotive Benchmarks",
     "confidence": "high"
   },
@@ -3691,7 +3691,7 @@
     "avgJobValue": 5000,
     "recommendedMinAdSpend": 1000,
     "recommendedTargetAdSpend": 2500,
-    "notes": "Repair services for composite structures — boats, aircraft, automotive. Lower job value but more frequent repeat business.",
+    "notes": "Repair services for composite structures \u2014 boats, aircraft, automotive. Lower job value but more frequent repeat business.",
     "source": "Derived from WordStream 2025 Industrial benchmarks; composite repair services averages",
     "confidence": "medium"
   },
@@ -3733,7 +3733,7 @@
     "avgJobValue": 7500,
     "recommendedMinAdSpend": 1200,
     "recommendedTargetAdSpend": 3500,
-    "notes": "General sheet metal work — HVAC ductwork, enclosures, brackets. Good volume of local search intent.",
+    "notes": "General sheet metal work \u2014 HVAC ductwork, enclosures, brackets. Good volume of local search intent.",
     "source": "Derived from WordStream 2025 Industrial & Manufacturing CPL benchmarks; sheet metal fabrication industry averages",
     "confidence": "medium"
   },
@@ -4352,5 +4352,159 @@
     "notes": "Manual input industry. Enter your own CPL and job values for services not covered by existing industry benchmarks.",
     "source": "User-provided data",
     "confidence": "custom"
+  },
+  {
+    "industryId": "pressure-washing-landscape-care",
+    "industryName": "Pressure Washing, Hood Cleaning & Lawn Care",
+    "serviceName": "House Washing (Soft Wash)",
+    "cplLow": 30,
+    "cplMid": 50,
+    "cplHigh": 80,
+    "avgJobValue": 400,
+    "recommendedMinAdSpend": 1000,
+    "recommendedTargetAdSpend": 3000,
+    "notes": "Soft washing for homes, siding, and roofs. Strong seasonal demand in spring/summer. High-intent searches convert well.",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "pressure-washing-landscape-care",
+    "industryName": "Pressure Washing, Hood Cleaning & Lawn Care",
+    "serviceName": "Driveway & Concrete Pressure Washing",
+    "cplLow": 25,
+    "cplMid": 40,
+    "cplHigh": 65,
+    "avgJobValue": 250,
+    "recommendedMinAdSpend": 800,
+    "recommendedTargetAdSpend": 2500,
+    "notes": "Lower job value but high conversion. Good for recurring bundled services with other washing work.",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "pressure-washing-landscape-care",
+    "industryName": "Pressure Washing, Hood Cleaning & Lawn Care",
+    "serviceName": "Deck & Fence Washing",
+    "cplLow": 25,
+    "cplMid": 40,
+    "cplHigh": 65,
+    "avgJobValue": 300,
+    "recommendedMinAdSpend": 800,
+    "recommendedTargetAdSpend": 2500,
+    "notes": "Often bundled with staining/sealing. Spring demand peaks.",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "pressure-washing-landscape-care",
+    "industryName": "Pressure Washing, Hood Cleaning & Lawn Care",
+    "serviceName": "Roof Soft Washing",
+    "cplLow": 35,
+    "cplMid": 55,
+    "cplHigh": 85,
+    "avgJobValue": 600,
+    "recommendedMinAdSpend": 1000,
+    "recommendedTargetAdSpend": 3000,
+    "notes": "Removes algae/moss from shingles and tile. Typically higher-ticket than concrete washing; often upsold with gutter cleaning.",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "pressure-washing-landscape-care",
+    "industryName": "Pressure Washing, Hood Cleaning & Lawn Care",
+    "serviceName": "Gutter Cleaning",
+    "cplLow": 25,
+    "cplMid": 40,
+    "cplHigh": 60,
+    "avgJobValue": 200,
+    "recommendedMinAdSpend": 800,
+    "recommendedTargetAdSpend": 2000,
+    "notes": "Seasonal (fall peak). Often upsold with gutter guard installation or roof cleaning.",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "pressure-washing-landscape-care",
+    "industryName": "Pressure Washing, Hood Cleaning & Lawn Care",
+    "serviceName": "Commercial Building Pressure Washing",
+    "cplLow": 40,
+    "cplMid": 65,
+    "cplHigh": 100,
+    "avgJobValue": 2000,
+    "recommendedMinAdSpend": 1500,
+    "recommendedTargetAdSpend": 4000,
+    "notes": "Storefronts, office buildings, parking lots, dumpster pads. Target property managers and facility directors with recurring-service offers.",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "pressure-washing-landscape-care",
+    "industryName": "Pressure Washing, Hood Cleaning & Lawn Care",
+    "serviceName": "Restaurant Hood & Vent Cleaning",
+    "cplLow": 75,
+    "cplMid": 125,
+    "cplHigh": 200,
+    "avgJobValue": 650,
+    "recommendedMinAdSpend": 1500,
+    "recommendedTargetAdSpend": 4000,
+    "notes": "Compliance-driven (NFPA 96) \u2014 typically quarterly or monthly recurring revenue. Highly sticky customers; lifetime value is 8-12x single-job value. Target restaurant owners, chain GMs, and facility managers.",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "pressure-washing-landscape-care",
+    "industryName": "Pressure Washing, Hood Cleaning & Lawn Care",
+    "serviceName": "Commercial Kitchen Exhaust Cleaning",
+    "cplLow": 70,
+    "cplMid": 115,
+    "cplHigh": 180,
+    "avgJobValue": 800,
+    "recommendedMinAdSpend": 1500,
+    "recommendedTargetAdSpend": 4000,
+    "notes": "Full exhaust system cleaning including fans, ducts, and rooftop units. Compliance-driven recurring service for restaurants, hospitals, schools, and institutional kitchens.",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "pressure-washing-landscape-care",
+    "industryName": "Pressure Washing, Hood Cleaning & Lawn Care",
+    "serviceName": "Lawn Mowing & Maintenance",
+    "cplLow": 25,
+    "cplMid": 40,
+    "cplHigh": 65,
+    "avgJobValue": 200,
+    "recommendedMinAdSpend": 1000,
+    "recommendedTargetAdSpend": 3000,
+    "notes": "Low per-visit value but highly recurring \u2014 lifetime value is 20-30x a single cut. Push weekly/bi-weekly contracts for the real economics.",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "pressure-washing-landscape-care",
+    "industryName": "Pressure Washing, Hood Cleaning & Lawn Care",
+    "serviceName": "Trimming, Edging & Yard Cleanup",
+    "cplLow": 25,
+    "cplMid": 40,
+    "cplHigh": 60,
+    "avgJobValue": 250,
+    "recommendedMinAdSpend": 800,
+    "recommendedTargetAdSpend": 2500,
+    "notes": "Often bundled with mowing contracts. Strong spring/fall seasonal demand for full cleanup jobs.",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "pressure-washing-landscape-care",
+    "industryName": "Pressure Washing, Hood Cleaning & Lawn Care",
+    "serviceName": "Mulching & Seasonal Landscaping",
+    "cplLow": 30,
+    "cplMid": 45,
+    "cplHigh": 70,
+    "avgJobValue": 500,
+    "recommendedMinAdSpend": 1000,
+    "recommendedTargetAdSpend": 3000,
+    "notes": "Mulch installation, bed maintenance, seasonal cleanups. Run campaigns 2-3 weeks before spring/fall peaks.",
+    "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
+    "confidence": "medium"
   }
 ]

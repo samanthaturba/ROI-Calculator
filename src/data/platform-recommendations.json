@@ -1482,7 +1482,7 @@
     },
     "meta": {
       "rating": 5,
-      "note": "Interior design is highly visual — Instagram and Facebook are ideal for showcasing portfolio work, before/after transformations, and targeting style-conscious homeowners."
+      "note": "Interior design is highly visual \u2014 Instagram and Facebook are ideal for showcasing portfolio work, before/after transformations, and targeting style-conscious homeowners."
     },
     "linkedin": {
       "rating": 2,
@@ -1496,7 +1496,7 @@
   "architecture": {
     "google": {
       "rating": 4,
-      "note": "Google Ads captures high-intent searches for architecture firms. Strong for both commercial and residential — people actively search for architects when they have a project."
+      "note": "Google Ads captures high-intent searches for architecture firms. Strong for both commercial and residential \u2014 people actively search for architects when they have a project."
     },
     "meta": {
       "rating": 3,
@@ -1504,11 +1504,29 @@
     },
     "linkedin": {
       "rating": 4,
-      "note": "LinkedIn is strong for commercial architecture — target developers, property managers, corporate real estate directors, and healthcare facility planners."
+      "note": "LinkedIn is strong for commercial architecture \u2014 target developers, property managers, corporate real estate directors, and healthcare facility planners."
     },
     "lsa": {
       "rating": 0,
       "note": "Not Available. Architecture is not an LSA-eligible service category."
+    }
+  },
+  "pressure-washing-landscape-care": {
+    "google": {
+      "rating": 5,
+      "note": "Excellent. All three service lines (pressure washing, restaurant hood cleaning, lawn care) have high-intent local search traffic. Google Ads is the top-performing channel."
+    },
+    "meta": {
+      "rating": 4,
+      "note": "Strong for pressure washing and lawn care \u2014 before/after visual content performs exceptionally well. Less effective for restaurant hood cleaning (B2B niche); use Meta for residential services primarily."
+    },
+    "linkedin": {
+      "rating": 3,
+      "note": "Moderate. LinkedIn is effective for commercial contracts \u2014 restaurant hood cleaning (target restaurant owners, chain GMs, facility managers who require NFPA 96 compliance) and commercial pressure washing / landscape maintenance contracts. Not for residential work."
+    },
+    "lsa": {
+      "rating": 5,
+      "note": "Excellent for pressure washing and lawn care \u2014 both are LSA-eligible categories with the Google Verified badge. Not available for restaurant hood cleaning (not an LSA category)."
     }
   },
   "other": {
