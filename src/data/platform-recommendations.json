@@ -1529,6 +1529,24 @@
       "note": "Excellent for pressure washing and lawn care \u2014 both are LSA-eligible categories with the Google Verified badge. Not available for restaurant hood cleaning (not an LSA category)."
     }
   },
+  "commercial-agricultural-electric": {
+    "google": {
+      "rating": 5,
+      "note": "Excellent. High-intent commercial and agricultural electrical searches (e.g. 'grain dryer electrical contractor', '3-phase service upgrade') convert very well. Specialized work with limited competition on specific terms."
+    },
+    "meta": {
+      "rating": 3,
+      "note": "Moderate. Works for brand awareness and reaching farm operators/equipment owners, but niche B2B audience limits reach. Use alongside Google/LinkedIn \u2014 not as primary acquisition."
+    },
+    "linkedin": {
+      "rating": 4,
+      "note": "Strong for high-value commercial and ag contracts. Target plant managers, facility directors, farm operations managers, ag-coop operations leads, and automation engineers. High CPL offset by large contract values."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Limited. LSA is primarily consumer-oriented for electrical; commercial/industrial/ag work gets fewer leads through LSA. Some benefit for mixed-use (farm shop, home + farm) work only."
+    }
+  },
   "other": {
     "google": {
       "rating": 3,

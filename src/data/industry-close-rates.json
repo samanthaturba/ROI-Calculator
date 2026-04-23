@@ -370,5 +370,9 @@
   "pressure-washing-landscape-care": {
     "closeRate": 35,
     "source": "Blended estimate: pressure washing (~35%, ServiceTitan 2025 home services benchmarks), restaurant hood cleaning (~45%, compliance-driven B2B close rates), and lawn/landscape maintenance (~30%)"
+  },
+  "commercial-agricultural-electric": {
+    "closeRate": 24,
+    "source": "Estimated based on B2B commercial/industrial services close rates (First Page Sage 2026 ~22% for industrial/construction SQL-to-close) and competitive ag-facility contract dynamics"
   }
 }

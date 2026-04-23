@@ -446,5 +446,47 @@
     "notes": "LSA pay-per-lead. Seasonal peaks drive most leads; plan budget around spring and fall windows.",
     "source": "Home Service Direct 2026 and Blue Grid Media 2026 LSA benchmarks \u2014 home services LSA CPL range $20-55. Pressure washing and landscaping are LSA-eligible; restaurant hood cleaning is not LSA-eligible (not listed as a Google Screened/LSA category).",
     "confidence": "medium"
+  },
+  {
+    "industryId": "commercial-agricultural-electric",
+    "industryName": "Commercial & Agricultural Electric",
+    "serviceName": "Commercial Panel & Service Upgrades",
+    "cplLow": 35,
+    "cplMid": 55,
+    "cplHigh": 85,
+    "avgJobValue": 12000,
+    "recommendedMinAdSpend": 1000,
+    "recommendedTargetAdSpend": 3000,
+    "notes": "LSA electrical is consumer-focused; commercial work gets fewer LSA leads but Google Verified badge still helps for mixed-use (home + shop) work.",
+    "source": "LSA CPL range derived from Home Service Direct 2026 electrical benchmarks. Commercial and agricultural electrical are largely outside LSA's consumer-focused category coverage; use LSA for mixed-use (home + farm shop) work only.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "commercial-agricultural-electric",
+    "industryName": "Commercial & Agricultural Electric",
+    "serviceName": "Farm Building & Shop Electrical",
+    "cplLow": 35,
+    "cplMid": 55,
+    "cplHigh": 85,
+    "avgJobValue": 8000,
+    "recommendedMinAdSpend": 1000,
+    "recommendedTargetAdSpend": 3000,
+    "notes": "LSA can surface farm/rural electrical leads in mixed consumer/small-business queries. Limited volume but Verified badge drives conversion.",
+    "source": "LSA CPL range derived from Home Service Direct 2026 electrical benchmarks. Commercial and agricultural electrical are largely outside LSA's consumer-focused category coverage; use LSA for mixed-use (home + farm shop) work only.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "commercial-agricultural-electric",
+    "industryName": "Commercial & Agricultural Electric",
+    "serviceName": "Agricultural Equipment Electrical Service",
+    "cplLow": 35,
+    "cplMid": 55,
+    "cplHigh": 85,
+    "avgJobValue": 2500,
+    "recommendedMinAdSpend": 1000,
+    "recommendedTargetAdSpend": 3000,
+    "notes": "LSA pay-per-lead. Lower volume than residential electrical but occasional leads for mobile diagnostic service.",
+    "source": "LSA CPL range derived from Home Service Direct 2026 electrical benchmarks. Commercial and agricultural electrical are largely outside LSA's consumer-focused category coverage; use LSA for mixed-use (home + farm shop) work only.",
+    "confidence": "medium"
   }
 ]
