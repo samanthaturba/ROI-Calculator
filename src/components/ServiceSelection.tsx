@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import type { ServiceSelection as ServiceSelectionType, ExtractedService, CplChoice } from "../lib/types";
+import { useState, useMemo } from "react";
+import type { ServiceSelection as ServiceSelectionType, ExtractedService, CplChoice, AdPlatform } from "../lib/types";
+import { getAllIndustries, getServicesForIndustry } from "../lib/benchmarks";
 
 interface Props {
   services: ServiceSelectionType[];
   onChange: (services: ServiceSelectionType[]) => void;
   extractedServices: ExtractedService[];
   industryId: string;
+  primaryPlatform: AdPlatform;
 }
 
 export default function ServiceSelection({
@@ -15,8 +17,24 @@ export default function ServiceSelection({
   onChange,
   extractedServices,
   industryId,
+  primaryPlatform,
 }: Props) {
   const [newServiceName, setNewServiceName] = useState("");
+  const [showCrossIndustry, setShowCrossIndustry] = useState(false);
+  const [crossIndustryId, setCrossIndustryId] = useState("");
+  const [crossServiceName, setCrossServiceName] = useState("");
+
+  // All industries except the current one — the list the user can pull services from
+  const otherIndustries = useMemo(
+    () => getAllIndustries(primaryPlatform).filter((i) => i.id !== industryId),
+    [industryId, primaryPlatform]
+  );
+
+  // Services available under the currently-picked "other" industry
+  const availableCrossServices = useMemo(() => {
+    if (!crossIndustryId) return [];
+    return getServicesForIndustry(crossIndustryId, primaryPlatform);
+  }, [crossIndustryId, primaryPlatform]);
 
   if (!industryId) {
     return (
@@ -116,6 +134,46 @@ export default function ServiceSelection({
       }
     }
     onChange(updated);
+  }
+
+  function addCrossIndustryService() {
+    if (!crossIndustryId || !crossServiceName) return;
+    // Look up the benchmark for the chosen service in the chosen OTHER industry.
+    // The benchmark already carries industryId, so downstream platform lookups know
+    // which industry to query when the user switches ad platforms.
+    const sourceServices = getServicesForIndustry(crossIndustryId, primaryPlatform);
+    const benchmark = sourceServices.find((s) => s.serviceName === crossServiceName);
+    if (!benchmark) return;
+
+    // Prevent duplicates (same service name from the same source industry)
+    const displayName = `${benchmark.serviceName} (${benchmark.industryName})`;
+    if (services.some((s) => s.serviceName === displayName)) return;
+
+    const updated: ServiceSelectionType[] = [
+      ...services,
+      {
+        serviceName: displayName,
+        selected: true,
+        allocationPercent: 0,
+        cplChoice: "mid",
+        customCpl: null,
+        customJobValue: null,
+        // Store the real benchmark (with its source industryId); the display name
+        // on the service row carries the "(Industry Name)" annotation for clarity
+        benchmark,
+        isManual: true,
+      },
+    ];
+
+    // Rebalance allocations across selected services
+    const selectedServices = updated.filter((s) => s.selected);
+    const evenSplit = Math.round((100 / selectedServices.length) * 10) / 10;
+    for (const s of updated) {
+      s.allocationPercent = s.selected ? evenSplit : 0;
+    }
+
+    onChange(updated);
+    setCrossServiceName("");
   }
 
   const totalAllocation = services
@@ -312,6 +370,65 @@ export default function ServiceSelection({
         >
           Add
         </button>
+      </div>
+
+      {/* Add service from another industry (for businesses that span multiple industries) */}
+      <div className="mt-3">
+        <button
+          type="button"
+          onClick={() => setShowCrossIndustry((s) => !s)}
+          className="text-xs text-cogent-navy hover:underline font-medium"
+        >
+          {showCrossIndustry ? "− Hide" : "+ Add service from another industry"}
+        </button>
+        {showCrossIndustry && (
+          <div className="mt-2 p-3 border border-gray-200 rounded-md bg-gray-50">
+            <p className="text-xs text-cogent-neutral mb-2">
+              For businesses that span multiple industries (e.g. a pressure-washing company that also does lawn care,
+              or an electrician that does both residential and commercial work). The service brings its original
+              benchmark data so your projections stay accurate.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-2">
+              <select
+                value={crossIndustryId}
+                onChange={(e) => {
+                  setCrossIndustryId(e.target.value);
+                  setCrossServiceName("");
+                }}
+                className="flex-1 border border-gray-300 rounded-md px-2 py-2 text-sm bg-white"
+              >
+                <option value="">Pick an industry…</option>
+                {otherIndustries.map((i) => (
+                  <option key={i.id} value={i.id}>{i.name}</option>
+                ))}
+              </select>
+              <select
+                value={crossServiceName}
+                onChange={(e) => setCrossServiceName(e.target.value)}
+                disabled={!crossIndustryId}
+                className="flex-1 border border-gray-300 rounded-md px-2 py-2 text-sm bg-white disabled:bg-gray-100 disabled:text-gray-400"
+              >
+                <option value="">
+                  {crossIndustryId ? "Pick a service…" : "(select an industry first)"}
+                </option>
+                {availableCrossServices.map((s) => (
+                  <option key={s.serviceName} value={s.serviceName}>
+                    {s.serviceName}
+                    {s.cplMid !== null ? ` — $${s.cplMid} CPL` : ""}
+                    {s.avgJobValue !== null ? ` / $${s.avgJobValue.toLocaleString()} job` : ""}
+                  </option>
+                ))}
+              </select>
+              <button
+                onClick={addCrossIndustryService}
+                disabled={!crossIndustryId || !crossServiceName}
+                className="px-4 py-2 bg-cogent-navy text-white text-sm rounded-md hover:bg-cogent-navy-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+              >
+                Add
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

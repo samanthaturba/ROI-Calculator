@@ -203,7 +203,11 @@ export default function Home() {
       if (!s.selected) return s;
       let benchmark = s.benchmark;
       if (plat !== primaryPlatform) {
-        const platBenchmark = getBenchmarkForService(clientInputs.industryId!, s.serviceName, plat);
+        // Use the benchmark's own source industry so cross-industry services look up
+        // their platform-specific CPL in the correct industry, not the current one.
+        const sourceIndustry = s.benchmark?.industryId ?? clientInputs.industryId!;
+        const lookupName = s.benchmark?.serviceName ?? s.serviceName;
+        const platBenchmark = getBenchmarkForService(sourceIndustry, lookupName, plat);
         if (platBenchmark) benchmark = platBenchmark;
       }
       const adjusted = { ...s, benchmark: benchmark ? { ...benchmark } : null };
@@ -558,14 +562,18 @@ export default function Home() {
         if (!s.selected) return s;
 
         // For the primary platform, use the service as-is
-        // For secondary platforms, look up that platform's benchmark
+        // For secondary platforms, look up that platform's benchmark in the service's
+        // ORIGINAL source industry (so cross-industry services keep their correct data
+        // rather than getting rewritten with the current industry's CPL).
         let benchmark = s.benchmark;
         if (plat !== primaryPlatform && clientInputs.industryId) {
-          const platBenchmark = getBenchmarkForService(clientInputs.industryId, s.serviceName, plat);
+          const sourceIndustry = s.benchmark?.industryId ?? clientInputs.industryId;
+          const lookupName = s.benchmark?.serviceName ?? s.serviceName;
+          const platBenchmark = getBenchmarkForService(sourceIndustry, lookupName, plat);
           if (platBenchmark) {
             benchmark = platBenchmark;
           }
-          // If no benchmark on this platform, fall back to primary platform benchmark
+          // If no benchmark on this platform, fall back to the primary platform benchmark
         }
 
         const adjusted = { ...s, benchmark: benchmark ? { ...benchmark } : null };
@@ -1104,6 +1112,7 @@ export default function Home() {
           onChange={setServices}
           extractedServices={extractedServices}
           industryId={clientInputs.industryId}
+          primaryPlatform={primaryPlatform}
         />
 
         {/* Section C: Budget + Sales Inputs */}
