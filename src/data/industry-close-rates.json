@@ -374,5 +374,9 @@
   "commercial-agricultural-electric": {
     "closeRate": 24,
     "source": "Estimated based on B2B commercial/industrial services close rates (First Page Sage 2026 ~22% for industrial/construction SQL-to-close) and competitive ag-facility contract dynamics"
+  },
+  "commercial-plumbing": {
+    "closeRate": 25,
+    "source": "Estimated based on B2B commercial services close rates. ServiceTitan 2025 reports residential plumbing at ~35%; commercial/B2B plumbing runs lower (~22-28%) due to competitive bidding, longer sales cycles, and procurement processes."
   }
 }

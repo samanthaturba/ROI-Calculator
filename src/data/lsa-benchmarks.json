@@ -488,5 +488,61 @@
     "notes": "LSA pay-per-lead. Lower volume than residential electrical but occasional leads for mobile diagnostic service.",
     "source": "LSA CPL range derived from Home Service Direct 2026 electrical benchmarks. Commercial and agricultural electrical are largely outside LSA's consumer-focused category coverage; use LSA for mixed-use (home + farm shop) work only.",
     "confidence": "medium"
+  },
+  {
+    "industryId": "commercial-plumbing",
+    "industryName": "Commercial Plumbing",
+    "serviceName": "Commercial Drain Cleaning & Hydro-Jetting",
+    "cplLow": 35,
+    "cplMid": 55,
+    "cplHigh": 85,
+    "avgJobValue": 1200,
+    "recommendedMinAdSpend": 1000,
+    "recommendedTargetAdSpend": 3000,
+    "notes": "LSA pay-per-lead. Plumbing is LSA-eligible; small-business and mixed-use properties generate occasional commercial leads.",
+    "source": "Home Service Direct 2026 LSA benchmarks \u2014 plumbing LSA CPL range $30-85. Commercial plumbing is not a distinct LSA category but commercial leads flow through the consumer plumbing category for small businesses and mixed-use properties.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "commercial-plumbing",
+    "industryName": "Commercial Plumbing",
+    "serviceName": "Restaurant Plumbing Services",
+    "cplLow": 40,
+    "cplMid": 60,
+    "cplHigh": 90,
+    "avgJobValue": 3500,
+    "recommendedMinAdSpend": 1000,
+    "recommendedTargetAdSpend": 3000,
+    "notes": "LSA pay-per-lead. Small restaurant owners searching for emergency plumbing often use LSA. Respond fast to maintain profile ranking.",
+    "source": "Home Service Direct 2026 LSA benchmarks \u2014 plumbing LSA CPL range $30-85. Commercial plumbing is not a distinct LSA category but commercial leads flow through the consumer plumbing category for small businesses and mixed-use properties.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "commercial-plumbing",
+    "industryName": "Commercial Plumbing",
+    "serviceName": "24/7 Emergency Commercial Plumbing",
+    "cplLow": 45,
+    "cplMid": 70,
+    "cplHigh": 110,
+    "avgJobValue": 2500,
+    "recommendedMinAdSpend": 1000,
+    "recommendedTargetAdSpend": 3000,
+    "notes": "LSA pay-per-lead. Small-business emergency calls drive steady lead flow. Higher CPL than residential due to commercial intent and urgency.",
+    "source": "Home Service Direct 2026 LSA benchmarks \u2014 plumbing LSA CPL range $30-85. Commercial plumbing is not a distinct LSA category but commercial leads flow through the consumer plumbing category for small businesses and mixed-use properties.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "commercial-plumbing",
+    "industryName": "Commercial Plumbing",
+    "serviceName": "Commercial Fixture Installation",
+    "cplLow": 35,
+    "cplMid": 55,
+    "cplHigh": 85,
+    "avgJobValue": 6000,
+    "recommendedMinAdSpend": 1000,
+    "recommendedTargetAdSpend": 3000,
+    "notes": "LSA pay-per-lead. Occasional leads from small-business remodels and office renovations.",
+    "source": "Home Service Direct 2026 LSA benchmarks \u2014 plumbing LSA CPL range $30-85. Commercial plumbing is not a distinct LSA category but commercial leads flow through the consumer plumbing category for small businesses and mixed-use properties.",
+    "confidence": "medium"
   }
 ]

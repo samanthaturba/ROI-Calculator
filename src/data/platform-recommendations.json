@@ -1547,6 +1547,24 @@
       "note": "Limited. LSA is primarily consumer-oriented for electrical; commercial/industrial/ag work gets fewer leads through LSA. Some benefit for mixed-use (farm shop, home + farm) work only."
     }
   },
+  "commercial-plumbing": {
+    "google": {
+      "rating": 5,
+      "note": "Excellent. Commercial plumbing searches ('commercial plumber near me', 'grease trap service', 'backflow testing') have very high buyer intent. Emergency keywords convert especially well."
+    },
+    "meta": {
+      "rating": 3,
+      "note": "Moderate. Useful for property manager and restaurant owner awareness campaigns and retargeting. Before/after visuals help, but B2B reach is more limited than consumer plumbing."
+    },
+    "linkedin": {
+      "rating": 4,
+      "note": "Strong for high-value commercial contracts. Target property managers, facility directors, restaurant operations, healthcare facility managers, and general contractors. High CPL offset by large contract values and recurring revenue."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Moderate. Plumbing is LSA-eligible and the Google Verified badge drives conversion, but most LSA leads are residential/small-business rather than large commercial accounts."
+    }
+  },
   "other": {
     "google": {
       "rating": 3,
