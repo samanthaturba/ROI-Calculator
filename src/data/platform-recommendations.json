@@ -1565,6 +1565,24 @@
       "note": "Moderate. Plumbing is LSA-eligible and the Google Verified badge drives conversion, but most LSA leads are residential/small-business rather than large commercial accounts."
     }
   },
+  "custom-car-shop": {
+    "google": {
+      "rating": 5,
+      "note": "Excellent. Engine builds and performance work generate enormous high-intent search volume \u2014 'LS engine builder', 'crate engine near me', 'Tremec swap shop'. Top-performing accounts can drive CPL well below industry average ($40-60 range) with strong campaign structure."
+    },
+    "meta": {
+      "rating": 4,
+      "note": "Strong. The custom car/performance industry is exceptionally visual \u2014 dyno videos, build progress reels, and finished-build reveals drive elite engagement. Enthusiast targeting (Mustang owners, LS community, Mopar groups) works very well."
+    },
+    "linkedin": {
+      "rating": 1,
+      "note": "Not recommended. Custom car/performance is a consumer enthusiast market. LinkedIn is only worth considering for commercial marine engine work or fleet rebuild contracts \u2014 not retail performance shop work."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Limited. Auto repair is LSA-eligible so swap/tuning leads sometimes flow through, but custom builds are not a distinct LSA category. Most performance shop volume comes from Google Search, not LSA."
+    }
+  },
   "other": {
     "google": {
       "rating": 3,

@@ -2266,5 +2266,33 @@
     "notes": "Target general contractors, developers, and construction project managers. Relationships drive repeat contract work over time.",
     "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Corporate Services ($60 CPL), Healthcare ($125 CPL), Transportation & Logistics ($130 CPL as proxy for recurring field services). AdBacklog 2025 Business Services (~$60 CPL). Adjusted for niche B2B field services with medical/healthcare premium.",
     "confidence": "medium"
+  },
+  {
+    "industryId": "custom-car-shop",
+    "industryName": "Custom Car Shop & Performance Builder",
+    "serviceName": "Marine Engine Builds & Rigging (Commercial Boat Operators)",
+    "cplLow": 130,
+    "cplMid": 175,
+    "cplHigh": 240,
+    "avgJobValue": 18000,
+    "recommendedMinAdSpend": 2500,
+    "recommendedTargetAdSpend": 6000,
+    "notes": "LinkedIn is poor for consumer auto/performance. Niche use: target commercial boat operators, charter fleet owners, and marine contractors needing repower work.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Transportation & Logistics ($130 CPL) for fleet/commercial marine applications. LinkedIn is generally NOT recommended for custom car/performance shops since the audience is consumer enthusiasts, not B2B decision-makers.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "custom-car-shop",
+    "industryName": "Custom Car Shop & Performance Builder",
+    "serviceName": "Fleet Engine Rebuild Programs",
+    "cplLow": 110,
+    "cplMid": 150,
+    "cplHigh": 210,
+    "avgJobValue": 25000,
+    "recommendedMinAdSpend": 2500,
+    "recommendedTargetAdSpend": 6000,
+    "notes": "Limited applicability \u2014 only relevant for shops doing commercial fleet rebuild contracts. Most performance shops should skip LinkedIn entirely.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Transportation & Logistics ($130 CPL) for fleet/commercial marine applications. LinkedIn is generally NOT recommended for custom car/performance shops since the audience is consumer enthusiasts, not B2B decision-makers.",
+    "confidence": "medium"
   }
 ]

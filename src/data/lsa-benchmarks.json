@@ -544,5 +544,47 @@
     "notes": "LSA pay-per-lead. Occasional leads from small-business remodels and office renovations.",
     "source": "Home Service Direct 2026 LSA benchmarks \u2014 plumbing LSA CPL range $30-85. Commercial plumbing is not a distinct LSA category but commercial leads flow through the consumer plumbing category for small businesses and mixed-use properties.",
     "confidence": "medium"
+  },
+  {
+    "industryId": "custom-car-shop",
+    "industryName": "Custom Car Shop & Performance Builder",
+    "serviceName": "Engine Installation & Swap",
+    "cplLow": 35,
+    "cplMid": 60,
+    "cplHigh": 95,
+    "avgJobValue": 9000,
+    "recommendedMinAdSpend": 800,
+    "recommendedTargetAdSpend": 2500,
+    "notes": "LSA pay-per-lead. Auto repair is LSA-eligible; engine swap leads sometimes route through. Limited volume vs Google search.",
+    "source": "Home Service Direct 2026 LSA benchmarks \u2014 auto repair LSA CPL range $30-95. Custom build / engine builder is not a distinct LSA category, but auto repair leads sometimes route through for swap/tuning work.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "custom-car-shop",
+    "industryName": "Custom Car Shop & Performance Builder",
+    "serviceName": "EFI Conversion & Engine Tuning",
+    "cplLow": 35,
+    "cplMid": 60,
+    "cplHigh": 95,
+    "avgJobValue": 4500,
+    "recommendedMinAdSpend": 800,
+    "recommendedTargetAdSpend": 2500,
+    "notes": "LSA pay-per-lead. Auto repair category captures some tuning leads; better fit for high-rated shops with strong reviews.",
+    "source": "Home Service Direct 2026 LSA benchmarks \u2014 auto repair LSA CPL range $30-95. Custom build / engine builder is not a distinct LSA category, but auto repair leads sometimes route through for swap/tuning work.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "custom-car-shop",
+    "industryName": "Custom Car Shop & Performance Builder",
+    "serviceName": "Dyno Tuning Service",
+    "cplLow": 30,
+    "cplMid": 55,
+    "cplHigh": 85,
+    "avgJobValue": 1800,
+    "recommendedMinAdSpend": 800,
+    "recommendedTargetAdSpend": 2500,
+    "notes": "LSA pay-per-lead. Lower-ticket service fits LSA's consumer-leads model better than full builds.",
+    "source": "Home Service Direct 2026 LSA benchmarks \u2014 auto repair LSA CPL range $30-95. Custom build / engine builder is not a distinct LSA category, but auto repair leads sometimes route through for swap/tuning work.",
+    "confidence": "medium"
   }
 ]

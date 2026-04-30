@@ -378,5 +378,9 @@
   "commercial-plumbing": {
     "closeRate": 25,
     "source": "Estimated based on B2B commercial services close rates. ServiceTitan 2025 reports residential plumbing at ~35%; commercial/B2B plumbing runs lower (~22-28%) due to competitive bidding, longer sales cycles, and procurement processes."
+  },
+  "custom-car-shop": {
+    "closeRate": 18,
+    "source": "Estimated based on high-ticket custom auto/performance industry sales-cycle data. Custom build buyers comparison-shop heavily and decision cycles run 30-180 days; close rate is lower than general auto repair (~25-30%) but average ticket is much higher ($10K+ vs $500-1K for repair work)."
   }
 }
