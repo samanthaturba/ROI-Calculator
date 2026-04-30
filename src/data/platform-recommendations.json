@@ -1045,20 +1045,20 @@
   },
   "printing": {
     "google": {
-      "rating": 4,
-      "note": "Good for commercial printing searches. Local print shops benefit."
+      "rating": 5,
+      "note": "Excellent. Service-specific searches ('brochure printing near me', 'direct mail printing', 'business form printing') have strong commercial intent. Long-tail keywords convert at moderate CPL."
     },
     "meta": {
-      "rating": 3,
-      "note": "Portfolio showcase of print work. Good for promotional product awareness."
+      "rating": 4,
+      "note": "Strong for portfolio showcase and consumer-facing services (invitations, announcements, stationery). Visual carousels of finished work engage marketing managers and small business owners."
     },
     "linkedin": {
-      "rating": 3,
-      "note": "Good for targeting marketing managers and event planners who need commercial printing."
+      "rating": 4,
+      "note": "Strong for B2B account acquisition. Target marketing managers, comms directors, procurement leads, association executives, and brand managers running annual print programs and direct mail campaigns."
     },
     "lsa": {
       "rating": 1,
-      "note": "Not recommended. Printing services are not LSA-eligible."
+      "note": "Not recommended. Printing services are not an LSA-eligible category."
     }
   },
   "bolt-services": {

@@ -2294,5 +2294,61 @@
     "notes": "Limited applicability \u2014 only relevant for shops doing commercial fleet rebuild contracts. Most performance shops should skip LinkedIn entirely.",
     "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Transportation & Logistics ($130 CPL) for fleet/commercial marine applications. LinkedIn is generally NOT recommended for custom car/performance shops since the audience is consumer enthusiasts, not B2B decision-makers.",
     "confidence": "medium"
+  },
+  {
+    "industryId": "printing",
+    "industryName": "Printing Services",
+    "serviceName": "Corporate Print Services Account Acquisition",
+    "cplLow": 55,
+    "cplMid": 80,
+    "cplHigh": 115,
+    "avgJobValue": 18000,
+    "recommendedMinAdSpend": 2000,
+    "recommendedTargetAdSpend": 5000,
+    "notes": "Target marketing managers, brand directors, and procurement leads at mid-market companies. Annual print contracts have very high LTV.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Corporate Services ($60 CPL), Marketing & Advertising sub-sector, AdBacklog 2025 Business Services (~$60 CPL). Adjusted upward for niche commercial printing target audiences.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "printing",
+    "industryName": "Printing Services",
+    "serviceName": "Direct Mail & Marketing Services for B2B",
+    "cplLow": 65,
+    "cplMid": 95,
+    "cplHigh": 135,
+    "avgJobValue": 10000,
+    "recommendedMinAdSpend": 2000,
+    "recommendedTargetAdSpend": 5000,
+    "notes": "Target B2B marketers running outbound campaigns. Highlight list services, personalization, and full-service mail prep.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Corporate Services ($60 CPL), Marketing & Advertising sub-sector, AdBacklog 2025 Business Services (~$60 CPL). Adjusted upward for niche commercial printing target audiences.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "printing",
+    "industryName": "Printing Services",
+    "serviceName": "Books, Catalogs & Annual Report Printing",
+    "cplLow": 75,
+    "cplMid": 110,
+    "cplHigh": 160,
+    "avgJobValue": 15000,
+    "recommendedMinAdSpend": 2000,
+    "recommendedTargetAdSpend": 5000,
+    "notes": "Target investor relations, communications directors, and product marketers. High-ticket niche where vendor selection matters.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Corporate Services ($60 CPL), Marketing & Advertising sub-sector, AdBacklog 2025 Business Services (~$60 CPL). Adjusted upward for niche commercial printing target audiences.",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "printing",
+    "industryName": "Printing Services",
+    "serviceName": "Newsletter & Recurring Print Programs",
+    "cplLow": 60,
+    "cplMid": 85,
+    "cplHigh": 125,
+    "avgJobValue": 12000,
+    "recommendedMinAdSpend": 2000,
+    "recommendedTargetAdSpend": 5000,
+    "notes": "Target association executives, school administrators, HR/comms leaders. Recurring contracts justify the higher CPL.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Corporate Services ($60 CPL), Marketing & Advertising sub-sector, AdBacklog 2025 Business Services (~$60 CPL). Adjusted upward for niche commercial printing target audiences.",
+    "confidence": "medium"
   }
 ]

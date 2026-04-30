@@ -232,8 +232,8 @@
     "source": "Estimated based on home services close rate data"
   },
   "printing": {
-    "closeRate": 20,
-    "source": "Estimated based on commercial services close rate data"
+    "closeRate": 22,
+    "source": "Blended estimate: B2B commercial printing close rate ~18-22% (long sales cycle, multi-vendor bidding) and consumer wedding/invitations ~35%. Service mix determines weighted close rate; adjust manually if practice is heavily skewed one direction."
   },
   "bolt-services": {
     "closeRate": 18,
