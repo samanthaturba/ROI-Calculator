@@ -48,6 +48,7 @@ interface PowerPointData {
   platformAllocations?: Record<AdPlatform, number>;
   platformResults?: Record<AdPlatform, CalculationResult | null>;
   industryCloseRate?: { closeRate: number; source: string };
+  isEcommerce?: boolean;
 }
 
 function addRoasSlide(
@@ -569,6 +570,26 @@ function addAssumptionsSlide(
     });
   }
 
+  // -- Ecommerce notice (when applicable) --
+  const disclaimerY = data.isEcommerce ? 4.55 : 5.05;
+  if (data.isEcommerce) {
+    slide.addShape('rect' as PptxGenJS.ShapeType, {
+      x: 0.2, y: 4.6, w: 9.6, h: 0.42,
+      fill: { color: "FFF3CD" },
+      line: { color: "FFC107", width: 1 },
+    });
+    slide.addText([
+      { text: "🛒 ECOMMERCE CLIENT — ADDITIONAL MANAGEMENT REQUIRED: ", options: { bold: true } },
+      { text: "This client sells products online and requires Google Merchant Center setup and ongoing product feed management. Ecommerce ad management (Google Shopping, Performance Max) is significantly more labor-intensive than standard lead-gen campaigns, involving product feed optimization, dynamic remarketing, inventory syncing, and enhanced conversion tracking. " },
+      { text: "Management fees should reflect this additional complexity.", options: { bold: true } },
+    ], {
+      x: 0.25, y: 4.61, w: 9.5, h: 0.38,
+      fontSize: 6.5, fontFace: "Arial",
+      color: "6B4A00", valign: "middle",
+      margin: [2, 4, 2, 4],
+    });
+  }
+
   // -- Disclaimer --
   const disclaimerPlatformText = isMulti
     ? platforms.map((p, i) => {
@@ -589,7 +610,7 @@ function addAssumptionsSlide(
     { text: disclaimerPlatformText },
     { text: " and to set realistic expectations for campaign performance once fully optimized (typically 60-90 days)." },
   ], {
-    x: 0.2, y: 5.05, w: 9.6, h: 0.55,
+    x: 0.2, y: disclaimerY, w: 9.6, h: 0.55,
     fontSize: 6.5, fontFace: "Arial",
     color: DARK_GRAY, valign: "top",
     fill: { color: DISCLAIMER_BG },

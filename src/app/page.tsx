@@ -919,6 +919,31 @@ ${resultsHtml}
           onTextExtract={handleTextExtract}
         />
 
+        {/* Ecommerce management notice — shown prominently when enabled */}
+        {clientInputs.isEcommerce && (
+          <div className="p-4 bg-amber-50 border-l-4 border-amber-400 rounded-lg">
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">🛒</span>
+              <div>
+                <p className="text-sm font-semibold text-amber-900">Ecommerce Client — Additional Labor Required</p>
+                <p className="text-sm text-amber-800 mt-1">
+                  This client requires <strong>Google Merchant Center</strong> setup and ongoing feed management.
+                  Ecommerce ad management (Google Shopping, Performance Max) is significantly more complex than standard
+                  lead-gen campaigns — involving product feed optimization, dynamic remarketing, inventory syncing, and
+                  conversion tracking. <strong>Management fees should reflect this additional labor.</strong>
+                </p>
+                <ul className="mt-2 text-xs text-amber-700 space-y-0.5 list-disc list-inside">
+                  <li>Google Merchant Center account creation &amp; verification</li>
+                  <li>Product feed setup and ongoing feed health management</li>
+                  <li>Shopping campaign structure (Standard Shopping + Performance Max)</li>
+                  <li>Dynamic remarketing audiences and creatives</li>
+                  <li>Enhanced conversions &amp; purchase value tracking</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Unified Platform Selection & Fit */}
         <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
           <h2 className="text-lg font-semibold text-cogent-navy mb-1">
@@ -1448,6 +1473,7 @@ ${resultsHtml}
           platformAllocations={platformAllocations}
           platformResults={platformResults}
           industryCloseRate={currentIndustryCloseRate}
+          isEcommerce={clientInputs.isEcommerce ?? false}
         />
 
         {/* Section H: Save & Load */}

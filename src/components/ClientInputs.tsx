@@ -147,6 +147,35 @@ export default function ClientInputs({ value, onChange, onTextExtract }: Props) 
         </div>
       </div>
 
+      {/* Ecommerce Toggle */}
+      <div className="mt-4 flex items-start gap-3 p-3 rounded-lg border border-gray-200 bg-gray-50">
+        <div className="flex items-center h-5 mt-0.5">
+          <input
+            type="checkbox"
+            id="isEcommerce"
+            checked={value.isEcommerce ?? false}
+            onChange={(e) => onChange({ ...value, isEcommerce: e.target.checked })}
+            className="h-4 w-4 text-cogent-navy rounded border-gray-300 focus:ring-cogent-navy"
+          />
+        </div>
+        <div className="flex-1">
+          <label htmlFor="isEcommerce" className="text-sm font-medium text-gray-700 cursor-pointer">
+            Does this client sell products online (ecommerce)?
+          </label>
+          <p className="text-xs text-gray-500 mt-0.5">
+            Required for Google Shopping / Google Merchant Center campaigns. Ecommerce ad management involves significantly more setup, feed management, and ongoing optimization than standard lead-gen.
+          </p>
+          {value.isEcommerce && (
+            <div className="mt-2 flex items-start gap-2 p-2 bg-amber-50 border border-amber-200 rounded-md">
+              <span className="text-amber-600 text-sm mt-0.5">⚠️</span>
+              <p className="text-xs text-amber-800 font-medium">
+                Ecommerce campaigns require Google Merchant Center setup and management. This is considerably more labor-intensive than standard PPC — factor this into your management fee and client expectations.
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+
       {/* Paste Website / Service Text */}
       <div className="mt-4">
         <label className="block text-sm font-medium text-gray-700 mb-1">

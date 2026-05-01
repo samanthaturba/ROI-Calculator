@@ -22,6 +22,7 @@ interface Props {
   platformAllocations: Record<AdPlatform, number>;
   platformResults: Record<AdPlatform, CalculationResult | null>;
   industryCloseRate?: { closeRate: number; source: string } | null;
+  isEcommerce?: boolean;
 }
 
 async function fetchLogoAsBase64(url: string): Promise<string | undefined> {
@@ -82,6 +83,7 @@ export default function PowerPointExport({
   platformAllocations,
   platformResults,
   industryCloseRate,
+  isEcommerce,
 }: Props) {
   const [generating, setGenerating] = useState(false);
   const [status, setStatus] = useState("");
@@ -128,6 +130,7 @@ export default function PowerPointExport({
         platformAllocations,
         platformResults,
         industryCloseRate: industryCloseRate ?? undefined,
+        isEcommerce: isEcommerce ?? false,
       });
 
       setStatus("Done!");

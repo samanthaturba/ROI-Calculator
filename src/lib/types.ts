@@ -42,6 +42,7 @@ export interface ClientInputs {
   websiteUrl: string;
   gbpDescription: string;
   industryId: string;
+  isEcommerce?: boolean;
 }
 
 export interface BudgetInputs {
