@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback, useEffect } from "react";
+import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import Image from "next/image";
 import type {
   ClientInputs as ClientInputsType,
@@ -97,6 +97,8 @@ export default function Home() {
 
   const [services, setServices] = useState<ServiceSelectionType[]>([]);
   const [extractedServices, setExtractedServices] = useState<ExtractedService[]>([]);
+  // Tracks the previous secondaryIndustryIds so we can diff add/remove incrementally
+  const prevSecondaryIdsRef = useRef<string[]>([]);
   const [targetAreas, setTargetAreas] = useState<TargetAreaEntry[]>([
     { id: `area-${areaIdCounter++}`, name: "", tier: "", budgetPercent: 100 },
   ]);
@@ -421,6 +423,7 @@ export default function Home() {
   const handleClientInputsChange = useCallback(
     (newInputs: ClientInputsType) => {
       if (newInputs.industryId !== clientInputs.industryId && newInputs.industryId) {
+        // Load primary industry services
         const benchmarks = getServicesForIndustry(newInputs.industryId, platform);
         const newServices: ServiceSelectionType[] = benchmarks.map((b) => ({
           serviceName: b.serviceName,
@@ -432,6 +435,33 @@ export default function Home() {
           benchmark: b,
           isManual: false,
         }));
+
+        // Also load secondary industry services right away (so the full list is present)
+        const addedNames = new Set(newServices.map((s) => s.serviceName.toLowerCase()));
+        for (const secId of (newInputs.secondaryIndustryIds ?? [])) {
+          const secIndustry = getAllIndustries(platform).find((i) => i.id === secId);
+          if (!secIndustry) continue;
+          const secBenchmarks = getServicesForIndustry(secId, platform);
+          for (const b of secBenchmarks) {
+            if (!addedNames.has(b.serviceName.toLowerCase())) {
+              newServices.push({
+                serviceName: `${b.serviceName} (${secIndustry.name})`,
+                selected: false,
+                allocationPercent: 0,
+                cplChoice: "high" as const,
+                customCpl: null,
+                customJobValue: null,
+                benchmark: b,
+                isManual: false,
+              });
+              addedNames.add(b.serviceName.toLowerCase());
+            }
+          }
+        }
+
+        // Sync ref so the secondary useEffect doesn't double-fire
+        prevSecondaryIdsRef.current = newInputs.secondaryIndustryIds ?? [];
+
         setServices(newServices);
         setExtractedServices([]);
 
@@ -1402,6 +1432,9 @@ ${resultsHtml}
           extractedServices={extractedServices}
           industryId={clientInputs.industryId}
           primaryPlatform={primaryPlatform}
+          closeRate={budgetInputs.closeRate}
+          monthlyAdSpend={budgetInputs.monthlyAdSpend}
+          blendedMultiplier={blendedMultiplier}
         />
 
         {/* Section C: Budget + Sales Inputs */}

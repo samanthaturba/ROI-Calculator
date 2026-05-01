@@ -43,6 +43,7 @@ export interface ClientInputs {
   gbpDescription: string;
   industryId: string;
   isEcommerce?: boolean;
+  secondaryIndustryIds?: string[];
 }
 
 export interface BudgetInputs {

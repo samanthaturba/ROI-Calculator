@@ -14,7 +14,10 @@ export default function ClientInputs({ value, onChange, onTextExtract }: Props) 
   const [industrySearch, setIndustrySearch] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const [pastedText, setPastedText] = useState("");
+  const [showSecondaryPicker, setShowSecondaryPicker] = useState(false);
+  const [secSearch, setSecSearch] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const secondaryDropdownRef = useRef<HTMLDivElement>(null);
 
   const industries = industrySearch
     ? searchIndustries(industrySearch)
@@ -23,15 +26,35 @@ export default function ClientInputs({ value, onChange, onTextExtract }: Props) 
   const selectedIndustryName =
     getAllIndustries().find((i) => i.id === value.industryId)?.name ?? "";
 
+  const secondaryIndustries = (value.secondaryIndustryIds ?? [])
+    .map((id) => getAllIndustries().find((i) => i.id === id))
+    .filter(Boolean) as { id: string; name: string }[];
+
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setShowDropdown(false);
       }
+      if (secondaryDropdownRef.current && !secondaryDropdownRef.current.contains(e.target as Node)) {
+        setShowSecondaryPicker(false);
+        setSecSearch("");
+      }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  function addSecondaryIndustry(id: string) {
+    if (!id || id === value.industryId) return;
+    if ((value.secondaryIndustryIds ?? []).includes(id)) return;
+    onChange({ ...value, secondaryIndustryIds: [...(value.secondaryIndustryIds ?? []), id] });
+    setSecSearch("");
+    setShowSecondaryPicker(false);
+  }
+
+  function removeSecondaryIndustry(id: string) {
+    onChange({ ...value, secondaryIndustryIds: (value.secondaryIndustryIds ?? []).filter((s) => s !== id) });
+  }
 
   function handleExtract() {
     const combined = [pastedText, value.gbpDescription].filter(Boolean).join("\n");
@@ -146,6 +169,85 @@ export default function ClientInputs({ value, onChange, onTextExtract }: Props) 
           />
         </div>
       </div>
+
+      {/* Secondary Industries — shown once a primary industry is selected */}
+      {value.industryId && (
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          <span className="text-xs font-medium text-gray-600">Industries:</span>
+
+          {/* Primary industry chip (non-removable) */}
+          <span className="text-xs bg-cogent-navy text-white px-2.5 py-1 rounded-full font-medium">
+            {selectedIndustryName}
+          </span>
+
+          {/* Secondary industry chips */}
+          {secondaryIndustries.map((ind) => (
+            <span
+              key={ind.id}
+              className="flex items-center gap-1 text-xs bg-cogent-sage/20 text-cogent-navy border border-cogent-sage/40 px-2.5 py-1 rounded-full font-medium"
+            >
+              {ind.name}
+              <button
+                type="button"
+                onClick={() => removeSecondaryIndustry(ind.id)}
+                className="text-cogent-neutral hover:text-red-500 leading-none ml-0.5"
+                title="Remove industry"
+              >
+                ×
+              </button>
+            </span>
+          ))}
+
+          {/* Add secondary industry picker */}
+          {!showSecondaryPicker ? (
+            <button
+              type="button"
+              onClick={() => setShowSecondaryPicker(true)}
+              className="text-xs text-cogent-navy hover:underline font-medium border border-dashed border-cogent-navy/40 px-2.5 py-1 rounded-full"
+            >
+              + Add industry
+            </button>
+          ) : (
+            <div ref={secondaryDropdownRef} className="relative inline-block">
+              <input
+                type="text"
+                value={secSearch}
+                onChange={(e) => setSecSearch(e.target.value)}
+                placeholder="Search industry..."
+                autoFocus
+                className="border border-cogent-navy/50 rounded-full px-3 py-1 text-xs w-48 focus:ring-1 focus:ring-cogent-navy focus:outline-none"
+              />
+              <div className="absolute z-30 left-0 mt-1 w-64 bg-white border border-gray-200 rounded-md shadow-lg max-h-48 overflow-y-auto">
+                {(secSearch ? searchIndustries(secSearch) : getAllIndustries())
+                  .filter(
+                    (i) =>
+                      i.id !== value.industryId &&
+                      !(value.secondaryIndustryIds ?? []).includes(i.id)
+                  )
+                  .map((ind) => (
+                    <button
+                      key={ind.id}
+                      type="button"
+                      className="w-full text-left px-3 py-2 text-sm hover:bg-cogent-ivory focus:bg-cogent-ivory"
+                      onMouseDown={(e) => {
+                        e.preventDefault();
+                        addSecondaryIndustry(ind.id);
+                      }}
+                    >
+                      {ind.name}
+                    </button>
+                  ))}
+              </div>
+            </div>
+          )}
+
+          {secondaryIndustries.length > 0 && (
+            <span className="text-xs text-cogent-neutral">
+              — services from all industries merged into service list
+            </span>
+          )}
+        </div>
+      )}
 
       {/* Ecommerce Toggle */}
       <div className="mt-4 flex items-start gap-3 p-3 rounded-lg border border-gray-200 bg-gray-50">
