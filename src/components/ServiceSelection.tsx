@@ -155,7 +155,7 @@ export default function ServiceSelection({
         serviceName: displayName,
         selected: true,
         allocationPercent: 0,
-        cplChoice: "mid",
+        cplChoice: "high",
         customCpl: null,
         customJobValue: null,
         // Store the real benchmark (with its source industryId); the display name

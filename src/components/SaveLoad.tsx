@@ -14,6 +14,8 @@ interface Props {
   loadState: (data: Record<string, unknown>) => void;
   clientName: string;
   industryName: string;
+  /** Returns Word-compatible HTML string for the .doc export */
+  getWordDocHtml?: () => string;
 }
 
 const STORAGE_KEY = "cogent-roi-saves";
@@ -32,7 +34,7 @@ function setSaves(saves: SavedCalculation[]) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(saves));
 }
 
-export default function SaveLoad({ getCurrentState, loadState, clientName, industryName }: Props) {
+export default function SaveLoad({ getCurrentState, loadState, clientName, industryName, getWordDocHtml }: Props) {
   const [saves, setSavesState] = useState<SavedCalculation[]>([]);
   const [showSaves, setShowSaves] = useState(false);
   const [justSaved, setJustSaved] = useState(false);
@@ -74,17 +76,37 @@ export default function SaveLoad({ getCurrentState, loadState, clientName, indus
   }
 
   function handleDownload() {
-    const state = getCurrentState();
-    const filename = `ROI-Calculator_${(clientName || "Unnamed").replace(/\s+/g, "-")}_${new Date().toISOString().slice(0, 10)}.json`;
-    const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    const safeName = (clientName || "Unnamed").replace(/\s+/g, "-");
+    const dateStr = new Date().toISOString().slice(0, 10);
+
+    if (getWordDocHtml) {
+      // Export as Word-compatible HTML (.doc)
+      const html = getWordDocHtml();
+      const filename = `ROI-Calculator_${safeName}_${dateStr}.doc`;
+      const blob = new Blob([html], { type: "application/msword" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } else {
+      // Fallback: JSON state file
+      const state = getCurrentState();
+      const filename = `ROI-Calculator_${safeName}_${dateStr}.json`;
+      const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
     setJustDownloaded(true);
     setTimeout(() => setJustDownloaded(false), 2000);
   }
@@ -123,12 +145,12 @@ export default function SaveLoad({ getCurrentState, loadState, clientName, indus
           {justSaved ? "Saved!" : "Save Calculation"}
         </button>
 
-        {/* Download as file */}
+        {/* Download as Word doc */}
         <button
           onClick={handleDownload}
           className="px-4 py-2 bg-cogent-sage text-cogent-navy-dark text-sm font-medium rounded-md hover:opacity-90 transition-opacity"
         >
-          {justDownloaded ? "Downloaded!" : "Download as File"}
+          {justDownloaded ? "Downloaded!" : "Export as Word Doc"}
         </button>
 
         {/* Upload a saved file */}

@@ -73,6 +73,7 @@ export interface TargetAreaEntry {
   name: string;
   tier: string;
   budgetPercent: number;
+  radiusMiles?: number;
 }
 
 let areaIdCounter = 1;
@@ -146,6 +147,12 @@ export default function Home() {
   function updateArea(id: string, field: keyof TargetAreaEntry, value: string | number) {
     setTargetAreas((prev) =>
       prev.map((a) => (a.id === id ? { ...a, [field]: value } : a))
+    );
+  }
+
+  function updateAreaRadius(id: string, value: number | undefined) {
+    setTargetAreas((prev) =>
+      prev.map((a) => (a.id === id ? { ...a, radiusMiles: value } : a))
     );
   }
 
@@ -358,7 +365,7 @@ export default function Home() {
             serviceName: b.serviceName,
             selected: false,
             allocationPercent: 0,
-            cplChoice: "mid" as const,
+            cplChoice: "high" as const,
             customCpl: null,
             customJobValue: null,
             benchmark: b,
@@ -388,7 +395,7 @@ export default function Home() {
         serviceName: b.serviceName,
         selected: false,
         allocationPercent: 0,
-        cplChoice: "mid" as const,
+        cplChoice: "high" as const,
         customCpl: null,
         customJobValue: null,
         benchmark: b,
@@ -417,7 +424,7 @@ export default function Home() {
           serviceName: b.serviceName,
           selected: false,
           allocationPercent: 0,
-          cplChoice: "mid" as const,
+          cplChoice: "high" as const,
           customCpl: null,
           customJobValue: null,
           benchmark: b,
@@ -709,7 +716,7 @@ export default function Home() {
               serviceName: b.serviceName,
               selected: saved?.selected ?? false,
               allocationPercent: saved?.allocationPercent ?? 0,
-              cplChoice: saved?.cplChoice ?? ("mid" as const),
+              cplChoice: saved?.cplChoice ?? ("high" as const),
               customCpl: saved?.customCpl ?? null,
               customJobValue: saved?.customJobValue ?? null,
               benchmark: b,
@@ -743,8 +750,140 @@ export default function Home() {
   // Build area summary string for results
   const areasSummary = targetAreas
     .filter((a) => a.tier)
-    .map((a) => `${a.name || MARKET_TIERS[a.tier]?.label || "Unknown"} (${a.budgetPercent}%)`)
+    .map((a) => {
+      const base = `${a.name || MARKET_TIERS[a.tier]?.label || "Unknown"} (${a.budgetPercent}%)`;
+      return a.radiusMiles ? `${base} — ${a.radiusMiles}mi radius` : base;
+    })
     .join(", ");
+
+  // Generate Word-compatible HTML for the "Export as Word Doc" download
+  function getWordDocHtml(): string {
+    const selectedServices = services.filter((s) => s.selected);
+    const date = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+
+    const PLAT_LABELS: Record<AdPlatform, string> = {
+      google: "Google Ads", meta: "Meta Ads", linkedin: "LinkedIn Ads", lsa: "Google LSA",
+    };
+
+    const platformRows = selectedPlatforms.map((p) => {
+      const pct = platformAllocations[p];
+      const amount = budgetInputs.monthlyAdSpend > 0
+        ? `${formatCurrency(budgetInputs.monthlyAdSpend * pct / 100)}/mo` : "—";
+      return `<tr><td>${PLAT_LABELS[p]}</td><td>${pct}%</td><td>${amount}</td></tr>`;
+    }).join("");
+
+    const areaRowsHtml = targetAreas.filter((a) => a.tier).map((a) => {
+      const tierLabel = MARKET_TIERS[a.tier]?.label ?? a.tier;
+      const radius = a.radiusMiles ? `${a.radiusMiles} mi` : "—";
+      return `<tr><td>${a.name || "(unnamed)"}</td><td>${tierLabel}</td><td>${radius}</td><td>${a.budgetPercent}%</td></tr>`;
+    }).join("");
+
+    const serviceRows = selectedServices.map((s) => {
+      let cpl = "—";
+      if (s.cplChoice === "custom" && s.customCpl !== null) {
+        cpl = formatCurrency(s.customCpl);
+      } else if (s.benchmark) {
+        if (s.cplChoice === "low" && s.benchmark.cplLow !== null) cpl = formatCurrency(s.benchmark.cplLow);
+        else if (s.cplChoice === "mid" && s.benchmark.cplMid !== null) cpl = formatCurrency(s.benchmark.cplMid);
+        else if (s.cplChoice === "high" && s.benchmark.cplHigh !== null) cpl = formatCurrency(s.benchmark.cplHigh);
+      }
+      const jobVal = s.customJobValue !== null
+        ? formatCurrency(s.customJobValue)
+        : s.benchmark?.avgJobValue ? formatCurrency(s.benchmark.avgJobValue) : "—";
+      return `<tr><td>${s.serviceName}</td><td>${s.allocationPercent}%</td><td>${cpl}</td><td>${jobVal}</td></tr>`;
+    }).join("");
+
+    let resultsHtml = "";
+    if (result && result.totalLeads > 0) {
+      if (selectedPlatforms.length === 1) {
+        resultsHtml = `
+          <table class="rt">
+            <thead><tr><th>Metric</th><th>Monthly Projection</th></tr></thead>
+            <tbody>
+              <tr><td>Total Leads</td><td>${result.totalLeads.toFixed(1)}</td></tr>
+              <tr><td>Expected Jobs</td><td>${result.totalJobs.toFixed(1)}</td></tr>
+              <tr><td>Projected Revenue</td><td>${formatCurrency(result.totalRevenue)}/mo</td></tr>
+              ${result.grossProfit !== null ? `<tr><td>Gross Profit</td><td>${formatCurrency(result.grossProfit)}/mo</td></tr>` : ""}
+              <tr><td>Blended CPL</td><td>${formatCurrency(result.weightedAvgCpl)}</td></tr>
+            </tbody>
+          </table>`;
+      } else {
+        const platResultRows = selectedPlatforms.map((p) => {
+          const r = platformResults[p];
+          if (!r) return "";
+          return `<tr><td>${PLAT_LABELS[p]}</td><td>${formatCurrency(r.totalSpend)}/mo</td><td>${r.totalLeads.toFixed(1)}</td><td>${r.totalJobs.toFixed(1)}</td><td>${formatCurrency(r.totalRevenue)}/mo</td></tr>`;
+        }).join("");
+        resultsHtml = `
+          <table class="rt">
+            <thead><tr><th>Platform</th><th>Budget</th><th>Leads</th><th>Jobs</th><th>Revenue</th></tr></thead>
+            <tbody>
+              ${platResultRows}
+              <tr style="font-weight:bold;background:#edf2f8"><td>Combined Total</td><td>${formatCurrency(result.totalSpend)}/mo</td><td>${result.totalLeads.toFixed(1)}</td><td>${result.totalJobs.toFixed(1)}</td><td>${formatCurrency(result.totalRevenue)}/mo</td></tr>
+            </tbody>
+          </table>`;
+      }
+    } else {
+      resultsHtml = `<p><em>No projections available — complete all required fields in the calculator to see projections.</em></p>`;
+    }
+
+    return `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head><meta charset="utf-8"><title>ROI Calculator — ${clientInputs.clientName || "Unnamed Client"}</title>
+<style>
+body{font-family:Calibri,Arial,sans-serif;font-size:11pt;color:#222;margin:40pt}
+h1{font-size:18pt;color:#1B3C5E;border-bottom:2pt solid #1B3C5E;padding-bottom:6pt;margin-bottom:4pt}
+h2{font-size:13pt;color:#1B3C5E;margin-top:18pt;border-bottom:1pt solid #ccc;padding-bottom:2pt}
+p.meta{color:#777;font-size:9.5pt;margin-top:2pt}
+table{border-collapse:collapse;width:100%;margin:8pt 0 14pt 0}
+th{background:#1B3C5E;color:#fff;padding:5pt 9pt;text-align:left;font-size:10pt}
+td{padding:5pt 9pt;border-bottom:1pt solid #eee;font-size:10pt}
+tr:nth-child(even) td{background:#f6f8fb}
+table.rt th,table.rt td{font-size:10.5pt}
+</style></head>
+<body>
+<h1>Ad ROI Calculator — ${clientInputs.clientName || "Unnamed Client"}</h1>
+<p class="meta">Generated: ${date}&nbsp;&nbsp;|&nbsp;&nbsp;Powered by Cogent Analytics${clientInputs.websiteUrl ? `&nbsp;&nbsp;|&nbsp;&nbsp;${clientInputs.websiteUrl}` : ""}</p>
+
+<h2>Client Overview</h2>
+<table><tbody>
+  <tr><td style="width:35%;font-weight:bold">Client Name</td><td>${clientInputs.clientName || "—"}</td></tr>
+  <tr><td style="font-weight:bold">Industry</td><td>${selectedIndustry?.name ?? "—"}</td></tr>
+  ${clientInputs.websiteUrl ? `<tr><td style="font-weight:bold">Website</td><td>${clientInputs.websiteUrl}</td></tr>` : ""}
+</tbody></table>
+
+<h2>Ad Platforms &amp; Budget Allocation</h2>
+<table>
+  <thead><tr><th>Platform</th><th>Allocation %</th><th>Monthly Budget</th></tr></thead>
+  <tbody>${platformRows}</tbody>
+</table>
+<p class="meta">Total Monthly Ad Spend: <strong>${formatCurrency(budgetInputs.monthlyAdSpend)}/mo</strong></p>
+
+${targetAreas.some((a) => a.tier) ? `
+<h2>Target Areas</h2>
+<table>
+  <thead><tr><th>Location</th><th>Market Tier</th><th>Target Radius</th><th>Budget Split</th></tr></thead>
+  <tbody>${areaRowsHtml}</tbody>
+</table>` : ""}
+
+${selectedServices.length > 0 ? `
+<h2>Services &amp; Budget Allocation</h2>
+<table>
+  <thead><tr><th>Service</th><th>Budget %</th><th>CPL Used</th><th>Avg Job Value</th></tr></thead>
+  <tbody>${serviceRows}</tbody>
+</table>` : ""}
+
+<h2>Campaign Parameters</h2>
+<table><tbody>
+  <tr><td style="width:35%;font-weight:bold">Monthly Ad Spend</td><td>${formatCurrency(budgetInputs.monthlyAdSpend)}/mo</td></tr>
+  <tr><td style="font-weight:bold">Close Rate</td><td>${budgetInputs.closeRate}%</td></tr>
+  ${budgetInputs.grossMarginPercent !== null ? `<tr><td style="font-weight:bold">Gross Margin</td><td>${budgetInputs.grossMarginPercent}%</td></tr>` : ""}
+</tbody></table>
+
+<h2>Projected Monthly Results</h2>
+${resultsHtml}
+
+<p class="meta">* Projections are estimates based on industry CPL benchmarks and do not guarantee results. Actual performance varies based on campaign quality, market conditions, seasonality, and other factors.</p>
+</body></html>`;
+  }
 
   return (
     <div className="min-h-screen bg-cogent-ivory">
@@ -901,7 +1040,7 @@ export default function Home() {
             <div className="mt-4 p-4 border border-gray-200 rounded-lg bg-cogent-ivory/30">
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-sm font-semibold text-cogent-navy">Platform Budget Split</h3>
-                <div className="flex gap-3">
+                <div className="flex flex-wrap gap-3">
                   <button
                     onClick={() => {
                       setPlatformAllocations(getRecommendedPlatformSplit(selectedPlatforms));
@@ -911,6 +1050,33 @@ export default function Home() {
                   >
                     Use recommended split
                   </button>
+                  {/* Split by recommended $ amounts — only when per-platform targets exist */}
+                  {selectedPlatforms.some((p) => perPlatformRecommendedSpend[p]?.target) && (
+                    <button
+                      onClick={() => {
+                        const totalRec = selectedPlatforms.reduce(
+                          (s, p) => s + (perPlatformRecommendedSpend[p]?.target ?? 0), 0
+                        );
+                        if (totalRec <= 0) return;
+                        const sorted = [...selectedPlatforms].sort(
+                          (a, b) => (perPlatformRecommendedSpend[b]?.target ?? 0) - (perPlatformRecommendedSpend[a]?.target ?? 0)
+                        );
+                        const newAlloc: Record<AdPlatform, number> = { google: 0, meta: 0, linkedin: 0, lsa: 0 };
+                        let remaining = 100;
+                        for (let i = 0; i < sorted.length - 1; i++) {
+                          const pct = Math.round(((perPlatformRecommendedSpend[sorted[i]]?.target ?? 0) / totalRec) * 100 / 5) * 5;
+                          newAlloc[sorted[i]] = Math.max(5, pct);
+                          remaining -= newAlloc[sorted[i]];
+                        }
+                        newAlloc[sorted[sorted.length - 1]] = Math.max(5, remaining);
+                        setPlatformAllocations(newAlloc);
+                        setPlatformAllocationsManuallyEdited(true);
+                      }}
+                      className="text-xs text-cogent-sage-dark hover:underline font-medium"
+                    >
+                      Split by recommended $
+                    </button>
+                  )}
                   <button
                     onClick={() => {
                       evenSplitPlatforms();
@@ -924,20 +1090,21 @@ export default function Home() {
               </div>
               <p className="text-[11px] text-cogent-neutral mb-3">
                 {platformAllocationsManuallyEdited
-                  ? "You've set a custom split — auto-recommendation is paused. Click \"Use recommended split\" to switch back to the industry-based recommendation."
+                  ? "Custom split active — auto-recommendation paused. Click \"Use recommended split\" to switch back."
                   : budgetInputs.monthlyAdSpend > 0 && services.some((s) => s.selected) && budgetInputs.closeRate > 0
-                    ? "Recommended split is weighted by projected revenue for the selected services on each platform, with a minimum floor per platform to maintain diversification."
-                    : "Recommended split is currently based on platform fit ratings. It will update to use projected revenue once you select services and enter a budget + close rate."}
+                    ? "Recommended split is weighted by projected revenue per platform, with a minimum floor to maintain diversification."
+                    : "Recommended split is based on platform fit ratings. It will auto-update once you select services and enter a budget + close rate."}
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {selectedPlatforms.map((plat) => {
-                  const rec = platformRecs?.[plat];
+                  const recSpend = perPlatformRecommendedSpend[plat];
+                  const currentAmount = budgetInputs.monthlyAdSpend * platformAllocations[plat] / 100;
                   return (
-                    <div key={plat}>
+                    <div key={plat} className="space-y-1">
                       <div className="flex items-center gap-2">
                         <span className="text-sm">{PLATFORM_INFO[plat].icon}</span>
                         <span className="text-sm font-medium text-gray-700 min-w-0 truncate">{PLATFORM_INFO[plat].label}</span>
-                        <div className="relative ml-auto w-20">
+                        <div className="relative ml-auto w-20 shrink-0">
                           <input
                             type="number"
                             min={0}
@@ -954,18 +1121,31 @@ export default function Home() {
                           <span className="absolute right-2 top-1.5 text-gray-500 text-sm">%</span>
                         </div>
                       </div>
-                      {rec && budgetInputs.monthlyAdSpend > 0 && (
-                        <p className="text-[11px] text-cogent-neutral mt-1 ml-6">
-                          {formatCurrency(budgetInputs.monthlyAdSpend * platformAllocations[plat] / 100)}/mo
+                      {budgetInputs.monthlyAdSpend > 0 && (
+                        <div className="ml-6 text-[11px] text-cogent-neutral">
+                          <span className="font-medium text-gray-700">{formatCurrency(currentAmount)}/mo</span>
+                          {recSpend?.target && (
+                            <span className="ml-2 text-gray-400">
+                              · rec&apos;d {formatCurrency(recSpend.target)}/mo
+                            </span>
+                          )}
+                        </div>
+                      )}
+                      {!budgetInputs.monthlyAdSpend && recSpend?.target && (
+                        <p className="ml-6 text-[11px] text-gray-400">
+                          Rec&apos;d: {formatCurrency(recSpend.target)}/mo
                         </p>
                       )}
                     </div>
                   );
                 })}
               </div>
-              <div className={`mt-2 text-sm ${Math.abs(totalPlatformPercent - 100) > 0.5 ? "text-red-600 font-medium" : "text-cogent-neutral"}`}>
+              <div className={`mt-3 text-sm ${Math.abs(totalPlatformPercent - 100) > 0.5 ? "text-red-600 font-medium" : "text-cogent-neutral"}`}>
                 Total: {totalPlatformPercent.toFixed(1)}%
                 {Math.abs(totalPlatformPercent - 100) > 0.5 && " — should equal 100%"}
+                {budgetInputs.monthlyAdSpend > 0 && Math.abs(totalPlatformPercent - 100) <= 0.5 && (
+                  <span className="ml-2 text-gray-400">= {formatCurrency(budgetInputs.monthlyAdSpend)}/mo total</span>
+                )}
               </div>
             </div>
           )}
@@ -1040,7 +1220,7 @@ export default function Home() {
                     </button>
                   )}
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                   <div>
                     <label className="block text-xs font-medium text-gray-600 mb-1">Location Name</label>
                     <input
@@ -1062,6 +1242,29 @@ export default function Home() {
                         <option key={key} value={key}>{tier.label}</option>
                       ))}
                     </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-gray-600 mb-1">
+                      Target Radius <span className="text-gray-400 font-normal">(optional)</span>
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="number"
+                        min={1}
+                        max={500}
+                        step={5}
+                        value={area.radiusMiles ?? ""}
+                        onChange={(e) => updateAreaRadius(area.id, e.target.value ? parseInt(e.target.value) : undefined)}
+                        className="w-full border border-gray-300 rounded-md px-3 py-2 pr-9 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
+                        placeholder="e.g. 25"
+                      />
+                      <span className="absolute right-3 top-2 text-gray-500 text-sm">mi</span>
+                    </div>
+                    {area.radiusMiles && (
+                      <p className="text-[11px] text-cogent-neutral mt-1">
+                        {area.radiusMiles} mile radius from {area.name || "this location"}
+                      </p>
+                    )}
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-gray-600 mb-1">
@@ -1209,6 +1412,7 @@ export default function Home() {
           loadState={loadSavedState}
           clientName={clientInputs.clientName}
           industryName={selectedIndustry?.name ?? "—"}
+          getWordDocHtml={getWordDocHtml}
         />
       </main>
 
