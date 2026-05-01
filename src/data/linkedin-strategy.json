@@ -1,0 +1,855 @@
+{
+  "_universal": {
+    "whenToUse": [
+      "Buyer is defined by job function, seniority, or company attributes (not demographics or interests)",
+      "Average customer value (LTV or first-year contract) exceeds $5,000-$10,000",
+      "Sales cycle is longer than 30 days and involves multiple stakeholders",
+      "Targeting account-based marketing (ABM) lists or specific industries",
+      "Offer is professional, educational, or career-relevant in nature"
+    ],
+    "whenNotToUse": [
+      "Selling B2C products with low order values",
+      "Audience is defined by lifestyle, hobbies, or consumer behavior",
+      "You need same-day or same-week conversions at scale",
+      "Budget is below $5,000/month \u2014 LinkedIn's auction punishes underfunded accounts",
+      "Offer requires high-frequency creative refreshes (LinkedIn audiences saturate slowly but creative fatigue sets in fast)"
+    ],
+    "ruleOfThumb": "If you wouldn't pay a recruiter to find this exact person, LinkedIn is probably not your channel. The platform's value is precision targeting on professional identity \u2014 pay for that, or pay for something else.",
+    "minimumBudgets": {
+      "brandAwareness": {
+        "daily": 50,
+        "monthly": 1500,
+        "why": "Need impression volume to be statistically meaningful"
+      },
+      "websiteVisits": {
+        "daily": 75,
+        "monthly": 2250,
+        "why": "Need clicks to test creative & landing pages"
+      },
+      "leadGeneration": {
+        "daily": 100,
+        "monthly": 3000,
+        "why": "Need 15+ conversions/week for algorithm to optimize"
+      },
+      "websiteConversions": {
+        "daily": 150,
+        "monthly": 4500,
+        "why": "Higher CPL; needs more budget headroom"
+      },
+      "abmConversation": {
+        "daily": 50,
+        "monthly": 1500,
+        "why": "Capped delivery; budget constrained by audience size"
+      }
+    },
+    "audienceSizeRules": {
+      "leadGen": "50,000 - 300,000 members",
+      "websiteConversions": "100,000 - 500,000 members",
+      "brandAwareness": "300,000+ members",
+      "abm": "as small as 5,000 if list is high-quality"
+    },
+    "kpiBenchmarks2026": {
+      "ctr": {
+        "belowAvg": "<0.35%",
+        "average": "0.40-0.55%",
+        "strong": "0.65-0.85%",
+        "bestInClass": ">0.95%"
+      },
+      "cpc": {
+        "belowAvg": ">$15",
+        "average": "$8-12",
+        "strong": "$5-7",
+        "bestInClass": "<$4"
+      },
+      "cpm": {
+        "belowAvg": ">$60",
+        "average": "$35-50",
+        "strong": "$25-32",
+        "bestInClass": "<$22"
+      },
+      "leadGenFormCvr": {
+        "belowAvg": "<6%",
+        "average": "8-12%",
+        "strong": "15-20%",
+        "bestInClass": ">25%"
+      },
+      "cpl": {
+        "belowAvg": ">$200",
+        "average": "$80-150",
+        "strong": "$50-75",
+        "bestInClass": "<$45"
+      }
+    },
+    "copyFrameworks": [
+      {
+        "name": "PAS \u2014 Problem / Agitation / Solution",
+        "bestFor": "Established pain points where the buyer already knows they have a problem"
+      },
+      {
+        "name": "BAB \u2014 Before / After / Bridge",
+        "bestFor": "Transformation stories \u2014 paint the current state, the future state, and how the offer bridges them"
+      },
+      {
+        "name": "Insight-Led",
+        "bestFor": "Open with a counterintuitive data point or pattern observation. Best for thought leadership and challenger sales"
+      }
+    ],
+    "creativeRules": [
+      "Stop the scroll in the first 1.3 seconds \u2014 image or first frame must do the entire job alone",
+      "Faces outperform product shots in 70% of B2B tests",
+      "Text overlay: 6 words or fewer, high-contrast, top-third placement",
+      "Video: caption everything (85% of viewing happens with sound off)",
+      "Avoid LinkedIn's stock photo aesthetic \u2014 desaturated grays and handshakes look like every other ad",
+      "Refresh creative every 2-3 weeks \u2014 audiences saturate slowly but creative fatigue is real",
+      "Always run 3-5 creative variants per campaign \u2014 single-creative campaigns hide their own performance ceiling",
+      "Never open with 'Are you a [job title]?' \u2014 the algorithm suppresses these and CTR drops 30-40%"
+    ],
+    "preLaunchChecklist": [
+      "Insight Tag installed and verified active",
+      "Conversion events defined with monetary values",
+      "Customer list and employee list uploaded as suppression",
+      "ABM list uploaded if applicable",
+      "Audiences sized between 50K-300K",
+      "Audience Expansion DISABLED on all campaigns",
+      "Lead Gen Forms tested with real submission",
+      "Frequency caps configured (3-5 per week per audience)",
+      "Two-person QA sign-off completed",
+      "Client briefed on Day 1-14 learning phase expectations"
+    ],
+    "commonPitfalls": [
+      {
+        "pitfall": "Audience too small (<20K)",
+        "fix": "Drop one targeting facet at a time until audience is 50K+"
+      },
+      {
+        "pitfall": "Audience too broad (>2M)",
+        "fix": "Disable Audience Expansion; layer in more facets"
+      },
+      {
+        "pitfall": "High CTR, low conversions",
+        "fix": "Match copy promise to landing page hero \u2014 clickbait headlines kill conversion"
+      },
+      {
+        "pitfall": "CPL fine but lead quality poor",
+        "fix": "Tighten seniority targeting; add suppression lists"
+      },
+      {
+        "pitfall": "Frequency >10/week",
+        "fix": "Audience too small for budget \u2014 expand audience or reduce daily spend"
+      },
+      {
+        "pitfall": "Burning budget in learning phase",
+        "fix": "Hands-off for 14 days, then optimize. Multiple changes early wreck the algorithm"
+      },
+      {
+        "pitfall": "Wrong objective for goal",
+        "fix": "Use Lead Gen or Website Conversions for leads \u2014 never 'Website Visits' (optimizes for clickers, not converters)"
+      }
+    ],
+    "disclaimer": "LinkedIn Ads is a B2B precision targeting platform \u2014 NOT a general-awareness or B2C channel. Campaigns are built around professional identity (job title, function, seniority, company size, industry). Allow 14-30 days of learning phase before judging performance. Real benchmark is your own historical data + unit economics, not industry averages."
+  },
+  "_generic": {
+    "viability": "varies",
+    "viabilityNote": "LinkedIn viability for this industry depends entirely on whether your buyer is a B2B decision-maker reachable by job title/function. Run the rule of thumb: if you wouldn't pay a recruiter to find this exact person, LinkedIn is probably not your channel.",
+    "targetPersonas": [
+      {
+        "role": "Default B2B Layering",
+        "titles": [
+          "[Decision-maker title for your offer]",
+          "[Senior buyer title]",
+          "[Technical influencer title]"
+        ],
+        "guidance": "Build three audience segments: primary decision-maker, technical influencer, economic buyer. Layer Job Function + Seniority + Industry + Company Size for precision."
+      }
+    ],
+    "recommendedFormats": [
+      "Single Image with Lead Gen Form (default workhorse)",
+      "Document Ad (best for content distribution)",
+      "Video under 30s (best for brand recall)"
+    ],
+    "funnelStrategy": "TOFU: thought leadership content as Document Ads. MOFU: gated guides via Lead Gen Forms. BOFU: high-intent retargeting + ABM Conversation Ads.",
+    "copyAngle": "Test all three frameworks: PAS, BAB, Insight-Led. Pick whichever your audience signals reaction to first.",
+    "abmOpportunity": "Evaluate per client. Company Lists are LinkedIn's strongest feature when you can name your accounts.",
+    "audienceSizeNote": "Target 50K-300K members for Lead Gen campaigns. Anything smaller leads to inflated CPMs and frequency caps.",
+    "watchOuts": "Validate whether your offer truly fits B2B precision targeting before launching. Misalignment is the single most common reason LinkedIn underperforms."
+  },
+  "architecture": {
+    "viability": "strong",
+    "viabilityNote": "LinkedIn is strong for COMMERCIAL architecture. Residential architecture should not run LinkedIn \u2014 buyer is on Google/Meta.",
+    "targetPersonas": [
+      {
+        "role": "Decision Makers",
+        "titles": [
+          "Real Estate Developer",
+          "Property Developer",
+          "Director of Real Estate",
+          "VP Real Estate",
+          "Facilities Director",
+          "Director of Construction"
+        ],
+        "seniority": [
+          "Director",
+          "VP",
+          "C-Level"
+        ]
+      },
+      {
+        "role": "Technical Influencers",
+        "titles": [
+          "Construction Project Manager",
+          "Owner's Rep",
+          "Healthcare Facility Director",
+          "Corporate Real Estate Manager"
+        ],
+        "seniority": [
+          "Manager",
+          "Senior",
+          "Director"
+        ]
+      },
+      {
+        "role": "Healthcare Specialty",
+        "titles": [
+          "Practice Administrator",
+          "Dental Office Manager",
+          "Medical Group COO",
+          "Hospital Facilities Director"
+        ],
+        "industries": [
+          "Hospital & Healthcare",
+          "Medical Practice"
+        ]
+      }
+    ],
+    "recommendedFormats": [
+      "Document Ad (case studies of completed projects)",
+      "Single Image (portfolio hero shots)",
+      "Video (project walkthroughs under 30s)"
+    ],
+    "funnelStrategy": "TOFU: thought leadership content on commercial design trends. MOFU: case study Document Ads showing finished healthcare/retail projects. BOFU: Lead Gen Form for consultation request, ABM list of regional developers + property managers.",
+    "copyAngle": "Insight-Led works best \u2014 open with a data point about commercial construction trends, healthcare facility design ROI, or tenant attraction. Avoid 'we design buildings' generic positioning.",
+    "abmOpportunity": "High. Build a Company List of every regional developer, property management company, healthcare system, and commercial RE firm in your geography. ABM Conversation Ads to facility directors at named accounts.",
+    "audienceSizeNote": "Tight audience \u2014 expect 30K-80K when geo-restricted. Lean into ABM company lists for precision.",
+    "watchOuts": "Avoid LinkedIn for residential architecture work. Job title alone is unreliable for 'developer' (catches software developers) \u2014 always layer with Industry: Real Estate, Construction, or Hospital & Health Care."
+  },
+  "commercial-contractor": {
+    "viability": "strong",
+    "viabilityNote": "Commercial general contractors and construction firms are well-suited. Residential contracting should not run LinkedIn.",
+    "targetPersonas": [
+      {
+        "role": "Owner / GC Side",
+        "titles": [
+          "Director of Construction",
+          "VP Construction",
+          "Real Estate Developer",
+          "Owner's Representative",
+          "Construction Project Director"
+        ],
+        "seniority": [
+          "Director",
+          "VP",
+          "C-Level"
+        ]
+      },
+      {
+        "role": "Facility Decision Makers",
+        "titles": [
+          "Facilities Director",
+          "Director of Operations",
+          "Director of Real Estate"
+        ],
+        "industries": [
+          "Hospital & Healthcare",
+          "Manufacturing",
+          "Retail",
+          "Higher Education"
+        ]
+      }
+    ],
+    "recommendedFormats": [
+      "Document Ad (project portfolio PDFs)",
+      "Video (time-lapse builds, walk-throughs)",
+      "Single Image (finished hero shots with project specs)"
+    ],
+    "funnelStrategy": "TOFU: video reels of recent projects + thought leadership on bid strategy. MOFU: Document Ad with full project portfolio. BOFU: ABM list of regional commercial RE developers + facility decision makers.",
+    "copyAngle": "BAB framework \u2014 show the before (vacant building, stalled renovation) and after (operational facility, stronger NOI). Lead with timeline + budget delivery, not capabilities lists.",
+    "abmOpportunity": "Very high. Upload all regional commercial RE firms, property managers, and hospital systems as a Company List.",
+    "audienceSizeNote": "Lean toward ABM company lists for precision. Geo-targeted facility-director audiences run 25K-60K.",
+    "watchOuts": "LinkedIn industry taxonomy treats 'Construction' very broadly \u2014 pair with Job Function: Real Estate or Operations to filter out tradesmen and field roles when targeting decision makers."
+  },
+  "financial-services": {
+    "viability": "excellent",
+    "viabilityNote": "Financial services is one of LinkedIn's strongest verticals \u2014 buyers research extensively and are reachable by job function and company size.",
+    "targetPersonas": [
+      {
+        "role": "B2B Decision Maker",
+        "titles": [
+          "CFO",
+          "VP Finance",
+          "Director of Finance",
+          "Controller",
+          "Treasurer"
+        ],
+        "seniority": [
+          "Director",
+          "VP",
+          "C-Level"
+        ]
+      },
+      {
+        "role": "HR & Benefits (for retirement / 401k offers)",
+        "titles": [
+          "VP People",
+          "CHRO",
+          "Director of Total Rewards",
+          "Benefits Manager"
+        ],
+        "seniority": [
+          "Director",
+          "VP",
+          "C-Level"
+        ]
+      },
+      {
+        "role": "High-Net-Worth Individual proxies",
+        "titles": [
+          "Founder",
+          "Owner",
+          "CEO",
+          "Managing Partner"
+        ],
+        "companySize": [
+          "11-50",
+          "51-200",
+          "201-500"
+        ]
+      }
+    ],
+    "recommendedFormats": [
+      "Document Ad (white papers, market reports)",
+      "Lead Gen Form on Single Image",
+      "Video (under 30s, expert positioning)"
+    ],
+    "funnelStrategy": "TOFU: market commentary Document Ads. MOFU: gated white paper Lead Gen Forms. BOFU: book a 30-min planning call with conversion tracking.",
+    "copyAngle": "Insight-Led performs best \u2014 open with a market data point or counterintuitive observation. PAS for tax/exit planning offers (clear pain). Avoid generic 'we manage money' messaging.",
+    "abmOpportunity": "High for B2B advisory. ABM company lists of mid-market businesses. For wealth management, less relevant \u2014 use job function targeting instead.",
+    "audienceSizeNote": "C-Suite audiences run small (10K-30K geo-bound). Acceptable here because CPL economics support tighter targeting.",
+    "watchOuts": "Compliance review of all ad copy before launch \u2014 financial services advertising has strict regulatory requirements. CPL runs at the high end of LinkedIn norms ($90-150) \u2014 budget accordingly."
+  },
+  "insurance": {
+    "viability": "strong",
+    "viabilityNote": "Commercial insurance and group benefits are strong fits. Personal/auto insurance should run on Google/Meta, not LinkedIn.",
+    "targetPersonas": [
+      {
+        "role": "Commercial Lines Decision Makers",
+        "titles": [
+          "CFO",
+          "Risk Manager",
+          "Director of Risk",
+          "Operations Director",
+          "Owner"
+        ],
+        "companySize": [
+          "11-50",
+          "51-200",
+          "201-500"
+        ]
+      },
+      {
+        "role": "Group Benefits",
+        "titles": [
+          "VP People",
+          "CHRO",
+          "Director of Benefits",
+          "Benefits Manager",
+          "Director of Total Rewards"
+        ]
+      },
+      {
+        "role": "Specialty Lines",
+        "titles": [
+          "General Counsel",
+          "Compliance Director",
+          "VP Operations"
+        ],
+        "industries": [
+          "Construction",
+          "Manufacturing",
+          "Healthcare",
+          "Professional Services"
+        ]
+      }
+    ],
+    "recommendedFormats": [
+      "Document Ad (risk assessment guides)",
+      "Single Image with Lead Gen Form",
+      "Video (claims case studies under 30s)"
+    ],
+    "funnelStrategy": "TOFU: educational content on emerging risks (cyber, EPL, supply chain). MOFU: gated risk assessment Lead Gen Form. BOFU: book quote review or benefits audit.",
+    "copyAngle": "PAS \u2014 pain points are clear in commercial insurance (claims denials, underinsurance, premium hikes). Lead with a specific risk scenario, not 'comprehensive coverage'.",
+    "abmOpportunity": "Strong for commercial lines. Upload regional companies above a revenue threshold as Company Lists.",
+    "audienceSizeNote": "Risk Manager titles are limited \u2014 pair with Job Function: Operations + company size to broaden viable pool.",
+    "watchOuts": "Personal insurance lines do not work on LinkedIn \u2014 keep budget for Google/Meta. State licensing must be reflected in geo-targeting."
+  },
+  "healthcare": {
+    "viability": "excellent",
+    "viabilityNote": "Healthcare-to-healthcare B2B (medical devices, healthcare software, specialty referrals, practice management) is one of LinkedIn's strongest verticals.",
+    "targetPersonas": [
+      {
+        "role": "Practice Administration",
+        "titles": [
+          "Practice Administrator",
+          "Practice Manager",
+          "Office Manager",
+          "Medical Group COO"
+        ],
+        "industries": [
+          "Medical Practice",
+          "Hospital & Health Care"
+        ]
+      },
+      {
+        "role": "Hospital / System Decision Makers",
+        "titles": [
+          "Chief Medical Officer",
+          "Director of Operations",
+          "VP Clinical Operations",
+          "Director of Procurement"
+        ]
+      },
+      {
+        "role": "Specialty Referrers (for B2B medical)",
+        "titles": [
+          "Physician",
+          "Surgeon",
+          "Dentist",
+          "Cardiologist",
+          "Orthopedic Surgeon"
+        ],
+        "watchOut": "Use Member Skills + Industry rather than Job Title \u2014 physician titles vary widely"
+      }
+    ],
+    "recommendedFormats": [
+      "Document Ad (clinical case studies, protocols)",
+      "Video (procedure demos, expert interviews)",
+      "Lead Gen Form for demo requests"
+    ],
+    "funnelStrategy": "TOFU: clinical thought leadership Document Ads. MOFU: gated outcome data white papers. BOFU: demo or consultation booking.",
+    "copyAngle": "Insight-Led for clinical innovations. PAS for practice operations pain (staffing, RCM, compliance). Avoid generic 'patient care' positioning.",
+    "abmOpportunity": "Very high. Hospital systems, medical group practices, and ASCs are all addressable as Company Lists.",
+    "audienceSizeNote": "Specialty physician audiences are small (5K-25K in many regions) \u2014 expect higher CPMs but very high lead value.",
+    "watchOuts": "Clinical claims must be substantiated and HIPAA-aware. CPL runs at the high end ($100-200) given audience precision and competition."
+  },
+  "legal-services": {
+    "viability": "strong",
+    "viabilityNote": "Strong for B2B legal \u2014 corporate, employment, M&A, IP, litigation defense. Consumer-facing legal (personal injury, family law, estate) should run Google/Meta.",
+    "targetPersonas": [
+      {
+        "role": "In-House Legal",
+        "titles": [
+          "General Counsel",
+          "Chief Legal Officer",
+          "Associate General Counsel",
+          "Senior Counsel"
+        ]
+      },
+      {
+        "role": "Business Decision Makers",
+        "titles": [
+          "CEO",
+          "CFO",
+          "COO",
+          "VP Operations",
+          "VP HR",
+          "Founder"
+        ],
+        "companySize": [
+          "11-50",
+          "51-200",
+          "201-500",
+          "501-1000"
+        ]
+      },
+      {
+        "role": "Industry-Specific Pain",
+        "industries": [
+          "Construction (litigation/contracts)",
+          "Manufacturing (compliance)",
+          "Technology (IP, employment)",
+          "Healthcare (regulatory)"
+        ]
+      }
+    ],
+    "recommendedFormats": [
+      "Document Ad (legal alerts, case briefs)",
+      "Single Image with Lead Gen Form",
+      "Video (expert positioning under 30s)"
+    ],
+    "funnelStrategy": "TOFU: legal alerts and regulatory updates as Document Ads. MOFU: gated guides on relevant compliance areas. BOFU: consultation request Lead Gen Forms.",
+    "copyAngle": "Insight-Led for thought leadership. PAS for compliance/litigation pain. Avoid 'we win cases' generics \u2014 lead with specific industry expertise.",
+    "abmOpportunity": "Strong. Upload regional companies in target industries above your minimum-fit threshold as Company Lists.",
+    "audienceSizeNote": "General Counsel audiences are limited (10K-30K geo-bound). Layer with company size for broader reach via business decision makers.",
+    "watchOuts": "Bar association advertising rules apply to ad copy. Consumer legal does not work \u2014 strictly B2B-focused work justifies LinkedIn spend."
+  },
+  "real-estate": {
+    "viability": "moderate-to-strong",
+    "viabilityNote": "Commercial real estate (CRE) is strong on LinkedIn. Residential is not \u2014 keep residential on Google, Meta, and LSA.",
+    "targetPersonas": [
+      {
+        "role": "CRE Investors / Developers",
+        "titles": [
+          "Real Estate Developer",
+          "Real Estate Investor",
+          "Director of Acquisitions",
+          "VP Real Estate"
+        ]
+      },
+      {
+        "role": "Tenant Reps / Corporate Real Estate",
+        "titles": [
+          "Director of Real Estate",
+          "Corporate Real Estate Manager",
+          "Workplace Director",
+          "Facilities Director"
+        ],
+        "companySize": [
+          "201-500",
+          "501-1000",
+          "1001-5000"
+        ]
+      },
+      {
+        "role": "Property Management Decision Makers",
+        "titles": [
+          "Property Manager",
+          "Asset Manager",
+          "Director of Property Management"
+        ]
+      }
+    ],
+    "recommendedFormats": [
+      "Document Ad (property briefs, market reports)",
+      "Single Image with Lead Gen Form",
+      "Video (property walkthroughs)"
+    ],
+    "funnelStrategy": "TOFU: market reports and trend pieces. MOFU: gated submarket analyses. BOFU: tour request Lead Gen Forms.",
+    "copyAngle": "Insight-Led with market data. BAB for relocation/expansion stories. Avoid 'premium space' generic positioning.",
+    "abmOpportunity": "High for tenant rep / corporate RE work. Upload growing companies above target headcount as Company Lists.",
+    "audienceSizeNote": "CRE professionals are tight (15K-40K geo-bound). Tenant rep audiences scale better via company-size + industry layering.",
+    "watchOuts": "Strictly commercial \u2014 running residential listings here will burn budget."
+  },
+  "commercial-agricultural-electric": {
+    "viability": "strong",
+    "viabilityNote": "Commercial and agricultural electrical is well-suited for LinkedIn \u2014 buyer profile maps cleanly to plant managers, facility directors, and farm operations leads.",
+    "targetPersonas": [
+      {
+        "role": "Commercial / Industrial",
+        "titles": [
+          "Plant Manager",
+          "Facilities Director",
+          "Director of Maintenance",
+          "Operations Manager"
+        ],
+        "industries": [
+          "Manufacturing",
+          "Food Production",
+          "Industrial Automation"
+        ]
+      },
+      {
+        "role": "Agricultural",
+        "titles": [
+          "Farm Operations Manager",
+          "Agricultural Operations Director",
+          "Cooperative Manager",
+          "Grain Operations Manager"
+        ],
+        "industries": [
+          "Farming",
+          "Dairy",
+          "Food Production"
+        ]
+      },
+      {
+        "role": "Engineering",
+        "titles": [
+          "Operations Engineer",
+          "Automation Engineer",
+          "Maintenance Engineer",
+          "PLC Programmer"
+        ],
+        "skills": [
+          "PLC Programming",
+          "VFD",
+          "Automation"
+        ]
+      }
+    ],
+    "recommendedFormats": [
+      "Document Ad (case studies of elevators, farm builds, PLC integrations)",
+      "Video (project walkthroughs)",
+      "Single Image with Lead Gen Form"
+    ],
+    "funnelStrategy": "TOFU: technical thought leadership on automation, three-phase upgrades, NEC compliance. MOFU: case studies of completed grain elevator / livestock facility projects. BOFU: site visit / quote Lead Gen Form.",
+    "copyAngle": "PAS \u2014 uptime, compliance, and harvest-window pain points are clear. BAB for facility upgrade stories.",
+    "abmOpportunity": "Very high. Build Company Lists of regional grain cooperatives, dairy ops, food processors, and manufacturers above your minimum facility size.",
+    "audienceSizeNote": "Agricultural-specific titles are small (5K-15K geo-bound). Pair with Industry: Farming + Dairy + Food Production to broaden.",
+    "watchOuts": "LinkedIn taxonomy 'Construction' and 'Utilities' don't cleanly capture this work \u2014 Industry: Farming + Manufacturing pairing tends to perform better than Industry: Construction."
+  },
+  "commercial-plumbing": {
+    "viability": "strong",
+    "viabilityNote": "Commercial plumbing maps cleanly to LinkedIn \u2014 property managers, facility directors, and restaurant operators are reachable by job function.",
+    "targetPersonas": [
+      {
+        "role": "Property Management",
+        "titles": [
+          "Property Manager",
+          "Director of Property Management",
+          "Facilities Director",
+          "Director of Operations"
+        ]
+      },
+      {
+        "role": "Restaurant Group",
+        "titles": [
+          "Director of Operations",
+          "Multi-Unit Manager",
+          "Regional Manager",
+          "Director of Facilities"
+        ],
+        "industries": [
+          "Restaurants",
+          "Food & Beverages",
+          "Hospitality"
+        ]
+      },
+      {
+        "role": "Healthcare Facility",
+        "titles": [
+          "Hospital Facilities Director",
+          "Medical Building Manager",
+          "Director of Plant Operations"
+        ]
+      }
+    ],
+    "recommendedFormats": [
+      "Document Ad (compliance and maintenance guides)",
+      "Single Image with Lead Gen Form",
+      "Video (response time / large project case studies)"
+    ],
+    "funnelStrategy": "TOFU: compliance content (NFPA 99, backflow, grease trap regulations). MOFU: maintenance contract guides. BOFU: contract quote Lead Gen Form.",
+    "copyAngle": "PAS \u2014 compliance failures, emergency downtime, and code violations are sharp pain points. Lead with a specific scenario, not 'commercial plumbing services'.",
+    "abmOpportunity": "Very high. Upload all regional property management companies, restaurant groups, hospitals, and multi-tenant building owners as a Company List.",
+    "audienceSizeNote": "Restaurant operations titles run 20K-50K geo-bound. Property managers run larger. Both sustain Lead Gen campaigns at recommended floor.",
+    "watchOuts": "Residential plumbing should not run LinkedIn. Medical gas certification is a unique B2B angle \u2014 call it out for hospital targeting."
+  },
+  "interior-design": {
+    "viability": "moderate",
+    "viabilityNote": "ONLY commercial interior design works on LinkedIn. Residential interior design audiences live on Pinterest, Instagram, and Google.",
+    "targetPersonas": [
+      {
+        "role": "Corporate Real Estate / Workplace",
+        "titles": [
+          "Workplace Director",
+          "Director of Workplace",
+          "Office Manager (large companies)",
+          "Real Estate Director"
+        ],
+        "companySize": [
+          "201-500",
+          "501-1000",
+          "1001-5000"
+        ]
+      },
+      {
+        "role": "Hospitality / Retail Decision Makers",
+        "titles": [
+          "Director of Operations",
+          "Director of Brand",
+          "Multi-Unit Manager"
+        ],
+        "industries": [
+          "Hospitality",
+          "Retail",
+          "Restaurants"
+        ]
+      },
+      {
+        "role": "Healthcare Facility Design",
+        "titles": [
+          "Practice Administrator",
+          "Healthcare Facility Director",
+          "Dental Office Manager"
+        ]
+      }
+    ],
+    "recommendedFormats": [
+      "Document Ad (project portfolio PDFs)",
+      "Single Image (finished space hero shots)",
+      "Video (walkthroughs under 30s)"
+    ],
+    "funnelStrategy": "TOFU: workplace design trend pieces. MOFU: project case study Document Ads. BOFU: consultation Lead Gen Forms.",
+    "copyAngle": "BAB \u2014 show the before (dated, dysfunctional space) and after (productive, on-brand environment). Insight-Led works for thought leadership.",
+    "abmOpportunity": "Strong for workplace design. ABM lists of regional growing companies, hotel groups, restaurant operators, healthcare systems.",
+    "audienceSizeNote": "Workplace director / facility director audiences run 20K-60K geo-bound.",
+    "watchOuts": "Do not run residential interior design on LinkedIn under any circumstances. CPL will exceed $200 with poor lead quality."
+  },
+  "printing": {
+    "viability": "strong",
+    "viabilityNote": "Commercial printing maps cleanly to LinkedIn \u2014 marketing managers, brand directors, and procurement leads run print programs at most mid-market companies.",
+    "targetPersonas": [
+      {
+        "role": "Marketing Decision Makers",
+        "titles": [
+          "Marketing Director",
+          "VP Marketing",
+          "Brand Director",
+          "Director of Communications"
+        ],
+        "companySize": [
+          "51-200",
+          "201-500",
+          "501-1000"
+        ]
+      },
+      {
+        "role": "Procurement / Operations",
+        "titles": [
+          "Procurement Manager",
+          "Director of Procurement",
+          "Office Manager",
+          "Operations Manager"
+        ]
+      },
+      {
+        "role": "Recurring Print Buyers",
+        "titles": [
+          "Communications Director",
+          "HR Director",
+          "Association Executive",
+          "Director of Membership"
+        ],
+        "industries": [
+          "Non-Profit",
+          "Education",
+          "Hospitality"
+        ]
+      }
+    ],
+    "recommendedFormats": [
+      "Document Ad (print portfolio PDFs)",
+      "Single Image with Lead Gen Form",
+      "Video (production capability tours)"
+    ],
+    "funnelStrategy": "TOFU: trends in direct mail / personalization / print ROI. MOFU: print buying guides as gated Lead Gen Forms. BOFU: quote / sample request.",
+    "copyAngle": "PAS for direct mail (response rates, cost per acquisition vs digital). BAB for brand identity refreshes. Avoid 'quality printing' generic positioning.",
+    "abmOpportunity": "Very high. Upload regional mid-market companies, associations, schools, and event planners as Company Lists.",
+    "audienceSizeNote": "Marketing director audiences run 30K-80K geo-bound. Direct mail audiences benefit from Member Skills targeting (Direct Mail, Direct Response Marketing).",
+    "watchOuts": "Wedding/consumer invitations side does not work on LinkedIn \u2014 strictly commercial accounts. Procurement targeting can yield price-shoppers; layer with company size for higher-LTV accounts."
+  },
+  "truck-fleet-service": {
+    "viability": "strong",
+    "viabilityNote": "Fleet maintenance and trucking services map cleanly to LinkedIn \u2014 fleet managers, logistics directors, and operations leads run these decisions.",
+    "targetPersonas": [
+      {
+        "role": "Fleet Operations",
+        "titles": [
+          "Fleet Manager",
+          "Director of Fleet",
+          "Director of Transportation",
+          "Logistics Director",
+          "VP Operations"
+        ],
+        "industries": [
+          "Transportation/Trucking/Railroad",
+          "Logistics & Supply Chain",
+          "Construction",
+          "Wholesale"
+        ]
+      },
+      {
+        "role": "Maintenance Decision Makers",
+        "titles": [
+          "Director of Maintenance",
+          "Shop Manager",
+          "Director of Asset Management"
+        ]
+      },
+      {
+        "role": "Owner-Operators (small fleets)",
+        "titles": [
+          "Owner",
+          "President",
+          "Founder"
+        ],
+        "companySize": [
+          "11-50",
+          "51-200"
+        ],
+        "industries": [
+          "Transportation/Trucking/Railroad"
+        ]
+      }
+    ],
+    "recommendedFormats": [
+      "Document Ad (uptime case studies, maintenance guides)",
+      "Video (in-shop walkthroughs, response time stories)",
+      "Single Image with Lead Gen Form"
+    ],
+    "funnelStrategy": "TOFU: uptime / TCO content. MOFU: fleet maintenance contract guides. BOFU: service contract quote Lead Gen Form.",
+    "copyAngle": "PAS \u2014 downtime, DOT violations, and repair-cycle costs are sharp pain points. BAB for uptime improvement stories.",
+    "abmOpportunity": "High. Upload regional fleet operators and logistics companies above your minimum vehicle count as Company Lists.",
+    "audienceSizeNote": "Fleet manager audiences run 15K-40K geo-bound. Pair with Industry: Transportation + Logistics + Construction for broader reach.",
+    "watchOuts": "Consumer truck/RV repair does not work on LinkedIn \u2014 strictly fleet/commercial. DOT-regulated work requires compliance review of ad copy."
+  },
+  "pressure-washing-landscape-care": {
+    "viability": "moderate",
+    "viabilityNote": "Strong for the COMMERCIAL side \u2014 restaurant hood cleaning, commercial pressure washing, commercial landscape contracts. Residential pressure washing and lawn care should run Google/Meta/LSA, not LinkedIn.",
+    "targetPersonas": [
+      {
+        "role": "Property Management",
+        "titles": [
+          "Property Manager",
+          "Director of Property Management",
+          "Facilities Director",
+          "Director of Operations"
+        ]
+      },
+      {
+        "role": "Restaurant Group (Hood Cleaning)",
+        "titles": [
+          "Director of Operations",
+          "Multi-Unit Manager",
+          "Regional Manager"
+        ],
+        "industries": [
+          "Restaurants",
+          "Food & Beverages",
+          "Hospitality"
+        ]
+      },
+      {
+        "role": "Commercial Landscape",
+        "titles": [
+          "Director of Facilities",
+          "Property Manager",
+          "HOA Board Member"
+        ],
+        "industries": [
+          "Real Estate",
+          "Hospitality"
+        ]
+      }
+    ],
+    "recommendedFormats": [
+      "Document Ad (compliance guides for NFPA 96 hood cleaning)",
+      "Single Image with Lead Gen Form",
+      "Video (before/after time-lapse content)"
+    ],
+    "funnelStrategy": "TOFU: compliance content (NFPA 96, health code). MOFU: maintenance contract guides. BOFU: contract quote Lead Gen Form.",
+    "copyAngle": "PAS \u2014 compliance failures, fire risk (hood cleaning), and curb appeal pain are sharp. Avoid generic 'we clean buildings' positioning.",
+    "abmOpportunity": "High for restaurant groups, property management, HOAs, and multi-tenant building owners.",
+    "audienceSizeNote": "Restaurant operations and property management audiences run 20K-50K geo-bound. Sustain Lead Gen campaigns at recommended floor.",
+    "watchOuts": "Residential side of the business should be excluded entirely from LinkedIn campaigns \u2014 keep that budget on Google/Meta/LSA."
+  }
+}

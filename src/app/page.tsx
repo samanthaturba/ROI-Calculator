@@ -31,6 +31,7 @@ import ExportSummary from "../components/ExportSummary";
 import SaveLoad from "../components/SaveLoad";
 
 import PowerPointExport from "../components/PowerPointExport";
+import LinkedInStrategy from "../components/LinkedInStrategy";
 
 const DEFAULT_CLOSE_RATE = 20; // Fallback before industry is selected; actual default comes from industry data
 
@@ -978,6 +979,22 @@ export default function Home() {
             </div>
           )}
         </section>
+
+        {/* LinkedIn Ads Strategy panel — only when LinkedIn is in the selected platforms.
+            Hidden by default; expands to show industry-specific targeting, formats, copy
+            frameworks, KPI benchmarks, and the full Cogent SOP guidance. */}
+        {selectedPlatforms.includes("linkedin") && (
+          <LinkedInStrategy
+            industryId={clientInputs.industryId || null}
+            industryName={selectedIndustry?.name ?? null}
+            monthlyAdSpend={budgetInputs.monthlyAdSpend}
+            linkedInSpend={
+              selectedPlatforms.length > 1
+                ? budgetInputs.monthlyAdSpend * (platformAllocations.linkedin / 100)
+                : undefined
+            }
+          />
+        )}
 
         {/* No benchmarks warning */}
         {clientInputs.industryId && !platformHasBenchmarks && (
