@@ -11,12 +11,19 @@ interface Props {
   extractedServices: ExtractedService[];
   industryId: string;
   primaryPlatform: AdPlatform;
+  /** All active platforms — used to show per-platform service mapping */
+  selectedPlatforms?: AdPlatform[];
   /** Close rate % (0-100) — used for Max ROI projections */
   closeRate?: number;
   /** Total monthly ad spend — used for context in strict mode */
   monthlyAdSpend?: number;
   /** Blended market CPL multiplier */
   blendedMultiplier?: number;
+  /** Lifted budget-mode state — controls Fixed vs Max ROI view */
+  budgetMode: BudgetMode;
+  onBudgetModeChange: (mode: BudgetMode) => void;
+  /** Called when the user edits the inline monthly budget input */
+  onMonthlyAdSpendChange?: (value: number) => void;
 }
 
 type BudgetMode = "strict" | "maxroi";
@@ -91,7 +98,62 @@ function jobValueTier(
   return              { label: `$${val} avg job`, color: "bg-gray-100 text-gray-500" };
 }
 
+/** Revenue earned per $1 of ad spend — higher = more efficient service.
+ *  Formula: (avgJobValue × closeRate%) / CPL */
+function getServiceEfficiency(
+  service: ServiceSelectionType,
+  closeRate: number,
+  multiplier = 1
+): number | null {
+  const cpl = getEffectiveCpl(service, multiplier);
+  const jobValue = service.customJobValue ?? service.benchmark?.avgJobValue ?? null;
+  if (!cpl || !jobValue || closeRate <= 0) return null;
+  return (jobValue * (closeRate / 100)) / cpl;
+}
+
+/**
+ * Smart budget allocation: weight by revenue efficiency with a 10 % floor per
+ * service so no service is starved. Falls back to even split when no
+ * efficiency data is available.
+ * Returns an allocation-% array parallel to `services` (0 for unselected).
+ */
+function getSmartAllocation(
+  services: ServiceSelectionType[],
+  closeRate: number,
+  multiplier: number
+): number[] {
+  const sel = services.filter((s) => s.selected);
+  if (sel.length === 0) return services.map(() => 0);
+  if (sel.length === 1) return services.map((s) => (s.selected ? 100 : 0));
+
+  const efficiencies = sel.map((s) => getServiceEfficiency(s, closeRate, multiplier) ?? 0);
+  const totalEff = efficiencies.reduce((a, b) => a + b, 0);
+
+  const FLOOR_PCT = 10; // every service gets at least 10 %
+  const remainder = 100 - sel.length * FLOOR_PCT;
+
+  const raw = efficiencies.map(
+    (e) => FLOOR_PCT + (totalEff > 0 ? (e / totalEff) * remainder : remainder / sel.length)
+  );
+
+  // Round to 1 decimal; absorb rounding drift onto the first selected service
+  const rounded = raw.map((a) => Math.round(a * 10) / 10);
+  const drift = 100 - rounded.reduce((a, b) => a + b, 0);
+  if (Math.abs(drift) > 0.001) rounded[0] = Math.round((rounded[0] + drift) * 10) / 10;
+
+  // Spread back to full array (unselected = 0)
+  let si = 0;
+  return services.map((s) => (s.selected ? rounded[si++] : 0));
+}
+
 // ── Component ─────────────────────────────────────────────────────────────────
+
+const PLATFORM_META: Record<AdPlatform, { icon: string; label: string; shortLabel: string }> = {
+  google:   { icon: "🔍", label: "Google Ads",    shortLabel: "Google Ads" },
+  meta:     { icon: "📱", label: "Meta Ads",       shortLabel: "Meta" },
+  linkedin: { icon: "💼", label: "LinkedIn Ads",   shortLabel: "LinkedIn" },
+  lsa:      { icon: "📍", label: "Google LSA",     shortLabel: "Google LSA" },
+};
 
 export default function ServiceSelection({
   services,
@@ -99,15 +161,19 @@ export default function ServiceSelection({
   extractedServices,
   industryId,
   primaryPlatform,
+  selectedPlatforms = [],
   closeRate = 20,
   monthlyAdSpend = 0,
   blendedMultiplier = 1,
+  budgetMode,
+  onBudgetModeChange,
+  onMonthlyAdSpendChange,
 }: Props) {
   const [newServiceName, setNewServiceName] = useState("");
   const [showCrossIndustry, setShowCrossIndustry] = useState(false);
   const [crossIndustryId, setCrossIndustryId] = useState("");
   const [crossServiceName, setCrossServiceName] = useState("");
-  const [budgetMode, setBudgetMode] = useState<BudgetMode>("strict");
+  const [allocationMode, setAllocationMode] = useState<"smart" | "even" | "custom">("smart");
 
   // All industries except the current one
   const otherIndustries = useMemo(
@@ -132,6 +198,36 @@ export default function ServiceSelection({
       });
   }, [services]);
 
+  // ── These must live before any early return to satisfy Rules of Hooks ─────────
+  const selectedServices = services.filter((s) => s.selected);
+
+  const maxRoiRows = useMemo(() => {
+    return selectedServices
+      .map((s) => {
+        const rec = getRecommendedServiceSpend(s, closeRate, blendedMultiplier);
+        const choice = s.maxRoiBudgetChoice ?? "target";
+        const budget =
+          choice === "min"    ? (rec.min    ?? rec.target ?? 0) :
+          choice === "custom" ? (s.customMaxRoiBudget ?? rec.target ?? 0) :
+                                (rec.target ?? 0);
+        const proj = budget > 0
+          ? projectServiceRevenue(s, budget, closeRate, blendedMultiplier)
+          : null;
+        const jobValue = s.customJobValue ?? s.benchmark?.avgJobValue ?? null;
+        return { service: s, rec, budget, choice, proj, jobValue };
+      })
+      .sort((a, b) => (b.jobValue ?? 0) - (a.jobValue ?? 0));
+  }, [selectedServices, closeRate, blendedMultiplier]);
+
+  const maxRoiTotalBudget = maxRoiRows.reduce((s, r) => s + r.budget, 0);
+  const maxRoiTotalRevenue = maxRoiRows.reduce((s, r) => s + (r.proj?.revenue ?? 0), 0);
+  const maxRoiTotalJobs = maxRoiRows.reduce((s, r) => s + (r.proj?.jobs ?? 0), 0);
+
+  const budgetCoverage =
+    maxRoiTotalBudget > 0 && monthlyAdSpend > 0
+      ? Math.min((monthlyAdSpend / maxRoiTotalBudget) * 100, 100)
+      : null;
+
   if (!industryId) {
     return (
       <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
@@ -141,31 +237,22 @@ export default function ServiceSelection({
     );
   }
 
-  const selectedCount = services.filter((s) => s.selected).length;
-  const selectedServices = services.filter((s) => s.selected);
+  const selectedCount = selectedServices.length;
 
   function toggleService(index: number) {
-    const updated = [...services];
-    updated[index] = { ...updated[index], selected: !updated[index].selected };
-    const sel = updated.filter((s) => s.selected);
-    if (sel.length > 0) {
-      const even = Math.round((100 / sel.length) * 10) / 10;
-      for (const s of updated) s.allocationPercent = s.selected ? even : 0;
-      const total = sel.length * even;
-      if (Math.abs(total - 100) > 0.01) {
-        const first = updated.find((s) => s.selected);
-        if (first) {
-          first.allocationPercent += 100 - total;
-          first.allocationPercent = Math.round(first.allocationPercent * 10) / 10;
-        }
-      }
-    }
+    const updated = services.map((s, i) =>
+      i === index ? { ...s, selected: !s.selected } : { ...s }
+    );
+    const allocs = getSmartAllocation(updated, closeRate, blendedMultiplier);
+    for (let i = 0; i < updated.length; i++) updated[i].allocationPercent = allocs[i];
+    setAllocationMode("smart");
     onChange(updated);
   }
 
   function updateAllocation(index: number, value: number) {
     const updated = [...services];
     updated[index] = { ...updated[index], allocationPercent: value };
+    setAllocationMode("custom");
     onChange(updated);
   }
 
@@ -187,6 +274,41 @@ export default function ServiceSelection({
     onChange(updated);
   }
 
+  function updateMaxRoiBudgetChoice(index: number, choice: "min" | "target" | "custom") {
+    const updated = [...services];
+    updated[index] = { ...updated[index], maxRoiBudgetChoice: choice };
+    onChange(updated);
+  }
+
+  function updateCustomMaxRoiBudget(index: number, value: number | null) {
+    const updated = [...services];
+    updated[index] = { ...updated[index], customMaxRoiBudget: value };
+    onChange(updated);
+  }
+
+  function applySmartSplit() {
+    const updated = services.map((s) => ({ ...s }));
+    const allocs = getSmartAllocation(updated, closeRate, blendedMultiplier);
+    for (let i = 0; i < updated.length; i++) updated[i].allocationPercent = allocs[i];
+    setAllocationMode("smart");
+    onChange(updated);
+  }
+
+  function applyEvenSplitAction() {
+    const updated = services.map((s) => ({ ...s }));
+    const sel = updated.filter((s) => s.selected);
+    if (sel.length === 0) return;
+    const even = Math.round((100 / sel.length) * 10) / 10;
+    for (const s of updated) s.allocationPercent = s.selected ? even : 0;
+    const total = sel.length * even;
+    if (Math.abs(total - 100) > 0.01) {
+      const first = updated.find((s) => s.selected);
+      if (first) first.allocationPercent = Math.round((first.allocationPercent + (100 - total)) * 10) / 10;
+    }
+    setAllocationMode("even");
+    onChange(updated);
+  }
+
   function addManualService() {
     const name = newServiceName.trim();
     if (!name) return;
@@ -195,20 +317,18 @@ export default function ServiceSelection({
       ...services,
       { serviceName: name, selected: true, allocationPercent: 0, cplChoice: "high", customCpl: null, customJobValue: null, benchmark: null, isManual: true },
     ];
-    const sel = updated.filter((s) => s.selected);
-    const even = Math.round((100 / sel.length) * 10) / 10;
-    for (const s of updated) s.allocationPercent = s.selected ? even : 0;
+    const allocs = getSmartAllocation(updated, closeRate, blendedMultiplier);
+    for (let i = 0; i < updated.length; i++) updated[i].allocationPercent = allocs[i];
+    setAllocationMode("smart");
     onChange(updated);
     setNewServiceName("");
   }
 
   function removeManualService(index: number) {
     const updated = services.filter((_, i) => i !== index);
-    const sel = updated.filter((s) => s.selected);
-    if (sel.length > 0) {
-      const even = Math.round((100 / sel.length) * 10) / 10;
-      for (const s of updated) s.allocationPercent = s.selected ? even : 0;
-    }
+    const allocs = getSmartAllocation(updated, closeRate, blendedMultiplier);
+    for (let i = 0; i < updated.length; i++) updated[i].allocationPercent = allocs[i];
+    setAllocationMode("smart");
     onChange(updated);
   }
 
@@ -223,9 +343,9 @@ export default function ServiceSelection({
       ...services,
       { serviceName: displayName, selected: true, allocationPercent: 0, cplChoice: "high", customCpl: null, customJobValue: null, benchmark, isManual: true },
     ];
-    const sel = updated.filter((s) => s.selected);
-    const even = Math.round((100 / sel.length) * 10) / 10;
-    for (const s of updated) s.allocationPercent = s.selected ? even : 0;
+    const allocs = getSmartAllocation(updated, closeRate, blendedMultiplier);
+    for (let i = 0; i < updated.length; i++) updated[i].allocationPercent = allocs[i];
+    setAllocationMode("smart");
     onChange(updated);
     setCrossServiceName("");
   }
@@ -238,25 +358,29 @@ export default function ServiceSelection({
     low: "Suggested (low confidence)",
   };
 
-  // ── Max ROI calculations ────────────────────────────────────────────────────
-  const maxRoiRows = useMemo(() => {
-    return selectedServices.map((s) => {
-      const rec = getRecommendedServiceSpend(s, closeRate, blendedMultiplier);
-      const budget = rec.target ?? 0;
-      const proj = budget > 0 ? projectServiceRevenue(s, budget, closeRate, blendedMultiplier) : null;
-      const jobValue = s.customJobValue ?? s.benchmark?.avgJobValue ?? null;
-      return { service: s, rec, proj, jobValue };
-    }).sort((a, b) => (b.jobValue ?? 0) - (a.jobValue ?? 0));
-  }, [selectedServices, closeRate, blendedMultiplier]);
+  // Smart allocation explanation for the banner
+  const smartAllocationDesc = (() => {
+    if (selectedCount < 2) return "";
+    const effRows = selectedServices
+      .map((s) => ({
+        name: s.serviceName.split(" (")[0], // strip "(Industry Name)" suffix
+        eff: getServiceEfficiency(s, closeRate, blendedMultiplier),
+      }))
+      .filter((r): r is { name: string; eff: number } => r.eff !== null)
+      .sort((a, b) => b.eff - a.eff);
+    if (effRows.length >= 2) {
+      const best = effRows[0];
+      const worst = effRows[effRows.length - 1];
+      const fmtEff = (n: number) => n >= 10 ? `$${n.toFixed(0)}` : `$${n.toFixed(1)}`;
+      return `${best.name} earns ~${fmtEff(best.eff)} per $1 spent vs ${worst.name} at ~${fmtEff(worst.eff)} — allocating more budget to the higher-value service.`;
+    }
+    if (effRows.length === 1) return `Budget weighted toward ${effRows[0].name}, which has the best revenue-per-dollar data.`;
+    return "Budget split evenly (no benchmark data to weight by).";
+  })();
 
-  const maxRoiTotalBudget = maxRoiRows.reduce((s, r) => s + (r.rec.target ?? 0), 0);
-  const maxRoiTotalRevenue = maxRoiRows.reduce((s, r) => s + (r.proj?.revenue ?? 0), 0);
-  const maxRoiTotalJobs = maxRoiRows.reduce((s, r) => s + (r.proj?.jobs ?? 0), 0);
-
-  const budgetCoverage =
-    maxRoiTotalBudget > 0 && monthlyAdSpend > 0
-      ? Math.min((monthlyAdSpend / maxRoiTotalBudget) * 100, 100)
-      : null;
+  const hasEfficiencyData = selectedServices.some(
+    (s) => getServiceEfficiency(s, closeRate, blendedMultiplier) !== null
+  );
 
   return (
     <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
@@ -272,7 +396,7 @@ export default function ServiceSelection({
         {/* Budget mode toggle */}
         <div className="flex items-center rounded-lg border border-gray-200 overflow-hidden shrink-0">
           <button
-            onClick={() => setBudgetMode("strict")}
+            onClick={() => onBudgetModeChange("strict")}
             className={`px-3 py-1.5 text-xs font-medium transition-colors ${
               budgetMode === "strict"
                 ? "bg-cogent-navy text-white"
@@ -282,7 +406,7 @@ export default function ServiceSelection({
             Fixed Budget
           </button>
           <button
-            onClick={() => setBudgetMode("maxroi")}
+            onClick={() => onBudgetModeChange("maxroi")}
             className={`px-3 py-1.5 text-xs font-medium transition-colors ${
               budgetMode === "maxroi"
                 ? "bg-cogent-sage text-cogent-navy-dark"
@@ -294,13 +418,73 @@ export default function ServiceSelection({
         </div>
       </div>
 
+      {/* ── Inline budget bar ─────────────────────────────────────────────────── */}
+      {budgetMode === "strict" && (
+        <div className="flex flex-wrap items-center gap-3 mb-4 px-3 py-2.5 bg-gray-50 rounded-lg border border-gray-200">
+          {/* Budget input */}
+          <div className="flex items-center gap-2 shrink-0">
+            <label className="text-xs font-medium text-gray-600">Monthly Budget</label>
+            <div className="flex items-center border border-gray-300 rounded-md overflow-hidden">
+              <span className="px-2 py-1.5 text-sm text-gray-500 bg-gray-100 border-r border-gray-300 select-none">$</span>
+              <input
+                type="number"
+                min={0}
+                step={100}
+                value={monthlyAdSpend || ""}
+                onChange={(e) => onMonthlyAdSpendChange?.(parseFloat(e.target.value) || 0)}
+                placeholder="0"
+                className="px-2 py-1.5 text-sm w-28 bg-white focus:outline-none focus:ring-1 focus:ring-cogent-navy"
+              />
+              <span className="px-2 py-1.5 text-xs text-gray-400 bg-gray-50 border-l border-gray-300 select-none">/mo</span>
+            </div>
+          </div>
+
+          {/* Live per-service split preview */}
+          {monthlyAdSpend > 0 && selectedCount > 0 ? (
+            <div className="flex flex-wrap gap-1.5 items-center min-w-0">
+              <span className="text-[11px] text-gray-400 shrink-0">splits to →</span>
+              {selectedServices.map((s) => (
+                <span
+                  key={s.serviceName}
+                  className="text-[11px] bg-white border border-gray-200 rounded-full px-2 py-0.5 text-cogent-navy font-medium whitespace-nowrap"
+                >
+                  {s.serviceName.split(" ").slice(0, 2).join(" ")}:{" "}
+                  {formatCurrency(Math.round(monthlyAdSpend * s.allocationPercent / 100))}
+                </span>
+              ))}
+            </div>
+          ) : monthlyAdSpend === 0 ? (
+            <span className="text-xs text-gray-400">Enter a budget to see how it splits across selected services</span>
+          ) : (
+            <span className="text-xs text-gray-400">Select services to see budget splits</span>
+          )}
+        </div>
+      )}
+
+      {budgetMode === "maxroi" && (
+        <div className="flex items-center justify-between gap-3 mb-4 px-3 py-2.5 bg-cogent-sage/10 rounded-lg border border-cogent-sage/30">
+          <div>
+            <span className="text-xs font-semibold text-cogent-navy">Max ROI View — Total Recommended Budget: </span>
+            <span className="text-sm font-bold text-cogent-navy">
+              {maxRoiTotalBudget > 0 ? `${formatCurrency(maxRoiTotalBudget)}/mo` : "—"}
+            </span>
+            {selectedCount > 0 && (
+              <span className="text-xs text-cogent-neutral ml-2">across {selectedCount} service{selectedCount !== 1 ? "s" : ""}</span>
+            )}
+          </div>
+          {selectedCount === 0 && (
+            <span className="text-xs text-cogent-neutral">Select services below to see recommended budgets</span>
+          )}
+        </div>
+      )}
+
       {/* Mode explanation banner */}
       {budgetMode === "strict" && selectedCount > 1 && monthlyAdSpend > 0 && (
         <div className="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-md text-xs text-amber-800">
-          <strong>Fixed Budget Mode:</strong> Your {formatCurrency(monthlyAdSpend)}/mo budget is split across{" "}
-          {selectedCount} services. Each service gets {formatCurrency(monthlyAdSpend / selectedCount)} on average —
-          the more services selected, the less each gets, which lowers per-service lead volume.{" "}
-          <button className="underline font-medium" onClick={() => setBudgetMode("maxroi")}>
+          <strong>Fixed Budget Mode:</strong> Your {formatCurrency(monthlyAdSpend)}/mo budget is distributed across{" "}
+          {selectedCount} services. The more services you run, the less each receives — consider focusing on
+          your highest-value services for the strongest return.{" "}
+          <button className="underline font-medium" onClick={() => onBudgetModeChange("maxroi")}>
             Switch to Max ROI View
           </button>{" "}
           to see what each service could generate with its own optimal budget.
@@ -311,6 +495,79 @@ export default function ServiceSelection({
           <strong>Max ROI View:</strong> Shows the recommended monthly spend for each service to generate
           meaningful leads independently — not constrained by your current budget. Use this to show a client
           the full opportunity and what it would take to fully fund each service.
+        </div>
+      )}
+
+      {/* Smart allocation recommendation banner — Fixed Budget only, 2+ services */}
+      {budgetMode === "strict" && selectedCount >= 2 && (
+        <div className="mb-4 p-3 bg-sky-50 border border-sky-200 rounded-lg">
+          <div className="flex flex-wrap items-start justify-between gap-2">
+            <div className="flex-1 min-w-0">
+              <p className="text-xs font-semibold text-sky-800 mb-0.5">
+                {allocationMode === "smart" && "✦ Smart Split — weighted by revenue efficiency"}
+                {allocationMode === "even"  && "⟺ Even Split — equal share per service"}
+                {allocationMode === "custom" && "✎ Custom Allocation"}
+              </p>
+              <p className="text-xs text-sky-700">
+                {allocationMode === "smart" && (hasEfficiencyData ? smartAllocationDesc : `Budget split evenly across ${selectedCount} services (add job values / CPL to enable smart weighting).`)}
+                {allocationMode === "even"  && `Each of the ${selectedCount} services receives an equal ${(100 / selectedCount).toFixed(1)}% of your budget.`}
+                {allocationMode === "custom" && "Allocations are set manually. Use a button below to reset."}
+              </p>
+            </div>
+            <div className="flex gap-2 shrink-0 mt-0.5">
+              {allocationMode !== "smart" && (
+                <button
+                  onClick={applySmartSplit}
+                  className="text-xs px-2.5 py-1 bg-sky-600 text-white rounded-md hover:bg-sky-700 font-medium transition-colors"
+                >
+                  Apply Smart Split
+                </button>
+              )}
+              {allocationMode !== "even" && (
+                <button
+                  onClick={applyEvenSplitAction}
+                  className="text-xs px-2.5 py-1 border border-sky-300 text-sky-700 rounded-md hover:bg-sky-100 font-medium transition-colors"
+                >
+                  Use Even Split
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── Multi-platform note ────────────────────────────────────────────── */}
+      {selectedPlatforms.length > 1 && industryId && (
+        <div className="mb-4 p-3 bg-gray-50 border border-gray-200 rounded-lg space-y-1.5">
+          {selectedPlatforms.map((plat) => {
+            const meta = PLATFORM_META[plat];
+            const isPrimary = plat === primaryPlatform;
+            const platServices = getServicesForIndustry(industryId, plat);
+            let note = "";
+            if (isPrimary) {
+              note = "Service list and CPL benchmarks below are based on this platform.";
+            } else if (plat === "lsa") {
+              note = "Runs as a separate verified-lead program covering your selected service categories. Billed per confirmed lead, not per click.";
+            } else if (plat === "meta") {
+              note = "Audience-based (interest & demographic targeting). Best for brand awareness and retargeting — not keyword intent. CPL projections use Google benchmarks as a proxy.";
+            } else if (plat === "linkedin") {
+              note = "Targets by job title and company — ideal for commercial/B2B accounts. CPL typically higher than Google. Projections use Google benchmarks as a proxy.";
+            } else if (platServices.length > 0) {
+              note = `Has its own benchmark data for this industry (${platServices.length} service${platServices.length !== 1 ? "s" : ""}).`;
+            } else {
+              note = `No separate benchmark data — CPL projections use ${PLATFORM_META[primaryPlatform].label} as a proxy.`;
+            }
+            return (
+              <div key={plat} className="flex items-start gap-2 text-xs text-gray-600">
+                <span className="shrink-0 mt-0.5">{meta.icon}</span>
+                <span>
+                  <span className="font-semibold text-gray-800">{meta.label}</span>
+                  {isPrimary && <span className="ml-1.5 text-[10px] text-cogent-navy bg-cogent-navy/10 px-1.5 py-0.5 rounded-full font-medium">primary</span>}
+                  {" — "}{note}
+                </span>
+              </div>
+            );
+          })}
         </div>
       )}
 
@@ -352,6 +609,9 @@ export default function ServiceSelection({
             ? getRecommendedServiceSpend(service, closeRate, blendedMultiplier)
             : null;
           const effectiveCpl = getEffectiveCpl(service, blendedMultiplier);
+          const efficiencyScore = service.selected
+            ? getServiceEfficiency(service, closeRate, blendedMultiplier)
+            : null;
 
           return (
             <div
@@ -439,15 +699,55 @@ export default function ServiceSelection({
                           = {formatCurrency(monthlyAdSpend * service.allocationPercent / 100)}/mo
                         </p>
                       )}
+                      {efficiencyScore !== null && (
+                        <p className="text-[11px] text-sky-600 mt-0.5 font-medium">
+                          ~{efficiencyScore >= 10
+                            ? `$${efficiencyScore.toFixed(0)}`
+                            : `$${efficiencyScore.toFixed(1)}`} rev per $1
+                        </p>
+                      )}
                     </div>
                   ) : (
                     <div>
                       <label className="block text-xs text-gray-500 mb-1">Rec. Budget</label>
-                      <p className="text-sm font-semibold text-cogent-navy mt-1">
-                        {recSpend?.target ? formatCurrency(recSpend.target) : "—"}/mo
-                      </p>
-                      {recSpend?.min && (
-                        <p className="text-[11px] text-gray-400">min {formatCurrency(recSpend.min)}/mo</p>
+                      {/* Min / Target / Custom tier selector */}
+                      <div className="flex gap-1 mb-1.5">
+                        {(["target", "min", "custom"] as const).map((c) => (
+                          <button
+                            key={c}
+                            onClick={() => updateMaxRoiBudgetChoice(index, c)}
+                            className={`text-[10px] px-1.5 py-0.5 rounded border font-medium capitalize transition-colors ${
+                              (service.maxRoiBudgetChoice ?? "target") === c
+                                ? "bg-cogent-navy text-white border-cogent-navy"
+                                : "text-gray-500 border-gray-300 hover:border-gray-400 bg-white"
+                            }`}
+                          >
+                            {c}
+                          </button>
+                        ))}
+                      </div>
+                      {(service.maxRoiBudgetChoice ?? "target") === "custom" ? (
+                        <input
+                          type="number"
+                          min={0}
+                          step={100}
+                          value={service.customMaxRoiBudget ?? ""}
+                          onChange={(e) => updateCustomMaxRoiBudget(index, e.target.value ? parseFloat(e.target.value) : null)}
+                          placeholder="Enter $/mo"
+                          className="w-full border border-gray-300 rounded px-2 py-1 text-sm"
+                        />
+                      ) : (
+                        <p className="text-sm font-semibold text-cogent-navy">
+                          {(service.maxRoiBudgetChoice ?? "target") === "min"
+                            ? (recSpend?.min ? formatCurrency(recSpend.min) : "—")
+                            : (recSpend?.target ? formatCurrency(recSpend.target) : "—")
+                          }/mo
+                        </p>
+                      )}
+                      {(service.maxRoiBudgetChoice ?? "target") !== "custom" && recSpend?.min && recSpend?.target && (
+                        <p className="text-[10px] text-gray-400 mt-0.5">
+                          range: {formatCurrency(recSpend.min)}–{formatCurrency(recSpend.target)}
+                        </p>
                       )}
                     </div>
                   )}
@@ -491,19 +791,33 @@ export default function ServiceSelection({
                   {/* Job Value */}
                   <div>
                     <label className="block text-xs text-gray-500 mb-1">Avg Job Value</label>
-                    <input
-                      type="number"
-                      min={0}
-                      step={1}
-                      value={service.customJobValue ?? service.benchmark?.avgJobValue ?? ""}
-                      onChange={(e) =>
-                        updateCustomJobValue(index, e.target.value ? parseFloat(e.target.value) : null)
-                      }
-                      placeholder={service.benchmark?.avgJobValue ? `$${service.benchmark.avgJobValue}` : "Enter value"}
-                      className="w-full border border-gray-300 rounded px-2 py-1 text-sm"
-                    />
-                    {service.benchmark?.avgJobValue && service.customJobValue === null && (
-                      <span className="text-xs text-gray-400">Benchmark: ${service.benchmark.avgJobValue}</span>
+                    <div className="relative">
+                      <span className="absolute left-2 top-1.5 text-gray-400 text-sm">$</span>
+                      <input
+                        type="number"
+                        min={0}
+                        step={1}
+                        value={service.customJobValue ?? service.benchmark?.avgJobValue ?? ""}
+                        onChange={(e) =>
+                          updateCustomJobValue(index, e.target.value ? parseFloat(e.target.value) : null)
+                        }
+                        placeholder={service.benchmark?.avgJobValue ? `${service.benchmark.avgJobValue}` : "Enter value"}
+                        className="w-full border border-gray-300 rounded pl-5 pr-2 py-1 text-sm"
+                      />
+                    </div>
+                    {/* Always show industry avg as reference */}
+                    {service.benchmark?.avgJobValue && (
+                      <p className="text-[11px] mt-0.5">
+                        {service.customJobValue !== null && service.customJobValue !== service.benchmark.avgJobValue ? (
+                          <span className="text-amber-600">
+                            Industry avg: ${service.benchmark.avgJobValue.toLocaleString()}
+                          </span>
+                        ) : (
+                          <span className="text-gray-400">
+                            Industry avg: ${service.benchmark.avgJobValue.toLocaleString()}
+                          </span>
+                        )}
+                      </p>
                     )}
                   </div>
 
@@ -552,36 +866,61 @@ export default function ServiceSelection({
                   <th className="text-right px-4 py-2 font-medium">Est. Leads/mo</th>
                   <th className="text-right px-4 py-2 font-medium">Est. Jobs/mo</th>
                   <th className="text-right px-4 py-2 font-medium">Est. Revenue/mo</th>
+                  <th className="text-right px-4 py-2 font-medium">
+                    <span className="group relative inline-flex items-center gap-1 cursor-default">
+                      ROAS
+                      <span className="text-gray-400 hover:text-gray-600">ⓘ</span>
+                      {/* Tooltip */}
+                      <span className="pointer-events-none absolute right-0 top-6 z-10 w-64 rounded-lg bg-cogent-navy text-white text-[11px] leading-relaxed p-3 opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
+                        <strong>Return on Ad Spend (ROAS)</strong> — estimated revenue for every $1 spent on ads.
+                        <br /><br />
+                        A ROAS of 5x means $5 in revenue per $1 in ad spend. Higher is better.
+                        <br /><br />
+                        <span className="text-cogent-sage font-medium">💡 If budget is limited, focus on the services with the highest ROAS first</span> — they return the most revenue per dollar.
+                      </span>
+                    </span>
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
-                {maxRoiRows.map(({ service, rec, proj, jobValue }) => (
-                  <tr key={service.serviceName} className="hover:bg-gray-50">
-                    <td className="px-4 py-2.5 font-medium text-gray-800 text-xs max-w-[160px]">
-                      {service.serviceName}
-                    </td>
-                    <td className="px-4 py-2.5 text-right text-xs text-gray-600">
-                      {jobValue ? formatCurrency(jobValue) : "—"}
-                    </td>
-                    <td className="px-4 py-2.5 text-right text-xs font-semibold text-cogent-navy">
-                      {rec.target ? formatCurrency(rec.target) : "—"}
-                      {rec.min && rec.target && (
-                        <span className="text-[10px] text-gray-400 block font-normal">
-                          min {formatCurrency(rec.min)}
-                        </span>
-                      )}
-                    </td>
-                    <td className="px-4 py-2.5 text-right text-xs text-gray-600">
-                      {proj ? proj.leads.toFixed(1) : "—"}
-                    </td>
-                    <td className="px-4 py-2.5 text-right text-xs text-gray-600">
-                      {proj ? proj.jobs.toFixed(1) : "—"}
-                    </td>
-                    <td className="px-4 py-2.5 text-right text-xs font-semibold text-green-700">
-                      {proj ? formatCurrency(proj.revenue) : "—"}
-                    </td>
-                  </tr>
-                ))}
+                {maxRoiRows.map(({ service, rec, budget, choice, proj, jobValue }) => {
+                  const roas = proj && budget > 0 ? proj.revenue / budget : null;
+                  return (
+                    <tr key={service.serviceName} className="hover:bg-gray-50">
+                      <td className="px-4 py-2.5 font-medium text-gray-800 text-xs max-w-[160px]">
+                        {service.serviceName}
+                      </td>
+                      <td className="px-4 py-2.5 text-right text-xs text-gray-600">
+                        {jobValue ? formatCurrency(jobValue) : "—"}
+                      </td>
+                      <td className="px-4 py-2.5 text-right text-xs font-semibold text-cogent-navy">
+                        {budget > 0 ? formatCurrency(budget) : "—"}
+                        <span className="text-[10px] text-gray-400 block font-normal capitalize">{choice}</span>
+                        {choice === "target" && rec.min && (
+                          <span className="text-[10px] text-gray-300 block font-normal">
+                            min {formatCurrency(rec.min)}
+                          </span>
+                        )}
+                      </td>
+                      <td className="px-4 py-2.5 text-right text-xs text-gray-600">
+                        {proj ? proj.leads.toFixed(1) : "—"}
+                      </td>
+                      <td className="px-4 py-2.5 text-right text-xs text-gray-600">
+                        {proj ? proj.jobs.toFixed(1) : "—"}
+                      </td>
+                      <td className="px-4 py-2.5 text-right text-xs font-semibold text-green-700">
+                        {proj ? formatCurrency(proj.revenue) : "—"}
+                      </td>
+                      <td className="px-4 py-2.5 text-right text-xs">
+                        {roas !== null ? (
+                          <span className={`font-semibold ${roas >= 5 ? "text-green-700" : roas >= 3 ? "text-yellow-600" : "text-gray-500"}`}>
+                            {roas.toFixed(1)}x
+                          </span>
+                        ) : "—"}
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
               {/* Totals row */}
               <tfoot>
@@ -594,6 +933,11 @@ export default function ServiceSelection({
                   <td className="px-4 py-3 text-right text-xs">—</td>
                   <td className="px-4 py-3 text-right text-xs">{maxRoiTotalJobs.toFixed(1)}</td>
                   <td className="px-4 py-3 text-right text-xs">{formatCurrency(maxRoiTotalRevenue)}/mo</td>
+                  <td className="px-4 py-3 text-right text-xs">
+                    {maxRoiTotalBudget > 0 ? (
+                      <span>{(maxRoiTotalRevenue / maxRoiTotalBudget).toFixed(1)}x</span>
+                    ) : "—"}
+                  </td>
                 </tr>
               </tfoot>
             </table>

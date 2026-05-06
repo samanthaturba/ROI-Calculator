@@ -18,6 +18,7 @@ import {
   hasBenchmarksForPlatform,
   getBenchmarkForService,
   getIndustryCloseRate,
+  getAllGoogleBenchmarks,
 } from "../lib/benchmarks";
 import { calculate, checkSpendWarning, formatCurrency } from "../lib/calculations";
 import { extractServicesFromText } from "../lib/service-extraction";
@@ -36,6 +37,19 @@ import CitySearch from "../components/CitySearch";
 import type { CitySearchResult } from "../components/CitySearch";
 
 const DEFAULT_CLOSE_RATE = 20; // Fallback before industry is selected; actual default comes from industry data
+
+/** Pure helper — mirrors getEffectiveCpl in ServiceSelection.tsx without needing the import. */
+function getEffectiveCplForService(s: ServiceSelectionType, multiplier: number): number | null {
+  let base: number | null = null;
+  if (s.cplChoice === "custom") base = s.customCpl;
+  else if (s.benchmark) {
+    if (s.cplChoice === "low")  base = s.benchmark.cplLow;
+    else if (s.cplChoice === "mid")  base = s.benchmark.cplMid;
+    else if (s.cplChoice === "high") base = s.benchmark.cplHigh;
+  }
+  if (base === null || base <= 0) return null;
+  return Math.round(base * multiplier);
+}
 
 const PLATFORM_INFO: Record<AdPlatform, { label: string; icon: string; description: string }> = {
   google: {
@@ -103,6 +117,7 @@ export default function Home() {
     { id: `area-${areaIdCounter++}`, name: "", tier: "", budgetPercent: 100 },
   ]);
   const [closeRateManuallySet, setCloseRateManuallySet] = useState(false);
+  const [budgetMode, setBudgetMode] = useState<"strict" | "maxroi">("strict");
 
   const [selectedPlatforms, setSelectedPlatforms] = useState<AdPlatform[]>(["google"]);
   const [platformAllocations, setPlatformAllocations] = useState<Record<AdPlatform, number>>({
@@ -130,6 +145,25 @@ export default function Home() {
     }, 0);
     return weighted / totalPercent;
   }, [targetAreas]);
+
+  // Total budget when in Max ROI mode: sum of each selected service's chosen budget tier
+  const maxRoiAdSpend = useMemo(() => {
+    const sel = services.filter((s) => s.selected);
+    if (sel.length === 0 || budgetInputs.closeRate <= 0) return 0;
+    const cr = budgetInputs.closeRate / 100;
+    return sel.reduce((sum, s) => {
+      const cpl = getEffectiveCplForService(s, blendedMultiplier);
+      if (!cpl) return sum;
+      const minLeads    = Math.ceil(3 / cr);
+      const targetLeads = Math.ceil(6 / cr);
+      const rawMin    = Math.max(Math.round((cpl * minLeads)    / 50)  * 50,  300);
+      const rawTarget = Math.max(Math.round((cpl * targetLeads) / 100) * 100, 500);
+      const choice = s.maxRoiBudgetChoice ?? "target";
+      if (choice === "min")    return sum + rawMin;
+      if (choice === "custom") return sum + (s.customMaxRoiBudget ?? rawTarget);
+      return sum + rawTarget;
+    }, 0);
+  }, [services, budgetInputs.closeRate, blendedMultiplier]);
 
   function addArea() {
     setTargetAreas((prev) => {
@@ -252,6 +286,20 @@ export default function Home() {
       return rebalancePlatformAllocations(platforms);
     }
 
+    // Recommended spend amounts per platform — the most direct signal for "how much
+    // each platform needs to be effective" for this industry.  Used as a correction
+    // when revenue projection gives ties (e.g. Google Ads + Google LSA both 5★ for HVAC
+    // but rec'd $6K vs $3K — star-rating fallback would give 50/50, rec-spend gives 67/33).
+    const recSpendWeights: Record<AdPlatform, number> = { google: 0, meta: 0, linkedin: 0, lsa: 0 };
+    let totalRecSpend = 0;
+    if (clientInputs.industryId) {
+      for (const p of platforms) {
+        const rec = getRecommendedSpend(clientInputs.industryId, p);
+        recSpendWeights[p] = rec.target ?? rec.min ?? 0;
+        totalRecSpend += recSpendWeights[p];
+      }
+    }
+
     // Primary weighting: projected revenue if each platform got the full budget.
     // This captures real economics (CPL, job value, conversion) the rating alone misses.
     const weights: Record<AdPlatform, number> = { google: 0, meta: 0, linkedin: 0, lsa: 0 };
@@ -267,10 +315,25 @@ export default function Home() {
       }
     }
 
-    // Fall back to star ratings if we couldn't project revenue (or every platform came back 0)
-    if (totalRevenueWeight <= 0) {
+    if (totalRevenueWeight > 0 && totalRecSpend > 0) {
+      // Blend: 70 % revenue projection + 30 % recommended spend ratio.
+      // The rec-spend component corrects for platforms that share CPL benchmarks
+      // (so revenue projection ties) but have genuinely different budget requirements.
       for (const p of platforms) {
-        weights[p] = Math.max(recs[p]?.rating ?? 1, 1);
+        const revShare = weights[p] / totalRevenueWeight;
+        const recShare = recSpendWeights[p] / totalRecSpend;
+        weights[p] = revShare * 0.7 + recShare * 0.3;
+      }
+    } else if (totalRevenueWeight <= 0) {
+      // No revenue projection — use rec-spend amounts if available, else star ratings
+      if (totalRecSpend > 0) {
+        for (const p of platforms) {
+          weights[p] = recSpendWeights[p] > 0 ? recSpendWeights[p] : Math.max(recs[p]?.rating ?? 1, 1);
+        }
+      } else {
+        for (const p of platforms) {
+          weights[p] = Math.max(recs[p]?.rating ?? 1, 1);
+        }
       }
     }
 
@@ -491,12 +554,84 @@ export default function Home() {
     [clientInputs.industryId, budgetInputs.monthlyAdSpend, platform, closeRateManuallySet]
   );
 
+  // Handle website scan result — atomically sets industry + auto-selects services
+  // from the scanned page text without the async state-race of two separate calls.
+  const handleWebsiteScan = useCallback(
+    ({ industryId, text }: { industryId: string; text: string }) => {
+      // Load services for the detected industry
+      const benchmarks = getServicesForIndustry(industryId, platform);
+      const newServices: ServiceSelectionType[] = benchmarks.map((b) => ({
+        serviceName: b.serviceName,
+        selected: false,
+        allocationPercent: 0,
+        cplChoice: "high" as const,
+        customCpl: null,
+        customJobValue: null,
+        benchmark: b,
+        isManual: false,
+      }));
+
+      // Run service extraction — Phase 1 against current industry, Phase 2 cross-industry
+      const allBenchmarks = getAllGoogleBenchmarks();
+      const extracted = extractServicesFromText(text, benchmarks, allBenchmarks);
+
+      // Auto-select matched services and calculate even splits
+      const updatedServices = newServices.map((s) => {
+        const match = extracted.find((e) => e.matchedBenchmark === s.serviceName);
+        return match ? { ...s, selected: true } : s;
+      });
+
+      // Auto-add cross-industry matches as manually-added services with proxy benchmark data
+      const crossMatches = extracted.filter((e) => e.crossIndustryBenchmark);
+      for (const cm of crossMatches) {
+        const alreadyExists = updatedServices.some(
+          (s) => s.serviceName.toLowerCase() === cm.name.toLowerCase()
+        );
+        if (!alreadyExists) {
+          updatedServices.push({
+            serviceName: cm.crossIndustryBenchmark!.serviceName,
+            selected: true,
+            allocationPercent: 0,
+            cplChoice: "high" as const,
+            customCpl: null,
+            customJobValue: null,
+            benchmark: cm.crossIndustryBenchmark!,
+            isManual: true,
+          });
+        }
+      }
+
+      const selCount = updatedServices.filter((s) => s.selected).length;
+      if (selCount > 0) {
+        const even = Math.round((100 / selCount) * 10) / 10;
+        for (const s of updatedServices) s.allocationPercent = s.selected ? even : 0;
+      }
+
+      setServices(updatedServices);
+      setExtractedServices(extracted);
+      setClientInputs((prev) => ({ ...prev, industryId }));
+
+      // Set recommended spend
+      const spend = getRecommendedSpend(industryId, platform);
+      if (spend.target && budgetInputs.monthlyAdSpend === 0) {
+        setBudgetInputs((prev) => ({ ...prev, monthlyAdSpend: spend.target! }));
+      }
+      // Set industry close rate
+      if (!closeRateManuallySet) {
+        const icr = getIndustryCloseRate(industryId);
+        setBudgetInputs((prev) => ({ ...prev, closeRate: icr.closeRate }));
+      }
+    },
+    [platform, budgetInputs.monthlyAdSpend, closeRateManuallySet]
+  );
+
   // Handle text extraction for service detection
   const handleTextExtract = useCallback(
     (text: string) => {
       if (!clientInputs.industryId) return;
       const benchmarks = getServicesForIndustry(clientInputs.industryId, platform);
-      const extracted = extractServicesFromText(text, benchmarks);
+      const allBenchmarks = getAllGoogleBenchmarks();
+      const extracted = extractServicesFromText(text, benchmarks, allBenchmarks);
       setExtractedServices(extracted);
 
       if (extracted.length > 0) {
@@ -505,11 +640,29 @@ export default function Home() {
             const match = extracted.find(
               (e) => e.matchedBenchmark === s.serviceName
             );
-            if (match) {
-              return { ...s, selected: true };
-            }
+            if (match) return { ...s, selected: true };
             return s;
           });
+
+          // Auto-add cross-industry matches not already in the list
+          const crossMatches = extracted.filter((e) => e.crossIndustryBenchmark);
+          for (const cm of crossMatches) {
+            const alreadyExists = updated.some(
+              (s) => s.serviceName.toLowerCase() === cm.name.toLowerCase()
+            );
+            if (!alreadyExists) {
+              updated.push({
+                serviceName: cm.crossIndustryBenchmark!.serviceName,
+                selected: true,
+                allocationPercent: 0,
+                cplChoice: "high" as const,
+                customCpl: null,
+                customJobValue: null,
+                benchmark: cm.crossIndustryBenchmark!,
+                isManual: true,
+              });
+            }
+          }
 
           const selectedCount = updated.filter((s) => s.selected).length;
           if (selectedCount > 0) {
@@ -585,20 +738,44 @@ export default function Home() {
     };
 
     const selectedServices = services.filter((s) => s.selected);
+    // In Max ROI mode use the sum of per-service recommended budgets; otherwise fixed budget
+    const effectiveTotalBudget = budgetMode === "maxroi" ? maxRoiAdSpend : budgetInputs.monthlyAdSpend;
+
     if (
       selectedServices.length === 0 ||
-      budgetInputs.monthlyAdSpend <= 0 ||
+      effectiveTotalBudget <= 0 ||
       budgetInputs.closeRate <= 0
     ) {
       return results;
     }
 
+    // In Max ROI mode recompute per-service allocation %s so each service receives
+    // its chosen budget tier (min / target / custom) proportionally.
+    const servicesWithAlloc = budgetMode === "maxroi" && maxRoiAdSpend > 0
+      ? services.map((s) => {
+          if (!s.selected) return s;
+          const cpl = getEffectiveCplForService(s, blendedMultiplier);
+          if (!cpl) return { ...s, allocationPercent: 100 / selectedServices.length };
+          const cr = budgetInputs.closeRate / 100;
+          const minLeads    = Math.ceil(3 / cr);
+          const targetLeads = Math.ceil(6 / cr);
+          const rawMin    = Math.max(Math.round((cpl * minLeads)    / 50)  * 50,  300);
+          const rawTarget = Math.max(Math.round((cpl * targetLeads) / 100) * 100, 500);
+          const choice = s.maxRoiBudgetChoice ?? "target";
+          const svcBudget =
+            choice === "min"    ? rawMin :
+            choice === "custom" ? (s.customMaxRoiBudget ?? rawTarget) :
+            rawTarget;
+          return { ...s, allocationPercent: (svcBudget / maxRoiAdSpend) * 100 };
+        })
+      : services;
+
     for (const plat of selectedPlatforms) {
-      const platBudget = budgetInputs.monthlyAdSpend * (platformAllocations[plat] / 100);
+      const platBudget = effectiveTotalBudget * (platformAllocations[plat] / 100);
       if (platBudget <= 0) continue;
 
       // Build services with platform-specific benchmarks
-      const platServices = services.map((s) => {
+      const platServices = servicesWithAlloc.map((s) => {
         if (!s.selected) return s;
 
         // For the primary platform, use the service as-is
@@ -633,7 +810,7 @@ export default function Home() {
     }
 
     return results;
-  }, [services, budgetInputs, blendedMultiplier, selectedPlatforms, platformAllocations, primaryPlatform, clientInputs.industryId]);
+  }, [services, budgetInputs, blendedMultiplier, selectedPlatforms, platformAllocations, primaryPlatform, clientInputs.industryId, budgetMode, maxRoiAdSpend]);
 
   // Combined result across all platforms (for single-platform backward compat, this equals the single result)
   const combinedResult = useMemo(() => {
@@ -947,6 +1124,7 @@ ${resultsHtml}
           value={clientInputs}
           onChange={handleClientInputsChange}
           onTextExtract={handleTextExtract}
+          onWebsiteScan={handleWebsiteScan}
         />
 
         {/* Ecommerce management notice — shown prominently when enabled */}
@@ -1105,35 +1283,8 @@ ${resultsHtml}
                     }}
                     className="text-xs text-cogent-navy hover:underline font-medium"
                   >
-                    Use recommended split
+                    Recommended Split
                   </button>
-                  {/* Split by recommended $ amounts — only when per-platform targets exist */}
-                  {selectedPlatforms.some((p) => perPlatformRecommendedSpend[p]?.target) && (
-                    <button
-                      onClick={() => {
-                        const totalRec = selectedPlatforms.reduce(
-                          (s, p) => s + (perPlatformRecommendedSpend[p]?.target ?? 0), 0
-                        );
-                        if (totalRec <= 0) return;
-                        const sorted = [...selectedPlatforms].sort(
-                          (a, b) => (perPlatformRecommendedSpend[b]?.target ?? 0) - (perPlatformRecommendedSpend[a]?.target ?? 0)
-                        );
-                        const newAlloc: Record<AdPlatform, number> = { google: 0, meta: 0, linkedin: 0, lsa: 0 };
-                        let remaining = 100;
-                        for (let i = 0; i < sorted.length - 1; i++) {
-                          const pct = Math.round(((perPlatformRecommendedSpend[sorted[i]]?.target ?? 0) / totalRec) * 100 / 5) * 5;
-                          newAlloc[sorted[i]] = Math.max(5, pct);
-                          remaining -= newAlloc[sorted[i]];
-                        }
-                        newAlloc[sorted[sorted.length - 1]] = Math.max(5, remaining);
-                        setPlatformAllocations(newAlloc);
-                        setPlatformAllocationsManuallyEdited(true);
-                      }}
-                      className="text-xs text-cogent-sage-dark hover:underline font-medium"
-                    >
-                      Split by recommended $
-                    </button>
-                  )}
                   <button
                     onClick={() => {
                       evenSplitPlatforms();
@@ -1141,16 +1292,16 @@ ${resultsHtml}
                     }}
                     className="text-xs text-cogent-neutral hover:underline"
                   >
-                    Even split
+                    Even Split
                   </button>
                 </div>
               </div>
               <p className="text-[11px] text-cogent-neutral mb-3">
                 {platformAllocationsManuallyEdited
-                  ? "Custom split active — auto-recommendation paused. Click \"Use recommended split\" to switch back."
+                  ? "Custom split active. Click \"Recommended Split\" to restore the data-driven allocation."
                   : budgetInputs.monthlyAdSpend > 0 && services.some((s) => s.selected) && budgetInputs.closeRate > 0
-                    ? "Recommended split is weighted by projected revenue per platform, with a minimum floor to maintain diversification."
-                    : "Recommended split is based on platform fit ratings. It will auto-update once you select services and enter a budget + close rate."}
+                    ? "Split is weighted by projected revenue and benchmark spend targets for each platform."
+                    : "Split is based on platform fit ratings and will refine once services, budget, and close rate are set."}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {selectedPlatforms.map((plat) => {
@@ -1204,6 +1355,59 @@ ${resultsHtml}
                   <span className="ml-2 text-gray-400">= {formatCurrency(budgetInputs.monthlyAdSpend)}/mo total</span>
                 )}
               </div>
+
+              {/* Max recommended budget callout — shows sum of per-platform target recommendations */}
+              {(() => {
+                const totalRecBudget = selectedPlatforms.reduce(
+                  (s, p) => s + (perPlatformRecommendedSpend[p]?.target ?? 0), 0
+                );
+                if (totalRecBudget <= 0) return null;
+                const breakdown = selectedPlatforms
+                  .filter((p) => (perPlatformRecommendedSpend[p]?.target ?? 0) > 0)
+                  .map((p) => `${PLATFORM_INFO[p].label}: ${formatCurrency(perPlatformRecommendedSpend[p]!.target!)}`)
+                  .join(" + ");
+                const alreadyAtRec = Math.abs(budgetInputs.monthlyAdSpend - totalRecBudget) < 50;
+                return (
+                  <div className="mt-3 p-3 bg-cogent-sage/10 border border-cogent-sage/30 rounded-lg flex items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <p className="text-xs font-semibold text-cogent-navy">
+                        Max recommended total: {formatCurrency(totalRecBudget)}/mo
+                      </p>
+                      {breakdown && (
+                        <p className="text-[11px] text-cogent-neutral mt-0.5">{breakdown}</p>
+                      )}
+                      <p className="text-[11px] text-gray-400 mt-1">
+                        Fully funding both platforms at their recommended levels unlocks each one&apos;s full potential.
+                      </p>
+                    </div>
+                    {alreadyAtRec ? (
+                      <span className="text-xs text-cogent-sage-dark font-medium shrink-0 mt-0.5">✓ At rec&apos;d total</span>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          setBudgetInputs((prev) => ({ ...prev, monthlyAdSpend: totalRecBudget }));
+                          const sorted = [...selectedPlatforms].sort(
+                            (a, b) => (perPlatformRecommendedSpend[b]?.target ?? 0) - (perPlatformRecommendedSpend[a]?.target ?? 0)
+                          );
+                          const newAlloc: Record<AdPlatform, number> = { google: 0, meta: 0, linkedin: 0, lsa: 0 };
+                          let remaining = 100;
+                          for (let i = 0; i < sorted.length - 1; i++) {
+                            const pct = Math.round(((perPlatformRecommendedSpend[sorted[i]]?.target ?? 0) / totalRecBudget) * 100 / 5) * 5;
+                            newAlloc[sorted[i]] = Math.max(5, pct);
+                            remaining -= newAlloc[sorted[i]];
+                          }
+                          newAlloc[sorted[sorted.length - 1]] = Math.max(5, remaining);
+                          setPlatformAllocations(newAlloc);
+                          setPlatformAllocationsManuallyEdited(true);
+                        }}
+                        className="text-xs px-3 py-1.5 bg-cogent-sage text-cogent-navy-dark rounded-md hover:bg-cogent-sage/80 font-semibold shrink-0 transition-colors whitespace-nowrap"
+                      >
+                        Use {formatCurrency(totalRecBudget)}/mo →
+                      </button>
+                    )}
+                  </div>
+                );
+              })()}
             </div>
           )}
 
@@ -1432,9 +1636,15 @@ ${resultsHtml}
           extractedServices={extractedServices}
           industryId={clientInputs.industryId}
           primaryPlatform={primaryPlatform}
+          selectedPlatforms={selectedPlatforms}
           closeRate={budgetInputs.closeRate}
           monthlyAdSpend={budgetInputs.monthlyAdSpend}
           blendedMultiplier={blendedMultiplier}
+          budgetMode={budgetMode}
+          onBudgetModeChange={setBudgetMode}
+          onMonthlyAdSpendChange={(val) =>
+            setBudgetInputs((prev) => ({ ...prev, monthlyAdSpend: val }))
+          }
         />
 
         {/* Section C: Budget + Sales Inputs */}
@@ -1456,6 +1666,8 @@ ${resultsHtml}
           selectedPlatforms={selectedPlatforms}
           platformAllocations={platformAllocations}
           perPlatformRecommendedSpend={perPlatformRecommendedSpend}
+          budgetMode={budgetMode}
+          maxRoiAdSpend={maxRoiAdSpend}
         />
 
         {/* Section D: Results */}
@@ -1467,7 +1679,7 @@ ${resultsHtml}
           targetArea={areasSummary}
           marketTier={targetAreas.length === 1 ? targetAreas[0]?.tier : "blended"}
           marketMultiplier={blendedMultiplier}
-          monthlyAdSpend={budgetInputs.monthlyAdSpend}
+          monthlyAdSpend={budgetMode === "maxroi" ? maxRoiAdSpend : budgetInputs.monthlyAdSpend}
         />
 
         {/* Section E: Keyword Suggestions (Google only) */}
@@ -1535,7 +1747,7 @@ ${resultsHtml}
             </span>
           </div>
           <div className="text-xs text-gray-500 text-right max-w-md">
-            <p>Google Ads data: <a href="https://www.localiq.com/blog/search-advertising-benchmarks/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">LocaliQ 2025 Search Ad Benchmarks</a> · <a href="https://www.webfx.com/blog/marketing/google-ads-benchmarks/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">WebFX 2026 Google Ads Cost Data</a> · <a href="https://www.wordstream.com/blog/ws/2016/02/29/google-adwords-industry-benchmarks" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">WordStream Industry Benchmarks</a></p>
+            <p>Google Ads data: <a href="https://www.localiq.com/blog/search-advertising-benchmarks/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">LocaliQ 2025 Search Ad Benchmarks</a> · <a href="https://www.wordstream.com/blog/ws/2016/02/29/google-adwords-industry-benchmarks" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">WordStream Industry Benchmarks</a> · <a href="https://searchlightdigital.io/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">SearchLight Digital 2026 ($14.9M spend)</a> · <a href="https://business.google.com/us/google-ads/campaign-budget/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">Google Ads Budget Simulator</a></p>
             <p className="mt-0.5">Meta Ads data: <a href="https://www.wordstream.com/blog/ws/2016/02/29/google-adwords-industry-benchmarks" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">WordStream 2025</a> · <a href="https://focusdigital.co.uk/blog/facebook-ad-benchmarks/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">Focus Digital 2025</a> · <a href="https://adamigo.io/blog/facebook-ads-industry-benchmarks/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">AdAmigo 2026</a></p>
             <p className="mt-0.5">LinkedIn Ads data: <a href="https://b2bhouse.com/linkedin-ads-benchmarks/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">B2B House 2026</a> · <a href="https://adbacklog.com/linkedin-ads-benchmarks/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">AdBacklog 2025</a> · LinkedIn internal published data</p>
             <p className="mt-0.5">Google LSA data: Estimated from <a href="https://homeservicedirect.net/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">HomeServiceDirect.net 2026</a> and industry reports.</p>

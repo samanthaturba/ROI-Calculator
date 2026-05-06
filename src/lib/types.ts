@@ -35,6 +35,10 @@ export interface ServiceSelection {
   customJobValue: number | null;
   benchmark: IndustryBenchmark | null;
   isManual: boolean;
+  /** Max ROI mode: which budget tier to use for this service's projection */
+  maxRoiBudgetChoice?: "min" | "target" | "custom";
+  /** Max ROI mode: user-entered custom budget (used when maxRoiBudgetChoice === "custom") */
+  customMaxRoiBudget?: number | null;
 }
 
 export interface ClientInputs {
@@ -88,4 +92,6 @@ export interface ExtractedService {
   name: string;
   confidence: ConfidenceLevel;
   matchedBenchmark: string | null;
+  /** When no exact industry match exists, the closest benchmark from any industry used as a data proxy. */
+  crossIndustryBenchmark?: IndustryBenchmark;
 }

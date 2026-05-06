@@ -61,6 +61,11 @@ export function getServicesForIndustry(industryId: string, platform: AdPlatform 
   return benchmarks.filter((b) => b.industryId === industryId);
 }
 
+/** All Google benchmarks across every industry — used for cross-industry service matching. */
+export function getAllGoogleBenchmarks(): IndustryBenchmark[] {
+  return googleBenchmarks;
+}
+
 export function getRecommendedSpend(industryId: string, platform: AdPlatform = "google"): {
   min: number | null;
   target: number | null;

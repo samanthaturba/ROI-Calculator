@@ -3,14 +3,25 @@
 import { useState, useEffect, useRef } from "react";
 import type { ClientInputs as ClientInputsType } from "../lib/types";
 import { searchIndustries, getAllIndustries } from "../lib/benchmarks";
+import { detectIndustries } from "../lib/industry-detection";
+import type { IndustryMatch } from "../lib/industry-detection";
+
+interface ScanResult {
+  topMatches: IndustryMatch[];
+  text: string;
+  title: string;
+}
 
 interface Props {
   value: ClientInputsType;
   onChange: (value: ClientInputsType) => void;
   onTextExtract: (text: string) => void;
+  /** Called when the user applies a website scan result — lets page.tsx handle
+   *  industry + service loading atomically (avoids async state race). */
+  onWebsiteScan?: (result: { industryId: string; text: string }) => void;
 }
 
-export default function ClientInputs({ value, onChange, onTextExtract }: Props) {
+export default function ClientInputs({ value, onChange, onTextExtract, onWebsiteScan }: Props) {
   const [industrySearch, setIndustrySearch] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const [pastedText, setPastedText] = useState("");
@@ -18,6 +29,13 @@ export default function ClientInputs({ value, onChange, onTextExtract }: Props) 
   const [secSearch, setSecSearch] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
   const secondaryDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Scan state
+  const [scanUrl, setScanUrl] = useState("");
+  const [scanning, setScanning] = useState(false);
+  const [scanError, setScanError] = useState("");
+  const [scanResult, setScanResult] = useState<ScanResult | null>(null);
+  const [showScanInput, setShowScanInput] = useState(false);
 
   const industries = industrySearch
     ? searchIndustries(industrySearch)
@@ -61,6 +79,80 @@ export default function ClientInputs({ value, onChange, onTextExtract }: Props) 
     if (combined.trim()) {
       onTextExtract(combined);
     }
+  }
+
+  async function handleScan() {
+    const url = (scanUrl || value.websiteUrl || "").trim();
+    if (!url) return;
+
+    setScanning(true);
+    setScanError("");
+    setScanResult(null);
+
+    try {
+      const res = await fetch("/api/scan-website", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || data.error) {
+        setScanError(data.error ?? "Failed to scan the website.");
+        setScanning(false);
+        return;
+      }
+
+      const { text, title } = data as { text: string; title: string; metaDescription: string };
+
+      // Detect industries from the page text
+      const topMatches = detectIndustries(text, 3);
+
+      if (topMatches.length === 0) {
+        setScanError(
+          "Could not detect a clear industry from this site. " +
+          "Try pasting the page text below, or select an industry manually."
+        );
+        setScanning(false);
+        return;
+      }
+
+      setScanResult({ topMatches, text, title });
+    } catch {
+      setScanError("Network error. Check your connection and try again.");
+    } finally {
+      setScanning(false);
+    }
+  }
+
+  function applyScanResult(industryId: string) {
+    if (!scanResult) return;
+
+    const combined = [scanResult.text, value.gbpDescription].filter(Boolean).join("\n");
+
+    if (onWebsiteScan) {
+      // Let page.tsx handle the atomic industry + services load
+      onWebsiteScan({ industryId, text: combined });
+      // Also update websiteUrl if the user typed in the scan input
+      if (scanUrl && !value.websiteUrl) {
+        onChange({ ...value, industryId });
+      }
+    } else {
+      // Fallback: update industry via normal onChange
+      onChange({ ...value, industryId });
+      if (combined.trim()) onTextExtract(combined);
+    }
+
+    setScanResult(null);
+    setShowScanInput(false);
+    setScanUrl("");
+  }
+
+  function confidenceBadge(c: "high" | "medium" | "low") {
+    if (c === "high") return "bg-green-100 text-green-700";
+    if (c === "medium") return "bg-yellow-100 text-yellow-700";
+    return "bg-orange-100 text-orange-700";
   }
 
   return (
@@ -146,13 +238,31 @@ export default function ClientInputs({ value, onChange, onTextExtract }: Props) 
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Website URL <span className="text-gray-400">(optional)</span>
           </label>
-          <input
-            type="url"
-            value={value.websiteUrl}
-            onChange={(e) => onChange({ ...value, websiteUrl: e.target.value })}
-            className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
-            placeholder="https://example.com"
-          />
+          <div className="flex gap-2">
+            <input
+              type="url"
+              value={value.websiteUrl}
+              onChange={(e) => onChange({ ...value, websiteUrl: e.target.value })}
+              className="flex-1 border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
+              placeholder="https://example.com"
+            />
+            {/* Scan button — shows when URL is present */}
+            {value.websiteUrl && (
+              <button
+                type="button"
+                onClick={() => {
+                  setScanUrl(value.websiteUrl);
+                  setShowScanInput(false);
+                  handleScan();
+                }}
+                disabled={scanning}
+                className="px-3 py-2 bg-cogent-navy text-white text-xs font-medium rounded-md hover:bg-cogent-navy-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors whitespace-nowrap"
+                title="Scan this website to auto-detect industry and services"
+              >
+                {scanning ? "Scanning…" : "🔍 Scan Site"}
+              </button>
+            )}
+          </div>
         </div>
 
         {/* GBP Description */}
@@ -169,6 +279,124 @@ export default function ClientInputs({ value, onChange, onTextExtract }: Props) 
           />
         </div>
       </div>
+
+      {/* ── Scan-from-URL panel (no URL yet) ─────────────────────────────────── */}
+      {!value.websiteUrl && (
+        <div className="mt-3">
+          {!showScanInput ? (
+            <button
+              type="button"
+              onClick={() => setShowScanInput(true)}
+              className="text-xs text-cogent-navy hover:underline font-medium"
+            >
+              🔍 Don&apos;t know the industry? Scan from website URL
+            </button>
+          ) : (
+            <div className="flex gap-2 items-center mt-1">
+              <input
+                type="url"
+                value={scanUrl}
+                onChange={(e) => setScanUrl(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleScan()}
+                placeholder="https://clientwebsite.com"
+                autoFocus
+                className="flex-1 border border-cogent-navy/40 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
+              />
+              <button
+                type="button"
+                onClick={handleScan}
+                disabled={!scanUrl.trim() || scanning}
+                className="px-4 py-2 bg-cogent-navy text-white text-sm font-medium rounded-md hover:bg-cogent-navy-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+              >
+                {scanning ? "Scanning…" : "Scan"}
+              </button>
+              <button
+                type="button"
+                onClick={() => { setShowScanInput(false); setScanUrl(""); setScanError(""); }}
+                className="text-xs text-gray-400 hover:text-gray-600"
+              >
+                Cancel
+              </button>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ── Scan error ────────────────────────────────────────────────────────── */}
+      {scanError && (
+        <div className="mt-3 p-3 bg-red-50 border border-red-200 rounded-md flex items-start gap-2">
+          <span className="text-red-500 text-sm mt-0.5">⚠</span>
+          <p className="text-sm text-red-700">{scanError}</p>
+          <button
+            type="button"
+            onClick={() => setScanError("")}
+            className="ml-auto text-red-400 hover:text-red-600 text-xs"
+          >
+            ✕
+          </button>
+        </div>
+      )}
+
+      {/* ── Scan result confirmation banner ──────────────────────────────────── */}
+      {scanResult && (
+        <div className="mt-4 p-4 bg-cogent-sage/10 border border-cogent-sage/40 rounded-lg">
+          <div className="flex items-start justify-between gap-2 mb-3">
+            <div>
+              <p className="text-sm font-semibold text-cogent-navy">
+                🎯 Industry detected from{" "}
+                <span className="font-normal italic">{scanResult.title || "website"}</span>
+              </p>
+              <p className="text-xs text-cogent-neutral mt-0.5">
+                Select an industry to apply — services will be auto-matched from the page text.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setScanResult(null)}
+              className="text-gray-400 hover:text-gray-600 text-xs shrink-0"
+            >
+              ✕ Dismiss
+            </button>
+          </div>
+
+          <div className="space-y-2">
+            {scanResult.topMatches.map((match, idx) => {
+              const industryName = getAllIndustries().find((i) => i.id === match.industryId)?.name ?? match.industryId;
+              return (
+                <div
+                  key={match.industryId}
+                  className="flex items-center justify-between gap-3 p-2.5 bg-white rounded-md border border-gray-200"
+                >
+                  <div className="flex items-center gap-2 min-w-0">
+                    {idx === 0 && (
+                      <span className="text-[10px] font-bold text-cogent-navy bg-cogent-sage/30 px-1.5 py-0.5 rounded shrink-0">
+                        BEST MATCH
+                      </span>
+                    )}
+                    <span className="text-sm font-medium text-gray-900 truncate">{industryName}</span>
+                    <span className={`text-[10px] px-1.5 py-0.5 rounded font-medium shrink-0 ${confidenceBadge(match.confidence)}`}>
+                      {match.confidence} confidence
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <span className="text-[10px] text-gray-400 hidden sm:block">
+                      {match.matchedKeywords.slice(0, 3).join(", ")}
+                      {match.matchedKeywords.length > 3 ? ` +${match.matchedKeywords.length - 3}` : ""}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => applyScanResult(match.industryId)}
+                      className="px-3 py-1 bg-cogent-navy text-white text-xs font-medium rounded hover:bg-cogent-navy-dark transition-colors"
+                    >
+                      Apply
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Secondary Industries — shown once a primary industry is selected */}
       {value.industryId && (
