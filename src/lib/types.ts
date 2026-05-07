@@ -24,6 +24,8 @@ export interface IndustryBenchmark {
   notes?: string;
   source?: string;
   confidence?: ConfidenceLevel;
+  /** Industry-average number of days from first contact to signed job/contract */
+  avgDaysToClose?: number | null;
 }
 
 export interface ServiceSelection {

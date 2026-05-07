@@ -11,7 +11,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "SearchLight Jan 2026: AC repair CPL $231, 37% book rate, $3,174 avg ticket. Highly seasonal \u2014 summer peaks can 3x costs.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; SearchLight Digital HVAC Benchmark Jan 2026 ($14.9M spend, 816 contractors)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 2
   },
   {
     "industryId": "hvac",
@@ -25,7 +26,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "SearchLight Jan 2026: heating repair CPL $144, 38.2% book rate, $3,225 avg ticket. Winter peaks drive higher competition.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; SearchLight Digital HVAC Benchmark Jan 2026 ($14.9M spend, 816 contractors)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 2
   },
   {
     "industryId": "hvac",
@@ -39,7 +41,8 @@
     "recommendedTargetAdSpend": 6000,
     "notes": "Derived from HVAC non-branded CPL $149 (SearchLight 2026). Installation leads are high-value but harder to convert.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; SearchLight Digital HVAC Benchmark Jan 2026 ($14.9M spend, 816 contractors)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "hvac",
@@ -53,7 +56,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Lower CPL for maintenance/tune-up keywords due to lower competition. Recurring revenue opportunity.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; SearchLight Digital HVAC Benchmark Jan 2026 ($14.9M spend, 816 contractors)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "hvac",
@@ -67,7 +71,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Based on HVAC overall CPL $127.74 (LocaliQ 2025). Ductwork is moderate-competition subcategory.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; SearchLight Digital HVAC Benchmark Jan 2026 ($14.9M spend, 816 contractors)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 5
   },
   {
     "industryId": "hvac",
@@ -81,7 +86,8 @@
     "recommendedTargetAdSpend": 5500,
     "notes": "Residential gas or electric furnace replacement including unit cost, labor, and permit. Typically $3,000\u2013$8,000. Competition is lower than AC in summer, higher in fall shoulder season.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; SearchLight Digital HVAC Benchmark Jan 2026 ($14.9M spend, 816 contractors); industry estimates for subcategories",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "hvac",
@@ -95,7 +101,8 @@
     "recommendedTargetAdSpend": 6000,
     "notes": "Ducted and ductless heat pump systems. Growing demand driven by energy efficiency incentives. High job value ($5,000\u2013$15,000). CPL similar to AC installation with additional electrification-search volume.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; SearchLight Digital HVAC Benchmark Jan 2026 ($14.9M spend, 816 contractors); industry estimates for subcategories",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "hvac",
@@ -109,7 +116,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Single or multi-zone ductless mini-split systems for room additions, older homes, or spaces without existing ductwork. Job value: $2,000\u2013$12,000 depending on zone count.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; SearchLight Digital HVAC Benchmark Jan 2026 ($14.9M spend, 816 contractors); industry estimates for subcategories",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 10
   },
   {
     "industryId": "hvac",
@@ -123,7 +131,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Air quality testing, whole-house air purifiers, UV sanitizers, humidifiers/dehumidifiers, and filtration upgrades. Lower CPL due to lower search competition. Often an upsell alongside repair/install jobs.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; SearchLight Digital HVAC Benchmark Jan 2026 ($14.9M spend, 816 contractors); industry estimates for subcategories",
-    "confidence": "low"
+    "confidence": "low",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "hvac",
@@ -137,7 +146,8 @@
     "recommendedTargetAdSpend": 3600,
     "notes": "Residential and light commercial boiler repair, service, and inspection. Common in northeast US and older homes. Hydronic heating market. Job value varies: $300 service call to $5,000+ replacement.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; SearchLight Digital HVAC Benchmark Jan 2026 ($14.9M spend, 816 contractors); industry estimates for subcategories",
-    "confidence": "low"
+    "confidence": "low",
+    "avgDaysToClose": 2
   },
   {
     "industryId": "hvac",
@@ -151,7 +161,8 @@
     "recommendedTargetAdSpend": 5500,
     "notes": "Best-documented commercial HVAC category. Includes emergency and scheduled repairs on RTUs, air handlers, and split systems. Higher intent than residential \u2014 buyers are facility managers with approval authority.",
     "source": "LocaliQ/WordStream 2025 HVAC vertical; SearchLight Digital 2026 HVAC Benchmark; ServiceTitan 2024 Commercial HVAC Benchmarks; triangulated from CPC $15\u201335 \u00d7 CVR 3\u20138%",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 2
   },
   {
     "industryId": "hvac",
@@ -165,7 +176,8 @@
     "recommendedTargetAdSpend": 6000,
     "notes": "Recurring annual/quarterly PM contracts for commercial buildings. Avg contract $3,500\u2013$12,000/yr depending on equipment count. Lifetime value is very high \u2014 factor LTV into CPL tolerance.",
     "source": "LocaliQ/WordStream 2025 HVAC vertical; SearchLight Digital 2026 HVAC Benchmark; ServiceTitan 2024 Commercial HVAC Benchmarks; triangulated from CPC $15\u201335 \u00d7 CVR 3\u20138%",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "hvac",
@@ -179,7 +191,8 @@
     "recommendedTargetAdSpend": 8000,
     "notes": "Rooftop unit and commercial system replacement/installation. High CPL reflects long sales cycles and competitive bidding. Job values of $18K\u2013$65K make even $500 CPL viable.",
     "source": "LocaliQ/WordStream 2025 HVAC vertical; SearchLight Digital 2026 HVAC Benchmark; ServiceTitan 2024 Commercial HVAC Benchmarks; triangulated from CPC $15\u201335 \u00d7 CVR 3\u20138%",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "hvac",
@@ -193,7 +206,8 @@
     "recommendedTargetAdSpend": 4500,
     "notes": "Highest search volume in commercial HVAC subcategories. Targets schools, offices, and multi-tenant buildings. IAQ compliance requirements drive consistent demand.",
     "source": "LocaliQ/WordStream 2025 HVAC vertical; SearchLight Digital 2026 HVAC Benchmark; ServiceTitan 2024 Commercial HVAC Benchmarks; triangulated from CPC $15\u201335 \u00d7 CVR 3\u20138%",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "hvac",
@@ -207,7 +221,8 @@
     "recommendedTargetAdSpend": 7000,
     "notes": "Walk-in coolers, freezers, reach-in units. Restaurants, grocery, food service industries. Emergency call rate is high \u2014 downtime is extremely costly for clients, increasing willingness to pay.",
     "source": "LocaliQ/WordStream 2025 HVAC vertical; SearchLight Digital 2026 HVAC Benchmark; ServiceTitan 2024 Commercial HVAC Benchmarks; triangulated from CPC $15\u201335 \u00d7 CVR 3\u20138%",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 30
   },
   {
     "industryId": "hvac",
@@ -221,7 +236,8 @@
     "recommendedTargetAdSpend": 5500,
     "notes": "Hydronic heating systems for commercial/institutional buildings. Common in northeast US and older commercial stock. Includes steam boilers, hot water boilers, and associated controls.",
     "source": "LocaliQ/WordStream 2025 HVAC vertical; SearchLight Digital 2026 HVAC Benchmark; ServiceTitan 2024 Commercial HVAC Benchmarks; triangulated from CPC $15\u201335 \u00d7 CVR 3\u20138%",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "hvac",
@@ -235,7 +251,8 @@
     "recommendedTargetAdSpend": 6000,
     "notes": "ERVs, HRVs, dedicated outdoor air systems (DOAS), commercial air purification, and CO2 monitoring. Post-COVID compliance requirements have increased demand significantly in schools and offices.",
     "source": "LocaliQ/WordStream 2025 HVAC vertical; SearchLight Digital 2026 HVAC Benchmark; ServiceTitan 2024 Commercial HVAC Benchmarks; triangulated from CPC $15\u201335 \u00d7 CVR 3\u20138%",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "hvac",
@@ -249,7 +266,8 @@
     "recommendedTargetAdSpend": 9000,
     "notes": "Water-cooled and air-cooled chillers for large commercial/industrial facilities. Very thin search volume \u2014 highly targeted campaigns needed. Job values of $25K\u2013$120K support premium CPL.",
     "source": "LocaliQ/WordStream 2025 HVAC vertical; SearchLight Digital 2026 HVAC Benchmark; ServiceTitan 2024 Commercial HVAC Benchmarks; triangulated from CPC $15\u201335 \u00d7 CVR 3\u20138%",
-    "confidence": "low"
+    "confidence": "low",
+    "avgDaysToClose": 60
   },
   {
     "industryId": "hvac",
@@ -263,7 +281,8 @@
     "recommendedTargetAdSpend": 8000,
     "notes": "Variable refrigerant flow systems for multi-zone commercial applications. Growing category as energy efficiency mandates increase. Requires manufacturer-certified technicians \u2014 differentiator in ads.",
     "source": "LocaliQ/WordStream 2025 HVAC vertical; SearchLight Digital 2026 HVAC Benchmark; ServiceTitan 2024 Commercial HVAC Benchmarks; triangulated from CPC $15\u201335 \u00d7 CVR 3\u20138%",
-    "confidence": "low"
+    "confidence": "low",
+    "avgDaysToClose": 60
   },
   {
     "industryId": "hvac",
@@ -277,7 +296,8 @@
     "recommendedTargetAdSpend": 8000,
     "notes": "Building automation systems, smart thermostats at scale, energy management systems, and BMS integration. Long sales cycle (60\u2013180 days). Best targeted at energy managers and facility directors.",
     "source": "LocaliQ/WordStream 2025 HVAC vertical; SearchLight Digital 2026 HVAC Benchmark; ServiceTitan 2024 Commercial HVAC Benchmarks; triangulated from CPC $15\u201335 \u00d7 CVR 3\u20138%",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 60
   },
   {
     "industryId": "plumbing",
@@ -291,7 +311,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "LocaliQ avg CPL $129\u2013167 for plumbing. Drain cleaning is lower-ticket, attracts higher search volume. SearchLight 2026 non-branded plumbing CPL avg $167.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025); SearchLight Digital 2026 HVAC/Home Services Benchmark ($14.9M spend analyzed)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 2
   },
   {
     "industryId": "plumbing",
@@ -305,7 +326,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "High-intent emergency and replacement searches. Above-average CPL for plumbing.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "plumbing",
@@ -319,7 +341,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Aligns closely with plumbing overall CPL $129.02 (LocaliQ 2025).",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 2
   },
   {
     "industryId": "plumbing",
@@ -333,7 +356,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Higher CPL aligned with SearchLight non-branded $167. High job value justifies premium lead costs.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 30
   },
   {
     "industryId": "plumbing",
@@ -347,7 +371,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Emergency keywords have higher CPC but also higher intent/conversion. CPL slightly above non-emergency average.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025); SearchLight Digital 2026 HVAC/Home Services Benchmark ($14.9M spend analyzed)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "roofing",
@@ -361,7 +386,8 @@
     "recommendedTargetAdSpend": 6000,
     "notes": "LocaliQ avg CVR 3.7% with CPC $10.70. SearchLight 2026 roofing non-branded CPL $124 avg. 99 Calls 10th/90th percentile $110\u2013$326. High-end reflects storm-damage markets and highly competitive metros.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025); 99 Calls 2024 Home Services Lead Cost Report (exclusive Google Ads leads); SearchLight Digital 2026 HVAC/Home Services Benchmark ($14.9M spend analyzed)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "roofing",
@@ -375,7 +401,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Repair CPL below replacement due to lower ticket size and slightly less competition.",
     "source": "99 Calls 2024 Home Services Lead Cost Report (exclusive Google Ads leads); LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "roofing",
@@ -389,7 +416,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Lower CPL for inspection/assessment keywords. Often used as lead-in to replacement sales.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "roofing",
@@ -403,7 +431,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Grouped with roofing in LocaliQ data. Lower competition than roof replacement keywords.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 10
   },
   {
     "industryId": "electrical",
@@ -417,7 +446,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "LocaliQ avg CPL for electrical $93.69. Panel upgrades are higher competition, skewing CPL above average.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 2
   },
   {
     "industryId": "electrical",
@@ -431,7 +461,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Aligns with electrical overall CPL $93.69 (LocaliQ 2025). Broad keyword category.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 5
   },
   {
     "industryId": "electrical",
@@ -445,7 +476,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Lower CPL than electrical average \u2014 consumer-friendly searches with good conversion rates.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 5
   },
   {
     "industryId": "electrical",
@@ -459,7 +491,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Growing market segment. Moderate competition with increasing search volume.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025); emerging keyword category, CPL similar to general electrical",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 5
   },
   {
     "industryId": "electrical",
@@ -473,7 +506,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "High job value. Seasonal demand spikes (storm season, winter) increase CPCs.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 10
   },
   {
     "industryId": "septic",
@@ -487,7 +521,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Lower CPL due to niche market and clear service intent. Recurring service opportunity.",
     "source": "Derived from LocaliQ 2025 Home Services avg CPL $90.92; niche service with lower competition than mainstream trades",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "septic",
@@ -501,7 +536,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "High-value installation. CPL aligned with construction/contractor benchmarks.",
     "source": "Derived from LocaliQ 2025 Home Services avg CPL $90.92; niche service with lower competition than mainstream trades",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "septic",
@@ -515,7 +551,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Moderate CPL \u2014 emergency repairs have higher intent but less competition than mainstream plumbing.",
     "source": "Derived from LocaliQ 2025 Home Services avg CPL $90.92; niche service with lower competition than mainstream trades",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "septic",
@@ -529,7 +566,8 @@
     "recommendedTargetAdSpend": 1200,
     "notes": "Low CPL for inspection keywords. Often lead-in to larger repair/replacement projects.",
     "source": "Derived from LocaliQ 2025 Home Services avg CPL $90.92; niche service with lower competition than mainstream trades",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "pest-control",
@@ -543,7 +581,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "LocaliQ avg pest control CPL $100 mid. Recurring service model keeps CPL critical.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 2
   },
   {
     "industryId": "pest-control",
@@ -557,7 +596,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Higher CPL than general pest due to high job value and competitive keywords.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "pest-control",
@@ -571,7 +611,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Lower competition niche within pest control. Seasonal variations (spring/fall).",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "pest-control",
@@ -585,7 +626,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "High-urgency searches with strong conversion intent. Competitive in urban markets.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "pest-control",
@@ -599,7 +641,8 @@
     "recommendedTargetAdSpend": 1800,
     "notes": "Seasonal service (spring/summer). Lower CPL due to lower competition and recurring revenue model.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "pool",
@@ -613,7 +656,8 @@
     "recommendedTargetAdSpend": 1800,
     "notes": "LocaliQ pool avg CVR 10.9% (highest segment) \u2014 recurring revenue nature keeps CPL manageable.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "pool",
@@ -627,7 +671,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Moderate CPL aligned with pools overall $45.15. Repair intent converts well.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "pool",
@@ -641,7 +686,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Very high job value supports high CPL. LocaliQ pool category avg CPL ~$71\u2013193 mid range.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 45
   },
   {
     "industryId": "pool",
@@ -655,7 +701,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Moderate-high CPL for renovation/resurfacing. Strong ROI due to high job value.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 30
   },
   {
     "industryId": "landscaping",
@@ -669,7 +716,8 @@
     "recommendedTargetAdSpend": 1800,
     "notes": "EverGrow 2025 green-industry study. Lawn maintenance CPL varies by market density.",
     "source": "LocaliQ 2025; 99 Calls 2024; EverGrow Marketing 2025 Green Industry Report",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "landscaping",
@@ -683,7 +731,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Higher CPL for design/install projects. High job value justifies cost.",
     "source": "LocaliQ 2025; 99 Calls 2024; EverGrow Marketing 2025 Green Industry Report",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "landscaping",
@@ -697,7 +746,8 @@
     "recommendedTargetAdSpend": 1800,
     "notes": "Moderate CPL. Often bundled with lawn care for recurring clients.",
     "source": "LocaliQ 2025; 99 Calls 2024; EverGrow Marketing 2025 Green Industry Report",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "landscaping",
@@ -711,7 +761,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "High job value drives competitive bidding. CPL varies widely by scope.",
     "source": "LocaliQ 2025; 99 Calls 2024; EverGrow Marketing 2025 Green Industry Report",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "landscaping",
@@ -725,7 +776,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Lower competition niche. Good conversion rates on specific intent keywords.",
     "source": "LocaliQ 2025; 99 Calls 2024; EverGrow Marketing 2025 Green Industry Report",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "tree-service",
@@ -739,7 +791,8 @@
     "recommendedTargetAdSpend": 2800,
     "notes": "LocaliQ tree services avg CPL $120 mid (CPC $8.57, CVR 7.1%).",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "tree-service",
@@ -753,7 +806,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Lower CPL than removal. High volume in spring/summer.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "tree-service",
@@ -767,7 +821,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Lower CPL for specific service intent. Good add-on to removal leads.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "tree-service",
@@ -781,7 +836,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Premium CPL for emergency keywords. High conversion intent during storms.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "painting",
@@ -795,7 +851,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "LocaliQ avg painting CPC $13.74, CVR 10.8%, avg CPL $138. High end reflects competitive metro markets.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 10
   },
   {
     "industryId": "painting",
@@ -809,7 +866,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Seasonal (spring/summer). Higher job value offsets premium CPL.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 10
   },
   {
     "industryId": "painting",
@@ -823,7 +881,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "B2B leads cost more but deliver much higher job values.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 10
   },
   {
     "industryId": "painting",
@@ -837,7 +896,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Niche within painting. Lower competition than general painting keywords.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 10
   },
   {
     "industryId": "fencing",
@@ -851,7 +911,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "LocaliQ avg fencing CPL ~$65 mid. Highly local market \u2014 rural vs urban drives significant variance.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 10
   },
   {
     "industryId": "fencing",
@@ -865,7 +926,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Lower CPL than wood \u2014 less competitive keywords. Budget-focused customers.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "fencing",
@@ -879,7 +941,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Similar CPL to wood fencing. Growing market segment with good margins.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 10
   },
   {
     "industryId": "fencing",
@@ -893,7 +956,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Slightly higher CPL \u2014 premium product with higher job value.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "concrete",
@@ -907,7 +971,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "LocaliQ masonry/concrete avg CPL $100 mid, 90th percentile up to $493. Competitive variance is very high.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "concrete",
@@ -921,7 +986,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "High-value commercial-adjacent service. CPL toward upper end of contractor benchmarks.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "concrete",
@@ -935,7 +1001,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Repair keywords convert better than installation, lowering CPL.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "concrete",
@@ -949,7 +1016,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Niche within concrete. Moderate competition with good conversion intent.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "stamped-concrete",
@@ -963,7 +1031,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Niche specialty within concrete. Lower competition than general concrete.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "stamped-concrete",
@@ -977,7 +1046,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Higher job value. Moderate competition in suburban markets.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "stamped-concrete",
@@ -991,7 +1061,8 @@
     "recommendedTargetAdSpend": 1800,
     "notes": "Lower CPL for repair vs. installation keywords.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "epoxy-flooring",
@@ -1005,7 +1076,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Strong consumer search volume. Lower CPL due to specific intent keywords.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors category); flooring contractor benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "epoxy-flooring",
@@ -1019,7 +1091,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "B2B/commercial leads cost more but deliver much higher job values.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors category); flooring contractor benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "epoxy-flooring",
@@ -1033,7 +1106,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "General coating keywords. Moderate competition.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors category); flooring contractor benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "flooring",
@@ -1047,7 +1121,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "LocaliQ flooring avg CPL $100 mid, range $27\u2013$246.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "flooring",
@@ -1061,7 +1136,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Lower CPL than hardwood \u2014 more price-sensitive market.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "flooring",
@@ -1075,7 +1151,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Moderate CPL. Tile-specific keywords have decent conversion rates.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "flooring",
@@ -1089,7 +1166,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Lower CPL for refinishing vs. installation. Good conversion intent.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "flooring",
@@ -1103,7 +1181,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Growing market segment. Lower competition than hardwood keywords.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "countertops",
@@ -1117,7 +1196,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Moderate CPL within home improvement. Strong consumer search volume.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; home improvement category data",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "countertops",
@@ -1131,7 +1211,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Growing market. Slightly higher CPL due to premium product positioning.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; home improvement category data",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "countertops",
@@ -1145,7 +1226,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Premium market. Higher CPL but higher job values.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; home improvement category data",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "countertops",
@@ -1159,7 +1241,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Lower CPL for repair keywords. Lower job value but good lead volume.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; home improvement category data",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "window-door",
@@ -1173,7 +1256,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "LocaliQ avg window/door replacement CPL $200.34 mid (CPC $8.76, CVR 4.4%). High-end metro markets approach $400+.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "window-door",
@@ -1187,7 +1271,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Slightly below window replacement CPL. Good conversion on specific door types.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "window-door",
@@ -1201,7 +1286,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Repair CPL significantly lower than replacement. Lower job value.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "window-door",
@@ -1215,7 +1301,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Specialty within doors. Moderate-high CPL.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "siding",
@@ -1229,7 +1316,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "LocaliQ siding avg CPL $200 mid (CVR 3\u20135%, CPC $7\u201313). High-end markets can exceed $600 CPL.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "siding",
@@ -1243,7 +1331,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Premium product. Higher job value justifies higher CPL.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "siding",
@@ -1257,7 +1346,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Lower CPL for repair keywords. Lower job value.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "garage-door",
@@ -1271,7 +1361,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "LocaliQ garage door avg CPL $81 mid (CPC $5.75, CVR 5.7%).",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "garage-door",
@@ -1285,7 +1376,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Higher CPL than repair. Good job value for full installation.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "garage-door",
@@ -1299,7 +1391,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Specific product-focused keywords. Lower CPL and job value.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "garage-door",
@@ -1313,7 +1406,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "B2B leads. Higher CPL but much higher job value.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "paving",
@@ -1327,7 +1421,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Falls under construction/contractor benchmarks. Moderate competition.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors CPL $165.67)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "paving",
@@ -1341,7 +1436,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Consumer-facing keywords convert better than commercial paving.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors CPL $165.67)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "paving",
@@ -1355,7 +1451,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Commercial B2B leads. Higher CPL but very high job value.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors CPL $165.67)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "paving",
@@ -1369,7 +1466,8 @@
     "recommendedTargetAdSpend": 1800,
     "notes": "Lower CPL for maintenance service. Good recurring revenue.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors CPL $165.67)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "foundation-repair",
@@ -1383,7 +1481,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "High-urgency searches. CPL aligned with contractor benchmarks.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors CPL $165.67); high-value specialty trade",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "foundation-repair",
@@ -1397,7 +1496,8 @@
     "recommendedTargetAdSpend": 4500,
     "notes": "High-value service. Premium CPL justified by job value.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors CPL $165.67); high-value specialty trade",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "foundation-repair",
@@ -1411,7 +1511,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Overlaps with waterproofing category. Seasonal demand.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors CPL $165.67); high-value specialty trade",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "foundation-repair",
@@ -1425,7 +1526,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Lower CPL for inspection leads. Lead-in to repair projects.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors CPL $165.67); high-value specialty trade",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "waterproofing",
@@ -1439,7 +1541,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "LocaliQ avg CPL $150\u2013165 mid. High job values ($5K\u2013$15K) support higher CPL.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "waterproofing",
@@ -1453,7 +1556,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Growing specialty. Moderate competition with high job values.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "waterproofing",
@@ -1467,7 +1571,8 @@
     "recommendedTargetAdSpend": 4500,
     "notes": "Higher CPL for exterior work. Very high job values.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "waterproofing",
@@ -1481,7 +1586,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Specific service with moderate competition.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "demolition",
@@ -1495,7 +1601,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Lower CPC than most trades ($5.31) but low CVR drives CPL up.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors CPL $165.67, CPC $5.31)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "demolition",
@@ -1509,7 +1616,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "B2B commercial leads. High value per project.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors CPL $165.67, CPC $5.31)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "demolition",
@@ -1523,7 +1631,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "More targeted niche with lower competition.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors CPL $165.67, CPC $5.31)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "excavation",
@@ -1537,7 +1646,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Commercial/residential site prep. High job value.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors CPL $165.67)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "excavation",
@@ -1551,7 +1661,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Specific service with moderate search volume.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors CPL $165.67)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "excavation",
@@ -1565,7 +1676,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Often bundled with site prep. Moderate CPL.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors CPL $165.67)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "welding",
@@ -1579,7 +1691,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Local service with lower competition than shop-based welding.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; industrial/trade service category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "welding",
@@ -1593,7 +1706,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Commercial B2B service. Higher CPL justified by job value.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; industrial/trade service category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "welding",
@@ -1607,7 +1721,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Niche service combining welding + fabrication.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; industrial/trade service category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "auto-body",
@@ -1621,7 +1736,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Body Repair CPC $5.81 with strong CVR. CPL above auto repair avg due to higher CPC.",
     "source": "WordStream 2025 Google Ads Benchmarks (Auto Body Repair & Paint CPC $5.81; Automotive Repair overall CPL $28.50, CVR 14.67%)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "auto-body",
@@ -1635,7 +1751,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Good conversion rates in automotive. Moderate competition.",
     "source": "WordStream 2025 Google Ads Benchmarks (Auto Body Repair & Paint CPC $5.81; Automotive Repair overall CPL $28.50, CVR 14.67%)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 10
   },
   {
     "industryId": "auto-body",
@@ -1649,7 +1766,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Low CPL aligned with automotive repair avg $28.50. Lower job value.",
     "source": "WordStream 2025 Google Ads Benchmarks (Auto Body Repair & Paint CPC $5.81; Automotive Repair overall CPL $28.50, CVR 14.67%)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "towing",
@@ -1663,7 +1781,8 @@
     "recommendedTargetAdSpend": 1800,
     "notes": "Emergency-intent keywords convert extremely well. Low CPL.",
     "source": "Derived from WordStream 2025 Automotive Repair CPL $28.50; emergency service with high conversion intent",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "towing",
@@ -1677,7 +1796,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Higher CPL for long-distance. Higher job value.",
     "source": "Derived from WordStream 2025 Automotive Repair CPL $28.50; emergency service with high conversion intent",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "towing",
@@ -1691,7 +1811,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "B2B/commercial fleet towing. Moderate CPL.",
     "source": "Derived from WordStream 2025 Automotive Repair CPL $28.50; emergency service with high conversion intent",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "moving",
@@ -1705,7 +1826,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "LocaliQ moving category avg CPC $4\u20138, CVR 6\u201310%, derived CPL $40\u2013120. High competition in urban markets raises CPL.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 5
   },
   {
     "industryId": "moving",
@@ -1719,7 +1841,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Higher CPL for long-distance. Longer decision cycle but much higher job value.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 5
   },
   {
     "industryId": "moving",
@@ -1733,7 +1856,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "B2B leads at top of CPL range. Very high job values for office moves.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 5
   },
   {
     "industryId": "junk-removal",
@@ -1747,7 +1871,8 @@
     "recommendedTargetAdSpend": 1800,
     "notes": "LocaliQ junk removal avg CPL $30\u201340 mid. High CVR due to immediate-need searches.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "junk-removal",
@@ -1761,7 +1886,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "B2B leads cost slightly more. Higher job values.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "junk-removal",
@@ -1775,7 +1901,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Specific service with strong intent keywords. Moderate CPL.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "cleaning",
@@ -1789,7 +1916,8 @@
     "recommendedTargetAdSpend": 1800,
     "notes": "LocaliQ avg residential cleaning CPL $47 mid (CVR 17.7% \u2014 highest of all home services). Avg job value ~$173\u2013209.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "cleaning",
@@ -1803,7 +1931,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Aligned with cleaning CPL $46.99. One-time service with moderate value.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "cleaning",
@@ -1817,7 +1946,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "LocaliQ commercial cleaning avg CPL $175 mid, high end up to $559 in competitive markets. Long contract value justifies high CPL.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "cleaning",
@@ -1831,7 +1961,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Seasonal alignment with moving. Good conversion rates.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 5
   },
   {
     "industryId": "pressure-washing",
@@ -1845,7 +1976,8 @@
     "recommendedTargetAdSpend": 1800,
     "notes": "LocaliQ pressure washing avg CPL $75 mid, with high variance (up to $331). Seasonal demand and local competition drive the range.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "pressure-washing",
@@ -1859,7 +1991,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Specific service keywords with good conversion.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "pressure-washing",
@@ -1873,7 +2006,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "B2B leads. Higher CPL but recurring contracts.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "pressure-washing",
@@ -1887,7 +2021,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Add-on service. Lower CPL and job value.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "restoration",
@@ -1901,7 +2036,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Emergency-intent keywords. Insurance-backed jobs have high value.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; emergency/restoration services category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "restoration",
@@ -1915,7 +2051,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "High CPL but very high job value. Insurance-driven.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; emergency/restoration services category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "restoration",
@@ -1929,7 +2066,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Seasonal surges during storm events. CPCs can spike significantly.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; emergency/restoration services category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "restoration",
@@ -1943,7 +2081,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Often bundled with water damage. Moderate-high CPL.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; emergency/restoration services category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "mold-remediation",
@@ -1957,7 +2096,8 @@
     "recommendedTargetAdSpend": 1800,
     "notes": "Lower CPL for testing/inspection. Lead-in to remediation.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "mold-remediation",
@@ -1971,7 +2111,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "LocaliQ avg mold remediation CPL ~$95\u2013130 mid. High end reflects insurance-claim-driven markets.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "mold-remediation",
@@ -1985,7 +2126,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "High-urgency keywords command premium CPCs.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "insulation",
@@ -1999,7 +2141,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "LocaliQ insulation avg CPL $70 mid (CPC $6\u201311, CVR 6\u20139%).",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "insulation",
@@ -2013,7 +2156,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Premium product. Moderate competition with growing demand.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "insulation",
@@ -2027,7 +2171,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Lower CPL for common insulation type.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "solar",
@@ -2041,7 +2186,8 @@
     "recommendedTargetAdSpend": 6000,
     "notes": "LocaliQ avg solar CPL ~$150\u2013250 mid. Market highly variable \u2014 utility rates and incentives (IRA) drive demand spikes.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 30
   },
   {
     "industryId": "solar",
@@ -2055,7 +2201,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Growing market segment. Lower competition than panels.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 30
   },
   {
     "industryId": "solar",
@@ -2069,7 +2216,8 @@
     "recommendedTargetAdSpend": 1800,
     "notes": "Lower CPL for maintenance. Recurring revenue from existing installations.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "low"
+    "confidence": "low",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "home-security",
@@ -2083,7 +2231,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "LocaliQ home security avg CPL $80 mid (CPC $6\u201312, CVR 5\u20138%).",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 5
   },
   {
     "industryId": "home-security",
@@ -2097,7 +2246,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Growing market. Good conversion on specific product keywords.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 5
   },
   {
     "industryId": "home-security",
@@ -2111,7 +2261,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Technology-forward keywords with growing search volume.",
     "source": "LocaliQ/WordStream 2025 Google Ads Benchmarks (n=3,211 US campaigns, Apr 2024\u2013Mar 2025)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 5
   },
   {
     "industryId": "locksmith",
@@ -2125,7 +2276,8 @@
     "recommendedTargetAdSpend": 1800,
     "notes": "High-urgency keywords convert extremely well. Low CPL.",
     "source": "Derived from WordStream 2025 Automotive Repair CPL $28.50 (emergency service); LSA data $20-$85/lead",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "locksmith",
@@ -2139,7 +2291,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Lower CPL for specific service. Good conversion intent.",
     "source": "Derived from WordStream 2025 Automotive Repair CPL $28.50 (emergency service); LSA data $20-$85/lead",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "locksmith",
@@ -2153,7 +2306,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "B2B leads cost more. Higher job value for commercial.",
     "source": "Derived from WordStream 2025 Automotive Repair CPL $28.50 (emergency service); LSA data $20-$85/lead",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "appliance-repair",
@@ -2167,7 +2321,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Good conversion rates on emergency keywords. Below home services avg CPL.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; Appliance Marketing Pros 2026 cost per lead analysis",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 2
   },
   {
     "industryId": "appliance-repair",
@@ -2181,7 +2336,8 @@
     "recommendedTargetAdSpend": 1800,
     "notes": "High search volume. Lower job value but steady demand.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; Appliance Marketing Pros 2026 cost per lead analysis",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 2
   },
   {
     "industryId": "appliance-repair",
@@ -2195,7 +2351,8 @@
     "recommendedTargetAdSpend": 1800,
     "notes": "Similar CPL to other appliance repair services.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; Appliance Marketing Pros 2026 cost per lead analysis",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "appliance-repair",
@@ -2209,7 +2366,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Lower CPL for specific appliance keywords.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; Appliance Marketing Pros 2026 cost per lead analysis",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 2
   },
   {
     "industryId": "drywall",
@@ -2223,7 +2381,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Falls under construction/contractor category. Moderate competition.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors CPL $165.67)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "drywall",
@@ -2237,7 +2396,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Lower CPL for repair. High conversion on local intent.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors CPL $165.67)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "drywall",
@@ -2251,7 +2411,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Specialty within drywall. Lower competition.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Construction & Contractors CPL $165.67)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "cabinetry",
@@ -2265,7 +2426,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "High job value. CPL aligned with home improvement benchmarks.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; kitchen remodeling category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "cabinetry",
@@ -2279,7 +2441,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Lower CPL than custom cabinets. Good conversion.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; kitchen remodeling category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "cabinetry",
@@ -2293,7 +2456,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Moderate CPL for installation keywords.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; kitchen remodeling category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "glass",
@@ -2307,7 +2471,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "B2B commercial glass. Higher CPL but high job value.",
     "source": "WordStream 2025 Google Ads Benchmarks (Automotive Glass Repair CPC $6.89); LocaliQ 2025 Home Services Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 45
   },
   {
     "industryId": "glass",
@@ -2321,7 +2486,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Auto glass CPC $6.89 (WordStream). Good conversion rates.",
     "source": "WordStream 2025 Google Ads Benchmarks (Automotive Glass Repair CPC $6.89); LocaliQ 2025 Home Services Benchmarks",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "glass",
@@ -2335,7 +2501,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Commercial B2B. Higher CPL for storefront/commercial keywords.",
     "source": "WordStream 2025 Google Ads Benchmarks (Automotive Glass Repair CPC $6.89); LocaliQ 2025 Home Services Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "irrigation",
@@ -2349,7 +2516,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Seasonal demand (spring). Moderate CPL within landscaping category.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; landscaping-adjacent category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 5
   },
   {
     "industryId": "irrigation",
@@ -2363,7 +2531,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Lower CPL for repair. High local intent.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; landscaping-adjacent category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "irrigation",
@@ -2377,7 +2546,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Niche within irrigation. Lower competition.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; landscaping-adjacent category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 5
   },
   {
     "industryId": "irrigation",
@@ -2391,7 +2561,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Higher CPL for design/planning keywords.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; landscaping-adjacent category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 5
   },
   {
     "industryId": "well-service",
@@ -2405,7 +2576,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "High job value. Lower digital competition in rural markets.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; niche service with lower online competition",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "well-service",
@@ -2419,7 +2591,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Emergency/repair intent converts well. Moderate CPL.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; niche service with lower online competition",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "well-service",
@@ -2433,7 +2606,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Lower CPL for inspection. Real estate transaction-driven.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; niche service with lower online competition",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "propane",
@@ -2447,7 +2621,8 @@
     "recommendedTargetAdSpend": 1800,
     "notes": "Lower CPL for delivery service. Recurring customer base.",
     "source": "Derived from WordStream 2025 Google Ads Benchmarks; energy services category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "propane",
@@ -2461,7 +2636,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Higher CPL for installation. High job value.",
     "source": "Derived from WordStream 2025 Google Ads Benchmarks; energy services category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "propane",
@@ -2475,7 +2651,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Maintenance/repair. Lower CPL.",
     "source": "Derived from WordStream 2025 Google Ads Benchmarks; energy services category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "marine",
@@ -2489,7 +2666,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Niche market with seasonal demand. Lower CPL than automotive average.",
     "source": "Derived from WordStream 2025 Google Ads Benchmarks (Automotive category); marine/boat service is niche with lower digital competition",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "marine",
@@ -2503,7 +2681,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Specialized service. Moderate CPL with good job values.",
     "source": "Derived from WordStream 2025 Google Ads Benchmarks (Automotive category); marine/boat service is niche with lower digital competition",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "marine",
@@ -2517,7 +2696,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Lower CPL for consumer service. Seasonal (spring/summer).",
     "source": "Derived from WordStream 2025 Google Ads Benchmarks (Automotive category); marine/boat service is niche with lower digital competition",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "heavy-equipment",
@@ -2531,7 +2711,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "B2B leads. Moderate CPL with high rental values.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B/industrial equipment category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "heavy-equipment",
@@ -2545,7 +2726,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Lower CPL for repair services. Good local intent.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B/industrial equipment category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "heavy-equipment",
@@ -2559,7 +2741,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Higher CPL justified by very high transaction values.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B/industrial equipment category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "commercial-kitchen",
@@ -2573,7 +2756,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "B2B commercial. Emergency repairs have high conversion intent.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; commercial services category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "commercial-kitchen",
@@ -2587,7 +2771,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Higher CPL for installation. Very high job value.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; commercial services category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "commercial-kitchen",
@@ -2601,7 +2786,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Compliance-driven service. Moderate CPL.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; commercial services category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "sign-wraps",
@@ -2615,7 +2801,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Consumer and fleet wraps. Moderate CPL for visual service.",
     "source": "Derived from WordStream 2025 Google Ads Benchmarks (all-industry avg CPL $70.11); estimated from B2B services benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "sign-wraps",
@@ -2629,7 +2816,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "B2B local service. CPL near all-industry average.",
     "source": "Derived from WordStream 2025 Google Ads Benchmarks (all-industry avg CPL $70.11); estimated from B2B services benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "sign-wraps",
@@ -2643,7 +2831,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Lower CPL for consumer-focused sign products.",
     "source": "Derived from WordStream 2025 Google Ads Benchmarks (all-industry avg CPL $70.11); estimated from B2B services benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "sign-wraps",
@@ -2657,7 +2846,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Bundled service offering. Moderate CPL.",
     "source": "Derived from WordStream 2025 Google Ads Benchmarks (all-industry avg CPL $70.11); estimated from B2B services benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "powder-coating",
@@ -2671,7 +2861,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Niche industrial service. Lower competition drives moderate CPL.",
     "source": "Derived from WordStream 2025 Business Services benchmarks; niche industrial service",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "powder-coating",
@@ -2685,7 +2876,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Slightly higher CPL for custom/specialty work.",
     "source": "Derived from WordStream 2025 Business Services benchmarks; niche industrial service",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "powder-coating",
@@ -2699,7 +2891,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "B2B industrial. Higher CPL and job value.",
     "source": "Derived from WordStream 2025 Business Services benchmarks; niche industrial service",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "metal-roofing",
@@ -2713,7 +2906,8 @@
     "recommendedTargetAdSpend": 6000,
     "notes": "Premium above roofing avg $228.15 due to higher keyword competition. Very high job value.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Roofing & Gutters CPL $228.15); metal roofing is premium subcategory",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "metal-roofing",
@@ -2727,7 +2921,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Lower CPL for repair vs. installation.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Roofing & Gutters CPL $228.15); metal roofing is premium subcategory",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "metal-roofing",
@@ -2741,7 +2936,8 @@
     "recommendedTargetAdSpend": 6000,
     "notes": "Premium product keywords. Highest CPL within roofing.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (Roofing & Gutters CPL $228.15); metal roofing is premium subcategory",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "artificial-turf",
@@ -2755,7 +2951,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Growing niche. Moderate CPL with good job values.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; landscaping-adjacent specialty",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "artificial-turf",
@@ -2769,7 +2966,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Premium product. Slightly higher CPL.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; landscaping-adjacent specialty",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "artificial-turf",
@@ -2783,7 +2981,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Consumer-focused niche. Lower CPL.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; landscaping-adjacent specialty",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "machining",
@@ -2797,7 +2996,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "B2B industrial. CPL aligned with business services benchmarks.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B manufacturing/industrial benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "machining",
@@ -2811,7 +3011,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Higher-value precision work. Moderate competition in B2B space.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B manufacturing/industrial benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "machining",
@@ -2825,7 +3026,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Custom work commands premium CPL. High job values.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B manufacturing/industrial benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "machining",
@@ -2839,7 +3041,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Lower CPL for repair/maintenance. Good B2B recurring revenue.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B manufacturing/industrial benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "machining",
@@ -2853,7 +3056,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "High-value B2B. Longer sales cycle justifies higher CPL.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B manufacturing/industrial benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "home-builders",
@@ -2867,7 +3071,8 @@
     "recommendedTargetAdSpend": 15000,
     "notes": "ASTRALCOM 2025: avg cost per conversion $193.75 for homebuilders. Very high job value justifies premium CPL.",
     "source": "ASTRALCOM 2025 Homebuilder Digital Advertising Benchmarks (avg cost/conversion $193.75); FatCat Strategies 2026 (paid lead CPL $135); LocaliQ 2025 (Construction CPL $165.67)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "home-builders",
@@ -2881,7 +3086,8 @@
     "recommendedTargetAdSpend": 12000,
     "notes": "FatCat 2026: paid leads ~$135. New construction is highly competitive in digital.",
     "source": "ASTRALCOM 2025 Homebuilder Digital Advertising Benchmarks (avg cost/conversion $193.75); FatCat Strategies 2026 (paid lead CPL $135); LocaliQ 2025 (Construction CPL $165.67)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "home-builders",
@@ -2895,7 +3101,8 @@
     "recommendedTargetAdSpend": 8000,
     "notes": "BGCollective 2026: remodeler CPL $150-$400. Moderate-high range for remodeling.",
     "source": "ASTRALCOM 2025 Homebuilder Digital Advertising Benchmarks (avg cost/conversion $193.75); FatCat Strategies 2026 (paid lead CPL $135); LocaliQ 2025 (Construction CPL $165.67)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "home-builders",
@@ -2909,7 +3116,8 @@
     "recommendedTargetAdSpend": 8000,
     "notes": "Aligned with construction/contractor CPL $165.67 (LocaliQ 2025). High job value.",
     "source": "ASTRALCOM 2025 Homebuilder Digital Advertising Benchmarks (avg cost/conversion $193.75); FatCat Strategies 2026 (paid lead CPL $135); LocaliQ 2025 (Construction CPL $165.67)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 45
   },
   {
     "industryId": "auto-shipping",
@@ -2923,7 +3131,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Auto transport PPC data: $50-$115 CPL. High-intent quotes keywords.",
     "source": "Auto Transport Broker Leads PPC data (CPL $50-$115 per conversion); WordStream 2025 Automotive For Sale CPL $38.86",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "auto-shipping",
@@ -2937,7 +3146,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Higher CPL for long-distance routes. Competitive market.",
     "source": "Auto Transport Broker Leads PPC data (CPL $50-$115 per conversion); WordStream 2025 Automotive For Sale CPL $38.86",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "auto-shipping",
@@ -2951,7 +3161,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Premium service. Higher CPL justified by higher rates.",
     "source": "Auto Transport Broker Leads PPC data (CPL $50-$115 per conversion); WordStream 2025 Automotive For Sale CPL $38.86",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "recycling",
@@ -2965,7 +3176,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "B2B service. Lower digital competition in recycling niche.",
     "source": "Derived from WordStream 2025 all-industry avg CPL $70.11; waste/recycling estimated from home services and B2B benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "recycling",
@@ -2979,7 +3191,8 @@
     "recommendedTargetAdSpend": 1800,
     "notes": "Consumer and B2B. Growing market with moderate competition.",
     "source": "Derived from WordStream 2025 all-industry avg CPL $70.11; waste/recycling estimated from home services and B2B benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "recycling",
@@ -2993,7 +3206,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Lower CPL. Price-driven market with local intent.",
     "source": "Derived from WordStream 2025 all-industry avg CPL $70.11; waste/recycling estimated from home services and B2B benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "waste",
@@ -3007,7 +3221,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "B2B service. Recurring contract value is high. Moderate CPL.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; waste management estimated CPL $30-$80 based on service type",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "waste",
@@ -3021,7 +3236,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Consumer and B2B. Strong local intent keywords.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; waste management estimated CPL $30-$80 based on service type",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "waste",
@@ -3035,7 +3251,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Specialized B2B. Higher CPL but high-value contracts.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks; waste management estimated CPL $30-$80 based on service type",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "installation",
@@ -3049,7 +3266,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "B2B commercial. Aligned with commercial moving CPL $183.",
     "source": "Derived from VibeAds 2026 Moving Google Ads data (commercial CPL $183); LocaliQ 2025 Home Services Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "installation",
@@ -3063,7 +3281,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Higher CPL for full relocation. Very high job value.",
     "source": "Derived from VibeAds 2026 Moving Google Ads data (commercial CPL $183); LocaliQ 2025 Home Services Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "installation",
@@ -3077,7 +3296,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "B2B. Moderate CPL with high job values.",
     "source": "Derived from VibeAds 2026 Moving Google Ads data (commercial CPL $183); LocaliQ 2025 Home Services Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "printing",
@@ -3091,7 +3311,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "B2B service. Lower CPL than business services avg due to niche market.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B printing is moderate-competition niche",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "printing",
@@ -3105,7 +3326,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Moderate CPL for specific service keywords.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B printing is moderate-competition niche",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "printing",
@@ -3119,7 +3341,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Consumer and B2B. Lower CPL for card/brochure keywords.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B printing is moderate-competition niche",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "bolt-services",
@@ -3133,7 +3356,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "B2B industrial supply. Niche with lower digital competition.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B industrial supply category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "bolt-services",
@@ -3147,7 +3371,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Custom manufacturing B2B. Higher CPL but high order values.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B industrial supply category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "bolt-services",
@@ -3161,7 +3386,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Distribution model. Moderate CPL with recurring orders.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B industrial supply category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "engineering",
@@ -3175,7 +3401,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "B2B professional service. High CPL justified by high contract values.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; Flyweel 2025 B2B Professional Services CPL $80-$130",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "engineering",
@@ -3189,7 +3416,8 @@
     "recommendedTargetAdSpend": 6000,
     "notes": "Highly specialized niche. Low search volume but very high contract values.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; Flyweel 2025 B2B Professional Services CPL $80-$130",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "engineering",
@@ -3203,7 +3431,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "B2B. Moderate competition in professional services space.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; Flyweel 2025 B2B Professional Services CPL $80-$130",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "engineering",
@@ -3217,7 +3446,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "B2B professional service. Moderate-high CPL.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; Flyweel 2025 B2B Professional Services CPL $80-$130",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "structural-engineers",
@@ -3231,7 +3461,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "B2B professional service. Residential projects have moderate CPL.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; Flyweel 2025 Professional Services CPL $80-$130",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "structural-engineers",
@@ -3245,7 +3476,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Higher CPL for commercial projects. Very high contract values.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; Flyweel 2025 Professional Services CPL $80-$130",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "structural-engineers",
@@ -3259,7 +3491,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Lower CPL for inspection leads. Often lead-in to larger projects.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; Flyweel 2025 Professional Services CPL $80-$130",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "tile-contractor",
@@ -3273,7 +3506,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Home services CPL range. Tile-specific keywords convert well.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (avg CPL $90.92, Construction CPL $165.67); flooring contractor benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "tile-contractor",
@@ -3287,7 +3521,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Bathroom remodel-adjacent. Moderate-high CPL.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (avg CPL $90.92, Construction CPL $165.67); flooring contractor benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "tile-contractor",
@@ -3301,7 +3536,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Lower CPL for smaller projects. Good conversion intent.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (avg CPL $90.92, Construction CPL $165.67); flooring contractor benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "tile-contractor",
@@ -3315,7 +3551,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Lower CPL for repair keywords. Lower job value.",
     "source": "Derived from LocaliQ 2025 Home Services Benchmarks (avg CPL $90.92, Construction CPL $165.67); flooring contractor benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "lodging",
@@ -3329,7 +3566,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "PPC Chief 2026: Travel & Hospitality CPL $74. Low CPC $2.12 but booking model differs from lead gen.",
     "source": "PPC Chief 2026 Travel & Hospitality Benchmarks (CPC $2.12, CTR 8.7%, CVR 5.8%, CPL $74); WordStream 2025 Travel category",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "lodging",
@@ -3343,7 +3581,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Lower CPL for vacation rentals. Direct booking focus.",
     "source": "PPC Chief 2026 Travel & Hospitality Benchmarks (CPC $2.12, CTR 8.7%, CVR 5.8%, CPL $74); WordStream 2025 Travel category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "lodging",
@@ -3357,7 +3596,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Higher CPL for premium lodging. Higher booking values.",
     "source": "PPC Chief 2026 Travel & Hospitality Benchmarks (CPC $2.12, CTR 8.7%, CVR 5.8%, CPL $74); WordStream 2025 Travel category",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "construction",
@@ -3371,7 +3611,8 @@
     "recommendedTargetAdSpend": 8000,
     "notes": "LocaliQ 2025: Construction CPL $165.67 with only 2.61% CVR. High job value.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Construction & Contractors CPL $165.67, CPC $5.31, CVR 2.61% \u2014 lowest CVR in home services)",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "construction",
@@ -3385,7 +3626,8 @@
     "recommendedTargetAdSpend": 12000,
     "notes": "Above average CPL for commercial. Very high project values.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Construction & Contractors CPL $165.67, CPC $5.31, CVR 2.61% \u2014 lowest CVR in home services)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "construction",
@@ -3399,7 +3641,8 @@
     "recommendedTargetAdSpend": 6000,
     "notes": "Moderate-high CPL aligned with contractor benchmarks.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Construction & Contractors CPL $165.67, CPC $5.31, CVR 2.61% \u2014 lowest CVR in home services)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "construction",
@@ -3413,7 +3656,8 @@
     "recommendedTargetAdSpend": 8000,
     "notes": "B2B commercial. High CPL but very high project values.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (Construction & Contractors CPL $165.67, CPC $5.31, CVR 2.61% \u2014 lowest CVR in home services)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "motor-groups",
@@ -3427,7 +3671,8 @@
     "recommendedTargetAdSpend": 8000,
     "notes": "WordStream 2025: Auto For Sale CPL $38.86. Vehicle Listing Ads achieve 67% lower CPC.",
     "source": "WordStream 2025 Google Ads Benchmarks (Automotive For Sale CPC $2.41, CVR 7.76%, CPL $38.86); LocaliQ 2026 Automotive Benchmarks",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "motor-groups",
@@ -3441,7 +3686,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Lower CPL for used vehicles. Higher volume searches.",
     "source": "WordStream 2025 Google Ads Benchmarks (Automotive For Sale CPC $2.41, CVR 7.76%, CPL $38.86); LocaliQ 2026 Automotive Benchmarks",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "motor-groups",
@@ -3455,7 +3701,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "WordStream 2025: Auto Repair CPL $28.50, CVR 14.67% \u2014 lowest CPL across all industries.",
     "source": "WordStream 2025 Google Ads Benchmarks (Automotive For Sale CPC $2.41, CVR 7.76%, CPL $38.86); LocaliQ 2026 Automotive Benchmarks",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "motor-groups",
@@ -3469,7 +3716,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Finance leads. Moderate CPL with good lifetime value.",
     "source": "WordStream 2025 Google Ads Benchmarks (Automotive For Sale CPC $2.41, CVR 7.76%, CPL $38.86); LocaliQ 2026 Automotive Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "distribution",
@@ -3483,7 +3731,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "B2B distribution. Lower digital competition. High order values.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B logistics/distribution estimated CPC $2-$6",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "distribution",
@@ -3497,7 +3746,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Moderate CPL for logistics keywords. B2B market.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B logistics/distribution estimated CPC $2-$6",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "distribution",
@@ -3511,7 +3761,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Growing market. Moderate CPL.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B logistics/distribution estimated CPC $2-$6",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "surveying",
@@ -3525,7 +3776,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "B2B professional service. Lower competition than legal/financial services.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; professional services B2B benchmarks CPL $80-$130",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "surveying",
@@ -3539,7 +3791,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Construction-adjacent. Moderate CPL for B2B.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; professional services B2B benchmarks CPL $80-$130",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "surveying",
@@ -3553,7 +3806,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Consumer-facing surveys. Lower CPL with good local intent.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; professional services B2B benchmarks CPL $80-$130",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "metal-fabrication",
@@ -3567,7 +3821,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "B2B manufacturing. Moderate CPL with high order values.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B manufacturing benchmarks CPL $75-$150",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "metal-fabrication",
@@ -3581,7 +3836,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "High-value B2B projects. Higher CPL justified by contract value.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B manufacturing benchmarks CPL $75-$150",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "metal-fabrication",
@@ -3595,7 +3851,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Lower CPL for general sheet metal. Good B2B keywords.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B manufacturing benchmarks CPL $75-$150",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "service-cabling",
@@ -3609,7 +3866,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "B2B/commercial. Moderate CPL for contractor-oriented keywords.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; contractor/IT services benchmarks CPC $5-$20",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "service-cabling",
@@ -3623,7 +3881,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "IT infrastructure service. Good B2B conversion intent.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; contractor/IT services benchmarks CPC $5-$20",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "service-cabling",
@@ -3637,7 +3896,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Higher CPL for specialized fiber work. Very high job values.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; contractor/IT services benchmarks CPC $5-$20",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "vending",
@@ -3651,7 +3911,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "B2B niche with low digital competition. Most leads from location scouting.",
     "source": "Derived from WordStream 2025 all-industry avg CPL $70.11; B2B niche service with low digital competition",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "vending",
@@ -3665,7 +3926,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Lower CPL for service keywords. Moderate job value.",
     "source": "Derived from WordStream 2025 all-industry avg CPL $70.11; B2B niche service with low digital competition",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "vending",
@@ -3679,7 +3941,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "B2B office market. Moderate CPL with recurring revenue.",
     "source": "Derived from WordStream 2025 all-industry avg CPL $70.11; B2B niche service with low digital competition",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "metal-plating",
@@ -3693,7 +3956,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "B2B industrial finishing. Niche market with moderate CPL.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B industrial finishing/plating benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "metal-plating",
@@ -3707,7 +3971,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Consumer and B2B. Moderate CPL with good keyword intent.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B industrial finishing/plating benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "metal-plating",
@@ -3721,7 +3986,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "B2B industrial. Similar CPL to electroplating.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; B2B industrial finishing/plating benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-home-builders",
@@ -3735,7 +4001,8 @@
     "recommendedTargetAdSpend": 8000,
     "notes": "Luxury/custom segment. Higher CPL than production builders but massive job values. Long sales cycle (6-18 months). ASTRALCOM reports custom builder CPC $8-15 with 2-4% landing page CVR.",
     "source": "ASTRALCOM 2025 Homebuilder Digital Advertising Benchmarks; WordStream 2025 Real Estate vertical CPL $116.61 adjusted upward for luxury custom segment",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-home-builders",
@@ -3749,7 +4016,8 @@
     "recommendedTargetAdSpend": 10000,
     "notes": "Ultra-premium segment. Highest CPL in residential but enormous job values justify spend. Highly competitive keywords like 'luxury home builder near me'.",
     "source": "ASTRALCOM 2025 Homebuilder Benchmarks; FatCat Strategies 2025 Home Builder PPC Guide (CPC $6-20 range for luxury terms)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-home-builders",
@@ -3763,7 +4031,8 @@
     "recommendedTargetAdSpend": 6000,
     "notes": "Design-phase lead generation. Lower CPL than full build leads since users are earlier in the funnel. Good for capturing top-of-funnel intent.",
     "source": "Derived from ASTRALCOM 2025 Homebuilder Benchmarks; LocaliQ 2025 Home Services category adjusted for design/planning phase",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "cnc-machining",
@@ -3777,7 +4046,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "B2B manufacturing. Strong keyword intent for 'CNC milling services near me'. Typical conversion rate 3-5% on well-optimized landing pages.",
     "source": "WordStream 2025 Industrial & Manufacturing CPL benchmarks; Thomas Industry Update 2025 manufacturing lead gen report",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "cnc-machining",
@@ -3791,7 +4061,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "B2B industrial. Slightly lower CPL than milling due to less keyword competition. Good for precision parts manufacturers.",
     "source": "Derived from WordStream 2025 Industrial & Manufacturing benchmarks; B2B machining industry averages",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "cnc-machining",
@@ -3805,7 +4076,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Premium B2B segment. Higher CPL but larger contract values. Aerospace, medical, and defense clients drive up job values significantly.",
     "source": "WordStream 2025 Industrial & Manufacturing CPL $103.54; adjusted upward for precision/aerospace segment per Thomas Industry 2025 data",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "cnc-machining",
@@ -3819,7 +4091,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Rapid prototyping segment. Lower job values but higher volume. Good conversion rates due to urgency of prototype needs.",
     "source": "Derived from WordStream 2025 Industrial benchmarks; prototype/rapid manufacturing lead gen averages",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "composite",
@@ -3833,7 +4106,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Niche B2B manufacturing. Carbon fiber, fiberglass, and advanced composites. Lower search volume but high intent and large contract values.",
     "source": "Derived from WordStream 2025 Industrial & Manufacturing CPL $103.54; composite manufacturing industry estimates",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "composite",
@@ -3847,7 +4121,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Industrial fiberglass. Boat repair, tanks, custom parts. Moderate CPL with decent search volume in marine/industrial areas.",
     "source": "Derived from WordStream 2025 Industrial benchmarks; fiberglass/marine manufacturing lead gen data",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "composite",
@@ -3861,7 +4136,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Repair services for composite structures \u2014 boats, aircraft, automotive. Lower job value but more frequent repeat business.",
     "source": "Derived from WordStream 2025 Industrial benchmarks; composite repair services averages",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "fabrication",
@@ -3875,7 +4151,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "B2B custom fab. Strong local intent keywords. Includes structural steel, sheet metal, and architectural metalwork.",
     "source": "WordStream 2025 Industrial & Manufacturing CPL $103.54; Thomas Industry Update 2025 metal fabrication lead gen benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "fabrication",
@@ -3889,7 +4166,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Commercial/industrial structural steel. Higher CPL but very large project values. Long sales cycle with RFQ process.",
     "source": "Derived from WordStream 2025 Industrial benchmarks; structural steel fabrication B2B lead gen data",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "fabrication",
@@ -3903,7 +4181,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "General sheet metal work \u2014 HVAC ductwork, enclosures, brackets. Good volume of local search intent.",
     "source": "Derived from WordStream 2025 Industrial & Manufacturing CPL benchmarks; sheet metal fabrication industry averages",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "fabrication",
@@ -3917,7 +4196,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Combined welding and fab shops. Lower CPL due to broader keyword targeting. High search volume for 'welding shop near me'.",
     "source": "Derived from WordStream 2025 Industrial benchmarks; welding services lead gen averages",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "consulting",
@@ -3931,7 +4211,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "B2B professional services. Long sales cycle. WordStream reports Business Services avg CPL $103.54. Management consulting skews higher due to competitive keywords.",
     "source": "WordStream 2025 Google Ads Benchmarks (Business Services CPL $103.54); HubSpot 2025 B2B Lead Gen Report",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "consulting",
@@ -3945,7 +4226,8 @@
     "recommendedTargetAdSpend": 6000,
     "notes": "Premium B2B segment. Higher CPL but substantial engagement values. Keywords like 'business strategy consultant' are highly competitive.",
     "source": "WordStream 2025 Business Services benchmarks; Ruler Analytics 2025 B2B conversion rate report (avg 3.5% CVR for consulting)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "consulting",
@@ -3959,7 +4241,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "B2B financial advisory. WordStream Finance & Insurance CPL $90.02. Financial consulting targets business clients with larger engagement values.",
     "source": "WordStream 2025 Google Ads Benchmarks (Finance & Insurance CPL $90.02); adjusted for B2B consulting segment",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "consulting",
@@ -3973,7 +4256,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "B2B technology services. Strong search demand for 'IT consulting services near me'. WordStream Technology CPL $70-130 range.",
     "source": "WordStream 2025 Google Ads Benchmarks (Technology sector); LocaliQ 2025 Professional Services benchmarks",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "consulting",
@@ -3987,7 +4271,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "B2B HR services. Lower CPL than strategy/finance consulting. Good volume for compliance, payroll, and HR outsourcing keywords.",
     "source": "Derived from WordStream 2025 Business Services CPL $103.54; HR consulting industry lead gen averages",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "consulting",
@@ -4001,7 +4286,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "B2B process improvement and operations. Targets manufacturing, logistics, and supply chain clients. Large project values.",
     "source": "Derived from WordStream 2025 Business Services benchmarks; B2B operations consulting lead gen data",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "commercial-contractor",
@@ -4015,7 +4301,8 @@
     "recommendedTargetAdSpend": 8000,
     "notes": "Commercial GC leads are high-value but low-volume. Long sales cycles (3-12 months). Lead quality matters more than volume.",
     "source": "LocaliQ 2025 B2B Construction Benchmarks; WordStream Industry Benchmarks 2025",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "commercial-contractor",
@@ -4029,7 +4316,8 @@
     "recommendedTargetAdSpend": 6000,
     "notes": "TI/build-out searches come from property managers and business owners. Moderately high CPL but strong conversion when targeted correctly.",
     "source": "LocaliQ 2025 B2B Construction Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "commercial-contractor",
@@ -4043,7 +4331,8 @@
     "recommendedTargetAdSpend": 7000,
     "notes": "Commercial renovation is competitive but high-value. Target property managers and facility directors.",
     "source": "LocaliQ 2025 B2B Construction Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "commercial-contractor",
@@ -4057,7 +4346,8 @@
     "recommendedTargetAdSpend": 9000,
     "notes": "Design-build leads are highest value with longest sales cycle. Expect 6-12 month close timelines.",
     "source": "LocaliQ 2025 B2B Construction Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "fleet-maintenance",
@@ -4071,7 +4361,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Fleet maintenance leads are high-value B2B with recurring revenue. Target fleet managers and logistics companies. Long-term contracts common.",
     "source": "LocaliQ 2025 B2B Auto & Fleet Benchmarks; WordStream Industry Benchmarks 2025",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "fleet-maintenance",
@@ -4085,7 +4376,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Computerized diagnostics searches from fleet operators. Lower job value per visit but leads to recurring maintenance contracts.",
     "source": "LocaliQ 2025 B2B Auto & Fleet Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "fleet-maintenance",
@@ -4099,7 +4391,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "PM program leads convert into long-term contracts. Lower CPL than emergency repair searches. High lifetime value.",
     "source": "LocaliQ 2025 B2B Auto & Fleet Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "fleet-maintenance",
@@ -4113,7 +4406,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "DOT inspection searches are high-intent and time-sensitive. Lower job value but drives fleet customers into recurring service relationships.",
     "source": "LocaliQ 2025 B2B Auto & Fleet Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "truck-repair",
@@ -4127,7 +4421,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Truck repair searches are high-intent with good conversion rates. Target owner-operators and small fleet operators.",
     "source": "LocaliQ 2025 B2B Auto & Fleet Benchmarks; WordStream Industry Benchmarks 2025",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "truck-repair",
@@ -4141,7 +4436,8 @@
     "recommendedTargetAdSpend": 5500,
     "notes": "Diesel engine repair is high-value with strong search intent. Target both owner-operators and fleet managers.",
     "source": "LocaliQ 2025 B2B Auto & Fleet Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "truck-repair",
@@ -4155,7 +4451,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Trailer repair searches are common for both fleet and independent operators. Good volume in logistics-heavy areas.",
     "source": "LocaliQ 2025 B2B Auto & Fleet Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "truck-repair",
@@ -4169,7 +4466,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "High-value repair. Transmission rebuild searches are high-intent and convert well. Competitors are limited in many markets.",
     "source": "LocaliQ 2025 B2B Auto & Fleet Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "truck-repair",
@@ -4183,7 +4481,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Custom welding and fabrication for trucks and trailers. Niche service with less competition.",
     "source": "LocaliQ 2025 B2B Auto & Fleet Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "rv-auto-repair",
@@ -4197,7 +4496,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "RV repair searches are seasonal (spring/summer peaks) with good intent. RV owners travel for trusted shops.",
     "source": "LocaliQ 2025 Auto Repair Benchmarks; WordStream Industry Benchmarks 2025",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "rv-auto-repair",
@@ -4211,7 +4511,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "General auto repair is competitive but high volume. Lower job value but builds recurring customer base.",
     "source": "LocaliQ 2025 Auto Repair Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 2
   },
   {
     "industryId": "rv-auto-repair",
@@ -4225,7 +4526,8 @@
     "recommendedTargetAdSpend": 4500,
     "notes": "High-value repair searches. JASPER engine/transmission keywords have strong intent and less competition than general auto repair.",
     "source": "LocaliQ 2025 Auto Repair Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "rv-auto-repair",
@@ -4239,7 +4541,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "High volume, low CPL. State inspection and alignment searches drive foot traffic that leads to upsell opportunities.",
     "source": "LocaliQ 2025 Auto Repair Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "truck-fleet-service",
@@ -4253,7 +4556,8 @@
     "recommendedTargetAdSpend": 5500,
     "notes": "Core service for full-service truck and fleet shops. Captures general truck repair, diesel service, and fleet maintenance searches. High-intent B2B and owner-operator traffic.",
     "source": "LocaliQ 2025 B2B Auto & Fleet Benchmarks; WordStream Automotive Industry Benchmarks 2025",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "truck-fleet-service",
@@ -4267,7 +4571,8 @@
     "recommendedTargetAdSpend": 5500,
     "notes": "High-value repair category. Diesel engine and transmission searches are high-intent with strong conversion. Includes engine rebuilds, JASPER remanufactured engines, and transmission overhauls.",
     "source": "LocaliQ 2025 B2B Auto & Fleet Benchmarks; WordStream Automotive Industry Benchmarks 2025",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "truck-fleet-service",
@@ -4281,7 +4586,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Trailer repair and maintenance for semi trailers, flatbeds, and utility trailers. Steady demand from fleet operators and independent truckers.",
     "source": "LocaliQ 2025 B2B Auto & Fleet Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "truck-fleet-service",
@@ -4295,7 +4601,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Seasonal demand peaks spring through fall. RV owners will travel for trusted shops. Strong search volume in camping and travel regions.",
     "source": "LocaliQ 2025 Auto Repair Benchmarks; WordStream Automotive Industry Benchmarks 2025",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "truck-fleet-service",
@@ -4309,7 +4616,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Emergency towing and roadside assistance searches are extremely high-intent with immediate conversion. Lower job value per call but drives repair shop traffic. 24/7 availability is a key differentiator.",
     "source": "LocaliQ 2025 Auto & Towing Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "truck-fleet-service",
@@ -4323,7 +4631,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Custom welding and fabrication for trucks, trailers, and heavy equipment. Niche service with less competition in most markets.",
     "source": "LocaliQ 2025 B2B Auto & Fleet Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "truck-fleet-service",
@@ -4337,7 +4646,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "High-volume, low-CPL entry point. DOT inspection and alignment searches are time-sensitive and convert well. Lower job value but drives customers into higher-value repair services.",
     "source": "LocaliQ 2025 B2B Auto & Fleet Benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "interior-design",
@@ -4351,7 +4661,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Entry-level design service targeting homeowners looking for single-room updates. Moderate CPL with good conversion potential for visual-forward campaigns.",
     "source": "Derived from home services advertising benchmarks and industry project value data (BusinessDojo 2025, BG Collective 2026)",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "interior-design",
@@ -4365,7 +4676,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "High-value full-home design projects. Longer sales cycle but excellent ROI due to large project values. Target affluent homeowners and new construction buyers.",
     "source": "Derived from remodeling CPL benchmarks ($150-400) adjusted for interior design; project values from ASID industry data",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "interior-design",
@@ -4379,7 +4691,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Kitchen and bath design is a high-demand niche. Strong search intent from homeowners planning renovations. Pairs well with contractor referral partnerships.",
     "source": "Derived from kitchen/bath remodeling CPC benchmarks ($8-18 CPC, BG Collective 2026) and industry project values",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "interior-design",
@@ -4393,7 +4706,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "B2B-oriented service targeting office, retail, and hospitality spaces. Longer sales cycle with higher project values. LinkedIn may complement Google for this service.",
     "source": "Estimated from B2B/commercial service benchmarks; project values from Fortune Business Insights 2025",
-    "confidence": "low"
+    "confidence": "low",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "interior-design",
@@ -4407,7 +4721,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Lower CPL due to less competition in staging niche. Target real estate agents and homeowners preparing to sell. Seasonal peaks during spring/summer selling season.",
     "source": "Lower CPL due to less competition; staging project values from industry reports",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "interior-design",
@@ -4421,7 +4736,8 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "Lower-value quick consultation service. Good entry point to upsell full design packages. Target homeowners doing DIY renovations who need professional guidance.",
     "source": "Lower-value quick consultation service; CPL estimated from general home services benchmarks",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "architecture",
@@ -4435,7 +4751,8 @@
     "recommendedTargetAdSpend": 8000,
     "notes": "Architecture firms compete in the B2B professional services space. Commercial projects (office buildings, corporate interiors, retail spaces) have long sales cycles but very high project values. CPL derived from LocaliQ 2025 Professional Services benchmarks ($103 CPL) adjusted upward for architecture's niche, high-value positioning.",
     "source": "LocaliQ 2025 Professional Services Benchmarks ($103.54 CPL); WordStream B2B benchmarks ($116.13 CPA). Adjusted for architecture industry positioning.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 45
   },
   {
     "industryId": "architecture",
@@ -4449,7 +4766,8 @@
     "recommendedTargetAdSpend": 10000,
     "notes": "Healthcare facility design (dental offices, medical practices, clinics) is a specialized niche with higher CPL due to narrow targeting. Very high project values justify the cost. Long RFP-based sales cycles typical.",
     "source": "LocaliQ 2025 Professional Services Benchmarks ($103.54 CPL) and Industrial & Commercial ($85.63 CPL). Adjusted upward for healthcare architecture specialization.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 45
   },
   {
     "industryId": "architecture",
@@ -4463,7 +4781,8 @@
     "recommendedTargetAdSpend": 7000,
     "notes": "Retail and hospitality architecture (restaurants, retail stores, hotels) has moderate competition. Project values are strong. Clients often search for architects with specific hospitality or retail portfolio experience.",
     "source": "LocaliQ 2025 Professional Services Benchmarks ($103.54 CPL); Industrial & Commercial ($85.63 CPL). Blended and adjusted for retail/hospitality architecture.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 30
   },
   {
     "industryId": "architecture",
@@ -4477,7 +4796,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Residential architecture (custom homes, additions, major renovations) has broader search volume but lower project values than commercial. Homeowners actively search for architects when planning significant projects.",
     "source": "LocaliQ 2025 Professional Services Benchmarks ($103.54 CPL); WordStream B2B benchmarks. Adjusted for residential architecture market dynamics.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "architecture",
@@ -4491,7 +4811,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Building renovations and adaptive reuse (converting warehouses, historic buildings) is a growing niche. Lower CPL than new construction due to less keyword competition. Strong project values.",
     "source": "LocaliQ 2025 Professional Services Benchmarks ($103.54 CPL). Adjusted for renovation/adaptive reuse niche positioning.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "architecture",
@@ -4505,7 +4826,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Experience-focused spatial design and interior architecture for branded environments, cultural spaces, and corporate interiors. Overlaps with interior design but focuses on architectural spatial planning rather than decoration.",
     "source": "LocaliQ 2025 Professional Services Benchmarks ($103.54 CPL); WordStream B2B benchmarks. Adjusted for experience/interior architecture niche.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "other",
@@ -4519,7 +4841,8 @@
     "recommendedTargetAdSpend": null,
     "notes": "Manual input industry. Enter your own CPL and job values for services not covered by existing industry benchmarks.",
     "source": "User-provided data",
-    "confidence": "custom"
+    "confidence": "custom",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "pressure-washing-landscape-care",
@@ -4533,7 +4856,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Soft washing for homes, siding, and roofs. Strong seasonal demand in spring/summer. High-intent searches convert well.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "pressure-washing-landscape-care",
@@ -4547,7 +4871,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Lower job value but high conversion. Good for recurring bundled services with other washing work.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "pressure-washing-landscape-care",
@@ -4561,7 +4886,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Often bundled with staining/sealing. Spring demand peaks.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "pressure-washing-landscape-care",
@@ -4575,7 +4901,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Removes algae/moss from shingles and tile. Typically higher-ticket than concrete washing; often upsold with gutter cleaning.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "pressure-washing-landscape-care",
@@ -4589,7 +4916,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Seasonal (fall peak). Often upsold with gutter guard installation or roof cleaning.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "pressure-washing-landscape-care",
@@ -4603,7 +4931,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Storefronts, office buildings, parking lots, dumpster pads. Target property managers and facility directors with recurring-service offers.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "pressure-washing-landscape-care",
@@ -4617,7 +4946,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Compliance-driven (NFPA 96) \u2014 typically quarterly or monthly recurring revenue. Highly sticky customers; lifetime value is 8-12x single-job value. Target restaurant owners, chain GMs, and facility managers.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "pressure-washing-landscape-care",
@@ -4631,7 +4961,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Full exhaust system cleaning including fans, ducts, and rooftop units. Compliance-driven recurring service for restaurants, hospitals, schools, and institutional kitchens.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 14
   },
   {
     "industryId": "pressure-washing-landscape-care",
@@ -4645,7 +4976,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Low per-visit value but highly recurring \u2014 lifetime value is 20-30x a single cut. Push weekly/bi-weekly contracts for the real economics.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "pressure-washing-landscape-care",
@@ -4659,7 +4991,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Often bundled with mowing contracts. Strong spring/fall seasonal demand for full cleanup jobs.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "pressure-washing-landscape-care",
@@ -4673,7 +5006,8 @@
     "recommendedTargetAdSpend": 3000,
     "notes": "Mulch installation, bed maintenance, seasonal cleanups. Run campaigns 2-3 weeks before spring/fall peaks.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks; WebFX 2025 Home Services CPL data. Restaurant hood cleaning CPL derived from LocaliQ 2025 Business & Professional Services ($103.54 avg CPL, 5.14% CVR) given its B2B compliance-service nature.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "commercial-agricultural-electric",
@@ -4687,7 +5021,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Control panels, motor starters, conveyor and leg electrical for grain handling facilities. Very high-ticket; specialized work with limited competition. Target grain cooperatives, elevators, and feed mills.",
     "source": "LocaliQ 2025 Industrial & Commercial benchmarks ($85.63 avg CPL, $5.70 CPC, 7.17% CVR); WebFX 2025 Electrical Contractors CPL data (~$80-150 for commercial work); adjusted upward for specialized agricultural/industrial categories with limited competition.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "commercial-agricultural-electric",
@@ -4701,7 +5036,8 @@
     "recommendedTargetAdSpend": 4500,
     "notes": "Specialized dryer control systems and 3-phase power. Highly seasonal \u2014 demand peaks pre-harvest. Budget heavier in Aug-Oct.",
     "source": "LocaliQ 2025 Industrial & Commercial benchmarks ($85.63 avg CPL, $5.70 CPC, 7.17% CVR); WebFX 2025 Electrical Contractors CPL data (~$80-150 for commercial work); adjusted upward for specialized agricultural/industrial categories with limited competition.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 2
   },
   {
     "industryId": "commercial-agricultural-electric",
@@ -4715,7 +5051,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Tractor, combine, sprayer, and implement electrical diagnostics, wiring repair, and retrofits. Higher volume, lower per-job value than facility work.",
     "source": "LocaliQ 2025 Industrial & Commercial benchmarks ($85.63 avg CPL, $5.70 CPC, 7.17% CVR); WebFX 2025 Electrical Contractors CPL data (~$80-150 for commercial work); adjusted upward for specialized agricultural/industrial categories with limited competition.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "commercial-agricultural-electric",
@@ -4729,7 +5066,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Service upgrades for ag operations, shops, and commercial buildings. Often required before adding major equipment like dryers or irrigation pumps.",
     "source": "LocaliQ 2025 Industrial & Commercial benchmarks ($85.63 avg CPL, $5.70 CPC, 7.17% CVR); WebFX 2025 Electrical Contractors CPL data (~$80-150 for commercial work); adjusted upward for specialized agricultural/industrial categories with limited competition.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "commercial-agricultural-electric",
@@ -4743,7 +5081,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Barns, pole barns, machine sheds, and farm shops \u2014 new construction wiring and upgrades. Steady demand; often bundled with lighting.",
     "source": "LocaliQ 2025 Industrial & Commercial benchmarks ($85.63 avg CPL, $5.70 CPC, 7.17% CVR); WebFX 2025 Electrical Contractors CPL data (~$80-150 for commercial work); adjusted upward for specialized agricultural/industrial categories with limited competition.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "commercial-agricultural-electric",
@@ -4757,7 +5096,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Ventilation controls, feed automation, watering systems, and lighting for dairy, swine, and poultry operations. Compliance and biosecurity-sensitive work.",
     "source": "LocaliQ 2025 Industrial & Commercial benchmarks ($85.63 avg CPL, $5.70 CPC, 7.17% CVR); WebFX 2025 Electrical Contractors CPL data (~$80-150 for commercial work); adjusted upward for specialized agricultural/industrial categories with limited competition.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "commercial-agricultural-electric",
@@ -4771,7 +5111,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Variable frequency drives and motor control centers for grain handling, conveyors, and industrial processes. Niche expertise; premium pricing.",
     "source": "LocaliQ 2025 Industrial & Commercial benchmarks ($85.63 avg CPL, $5.70 CPC, 7.17% CVR); WebFX 2025 Electrical Contractors CPL data (~$80-150 for commercial work); adjusted upward for specialized agricultural/industrial categories with limited competition.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "commercial-agricultural-electric",
@@ -4785,7 +5126,8 @@
     "recommendedTargetAdSpend": 6000,
     "notes": "Large standby generators for farms, ag facilities, and commercial buildings. High-ticket with compliance requirements (NEC, NFPA 110).",
     "source": "LocaliQ 2025 Industrial & Commercial benchmarks ($85.63 avg CPL, $5.70 CPC, 7.17% CVR); WebFX 2025 Electrical Contractors CPL data (~$80-150 for commercial work); adjusted upward for specialized agricultural/industrial categories with limited competition.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "commercial-agricultural-electric",
@@ -4799,7 +5141,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Programmable logic controllers for ag automation, processing lines, and facility controls. Highly specialized; decision-makers are plant managers and operations engineers.",
     "source": "LocaliQ 2025 Industrial & Commercial benchmarks ($85.63 avg CPL, $5.70 CPC, 7.17% CVR); WebFX 2025 Electrical Contractors CPL data (~$80-150 for commercial work); adjusted upward for specialized agricultural/industrial categories with limited competition.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "commercial-agricultural-electric",
@@ -4813,7 +5156,8 @@
     "recommendedTargetAdSpend": 4500,
     "notes": "400A/600A/800A+ panel upgrades for commercial and industrial buildings. Often required before major equipment upgrades or EV charger fleets.",
     "source": "LocaliQ 2025 Industrial & Commercial benchmarks ($85.63 avg CPL, $5.70 CPC, 7.17% CVR); WebFX 2025 Electrical Contractors CPL data (~$80-150 for commercial work); adjusted upward for specialized agricultural/industrial categories with limited competition.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "commercial-agricultural-electric",
@@ -4827,7 +5171,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "LED retrofits and new installs for warehouses, shops, and commercial facilities. Rebate and utility incentive programs often help close deals.",
     "source": "LocaliQ 2025 Industrial & Commercial benchmarks ($85.63 avg CPL, $5.70 CPC, 7.17% CVR); WebFX 2025 Electrical Contractors CPL data (~$80-150 for commercial work); adjusted upward for specialized agricultural/industrial categories with limited competition.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "commercial-agricultural-electric",
@@ -4841,7 +5186,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Center pivot, well pump, and irrigation control electrical. Highly seasonal \u2014 spring install peaks and summer service calls.",
     "source": "LocaliQ 2025 Industrial & Commercial benchmarks ($85.63 avg CPL, $5.70 CPC, 7.17% CVR); WebFX 2025 Electrical Contractors CPL data (~$80-150 for commercial work); adjusted upward for specialized agricultural/industrial categories with limited competition.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 5
   },
   {
     "industryId": "commercial-plumbing",
@@ -4855,7 +5201,8 @@
     "recommendedTargetAdSpend": 4500,
     "notes": "High-volume recurring service for restaurants, retail, and commercial buildings. Hydro-jetting premium over snaking. Often leads to maintenance contracts.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (plumbing residential $110-170 CPL) and LocaliQ 2025 Industrial & Commercial ($85.63 avg CPL, 7.17% CVR) blended. Commercial plumbing CPL runs higher than residential due to longer B2B sales cycles and competitive bidding.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 2
   },
   {
     "industryId": "commercial-plumbing",
@@ -4869,7 +5216,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Regulated recurring service (health code compliance). Restaurants require quarterly-to-monthly pumping. LTV is 8-15x a single job \u2014 push maintenance contracts.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (plumbing residential $110-170 CPL) and LocaliQ 2025 Industrial & Commercial ($85.63 avg CPL, 7.17% CVR) blended. Commercial plumbing CPL runs higher than residential due to longer B2B sales cycles and competitive bidding.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "commercial-plumbing",
@@ -4883,7 +5231,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Annual compliance-driven service required by water authorities. Low per-visit value but sticky recurring revenue and frequent add-on work (repairs, replacements).",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (plumbing residential $110-170 CPL) and LocaliQ 2025 Industrial & Commercial ($85.63 avg CPL, 7.17% CVR) blended. Commercial plumbing CPL runs higher than residential due to longer B2B sales cycles and competitive bidding.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "commercial-plumbing",
@@ -4897,7 +5246,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Commercial tankless, high-capacity, and boiler systems for hotels, apartments, restaurants, and facilities. High-ticket installs and ongoing service contracts.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (plumbing residential $110-170 CPL) and LocaliQ 2025 Industrial & Commercial ($85.63 avg CPL, 7.17% CVR) blended. Commercial plumbing CPL runs higher than residential due to longer B2B sales cycles and competitive bidding.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "commercial-plumbing",
@@ -4911,7 +5261,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Copper/PEX repipes in office buildings, apartments, and commercial facilities. Often driven by leak detection and building age.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (plumbing residential $110-170 CPL) and LocaliQ 2025 Industrial & Commercial ($85.63 avg CPL, 7.17% CVR) blended. Commercial plumbing CPL runs higher than residential due to longer B2B sales cycles and competitive bidding.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 2
   },
   {
     "industryId": "commercial-plumbing",
@@ -4925,7 +5276,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Trenchless repair/replacement for commercial buildings, strip malls, and multi-family properties. Often emergency-driven at high ticket.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (plumbing residential $110-170 CPL) and LocaliQ 2025 Industrial & Commercial ($85.63 avg CPL, 7.17% CVR) blended. Commercial plumbing CPL runs higher than residential due to longer B2B sales cycles and competitive bidding.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "commercial-plumbing",
@@ -4939,7 +5291,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "New construction and renovation plumbing for retail, restaurants, and office build-outs. Relationships with GCs and developers drive repeat work.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (plumbing residential $110-170 CPL) and LocaliQ 2025 Industrial & Commercial ($85.63 avg CPL, 7.17% CVR) blended. Commercial plumbing CPL runs higher than residential due to longer B2B sales cycles and competitive bidding.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "commercial-plumbing",
@@ -4953,7 +5306,8 @@
     "recommendedTargetAdSpend": 4500,
     "notes": "Kitchen plumbing, dish pits, ice machines, and grease lines. Often bundled with grease trap and drain cleaning maintenance contracts.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (plumbing residential $110-170 CPL) and LocaliQ 2025 Industrial & Commercial ($85.63 avg CPL, 7.17% CVR) blended. Commercial plumbing CPL runs higher than residential due to longer B2B sales cycles and competitive bidding.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 21
   },
   {
     "industryId": "commercial-plumbing",
@@ -4967,7 +5321,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "After-hours emergency response for commercial facilities. Premium pricing; service contracts retain customers.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (plumbing residential $110-170 CPL) and LocaliQ 2025 Industrial & Commercial ($85.63 avg CPL, 7.17% CVR) blended. Commercial plumbing CPL runs higher than residential due to longer B2B sales cycles and competitive bidding.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "commercial-plumbing",
@@ -4981,7 +5336,8 @@
     "recommendedTargetAdSpend": 6000,
     "notes": "Highly specialized NFPA 99-certified work for hospitals, dental, surgical, and medical facilities. Limited competition; premium pricing.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (plumbing residential $110-170 CPL) and LocaliQ 2025 Industrial & Commercial ($85.63 avg CPL, 7.17% CVR) blended. Commercial plumbing CPL runs higher than residential due to longer B2B sales cycles and competitive bidding.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "commercial-plumbing",
@@ -4995,7 +5351,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Toilets, sinks, and fixtures for office buildings, retail, schools, and multi-tenant bathrooms. Often part of tenant improvement or renovation packages.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (plumbing residential $110-170 CPL) and LocaliQ 2025 Industrial & Commercial ($85.63 avg CPL, 7.17% CVR) blended. Commercial plumbing CPL runs higher than residential due to longer B2B sales cycles and competitive bidding.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 2
   },
   {
     "industryId": "commercial-plumbing",
@@ -5009,7 +5366,8 @@
     "recommendedTargetAdSpend": 5500,
     "notes": "Annual preventive maintenance contracts for property managers, hotels, restaurants, and multi-tenant buildings. High-LTV account acquisition.",
     "source": "LocaliQ 2025 Home Services Search Ad Benchmarks (plumbing residential $110-170 CPL) and LocaliQ 2025 Industrial & Commercial ($85.63 avg CPL, 7.17% CVR) blended. Commercial plumbing CPL runs higher than residential due to longer B2B sales cycles and competitive bidding.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 3
   },
   {
     "industryId": "custom-car-shop",
@@ -5023,7 +5381,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Highest-volume category for performance shops. 'Crate engine builder near me' and platform-specific searches drive the lion's share of leads. Top-performing accounts can run 40-50% below this baseline with strong creative and targeting.",
     "source": "WordStream 2024 Facebook & Search Ads Benchmarks \u2014 Automotive Repair, Service & Parts ($81.45 Meta CPL, search CPL $50-150 range); LocaliQ 2025 Automotive Service & Parts ($78 avg Google CPL); custom build/performance categories adjusted upward for longer sales cycles and competitive bidding. Top-performing shops (e.g. Prestige Motorsports) run 40-50% below these baselines with strong campaign management.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "custom-car-shop",
@@ -5037,7 +5396,8 @@
     "recommendedTargetAdSpend": 4500,
     "notes": "LS swaps and builds drive enormous search volume. Highly competitive but also highly-converting niche given enthusiast research depth.",
     "source": "WordStream 2024 Facebook & Search Ads Benchmarks \u2014 Automotive Repair, Service & Parts ($81.45 Meta CPL, search CPL $50-150 range); LocaliQ 2025 Automotive Service & Parts ($78 avg Google CPL); custom build/performance categories adjusted upward for longer sales cycles and competitive bidding. Top-performing shops (e.g. Prestige Motorsports) run 40-50% below these baselines with strong campaign management.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-car-shop",
@@ -5051,7 +5411,8 @@
     "recommendedTargetAdSpend": 4500,
     "notes": "Classic Chevy small block builds are a steady high-volume category. Pair with restoration/restomod content for cross-sell.",
     "source": "WordStream 2024 Facebook & Search Ads Benchmarks \u2014 Automotive Repair, Service & Parts ($81.45 Meta CPL, search CPL $50-150 range); LocaliQ 2025 Automotive Service & Parts ($78 avg Google CPL); custom build/performance categories adjusted upward for longer sales cycles and competitive bidding. Top-performing shops (e.g. Prestige Motorsports) run 40-50% below these baselines with strong campaign management.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-car-shop",
@@ -5065,7 +5426,8 @@
     "recommendedTargetAdSpend": 4500,
     "notes": "Higher displacement = higher build cost = higher CPL but bigger ticket. Hot rod and pro touring market.",
     "source": "WordStream 2024 Facebook & Search Ads Benchmarks \u2014 Automotive Repair, Service & Parts ($81.45 Meta CPL, search CPL $50-150 range); LocaliQ 2025 Automotive Service & Parts ($78 avg Google CPL); custom build/performance categories adjusted upward for longer sales cycles and competitive bidding. Top-performing shops (e.g. Prestige Motorsports) run 40-50% below these baselines with strong campaign management.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-car-shop",
@@ -5079,7 +5441,8 @@
     "recommendedTargetAdSpend": 4500,
     "notes": "Includes Windsor, Cleveland, and modern Coyote/Aluminator builds. Mustang/F-150 platform owners are the core buyer.",
     "source": "WordStream 2024 Facebook & Search Ads Benchmarks \u2014 Automotive Repair, Service & Parts ($81.45 Meta CPL, search CPL $50-150 range); LocaliQ 2025 Automotive Service & Parts ($78 avg Google CPL); custom build/performance categories adjusted upward for longer sales cycles and competitive bidding. Top-performing shops (e.g. Prestige Motorsports) run 40-50% below these baselines with strong campaign management.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-car-shop",
@@ -5093,7 +5456,8 @@
     "recommendedTargetAdSpend": 4500,
     "notes": "Niche category \u2014 fewer competing shops than Chevy means stronger Quality Score for those who do it well.",
     "source": "WordStream 2024 Facebook & Search Ads Benchmarks \u2014 Automotive Repair, Service & Parts ($81.45 Meta CPL, search CPL $50-150 range); LocaliQ 2025 Automotive Service & Parts ($78 avg Google CPL); custom build/performance categories adjusted upward for longer sales cycles and competitive bidding. Top-performing shops (e.g. Prestige Motorsports) run 40-50% below these baselines with strong campaign management.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-car-shop",
@@ -5107,7 +5471,8 @@
     "recommendedTargetAdSpend": 4500,
     "notes": "Includes Gen III Hemi, 426/440/383 big block. Mopar buyer is a passionate niche \u2014 high lifetime value, strong word-of-mouth.",
     "source": "WordStream 2024 Facebook & Search Ads Benchmarks \u2014 Automotive Repair, Service & Parts ($81.45 Meta CPL, search CPL $50-150 range); LocaliQ 2025 Automotive Service & Parts ($78 avg Google CPL); custom build/performance categories adjusted upward for longer sales cycles and competitive bidding. Top-performing shops (e.g. Prestige Motorsports) run 40-50% below these baselines with strong campaign management.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-car-shop",
@@ -5121,7 +5486,8 @@
     "recommendedTargetAdSpend": 4500,
     "notes": "Offshore powerboat, jet boat, and airboat engine builds. Highly seasonal \u2014 lead volume peaks Feb-May before boating season.",
     "source": "WordStream 2024 Facebook & Search Ads Benchmarks \u2014 Automotive Repair, Service & Parts ($81.45 Meta CPL, search CPL $50-150 range); LocaliQ 2025 Automotive Service & Parts ($78 avg Google CPL); custom build/performance categories adjusted upward for longer sales cycles and competitive bidding. Top-performing shops (e.g. Prestige Motorsports) run 40-50% below these baselines with strong campaign management.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-car-shop",
@@ -5135,7 +5501,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Carb-to-EFI swaps (Holley Sniper/Terminator X, FiTech). Strong stand-alone service AND a frequent add-on to engine builds.",
     "source": "WordStream 2024 Facebook & Search Ads Benchmarks \u2014 Automotive Repair, Service & Parts ($81.45 Meta CPL, search CPL $50-150 range); LocaliQ 2025 Automotive Service & Parts ($78 avg Google CPL); custom build/performance categories adjusted upward for longer sales cycles and competitive bidding. Top-performing shops (e.g. Prestige Motorsports) run 40-50% below these baselines with strong campaign management.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-car-shop",
@@ -5149,7 +5516,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "In-shop dyno tuning sessions. Lower per-job value but high frequency and gateway service to engine work upsell.",
     "source": "WordStream 2024 Facebook & Search Ads Benchmarks \u2014 Automotive Repair, Service & Parts ($81.45 Meta CPL, search CPL $50-150 range); LocaliQ 2025 Automotive Service & Parts ($78 avg Google CPL); custom build/performance categories adjusted upward for longer sales cycles and competitive bidding. Top-performing shops (e.g. Prestige Motorsports) run 40-50% below these baselines with strong campaign management.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-car-shop",
@@ -5163,7 +5531,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Drop-in installs of crate engines or customer-supplied engines. Often bundled with cooling/fuel/EFI upgrades.",
     "source": "WordStream 2024 Facebook & Search Ads Benchmarks \u2014 Automotive Repair, Service & Parts ($81.45 Meta CPL, search CPL $50-150 range); LocaliQ 2025 Automotive Service & Parts ($78 avg Google CPL); custom build/performance categories adjusted upward for longer sales cycles and competitive bidding. Top-performing shops (e.g. Prestige Motorsports) run 40-50% below these baselines with strong campaign management.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-car-shop",
@@ -5177,7 +5546,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "T56, TKX, Tremec, and modern auto swaps. Includes driveshaft work, hydraulic clutch conversions, and shifter installs.",
     "source": "WordStream 2024 Facebook & Search Ads Benchmarks \u2014 Automotive Repair, Service & Parts ($81.45 Meta CPL, search CPL $50-150 range); LocaliQ 2025 Automotive Service & Parts ($78 avg Google CPL); custom build/performance categories adjusted upward for longer sales cycles and competitive bidding. Top-performing shops (e.g. Prestige Motorsports) run 40-50% below these baselines with strong campaign management.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "custom-car-shop",
@@ -5191,7 +5561,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Coilover conversions, big-brake kits, IFS retrofits. Pro-touring and autocross builds drive demand.",
     "source": "WordStream 2024 Facebook & Search Ads Benchmarks \u2014 Automotive Repair, Service & Parts ($81.45 Meta CPL, search CPL $50-150 range); LocaliQ 2025 Automotive Service & Parts ($78 avg Google CPL); custom build/performance categories adjusted upward for longer sales cycles and competitive bidding. Top-performing shops (e.g. Prestige Motorsports) run 40-50% below these baselines with strong campaign management.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-car-shop",
@@ -5205,7 +5576,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Hand-formed panels, custom mounts, NHRA/SCCA roll cages, structural rust repair. Premium pricing for skilled fab.",
     "source": "WordStream 2024 Facebook & Search Ads Benchmarks \u2014 Automotive Repair, Service & Parts ($81.45 Meta CPL, search CPL $50-150 range); LocaliQ 2025 Automotive Service & Parts ($78 avg Google CPL); custom build/performance categories adjusted upward for longer sales cycles and competitive bidding. Top-performing shops (e.g. Prestige Motorsports) run 40-50% below these baselines with strong campaign management.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-car-shop",
@@ -5219,7 +5591,8 @@
     "recommendedTargetAdSpend": 4500,
     "notes": "Show-quality paint, full color changes, panel replacement, restoration paint work. High visual content opportunity.",
     "source": "WordStream 2024 Facebook & Search Ads Benchmarks \u2014 Automotive Repair, Service & Parts ($81.45 Meta CPL, search CPL $50-150 range); LocaliQ 2025 Automotive Service & Parts ($78 avg Google CPL); custom build/performance categories adjusted upward for longer sales cycles and competitive bidding. Top-performing shops (e.g. Prestige Motorsports) run 40-50% below these baselines with strong campaign management.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-car-shop",
@@ -5233,7 +5606,8 @@
     "recommendedTargetAdSpend": 6000,
     "notes": "Full-vehicle builds \u2014 chassis-up restomods, pro-touring, hot rod and muscle car restorations. Very long sales cycle (3-12 months) but enormous ticket.",
     "source": "WordStream 2024 Facebook & Search Ads Benchmarks \u2014 Automotive Repair, Service & Parts ($81.45 Meta CPL, search CPL $50-150 range); LocaliQ 2025 Automotive Service & Parts ($78 avg Google CPL); custom build/performance categories adjusted upward for longer sales cycles and competitive bidding. Top-performing shops (e.g. Prestige Motorsports) run 40-50% below these baselines with strong campaign management.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "printing",
@@ -5247,7 +5621,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Tri-fold and bi-fold brochures, sales sheets, rack cards. Bread-and-butter of commercial print \u2014 search volume from marketing managers and small business owners.",
     "source": "WordStream 2025 Business Services Search Ads ($103.54 avg CPL); LocaliQ 2025 Business & Professional Services. Commercial printing CPL falls below B2B services average due to long-tail keyword targeting and moderate competition. Wedding/invitations niche tracks closer to consumer rates ($30-60 CPL).",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "printing",
@@ -5261,7 +5636,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Soft-cover books, product catalogs, annual reports. Higher-ticket runs with strong repeat business. Decision-makers compare quotes from 2-4 shops.",
     "source": "WordStream 2025 Business Services Search Ads ($103.54 avg CPL); LocaliQ 2025 Business & Professional Services. Commercial printing CPL falls below B2B services average due to long-tail keyword targeting and moderate competition. Wedding/invitations niche tracks closer to consumer rates ($30-60 CPL).",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "printing",
@@ -5275,7 +5651,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Quick-turn flyers, posters, event handouts. Lower ticket but high volume of small jobs \u2014 great gateway to larger account work.",
     "source": "WordStream 2025 Business Services Search Ads ($103.54 avg CPL); LocaliQ 2025 Business & Professional Services. Commercial printing CPL falls below B2B services average due to long-tail keyword targeting and moderate competition. Wedding/invitations niche tracks closer to consumer rates ($30-60 CPL).",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "printing",
@@ -5289,7 +5666,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Corporate, association, school, and church newsletters. Often recurring monthly/quarterly contracts \u2014 high lifetime value once acquired.",
     "source": "WordStream 2025 Business Services Search Ads ($103.54 avg CPL); LocaliQ 2025 Business & Professional Services. Commercial printing CPL falls below B2B services average due to long-tail keyword targeting and moderate competition. Wedding/invitations niche tracks closer to consumer rates ($30-60 CPL).",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "printing",
@@ -5303,7 +5681,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Invoices, receipts, work orders, NCR/carbonless forms. Niche search but very low competition \u2014 high Quality Score for shops that target it.",
     "source": "WordStream 2025 Business Services Search Ads ($103.54 avg CPL); LocaliQ 2025 Business & Professional Services. Commercial printing CPL falls below B2B services average due to long-tail keyword targeting and moderate competition. Wedding/invitations niche tracks closer to consumer rates ($30-60 CPL).",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "printing",
@@ -5317,7 +5696,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "Postcard, EDDM, and targeted direct mail campaigns. Printing + mail prep + postage = high ticket. Target marketing managers, real estate agents, and political campaigns.",
     "source": "WordStream 2025 Business Services Search Ads ($103.54 avg CPL); LocaliQ 2025 Business & Professional Services. Commercial printing CPL falls below B2B services average due to long-tail keyword targeting and moderate competition. Wedding/invitations niche tracks closer to consumer rates ($30-60 CPL).",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "printing",
@@ -5331,7 +5711,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Wedding invitations, corporate event invites, holiday cards, birth/graduation announcements. Higher close rate than B2B (~35%) but lower ticket per order.",
     "source": "WordStream 2025 Business Services Search Ads ($103.54 avg CPL); LocaliQ 2025 Business & Professional Services. Commercial printing CPL falls below B2B services average due to long-tail keyword targeting and moderate competition. Wedding/invitations niche tracks closer to consumer rates ($30-60 CPL).",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "printing",
@@ -5345,7 +5726,8 @@
     "recommendedTargetAdSpend": 2000,
     "notes": "Letterhead, envelopes, business cards, identity packages. Often the entry service that opens larger account relationships.",
     "source": "WordStream 2025 Business Services Search Ads ($103.54 avg CPL); LocaliQ 2025 Business & Professional Services. Commercial printing CPL falls below B2B services average due to long-tail keyword targeting and moderate competition. Wedding/invitations niche tracks closer to consumer rates ($30-60 CPL).",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "printing",
@@ -5359,7 +5741,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Digital print with personalization (VDP) \u2014 names, addresses, custom fields. Higher margin than offset; targets marketers running personalized campaigns.",
     "source": "WordStream 2025 Business Services Search Ads ($103.54 avg CPL); LocaliQ 2025 Business & Professional Services. Commercial printing CPL falls below B2B services average due to long-tail keyword targeting and moderate competition. Wedding/invitations niche tracks closer to consumer rates ($30-60 CPL).",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "printing",
@@ -5373,7 +5756,8 @@
     "recommendedTargetAdSpend": 4000,
     "notes": "High-volume offset runs (10K+). Major B2B accounts comparing 3+ vendors. Long sales cycle but large recurring contracts.",
     "source": "WordStream 2025 Business Services Search Ads ($103.54 avg CPL); LocaliQ 2025 Business & Professional Services. Commercial printing CPL falls below B2B services average due to long-tail keyword targeting and moderate competition. Wedding/invitations niche tracks closer to consumer rates ($30-60 CPL).",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-engine",
@@ -5387,7 +5771,8 @@
     "recommendedTargetAdSpend": 4500,
     "notes": "Highest-demand custom engine segment. LS swaps dominate the market. Hot Rod Series (575hp) starts ~$9K, Super Street (650hp+) $14-20K, Power Adder (1000-1200hp) $20-35K. $15K reflects blended average across tiers.",
     "source": "Prestige Motorsports site audit (prestigemoto.com) \u2014 builds range from 550hp Hot Rod Series to 1500hp+ twin marine setups. Engine-only pricing industry-researched from Summit Racing, SDPC Racecraft, BluePrint Engines, and specialty builder forums 2024-2025. WordStream 2025 Automotive Repair CPL ($28.50 avg) adjusted upward for high-ticket specialty performance (longer sales cycle, premium intent searches, lower volume). Turnkey and marine figures from Offshore Powerboat market and industry consultant data.",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-engine",
@@ -5401,7 +5786,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Big block Chevy (454/502/572/632). Hot Rod Series ~$10-16K, Super Street ~$16-25K. Higher displacement = higher ticket. Strong hot rod and marine crossover market.",
     "source": "Prestige Motorsports site audit (prestigemoto.com) \u2014 builds range from 550hp Hot Rod Series to 1500hp+ twin marine setups. Engine-only pricing industry-researched from Summit Racing, SDPC Racecraft, BluePrint Engines, and specialty builder forums 2024-2025. WordStream 2025 Automotive Repair CPL ($28.50 avg) adjusted upward for high-ticket specialty performance (longer sales cycle, premium intent searches, lower volume). Turnkey and marine figures from Offshore Powerboat market and industry consultant data.",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-engine",
@@ -5415,7 +5801,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "Entry point for custom builds. 350/383 stroker highly sought after. Lower ticket than LS but high search volume. Avg $8-11K for engine.",
     "source": "Prestige Motorsports site audit (prestigemoto.com) \u2014 builds range from 550hp Hot Rod Series to 1500hp+ twin marine setups. Engine-only pricing industry-researched from Summit Racing, SDPC Racecraft, BluePrint Engines, and specialty builder forums 2024-2025. WordStream 2025 Automotive Repair CPL ($28.50 avg) adjusted upward for high-ticket specialty performance (longer sales cycle, premium intent searches, lower volume). Turnkey and marine figures from Offshore Powerboat market and industry consultant data.",
-    "confidence": "high"
+    "confidence": "high",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-engine",
@@ -5429,7 +5816,8 @@
     "recommendedTargetAdSpend": 3500,
     "notes": "351 Windsor and 427W stroker builds. Strong Mustang/F-Series aftermarket. $8-16K range depending on HP tier.",
     "source": "Prestige Motorsports site audit (prestigemoto.com) \u2014 builds range from 550hp Hot Rod Series to 1500hp+ twin marine setups. Engine-only pricing industry-researched from Summit Racing, SDPC Racecraft, BluePrint Engines, and specialty builder forums 2024-2025. WordStream 2025 Automotive Repair CPL ($28.50 avg) adjusted upward for high-ticket specialty performance (longer sales cycle, premium intent searches, lower volume). Turnkey and marine figures from Offshore Powerboat market and industry consultant data.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-engine",
@@ -5443,7 +5831,8 @@
     "recommendedTargetAdSpend": 4500,
     "notes": "460/521/557ci FE and 385-series builds. Popular for marine and heavy-duty applications. $12-22K range.",
     "source": "Prestige Motorsports site audit (prestigemoto.com) \u2014 builds range from 550hp Hot Rod Series to 1500hp+ twin marine setups. Engine-only pricing industry-researched from Summit Racing, SDPC Racecraft, BluePrint Engines, and specialty builder forums 2024-2025. WordStream 2025 Automotive Repair CPL ($28.50 avg) adjusted upward for high-ticket specialty performance (longer sales cycle, premium intent searches, lower volume). Turnkey and marine figures from Offshore Powerboat market and industry consultant data.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-engine",
@@ -5457,7 +5846,8 @@
     "recommendedTargetAdSpend": 4500,
     "notes": "Gen III Hemi, 440 big block, and classic Hemi builds. Passionate buyer base. $12-28K range. Gen III Hemi builds command premium.",
     "source": "Prestige Motorsports site audit (prestigemoto.com) \u2014 builds range from 550hp Hot Rod Series to 1500hp+ twin marine setups. Engine-only pricing industry-researched from Summit Racing, SDPC Racecraft, BluePrint Engines, and specialty builder forums 2024-2025. WordStream 2025 Automotive Repair CPL ($28.50 avg) adjusted upward for high-ticket specialty performance (longer sales cycle, premium intent searches, lower volume). Turnkey and marine figures from Offshore Powerboat market and industry consultant data.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-engine",
@@ -5471,7 +5861,8 @@
     "recommendedTargetAdSpend": 6000,
     "notes": "Complete drivetrain solution: engine + transmission + cooling package + fuel supply. Highest avg ticket for bolt-in builds. $18-45K depending on platform and HP. Prestige 'Ultimate Turn-Key Package'.",
     "source": "Prestige Motorsports site audit (prestigemoto.com) \u2014 builds range from 550hp Hot Rod Series to 1500hp+ twin marine setups. Engine-only pricing industry-researched from Summit Racing, SDPC Racecraft, BluePrint Engines, and specialty builder forums 2024-2025. WordStream 2025 Automotive Repair CPL ($28.50 avg) adjusted upward for high-ticket specialty performance (longer sales cycle, premium intent searches, lower volume). Turnkey and marine figures from Offshore Powerboat market and industry consultant data.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 1
   },
   {
     "industryId": "custom-engine",
@@ -5485,7 +5876,8 @@
     "recommendedTargetAdSpend": 6500,
     "notes": "Offshore catamaran and pleasure boat engines. 650-750hp sweet spot per Prestige. Twin-engine setups for race boats can hit $70K+. Avg single-engine build $25-40K.",
     "source": "Prestige Motorsports site audit (prestigemoto.com) \u2014 builds range from 550hp Hot Rod Series to 1500hp+ twin marine setups. Engine-only pricing industry-researched from Summit Racing, SDPC Racecraft, BluePrint Engines, and specialty builder forums 2024-2025. WordStream 2025 Automotive Repair CPL ($28.50 avg) adjusted upward for high-ticket specialty performance (longer sales cycle, premium intent searches, lower volume). Turnkey and marine figures from Offshore Powerboat market and industry consultant data.",
-    "confidence": "low"
+    "confidence": "low",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-engine",
@@ -5499,7 +5891,8 @@
     "recommendedTargetAdSpend": 5000,
     "notes": "Recreational and industrial airboat engines plus commercial workboat repowers. Extended heavy-load duty cycle requirements. $15-30K range. Repeat business from fleet operators.",
     "source": "Prestige Motorsports site audit (prestigemoto.com) \u2014 builds range from 550hp Hot Rod Series to 1500hp+ twin marine setups. Engine-only pricing industry-researched from Summit Racing, SDPC Racecraft, BluePrint Engines, and specialty builder forums 2024-2025. WordStream 2025 Automotive Repair CPL ($28.50 avg) adjusted upward for high-ticket specialty performance (longer sales cycle, premium intent searches, lower volume). Turnkey and marine figures from Offshore Powerboat market and industry consultant data.",
-    "confidence": "low"
+    "confidence": "low",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-engine",
@@ -5513,7 +5906,8 @@
     "recommendedTargetAdSpend": 7000,
     "notes": "Supercharged, turbocharged, or nitrous-oxide competition builds rated 1000-1500hp. Aftermarket block required. $22-60K range. Very high-intent buyer \u2014 long research cycle but close rate is good.",
     "source": "Prestige Motorsports site audit (prestigemoto.com) \u2014 builds range from 550hp Hot Rod Series to 1500hp+ twin marine setups. Engine-only pricing industry-researched from Summit Racing, SDPC Racecraft, BluePrint Engines, and specialty builder forums 2024-2025. WordStream 2025 Automotive Repair CPL ($28.50 avg) adjusted upward for high-ticket specialty performance (longer sales cycle, premium intent searches, lower volume). Turnkey and marine figures from Offshore Powerboat market and industry consultant data.",
-    "confidence": "low"
+    "confidence": "low",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-engine",
@@ -5527,7 +5921,8 @@
     "recommendedTargetAdSpend": 8000,
     "notes": "Full vehicle build: engine, suspension, brakes, fabrication, digital dash. Wide range $25K (simple engine swap build) to $200K+ (full frame-off pro-touring). $85K reflects mid-tier pro-touring restomod. Very long sales cycle \u2014 ads are awareness/lead capture.",
     "source": "Prestige Motorsports site audit (prestigemoto.com) \u2014 builds range from 550hp Hot Rod Series to 1500hp+ twin marine setups. Engine-only pricing industry-researched from Summit Racing, SDPC Racecraft, BluePrint Engines, and specialty builder forums 2024-2025. WordStream 2025 Automotive Repair CPL ($28.50 avg) adjusted upward for high-ticket specialty performance (longer sales cycle, premium intent searches, lower volume). Turnkey and marine figures from Offshore Powerboat market and industry consultant data.",
-    "confidence": "low"
+    "confidence": "low",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-engine",
@@ -5541,7 +5936,8 @@
     "recommendedTargetAdSpend": 2500,
     "notes": "Installation-only service: customer or shop-supplied engine drop-in, mounts, wiring, plumbing. $2,500-$9,000 depending on complexity and vehicle. High volume, lower ticket.",
     "source": "Prestige Motorsports site audit (prestigemoto.com) \u2014 builds range from 550hp Hot Rod Series to 1500hp+ twin marine setups. Engine-only pricing industry-researched from Summit Racing, SDPC Racecraft, BluePrint Engines, and specialty builder forums 2024-2025. WordStream 2025 Automotive Repair CPL ($28.50 avg) adjusted upward for high-ticket specialty performance (longer sales cycle, premium intent searches, lower volume). Turnkey and marine figures from Offshore Powerboat market and industry consultant data.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   },
   {
     "industryId": "custom-engine",
@@ -5555,6 +5951,7 @@
     "recommendedTargetAdSpend": 1500,
     "notes": "ECU tuning, remote tuning, and dyno pulls. $300-$800 dyno test, $500-$1,500 full tune. High-frequency repeat service. Builds trust and upsells to full engine builds.",
     "source": "Prestige Motorsports site audit (prestigemoto.com) \u2014 builds range from 550hp Hot Rod Series to 1500hp+ twin marine setups. Engine-only pricing industry-researched from Summit Racing, SDPC Racecraft, BluePrint Engines, and specialty builder forums 2024-2025. WordStream 2025 Automotive Repair CPL ($28.50 avg) adjusted upward for high-ticket specialty performance (longer sales cycle, premium intent searches, lower volume). Turnkey and marine figures from Offshore Powerboat market and industry consultant data.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "avgDaysToClose": 7
   }
 ]

@@ -1668,6 +1668,7 @@ ${resultsHtml}
           perPlatformRecommendedSpend={perPlatformRecommendedSpend}
           budgetMode={budgetMode}
           maxRoiAdSpend={maxRoiAdSpend}
+          selectedServices={services.filter((s) => s.selected)}
         />
 
         {/* Section D: Results */}

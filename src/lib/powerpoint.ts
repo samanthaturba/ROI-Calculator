@@ -193,22 +193,26 @@ function addRoasSlide(
     { text: "Budget $", options: { bold: true, fontSize: headerFontSize, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
     { text: "Average CPL", options: { bold: true, fontSize: headerFontSize, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
     { text: "Avg Job Value", options: { bold: true, fontSize: headerFontSize, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
+    { text: "Avg Days to Close\u2020", options: { bold: true, fontSize: headerFontSize, fontFace: "Arial", fill: { color: COGENT_SAGE }, color: BLACK, align: "center" } },
   ]];
 
   const svcRows: PptxGenJS.TableCell[][] = selectedServices.map((svc) => {
     const sr = resultForSlide.serviceResults.find((r) => r.serviceName === svc.serviceName);
+    const daysToClose = svc.benchmark?.avgDaysToClose;
+    const daysText = daysToClose != null ? `~${daysToClose}d` : "\u2014";
     return [
       { text: svc.serviceName, options: { fontSize, fontFace: "Arial", align: "center" } },
       { text: String(svc.allocationPercent), options: { fontSize, fontFace: "Arial", align: "center" } },
       { text: fmt$(Math.round(budgetForSlide * svc.allocationPercent / 100)), options: { fontSize, fontFace: "Arial", align: "center" } },
       { text: sr ? fmt$(sr.cplUsed) : "\u2014", options: { fontSize, fontFace: "Arial", align: "center" } },
       { text: sr ? fmt$(sr.jobValue) : "\u2014", options: { fontSize, fontFace: "Arial", align: "center" } },
+      { text: daysText, options: { fontSize, fontFace: "Arial", align: "center" } },
     ];
   });
 
   slide.addTable([...svcHeader, ...svcRows], {
     x: 0.3, y: currentY, w: 9.4,
-    colW: [2.8, 1.2, 1.2, 1.6, 1.6],
+    colW: [2.4, 1.0, 1.0, 1.4, 1.4, 2.2],
     border: { pt: 0.5, color: MED_GRAY },
     rowH: [headerH, ...selectedServices.map(() => rowH)],
     margin: 2,
@@ -294,6 +298,7 @@ function addRoasSlide(
     { text: ", not a guarantee of results. Actual lead volume, cost per lead, close rate, and revenue will vary based on campaign setup, market conditions, competition, seasonality, and the client's ability to effectively respond to and close leads. Cogent Analytics does not guarantee any specific number of leads, jobs, or revenue. These figures are intended to illustrate the potential return on investment from " },
     { text: `${platformLabel} Ads` },
     { text: " and to set realistic expectations for campaign performance once fully optimized (typically 60-90 days)." },
+    { text: "  † Avg Days to Close reflects the industry-average time from first contact to signed job/contract and will vary by client, market, and lead quality.", options: { italic: true } },
   ], {
     x: 0.2, y: 5.0, w: 9.6, h: 0.55,
     fontSize: 6.5, fontFace: "Arial",

@@ -1,6 +1,6 @@
 "use client";
 
-import type { BudgetInputs, RoundingMode, AdPlatform } from "../lib/types";
+import type { BudgetInputs, RoundingMode, AdPlatform, ServiceSelection } from "../lib/types";
 import { formatCurrency } from "../lib/calculations";
 
 interface Props {
@@ -19,6 +19,8 @@ interface Props {
   /** When Max ROI mode is active in Service Selection, the budget is driven by service recs */
   budgetMode?: "strict" | "maxroi";
   maxRoiAdSpend?: number;
+  /** Selected services — used to compute weighted avg days-to-close note */
+  selectedServices?: ServiceSelection[];
 }
 
 const PLATFORM_LABELS: Record<AdPlatform, string> = {
@@ -50,9 +52,43 @@ export default function BudgetSalesInputs({
   perPlatformRecommendedSpend,
   budgetMode = "strict",
   maxRoiAdSpend = 0,
+  selectedServices = [],
 }: Props) {
   const isMultiPlatform = selectedPlatforms && selectedPlatforms.length > 1 && platformAllocations;
   const isMaxRoi = budgetMode === "maxroi";
+
+  // ── Days-to-close note ───────────────────────────────────────────
+  // Compute a weighted average (by allocation %) across selected services.
+  // Falls back to a simple mean if allocations sum to 0.
+  const daysToCloseNote: { text: string; range: string } | null = (() => {
+    const active = selectedServices.filter(
+      (s) => s.selected && s.benchmark?.avgDaysToClose != null
+    );
+    if (active.length === 0) return null;
+
+    const totalAlloc = active.reduce((sum, s) => sum + s.allocationPercent, 0);
+    let weighted: number;
+    if (totalAlloc > 0) {
+      weighted = active.reduce(
+        (sum, s) => sum + (s.benchmark!.avgDaysToClose! * s.allocationPercent),
+        0
+      ) / totalAlloc;
+    } else {
+      weighted = active.reduce((sum, s) => sum + s.benchmark!.avgDaysToClose!, 0) / active.length;
+    }
+
+    const min = Math.min(...active.map((s) => s.benchmark!.avgDaysToClose!));
+    const max = Math.max(...active.map((s) => s.benchmark!.avgDaysToClose!));
+    const avg = Math.round(weighted);
+
+    if (min === max) {
+      return { text: `~${avg} day${avg === 1 ? "" : "s"}`, range: "" };
+    }
+    return {
+      text: `~${avg} days (avg)`,
+      range: `${min}–${max} day range across services`,
+    };
+  })();
 
   // The budget that will actually flow into calculations
   const effectiveBudget = isMaxRoi ? maxRoiAdSpend : value.monthlyAdSpend;
@@ -236,6 +272,19 @@ export default function BudgetSalesInputs({
                   Reset
                 </button>
               )}
+            </p>
+          )}
+          {/* Days-to-close asterisk note */}
+          {daysToCloseNote && (
+            <p className="mt-2 text-xs text-gray-500 leading-relaxed">
+              <span className="font-semibold text-cogent-navy">* Avg days to close a lead:</span>{" "}
+              {daysToCloseNote.text}
+              {daysToCloseNote.range && (
+                <span className="text-gray-400"> — {daysToCloseNote.range}</span>
+              )}
+              <span className="block text-gray-400 mt-0.5">
+                Industry benchmark: typical time from first contact to signed job/contract.
+              </span>
             </p>
           )}
         </div>
