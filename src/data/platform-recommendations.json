@@ -1600,5 +1600,23 @@
       "rating": 0,
       "note": "Local Services Ads availability depends on your specific industry. Check Google's LSA eligibility tool for your service type."
     }
+  },
+  "charter-bus": {
+    "google": {
+      "rating": 5,
+      "note": "Best platform for charter bus. High-intent searches ('charter bus rental near me', 'wedding shuttle bus Philadelphia') drive immediate leads from groups actively planning travel. Exact-match and phrase-match keywords for event types perform best."
+    },
+    "meta": {
+      "rating": 4,
+      "note": "Strong secondary platform. Weddings, sports tours, and ticketed group tours perform well with visual content on Instagram and Facebook. Best used for retargeting Google visitors and lookalike audiences. Facebook's older demographic (35+) aligns well with church trips and corporate decision-makers."
+    },
+    "linkedin": {
+      "rating": 2,
+      "note": "Niche use case \u2014 recommended only for corporate shuttle and conference transportation. Target HR Directors, Operations Managers, and Event Planners at mid-to-large companies. High CPL but very high LTV on corporate contracts. Not recommended for consumer/event charter."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Google Local Services Ads is designed for home services (plumbing, HVAC, etc.) and does not support the charter bus/transportation category. Use Google Search Ads instead."
+    }
   }
 }

@@ -382,5 +382,9 @@
   "custom-car-shop": {
     "closeRate": 18,
     "source": "Estimated based on high-ticket custom auto/performance industry sales-cycle data. Custom build buyers comparison-shop heavily and decision cycles run 30-180 days; close rate is lower than general auto repair (~25-30%) but average ticket is much higher ($10K+ vs $500-1K for repair work)."
+  },
+  "charter-bus": {
+    "closeRate": 30,
+    "source": "American Bus Association (ABA) 2025 Charter Industry Research \u2014 inbound lead-to-booking conversion. Charter operators with responsive quoting processes report 28\u201335% close rates on qualified inbound inquiries. High intent: most searchers have an immediate group need and are price-comparing 2\u20133 vendors."
   }
 }

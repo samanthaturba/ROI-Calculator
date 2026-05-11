@@ -2350,5 +2350,35 @@
     "notes": "Target association executives, school administrators, HR/comms leaders. Recurring contracts justify the higher CPL.",
     "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Corporate Services ($60 CPL), Marketing & Advertising sub-sector, AdBacklog 2025 Business Services (~$60 CPL). Adjusted upward for niche commercial printing target audiences.",
     "confidence": "medium"
+  },
+  {
+    "industryId": "charter-bus",
+    "industryName": "Charter Bus & Transportation",
+    "serviceName": "Corporate Shuttle Service",
+    "cplLow": 75,
+    "cplMid": 120,
+    "cplHigh": 180,
+    "avgJobValue": 4500,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 6000,
+    "notes": "LinkedIn is the right channel for corporate shuttle contracts. Target HR Directors, Operations Managers, Executive Assistants, and Office Managers at companies with 100+ employees in the tri-state area. Sponsored InMail with a custom quote offer works well. Lead Gen Forms lower friction significantly. Corporate accounts represent the highest LTV segment \u2014 a single contract can generate $36,000\u2013$180,000/year in recurring revenue.",
+    "source": "LinkedIn B2B Services CPL benchmarks 2025 ($60\u2013$130 avg); ABA corporate charter data; transportation B2B LinkedIn advertising practitioner data",
+    "confidence": "medium",
+    "avgDaysToClose": 14
+  },
+  {
+    "industryId": "charter-bus",
+    "industryName": "Charter Bus & Transportation",
+    "serviceName": "Multi-Day Tour Charter",
+    "cplLow": 85,
+    "cplMid": 135,
+    "cplHigh": 200,
+    "avgJobValue": 5000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 6000,
+    "notes": "LinkedIn can reach corporate event planners, conference organizers, and incentive travel managers who book multi-day group transportation. Target Event Planners, Travel Managers, and Operations Directors. Content showing past corporate group experiences and customized itinerary planning resonates with this audience. CPL is higher but job value justifies the spend.",
+    "source": "LinkedIn Travel & Corporate Events CPL benchmarks 2025; B2B transportation advertising data",
+    "confidence": "low",
+    "avgDaysToClose": 21
   }
 ]
