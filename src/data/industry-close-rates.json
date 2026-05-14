@@ -386,5 +386,9 @@
   "charter-bus": {
     "closeRate": 30,
     "source": "American Bus Association (ABA) 2025 Charter Industry Research \u2014 inbound lead-to-booking conversion. Charter operators with responsive quoting processes report 28\u201335% close rates on qualified inbound inquiries. High intent: most searchers have an immediate group need and are price-comparing 2\u20133 vendors."
+  },
+  "food-manufacturing": {
+    "closeRate": 22,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report \u2014 Manufacturing sector avg; adjusted for food industry B2B sales cycle"
   }
 }

@@ -643,6 +643,23 @@ const INDUSTRY_KEYWORDS: IndustryKeywords[] = [
       "precision parts", "prototype parts",
     ],
   },
+  {
+    industryId: "food-manufacturing",
+    keywords: [
+      "food manufacturing", "food production", "food processor", "specialty food",
+      "meat processing", "sausage", "smoked meats", "cured meats", "jerky",
+      "private label food", "co-packing", "co-pack", "food co-manufacturer",
+      "wholesale food", "bulk food", "food supplier", "food distributor",
+      "bakery wholesale", "catering", "meal prep", "food truck",
+      "usda inspected", "food grade", "commercial kitchen production",
+      "recipe", "ingredients", "seasonings", "spices", "deli", "butcher",
+      "charcuterie", "salami", "pepperoni", "bacon", "ham", "hot dog",
+      "bratwurst", "kielbasa", "andouille", "chorizo", "snack sticks",
+      "food service", "food supplier", "restaurant supply",
+      "institutional food", "school food", "military food",
+      "bulk meat", "wholesale meat", "meat supplier",
+    ],
+  },
 ];
 
 export interface IndustryMatch {
@@ -686,6 +703,11 @@ export function detectIndustries(text: string, topN = 3): IndustryMatch[] {
     }
   }
 
-  results.sort((a, b) => b.score - a.score);
-  return results.slice(0, topN);
+  // Only return matches the scanner is reasonably confident about.
+  // Low-confidence matches (score < 5, often from partial word overlaps
+  // like "retail" matching "tile") cause false positives.
+  const confident = results.filter((r) => r.confidence !== "low");
+
+  confident.sort((a, b) => b.score - a.score);
+  return confident.slice(0, topN);
 }

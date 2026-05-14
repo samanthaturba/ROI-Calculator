@@ -1618,5 +1618,23 @@
       "rating": 1,
       "note": "Not recommended. Google Local Services Ads is designed for home services (plumbing, HVAC, etc.) and does not support the charter bus/transportation category. Use Google Search Ads instead."
     }
+  },
+  "food-manufacturing": {
+    "google": {
+      "rating": 4,
+      "note": "Strong for both B2B (wholesale, co-packing) and DTC (online store, catering). High-intent searches like \"bulk sausage supplier\" or \"private label food manufacturer\" convert well."
+    },
+    "meta": {
+      "rating": 5,
+      "note": "Best platform for food brands. Visual content (recipe videos, production behind-the-scenes, product beauty shots) drives exceptional engagement. Ideal for DTC, catering, and food truck promotion."
+    },
+    "linkedin": {
+      "rating": 3,
+      "note": "Good for B2B services only (private label, co-packing, grocery distribution). Target food brand founders, grocery buyers, and procurement directors. Not useful for consumer-facing sales."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not available for food manufacturing. LSA is limited to home services and select local service categories."
+    }
   }
 }

@@ -2380,5 +2380,61 @@
     "source": "LinkedIn Travel & Corporate Events CPL benchmarks 2025; B2B transportation advertising data",
     "confidence": "low",
     "avgDaysToClose": 21
+  },
+  {
+    "industryId": "food-manufacturing",
+    "industryName": "Food Manufacturing & Specialty Food",
+    "serviceName": "Private Label / Co-Packing",
+    "cplLow": 55,
+    "cplMid": 85,
+    "cplHigh": 130,
+    "avgJobValue": 25000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 7000,
+    "notes": "LinkedIn is the best platform for co-packing and private label leads. Target food brand founders, CPG product managers, and grocery buyers by job title. Lead Gen Forms with capability overviews convert well. Thought leadership content about food safety certifications and production capabilities builds authority.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Manufacturing Services; AdBacklog 2025 Business Services",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "food-manufacturing",
+    "industryName": "Food Manufacturing & Specialty Food",
+    "serviceName": "Retail / Grocery Distribution",
+    "cplLow": 60,
+    "cplMid": 95,
+    "cplHigh": 140,
+    "avgJobValue": 15000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 7000,
+    "notes": "Target grocery buyers, category managers, and food service procurement directors. Account-based marketing for specific retail chains is effective. Sponsored content showcasing product line, certifications, and distribution capabilities.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Manufacturing; industry CPL estimates for niche B2B food distribution",
+    "confidence": "low"
+  },
+  {
+    "industryId": "food-manufacturing",
+    "industryName": "Food Manufacturing & Specialty Food",
+    "serviceName": "Restaurant & Food Service Supply",
+    "cplLow": 50,
+    "cplMid": 80,
+    "cplHigh": 120,
+    "avgJobValue": 12000,
+    "recommendedMinAdSpend": 2500,
+    "recommendedTargetAdSpend": 6000,
+    "notes": "Target restaurant owners, executive chefs, food service directors, and procurement managers by job title. Lead Gen Forms with product catalog downloads work well. Account-based marketing for restaurant groups and chains.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Corporate Services; AdBacklog 2025 Business Services",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "food-manufacturing",
+    "industryName": "Food Manufacturing & Specialty Food",
+    "serviceName": "Institutional & Government Supply",
+    "cplLow": 60,
+    "cplMid": 95,
+    "cplHigh": 145,
+    "avgJobValue": 50000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 7000,
+    "notes": "Target procurement officers, food service directors at school districts, military base operations managers, and hospital food service managers. Sponsored content about compliance certifications (USDA, DoD) and production capacity builds credibility.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Manufacturing; industry estimates for government food procurement",
+    "confidence": "low"
   }
 ]
