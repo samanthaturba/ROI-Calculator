@@ -4511,5 +4511,33 @@
     "notes": "Cost-savings messaging resonates on Meta \u2014 \"Cut your phone bill by 50%\" type ads. Target small business owners. Before/after pricing comparisons and feature highlight videos perform well.",
     "source": "WordStream 2025 Technology & Telecom; Focus Digital 2025 B2B Services",
     "confidence": "medium"
+  },
+  {
+    "industryId": "commercial-well-pump",
+    "industryName": "Commercial Well & Pump Service",
+    "serviceName": "Water Supply Pump Services",
+    "cplLow": 35,
+    "cplMid": 65,
+    "cplHigh": 100,
+    "avgJobValue": 25000,
+    "recommendedMinAdSpend": 1500,
+    "recommendedTargetAdSpend": 4000,
+    "notes": "Meta has limited value for municipal well services \u2014 public works directors are not browsing Facebook for well contractors. Can work for retargeting website visitors and building brand awareness with project showcase content. Emergency pump failure ads targeting facility managers may generate some leads.",
+    "source": "WordStream 2025 Industrial & Construction; Varos 2025 B2B Services sector data",
+    "confidence": "low"
+  },
+  {
+    "industryId": "commercial-well-pump",
+    "industryName": "Commercial Well & Pump Service",
+    "serviceName": "Well Rehabilitation & Maintenance",
+    "cplLow": 40,
+    "cplMid": 70,
+    "cplHigh": 110,
+    "avgJobValue": 35000,
+    "recommendedMinAdSpend": 1500,
+    "recommendedTargetAdSpend": 4000,
+    "notes": "Retargeting past website visitors and awareness campaigns for well rehabilitation services. Content showing before/after well performance data and project case studies can drive engagement among water utility operators.",
+    "source": "WordStream 2025 Industrial Services; Focus Digital 2025 B2B Services",
+    "confidence": "low"
   }
 ]

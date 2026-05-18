@@ -398,5 +398,9 @@
   "managed-it-services": {
     "closeRate": 20,
     "source": "First Page Sage 2026 SQL-to-Closed-Won Report \u2014 IT & Technology Services; MSP industry benchmarks show 15-25% close rates for qualified leads"
+  },
+  "commercial-well-pump": {
+    "closeRate": 28,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report \u2014 Construction & Industrial Services; adjusted for specialized municipal/industrial water well contractors with limited competition"
   }
 }

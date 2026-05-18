@@ -2520,5 +2520,47 @@
     "notes": "Target IT decision makers at companies still running on-premise infrastructure. Case studies showing cost savings and uptime improvements from cloud migrations perform well. Account-based marketing for companies with known legacy systems.",
     "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Cloud/SaaS; AdBacklog 2025 Technology Services",
     "confidence": "medium"
+  },
+  {
+    "industryId": "commercial-well-pump",
+    "industryName": "Commercial Well & Pump Service",
+    "serviceName": "Municipal Water Well Construction",
+    "cplLow": 80,
+    "cplMid": 130,
+    "cplHigh": 195,
+    "avgJobValue": 150000,
+    "recommendedMinAdSpend": 3500,
+    "recommendedTargetAdSpend": 8000,
+    "notes": "Target water superintendents, public works directors, city engineers, and utility managers by job title. Account-based marketing for specific municipalities and water districts. Case studies and thought leadership about water supply challenges drive engagement. Very high contract values justify the higher CPL.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Construction & Engineering; AdBacklog 2025 Government Services",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "commercial-well-pump",
+    "industryName": "Commercial Well & Pump Service",
+    "serviceName": "Geotechnical & Environmental Drilling",
+    "cplLow": 65,
+    "cplMid": 105,
+    "cplHigh": 160,
+    "avgJobValue": 30000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 7000,
+    "notes": "Target environmental consultants, project managers at engineering firms, and government environmental compliance officers. Content about certifications, equipment capabilities, and environmental compliance resonates well.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Engineering & Environmental Services",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "commercial-well-pump",
+    "industryName": "Commercial Well & Pump Service",
+    "serviceName": "Hydrological Investigation",
+    "cplLow": 70,
+    "cplMid": 115,
+    "cplHigh": 170,
+    "avgJobValue": 40000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 7000,
+    "notes": "Target civil engineers, water resource planners, and municipal development directors. Thought leadership about groundwater supply challenges and aquifer management builds authority for long-term relationship development.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Engineering; industry estimates for water resource consulting",
+    "confidence": "low"
   }
 ]

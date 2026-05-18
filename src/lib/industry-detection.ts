@@ -689,6 +689,20 @@ const INDUSTRY_KEYWORDS: IndustryKeywords[] = [
       "hipaa compliance", "nist compliance",
     ],
   },
+  {
+    industryId: "commercial-well-pump",
+    keywords: [
+      "municipal water well", "industrial water well", "water well construction",
+      "well rehabilitation", "well pump service", "water well contractor",
+      "vertical turbine pump", "horizontal pump", "submersible pump",
+      "hydrological investigation", "aquifer testing", "groundwater exploration",
+      "geotechnical drilling", "environmental drilling", "monitoring well",
+      "direct push drilling", "well design and construction",
+      "pump repair", "pump machine shop", "water supply pump",
+      "well drilling contractor", "water district", "public works water",
+      "airshock", "well redevelopment",
+    ],
+  },
 ];
 
 export interface IndustryMatch {

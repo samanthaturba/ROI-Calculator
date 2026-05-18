@@ -1672,5 +1672,23 @@
       "rating": 1,
       "note": "Not available for managed IT services. LSA is limited to home services and select local service categories."
     }
+  },
+  "commercial-well-pump": {
+    "google": {
+      "rating": 5,
+      "note": "Best platform. Municipal and industrial clients actively search for well contractors, pump repair, and drilling services. High-intent searches with limited competition in most markets. Emergency pump failures drive urgent search demand."
+    },
+    "meta": {
+      "rating": 2,
+      "note": "Limited value \u2014 water superintendents and industrial facility managers rarely browse social media for well contractors. Useful only for retargeting website visitors and brand awareness with project showcases."
+    },
+    "linkedin": {
+      "rating": 4,
+      "note": "Strong for large municipal contracts. Target water superintendents, public works directors, and engineering firm project managers by job title. Case studies and thought leadership about water supply infrastructure drive engagement."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not available for commercial/municipal well and pump services. LSA covers residential well service but not industrial-scale contractors."
+    }
   }
 }
