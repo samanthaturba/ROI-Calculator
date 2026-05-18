@@ -394,5 +394,9 @@
   "rigging-millwright": {
     "closeRate": 25,
     "source": "First Page Sage 2026 SQL-to-Closed-Won Report \u2014 Industrial Services sector avg; adjusted for project-based B2B sales cycle"
+  },
+  "managed-it-services": {
+    "closeRate": 20,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report \u2014 IT & Technology Services; MSP industry benchmarks show 15-25% close rates for qualified leads"
   }
 }

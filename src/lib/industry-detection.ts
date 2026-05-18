@@ -674,6 +674,21 @@ const INDUSTRY_KEYWORDS: IndustryKeywords[] = [
       "specialized moving", "medical equipment moving",
     ],
   },
+  {
+    industryId: "managed-it-services",
+    keywords: [
+      "managed it", "managed service provider", "msp", "it support",
+      "it services", "help desk", "it help desk", "network monitoring",
+      "cybersecurity", "siem", "endpoint detection", "vulnerability scan",
+      "voip", "business phone system", "voip phone",
+      "cloud migration", "cloud services", "microsoft 365", "azure",
+      "it hardware", "server support", "network security",
+      "data backup", "disaster recovery", "it consulting",
+      "it outsourcing", "remote it support", "it management",
+      "network cabling", "data wiring", "structured cabling",
+      "hipaa compliance", "nist compliance",
+    ],
+  },
 ];
 
 export interface IndustryMatch {

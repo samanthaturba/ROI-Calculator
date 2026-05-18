@@ -2478,5 +2478,47 @@
     "notes": "Target project managers, construction managers, and capital expenditure decision makers at manufacturing and industrial companies. Case studies of complex installations are highly effective.",
     "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Construction & Industrial Services",
     "confidence": "medium"
+  },
+  {
+    "industryId": "managed-it-services",
+    "industryName": "Managed IT Services & MSP",
+    "serviceName": "Managed IT Services",
+    "cplLow": 65,
+    "cplMid": 105,
+    "cplHigh": 160,
+    "avgJobValue": 36000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 7000,
+    "notes": "LinkedIn is excellent for MSP lead gen. Target IT directors, CTOs, office managers, and business owners by company size (10-200 employees is the MSP sweet spot). Lead Gen Forms with free IT assessment offers convert well. Thought leadership about cybersecurity threats and IT best practices builds authority.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Technology Services; AdBacklog 2025 IT & SaaS",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "managed-it-services",
+    "industryName": "Managed IT Services & MSP",
+    "serviceName": "Cybersecurity Solutions",
+    "cplLow": 60,
+    "cplMid": 100,
+    "cplHigh": 155,
+    "avgJobValue": 24000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 7000,
+    "notes": "Target compliance officers, IT security managers, and C-suite at companies in regulated industries (healthcare, finance, government). Content about HIPAA/NIST compliance, breach statistics, and risk assessments drives engagement.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Cybersecurity; Directive 2025 IT Security PPC data",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "managed-it-services",
+    "industryName": "Managed IT Services & MSP",
+    "serviceName": "Cloud Services & Migration",
+    "cplLow": 70,
+    "cplMid": 110,
+    "cplHigh": 165,
+    "avgJobValue": 20000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 7000,
+    "notes": "Target IT decision makers at companies still running on-premise infrastructure. Case studies showing cost savings and uptime improvements from cloud migrations perform well. Account-based marketing for companies with known legacy systems.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Cloud/SaaS; AdBacklog 2025 Technology Services",
+    "confidence": "medium"
   }
 ]

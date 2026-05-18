@@ -4469,5 +4469,47 @@
     "notes": "Targeting hospital administrators, museum directors, and data center managers. Video content showing careful handling of delicate equipment builds trust. More effective than standard rigging ads on Meta due to broader audience.",
     "source": "WordStream 2025 Industrial Services; Focus Digital 2025 Specialty Services",
     "confidence": "low"
+  },
+  {
+    "industryId": "managed-it-services",
+    "industryName": "Managed IT Services & MSP",
+    "serviceName": "Managed IT Services",
+    "cplLow": 40,
+    "cplMid": 70,
+    "cplHigh": 115,
+    "avgJobValue": 36000,
+    "recommendedMinAdSpend": 1500,
+    "recommendedTargetAdSpend": 4000,
+    "notes": "Meta can work for MSPs targeting local business owners. Pain-point content (\"Is your IT costing you downtime?\") and video testimonials from local clients build trust. Best for retargeting website visitors and awareness campaigns. Lead gen forms with free network assessment offers convert well.",
+    "source": "WordStream 2025 Technology ($51.68 avg CPL); Varos 2025 B2B Technology sector data",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "managed-it-services",
+    "industryName": "Managed IT Services & MSP",
+    "serviceName": "Cybersecurity Solutions",
+    "cplLow": 45,
+    "cplMid": 75,
+    "cplHigh": 120,
+    "avgJobValue": 24000,
+    "recommendedMinAdSpend": 1500,
+    "recommendedTargetAdSpend": 4000,
+    "notes": "Fear-based messaging about breaches and compliance penalties works on Meta. Target business owners by industry (healthcare, legal, finance) who have compliance requirements. Video content about recent breaches and prevention drives engagement.",
+    "source": "WordStream 2025 Technology; Varos 2025 Cybersecurity vertical data",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "managed-it-services",
+    "industryName": "Managed IT Services & MSP",
+    "serviceName": "VoIP & Business Phone Systems",
+    "cplLow": 25,
+    "cplMid": 50,
+    "cplHigh": 80,
+    "avgJobValue": 8000,
+    "recommendedMinAdSpend": 1000,
+    "recommendedTargetAdSpend": 3000,
+    "notes": "Cost-savings messaging resonates on Meta \u2014 \"Cut your phone bill by 50%\" type ads. Target small business owners. Before/after pricing comparisons and feature highlight videos perform well.",
+    "source": "WordStream 2025 Technology & Telecom; Focus Digital 2025 B2B Services",
+    "confidence": "medium"
   }
 ]

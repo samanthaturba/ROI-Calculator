@@ -1654,5 +1654,23 @@
       "rating": 1,
       "note": "Not available for industrial rigging/millwright services. LSA is limited to home services categories."
     }
+  },
+  "managed-it-services": {
+    "google": {
+      "rating": 5,
+      "note": "Best platform for MSPs. Business owners and IT managers actively search for managed IT when they have pain \u2014 downtime, security incidents, or outgrowing their current provider. High intent converts well."
+    },
+    "meta": {
+      "rating": 3,
+      "note": "Useful for retargeting and local awareness. Pain-point content and testimonials from local businesses work. Lead gen forms with free network assessments can generate pipeline. Not as intent-driven as Google."
+    },
+    "linkedin": {
+      "rating": 4,
+      "note": "Strong for targeting IT decision makers at mid-market companies. Best for cybersecurity, cloud migration, and managed IT contracts. Account-based marketing by company size and industry is highly effective."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not available for managed IT services. LSA is limited to home services and select local service categories."
+    }
   }
 }
