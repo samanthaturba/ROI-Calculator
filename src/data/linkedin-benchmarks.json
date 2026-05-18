@@ -2436,5 +2436,47 @@
     "notes": "Target procurement officers, food service directors at school districts, military base operations managers, and hospital food service managers. Sponsored content about compliance certifications (USDA, DoD) and production capacity builds credibility.",
     "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Manufacturing; industry estimates for government food procurement",
     "confidence": "low"
+  },
+  {
+    "industryId": "rigging-millwright",
+    "industryName": "Industrial Rigging & Millwright",
+    "serviceName": "Plant & Facility Relocation",
+    "cplLow": 65,
+    "cplMid": 100,
+    "cplHigh": 155,
+    "avgJobValue": 75000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 7000,
+    "notes": "LinkedIn is the best platform for large-scale plant relocation leads. Target VP of Operations, Plant Managers, Facility Directors, and Capital Project Managers by job title. Account-based marketing for manufacturing companies. Thought leadership content about project management and safety records builds authority.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Industrial Services; AdBacklog 2025 Business Services",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "rigging-millwright",
+    "industryName": "Industrial Rigging & Millwright",
+    "serviceName": "Millwright Services",
+    "cplLow": 55,
+    "cplMid": 90,
+    "cplHigh": 135,
+    "avgJobValue": 20000,
+    "recommendedMinAdSpend": 2500,
+    "recommendedTargetAdSpend": 6000,
+    "notes": "Target maintenance managers, plant engineers, and operations directors. Content about preventive maintenance programs, precision alignment capabilities, and downtime reduction resonates well with decision makers.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Manufacturing; industry CPL estimates for industrial B2B services",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "rigging-millwright",
+    "industryName": "Industrial Rigging & Millwright",
+    "serviceName": "Equipment Erecting & Installation",
+    "cplLow": 60,
+    "cplMid": 95,
+    "cplHigh": 145,
+    "avgJobValue": 35000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 7000,
+    "notes": "Target project managers, construction managers, and capital expenditure decision makers at manufacturing and industrial companies. Case studies of complex installations are highly effective.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Construction & Industrial Services",
+    "confidence": "medium"
   }
 ]

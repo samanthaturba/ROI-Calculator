@@ -660,6 +660,20 @@ const INDUSTRY_KEYWORDS: IndustryKeywords[] = [
       "bulk meat", "wholesale meat", "meat supplier",
     ],
   },
+  {
+    industryId: "rigging-millwright",
+    keywords: [
+      "rigging", "millwright", "heavy machinery moving", "machinery movers",
+      "industrial rigging", "equipment erecting", "erecting services",
+      "plant relocation", "facility relocation", "heavy haul",
+      "crane service", "crane rental", "overhead crane",
+      "equipment installation", "machinery installation",
+      "precision alignment", "conveyor installation",
+      "heavy equipment moving", "industrial moving",
+      "turnkey relocation", "decommission", "equipment storage",
+      "specialized moving", "medical equipment moving",
+    ],
+  },
 ];
 
 export interface IndustryMatch {

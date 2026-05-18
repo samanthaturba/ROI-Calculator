@@ -1636,5 +1636,23 @@
       "rating": 1,
       "note": "Not available for food manufacturing. LSA is limited to home services and select local service categories."
     }
+  },
+  "rigging-millwright": {
+    "google": {
+      "rating": 5,
+      "note": "Best platform. High-intent searches like \"industrial rigging company near me\", \"millwright services\", and \"heavy machinery movers\" convert well. B2B buyers actively search Google when they have a project."
+    },
+    "meta": {
+      "rating": 2,
+      "note": "Limited value for primary lead gen \u2014 plant managers don't browse Facebook for rigging services. Can work for retargeting website visitors and brand awareness with project time-lapse videos."
+    },
+    "linkedin": {
+      "rating": 4,
+      "note": "Strong for large-value projects. Target plant managers, VP of Operations, and facility directors by job title. Account-based marketing for known manufacturing companies. Best for plant relocations and ongoing millwright contracts."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not available for industrial rigging/millwright services. LSA is limited to home services categories."
+    }
   }
 }

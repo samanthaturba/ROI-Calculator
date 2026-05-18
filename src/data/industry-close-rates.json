@@ -390,5 +390,9 @@
   "food-manufacturing": {
     "closeRate": 22,
     "source": "First Page Sage 2026 SQL-to-Closed-Won Report \u2014 Manufacturing sector avg; adjusted for food industry B2B sales cycle"
+  },
+  "rigging-millwright": {
+    "closeRate": 25,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report \u2014 Industrial Services sector avg; adjusted for project-based B2B sales cycle"
   }
 }

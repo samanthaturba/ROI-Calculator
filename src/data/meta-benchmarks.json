@@ -4441,5 +4441,33 @@
     "notes": "Target restaurant owners and chefs on Meta by interest and behavior. Video content showing product quality, production facility, and chef testimonials builds trust. Retargeting website visitors who viewed product catalogs converts well.",
     "source": "WordStream 2025 Food & Grocery; Varos 2025 Food & Beverage sector data",
     "confidence": "medium"
+  },
+  {
+    "industryId": "rigging-millwright",
+    "industryName": "Industrial Rigging & Millwright",
+    "serviceName": "Heavy Machinery Moving",
+    "cplLow": 35,
+    "cplMid": 60,
+    "cplHigh": 95,
+    "avgJobValue": 15000,
+    "recommendedMinAdSpend": 1500,
+    "recommendedTargetAdSpend": 3500,
+    "notes": "Meta can work for rigging when targeting facility managers and plant operations by industry interest. Video content of complex moves (time-lapses, before/after) builds credibility. Best for retargeting website visitors and brand awareness, not primary lead gen.",
+    "source": "WordStream 2025 Industrial & Manufacturing; Varos 2025 B2B Services sector data",
+    "confidence": "low"
+  },
+  {
+    "industryId": "rigging-millwright",
+    "industryName": "Industrial Rigging & Millwright",
+    "serviceName": "Specialized Equipment Moving",
+    "cplLow": 30,
+    "cplMid": 50,
+    "cplHigh": 80,
+    "avgJobValue": 8000,
+    "recommendedMinAdSpend": 1000,
+    "recommendedTargetAdSpend": 3000,
+    "notes": "Targeting hospital administrators, museum directors, and data center managers. Video content showing careful handling of delicate equipment builds trust. More effective than standard rigging ads on Meta due to broader audience.",
+    "source": "WordStream 2025 Industrial Services; Focus Digital 2025 Specialty Services",
+    "confidence": "low"
   }
 ]
