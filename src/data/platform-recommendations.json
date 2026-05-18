@@ -1690,5 +1690,23 @@
       "rating": 1,
       "note": "Not available for commercial/municipal well and pump services. LSA covers residential well service but not industrial-scale contractors."
     }
+  },
+  "site-construction-hardscape": {
+    "google": {
+      "rating": 5,
+      "note": "Best platform. Developers, municipalities, and property owners actively search for commercial hardscape contractors, design-build firms, and site construction companies. Project-specific searches have strong intent."
+    },
+    "meta": {
+      "rating": 3,
+      "note": "Useful for portfolio showcase and brand building. Before/after project photos, drone footage, and time-lapse videos drive engagement. Strongest for luxury residential hardscaping. Good for retargeting website visitors."
+    },
+    "linkedin": {
+      "rating": 4,
+      "note": "Strong for large commercial and municipal projects. Target developers, city engineers, architects, and institutional facility directors. Case studies and project portfolios build credibility with decision makers."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not available for commercial site construction. LSA is limited to residential home services categories."
+    }
   }
 }

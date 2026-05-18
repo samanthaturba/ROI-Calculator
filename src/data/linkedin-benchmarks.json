@@ -2562,5 +2562,47 @@
     "notes": "Target civil engineers, water resource planners, and municipal development directors. Thought leadership about groundwater supply challenges and aquifer management builds authority for long-term relationship development.",
     "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Engineering; industry estimates for water resource consulting",
     "confidence": "low"
+  },
+  {
+    "industryId": "site-construction-hardscape",
+    "industryName": "Commercial Site Construction & Hardscapes",
+    "serviceName": "Municipal Infrastructure",
+    "cplLow": 75,
+    "cplMid": 120,
+    "cplHigh": 185,
+    "avgJobValue": 300000,
+    "recommendedMinAdSpend": 3500,
+    "recommendedTargetAdSpend": 8000,
+    "notes": "Target city engineers, public works directors, parks & recreation directors, and urban planners. Case studies of completed municipal projects with before/after imagery perform well. Account-based marketing for specific municipalities and counties.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Construction & Government Services",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "site-construction-hardscape",
+    "industryName": "Commercial Site Construction & Hardscapes",
+    "serviceName": "Design-Build Construction",
+    "cplLow": 70,
+    "cplMid": 115,
+    "cplHigh": 175,
+    "avgJobValue": 250000,
+    "recommendedMinAdSpend": 3500,
+    "recommendedTargetAdSpend": 8000,
+    "notes": "Target developers, architects, property managers, and institutional facility directors. Thought leadership about design-build delivery method advantages and project case studies drives engagement. Showcase collaboration with architects and engineers.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Construction; DBIA industry benchmarks",
+    "confidence": "medium"
+  },
+  {
+    "industryId": "site-construction-hardscape",
+    "industryName": "Commercial Site Construction & Hardscapes",
+    "serviceName": "Public Art Installation",
+    "cplLow": 60,
+    "cplMid": 95,
+    "cplHigh": 145,
+    "avgJobValue": 120000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 7000,
+    "notes": "Target arts commission directors, university campus planners, municipal parks directors, and developers with public art requirements. Portfolio-driven \u2014 showcase completed installations with artist collaboration stories.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 \u2014 Specialty Services; public art industry data",
+    "confidence": "low"
   }
 ]

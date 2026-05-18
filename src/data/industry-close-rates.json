@@ -402,5 +402,9 @@
   "commercial-well-pump": {
     "closeRate": 28,
     "source": "First Page Sage 2026 SQL-to-Closed-Won Report \u2014 Construction & Industrial Services; adjusted for specialized municipal/industrial water well contractors with limited competition"
+  },
+  "site-construction-hardscape": {
+    "closeRate": 22,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report \u2014 Commercial Construction; adjusted for specialty site construction with competitive bid processes"
   }
 }

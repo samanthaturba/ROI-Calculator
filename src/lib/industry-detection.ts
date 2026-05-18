@@ -703,6 +703,21 @@ const INDUSTRY_KEYWORDS: IndustryKeywords[] = [
       "airshock", "well redevelopment",
     ],
   },
+  {
+    industryId: "site-construction-hardscape",
+    keywords: [
+      "hardscape", "hardscapes", "commercial hardscape", "paver installation",
+      "plaza construction", "streetscape", "pedestrian walkway",
+      "public art installation", "sculpture installation", "monument installation",
+      "water feature", "fountain construction", "splash pad",
+      "municipal infrastructure", "site construction", "site work",
+      "design build construction", "design assist",
+      "commercial site construction", "industrial construction",
+      "environmental construction", "sustainable construction",
+      "green infrastructure", "permeable pavers", "bioswale",
+      "private estate", "luxury hardscape",
+    ],
+  },
 ];
 
 export interface IndustryMatch {

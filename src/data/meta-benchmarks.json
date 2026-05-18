@@ -4539,5 +4539,33 @@
     "notes": "Retargeting past website visitors and awareness campaigns for well rehabilitation services. Content showing before/after well performance data and project case studies can drive engagement among water utility operators.",
     "source": "WordStream 2025 Industrial Services; Focus Digital 2025 B2B Services",
     "confidence": "low"
+  },
+  {
+    "industryId": "site-construction-hardscape",
+    "industryName": "Commercial Site Construction & Hardscapes",
+    "serviceName": "Commercial Hardscapes",
+    "cplLow": 40,
+    "cplMid": 70,
+    "cplHigh": 110,
+    "avgJobValue": 175000,
+    "recommendedMinAdSpend": 1500,
+    "recommendedTargetAdSpend": 4000,
+    "notes": "Visual-heavy portfolio content performs well on Meta \u2014 before/after plaza transformations, time-lapse construction videos, and drone footage of completed projects. Best for retargeting and brand awareness. Target property developers and commercial property managers.",
+    "source": "WordStream 2025 Construction & Real Estate; Varos 2025 B2B Services",
+    "confidence": "low"
+  },
+  {
+    "industryId": "site-construction-hardscape",
+    "industryName": "Commercial Site Construction & Hardscapes",
+    "serviceName": "Private Estate & Residential Luxury",
+    "cplLow": 30,
+    "cplMid": 55,
+    "cplHigh": 85,
+    "avgJobValue": 100000,
+    "recommendedMinAdSpend": 1500,
+    "recommendedTargetAdSpend": 4000,
+    "notes": "Meta is strongest for luxury residential hardscaping. Targeting affluent homeowners by income, home value, and interest in luxury home improvement. Portfolio imagery and video walkthroughs of estate projects drive strong engagement on Instagram.",
+    "source": "WordStream 2025 Home Improvement & Luxury Services; Focus Digital 2025",
+    "confidence": "medium"
   }
 ]
