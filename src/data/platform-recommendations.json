@@ -1708,5 +1708,275 @@
       "rating": 1,
       "note": "Not available for commercial site construction. LSA is limited to residential home services categories."
     }
+  },
+  "industrial-manufacturing": {
+    "google": {
+      "rating": 4,
+      "note": "Strong for B2B manufacturing. High-intent searches for custom parts, equipment, and machining services convert well. Long-tail keywords reduce CPL."
+    },
+    "meta": {
+      "rating": 2,
+      "note": "Limited value for industrial manufacturing. Useful for retargeting and brand awareness with video content, but B2B buyers rarely source manufacturers on social media."
+    },
+    "linkedin": {
+      "rating": 4,
+      "note": "Strong platform for B2B manufacturing. Target procurement managers, engineers, and operations directors. Account-based marketing and case study content drive qualified leads."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Industrial manufacturing is a B2B service and not LSA-eligible."
+    }
+  },
+  "fire-protection": {
+    "google": {
+      "rating": 5,
+      "note": "Best platform for fire protection. High-intent searches from building owners, GCs, and facility managers needing sprinkler, alarm, and suppression services. Compliance deadlines drive urgency."
+    },
+    "meta": {
+      "rating": 2,
+      "note": "Limited value. Fire protection is a B2B compliance-driven service with low social media appeal. Useful for retargeting only."
+    },
+    "linkedin": {
+      "rating": 3,
+      "note": "Good for targeting facility managers, property managers, and GCs for larger commercial fire protection projects. Account-based marketing works for known commercial properties."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Limited LSA fit. Fire protection services may be eligible in some markets but most work is commercial/B2B."
+    }
+  },
+  "commercial-refrigeration": {
+    "google": {
+      "rating": 5,
+      "note": "Best platform. Emergency refrigeration repair searches convert immediately. Restaurant and grocery owners search Google first when equipment fails."
+    },
+    "meta": {
+      "rating": 3,
+      "note": "Moderate value. Can target restaurant owners with maintenance plans and seasonal promotions. Retargeting website visitors is effective."
+    },
+    "linkedin": {
+      "rating": 2,
+      "note": "Limited value for most commercial refrigeration work. Only useful for large chain accounts and cold storage facility contracts."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Moderate LSA fit. Commercial refrigeration repair may be eligible in some markets. Emergency service calls benefit from proximity targeting."
+    }
+  },
+  "memorials-monuments": {
+    "google": {
+      "rating": 5,
+      "note": "Best platform. Families search Google when they need headstones and memorials. High-intent, need-driven searches with moderate competition."
+    },
+    "meta": {
+      "rating": 3,
+      "note": "Good for portfolio showcase and compassionate brand building. Custom memorial photos and pet memorial products drive engagement. Sensitive targeting required."
+    },
+    "linkedin": {
+      "rating": 1,
+      "note": "Not recommended. Memorial services are consumer-facing emotional purchases \u2014 LinkedIn is not where families look for headstones."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Memorial and monument services are not an LSA-eligible category."
+    }
+  },
+  "heavy-civil-marine": {
+    "google": {
+      "rating": 4,
+      "note": "Good for private-sector marine and civil projects. Limited search volume but high intent. Niche long-tail keywords have low competition and high project values."
+    },
+    "meta": {
+      "rating": 2,
+      "note": "Limited lead gen value. Use for brand awareness with project showcase content and retargeting only."
+    },
+    "linkedin": {
+      "rating": 5,
+      "note": "Best platform for heavy civil. Target engineers, developers, DOT project managers, and GC executives. Account-based marketing and thought leadership drive high-value project leads."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Heavy civil and marine construction is B2B/government and not LSA-eligible."
+    }
+  },
+  "cold-chain-logistics": {
+    "google": {
+      "rating": 4,
+      "note": "Good for B2B cold chain searches. Logistics managers search Google when sourcing new providers. Niche keywords have moderate competition."
+    },
+    "meta": {
+      "rating": 2,
+      "note": "Limited value. Cold chain logistics is a B2B service with low social media appeal. Retargeting only."
+    },
+    "linkedin": {
+      "rating": 5,
+      "note": "Best platform for cold chain. Target supply chain directors, logistics VPs, and procurement managers. Account-based marketing for food and pharma companies is highly effective."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Cold chain logistics is a B2B service and not LSA-eligible."
+    }
+  },
+  "refractory": {
+    "google": {
+      "rating": 4,
+      "note": "Good for niche refractory searches. Very limited search volume but extremely high intent and project values. Long-tail keywords face minimal competition."
+    },
+    "meta": {
+      "rating": 1,
+      "note": "Not recommended. Refractory is a highly specialized B2B industrial service with no social media appeal."
+    },
+    "linkedin": {
+      "rating": 4,
+      "note": "Best social platform for refractory. Target plant managers and maintenance directors at heavy industry facilities. Technical thought leadership content builds credibility."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Refractory services are B2B industrial and not LSA-eligible."
+    }
+  },
+  "landscape-supply": {
+    "google": {
+      "rating": 5,
+      "note": "Best platform. High-volume seasonal searches for mulch, soil, stone, and delivery. Local intent is very strong. Spring peaks drive massive search volume."
+    },
+    "meta": {
+      "rating": 4,
+      "note": "Strong for landscape supply. Visual seasonal campaigns and promotional offers drive orders. Suburban homeowner targeting is effective. Facebook Marketplace can supplement."
+    },
+    "linkedin": {
+      "rating": 1,
+      "note": "Not recommended. Landscape supply is a consumer/retail service \u2014 LinkedIn is not where homeowners shop for mulch."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Landscape material sales are retail and not LSA-eligible."
+    }
+  },
+  "window-tinting": {
+    "google": {
+      "rating": 5,
+      "note": "Best platform. High-volume local searches for window tinting, PPF, and wraps. Strong intent and quick decision cycles drive high conversion rates."
+    },
+    "meta": {
+      "rating": 4,
+      "note": "Strong for tinting and wraps. Highly visual services with excellent social media appeal. Before/after content and enthusiast targeting drive strong engagement."
+    },
+    "linkedin": {
+      "rating": 2,
+      "note": "Limited value. Only useful for commercial window film and fleet wrap programs targeting facility managers and fleet directors."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Limited LSA fit. Window tinting is not a standard LSA category. Auto services may capture some leads in certain markets."
+    }
+  },
+  "precast-concrete": {
+    "google": {
+      "rating": 4,
+      "note": "Good for B2B precast searches. Engineers and GCs search Google when sourcing precast for active projects. Niche keywords have moderate competition."
+    },
+    "meta": {
+      "rating": 2,
+      "note": "Limited value. Precast concrete is a B2B construction product with low social media appeal. Architectural precast has some visual potential."
+    },
+    "linkedin": {
+      "rating": 4,
+      "note": "Strong for precast. Target engineers, architects, and GCs. Account-based marketing for known construction firms and DOT projects is effective."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Precast concrete manufacturing is B2B and not LSA-eligible."
+    }
+  },
+  "mailing-services": {
+    "google": {
+      "rating": 4,
+      "note": "Good for B2B mailing services. Businesses search Google when sourcing presort, fulfillment, and direct mail providers. Moderate competition on relevant terms."
+    },
+    "meta": {
+      "rating": 2,
+      "note": "Limited value. Mailing services are B2B with low social media appeal. Some potential for direct mail marketing content targeting small business owners."
+    },
+    "linkedin": {
+      "rating": 3,
+      "note": "Good for targeting marketing directors and operations managers at companies with high-volume mail needs. Cost-savings and ROI messaging drives engagement."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Mailing and presort services are B2B and not LSA-eligible."
+    }
+  },
+  "auto-electronics": {
+    "google": {
+      "rating": 5,
+      "note": "Best platform. High-volume local searches for car audio, remote start, and vehicle electronics. Strong intent and quick decision cycles."
+    },
+    "meta": {
+      "rating": 4,
+      "note": "Strong for auto electronics. Enthusiast community engagement, installation videos, and product showcases drive excellent social performance. Car audio is inherently shareable content."
+    },
+    "linkedin": {
+      "rating": 1,
+      "note": "Not recommended. Auto electronics is a consumer enthusiast market \u2014 LinkedIn is not where car audio buyers shop."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Auto electronics and car audio are not standard LSA categories."
+    }
+  },
+  "medical-devices": {
+    "google": {
+      "rating": 4,
+      "note": "Good for medical device searches. Biomedical engineers and procurement teams search Google when sourcing equipment. Niche product keywords have moderate competition."
+    },
+    "meta": {
+      "rating": 2,
+      "note": "Limited value. Medical devices are a B2B healthcare product with compliance-sensitive marketing requirements. Retargeting only."
+    },
+    "linkedin": {
+      "rating": 5,
+      "note": "Best platform for medical devices. Target hospital administrators, biomedical engineers, and procurement directors. Product launches, clinical data, and thought leadership drive high-value leads."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Medical devices are B2B healthcare products and not LSA-eligible."
+    }
+  },
+  "industrial-safety": {
+    "google": {
+      "rating": 5,
+      "note": "Best platform. Safety and compliance searches are high-intent, often triggered by OSHA citations, incidents, or audit requirements. Urgency drives strong conversion."
+    },
+    "meta": {
+      "rating": 2,
+      "note": "Limited value. Industrial safety is a B2B compliance service with low social media appeal. Some potential for safety training webinar promotions."
+    },
+    "linkedin": {
+      "rating": 4,
+      "note": "Strong for safety consulting. Target EHS directors, safety managers, and plant managers. Regulatory content and incident prevention case studies build authority and generate leads."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Industrial safety consulting is a B2B service and not LSA-eligible."
+    }
+  },
+  "specialty-building-products": {
+    "google": {
+      "rating": 4,
+      "note": "Good for specialty building product searches. Architects and GCs search Google when sourcing fire-rated doors, acoustic systems, and specialty products for active projects."
+    },
+    "meta": {
+      "rating": 2,
+      "note": "Limited value. Specialty building products are B2B with low social media appeal. Acoustic and interior products have some visual potential."
+    },
+    "linkedin": {
+      "rating": 4,
+      "note": "Strong for specialty building products. Target architects, specifiers, and GCs. Technical content, code compliance updates, and product launches drive specification requests."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not recommended. Specialty building products are B2B and not LSA-eligible."
+    }
   }
 }

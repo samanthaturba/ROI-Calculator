@@ -406,5 +406,65 @@
   "site-construction-hardscape": {
     "closeRate": 22,
     "source": "First Page Sage 2026 SQL-to-Closed-Won Report \u2014 Commercial Construction; adjusted for specialty site construction with competitive bid processes"
+  },
+  "industrial-manufacturing": {
+    "closeRate": 18,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report \u2014 Manufacturing sector; adjusted for B2B equipment sales cycle"
+  },
+  "fire-protection": {
+    "closeRate": 25,
+    "source": "Estimated based on compliance-driven commercial services close rate data; fire protection work is often code-mandated"
+  },
+  "commercial-refrigeration": {
+    "closeRate": 30,
+    "source": "Estimated based on emergency commercial services close rate data; equipment failures require immediate resolution"
+  },
+  "memorials-monuments": {
+    "closeRate": 35,
+    "source": "Estimated based on emotional/necessity purchase close rate data; memorial purchases are need-driven with limited comparison shopping"
+  },
+  "heavy-civil-marine": {
+    "closeRate": 15,
+    "source": "Estimated based on heavy construction/infrastructure close rate data; long bid cycles and competitive procurement processes"
+  },
+  "cold-chain-logistics": {
+    "closeRate": 18,
+    "source": "Estimated based on B2B logistics/supply chain close rate data; long procurement cycles and competitive bidding"
+  },
+  "refractory": {
+    "closeRate": 20,
+    "source": "Estimated based on specialized industrial services close rate data; limited competition in niche refractory market"
+  },
+  "landscape-supply": {
+    "closeRate": 40,
+    "source": "Estimated based on retail/material supply close rate data; commodity products with immediate purchase intent"
+  },
+  "window-tinting": {
+    "closeRate": 35,
+    "source": "Estimated based on automotive services and home improvement close rate data; straightforward service with quick decision cycles"
+  },
+  "precast-concrete": {
+    "closeRate": 22,
+    "source": "Estimated based on B2B construction manufacturing close rate data; specification-driven sales with competitive bidding"
+  },
+  "mailing-services": {
+    "closeRate": 22,
+    "source": "Estimated based on B2B business services close rate data; relationship-driven sales with moderate sales cycles"
+  },
+  "auto-electronics": {
+    "closeRate": 40,
+    "source": "Estimated based on automotive services close rate data; enthusiast purchases with quick decision cycles and strong brand loyalty"
+  },
+  "medical-devices": {
+    "closeRate": 15,
+    "source": "First Page Sage 2026 SQL-to-Closed-Won Report \u2014 Healthcare/Medical Devices; long procurement cycles and committee decisions"
+  },
+  "industrial-safety": {
+    "closeRate": 25,
+    "source": "Estimated based on compliance-driven B2B services close rate data; regulatory requirements create urgency and reduce comparison shopping"
+  },
+  "specialty-building-products": {
+    "closeRate": 20,
+    "source": "Estimated based on B2B construction products close rate data; specification-driven sales with competitive bid processes"
   }
 }

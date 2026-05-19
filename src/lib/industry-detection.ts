@@ -718,6 +718,157 @@ const INDUSTRY_KEYWORDS: IndustryKeywords[] = [
       "private estate", "luxury hardscape",
     ],
   },
+  {
+    industryId: "industrial-manufacturing",
+    keywords: [
+      "industrial manufacturing", "oem parts", "custom manufacturing",
+      "industrial equipment", "process control", "instrumentation",
+      "precision machining", "tooling", "equipment sales",
+      "product distribution", "manufacturing equipment",
+      "machine shop manufacturing", "industrial parts",
+      "equipment maintenance", "capital equipment",
+    ],
+  },
+  {
+    industryId: "fire-protection",
+    keywords: [
+      "fire protection", "fire sprinkler", "fire suppression",
+      "fire alarm", "fire system", "fire sprinkler installation",
+      "fire protection inspection", "fire code", "nfpa",
+      "fire suppression system", "clean agent", "fire extinguisher",
+      "fire sprinkler design", "fire alarm monitoring",
+    ],
+  },
+  {
+    industryId: "commercial-refrigeration",
+    keywords: [
+      "commercial refrigeration", "walk in cooler", "walk in freezer",
+      "ice machine", "ice machine repair", "refrigeration repair",
+      "restaurant refrigeration", "cooler repair",
+      "refrigeration maintenance", "commercial freezer",
+      "grocery refrigeration", "cold storage repair",
+    ],
+  },
+  {
+    industryId: "memorials-monuments",
+    keywords: [
+      "headstone", "headstones", "grave marker", "monument",
+      "memorial", "gravestone", "tombstone", "cemetery monument",
+      "pet memorial", "memorial engraving", "bronze plaque",
+      "granite monument", "monument restoration", "memorial stone",
+    ],
+  },
+  {
+    industryId: "heavy-civil-marine",
+    keywords: [
+      "marine construction", "bridge construction", "heavy civil",
+      "pile driving", "waterfront development", "seawall",
+      "bulkhead construction", "dock construction", "pier construction",
+      "heavy civil construction", "marine infrastructure",
+      "coastal construction", "deep foundation",
+    ],
+  },
+  {
+    industryId: "cold-chain-logistics",
+    keywords: [
+      "cold chain", "refrigerated transport", "cold storage",
+      "temperature controlled", "refrigerated logistics",
+      "cold storage warehouse", "reefer transport", "frozen logistics",
+      "pharmaceutical cold chain", "cold chain distribution",
+      "refrigerated freight", "temperature monitoring",
+    ],
+  },
+  {
+    industryId: "refractory",
+    keywords: [
+      "refractory", "refractory installation", "kiln lining",
+      "furnace lining", "refractory repair", "castable refractory",
+      "gunning", "refractory brick", "high temperature insulation",
+      "refractory maintenance", "industrial furnace lining",
+      "incinerator lining", "refractory contractor",
+    ],
+  },
+  {
+    industryId: "landscape-supply",
+    keywords: [
+      "landscape supply", "bulk mulch", "decorative stone",
+      "landscape materials", "topsoil", "compost", "gravel",
+      "river rock", "landscape delivery", "bark mulch",
+      "landscape stone", "fill dirt", "aggregate",
+      "hardscape materials", "pea gravel",
+    ],
+  },
+  {
+    industryId: "window-tinting",
+    keywords: [
+      "window tinting", "window tint", "window film",
+      "car tinting", "auto tinting", "automotive tint",
+      "commercial window film", "residential tint",
+      "paint protection film", "ppf", "vehicle wrap",
+      "ceramic tint", "security film",
+    ],
+  },
+  {
+    industryId: "precast-concrete",
+    keywords: [
+      "precast concrete", "precast", "precast manhole",
+      "precast vault", "precast retaining wall",
+      "architectural precast", "precast bridge",
+      "precast utility", "concrete precast",
+      "precast manufacturer", "precast panel",
+    ],
+  },
+  {
+    industryId: "mailing-services",
+    keywords: [
+      "mailing service", "presort", "presort mail",
+      "direct mail", "mail fulfillment", "bulk mail",
+      "mail processing", "print and mail", "mail house",
+      "direct mail campaign", "business mail",
+      "mailing list", "postage meter",
+    ],
+  },
+  {
+    industryId: "auto-electronics",
+    keywords: [
+      "car audio", "car stereo", "custom audio",
+      "subwoofer installation", "amplifier installation",
+      "remote start", "dash cam", "backup camera",
+      "vehicle electronics", "marine audio",
+      "car speaker", "head unit", "auto electronics",
+    ],
+  },
+  {
+    industryId: "medical-devices",
+    keywords: [
+      "medical device", "medical equipment", "diagnostic equipment",
+      "clinical device", "medical instrument", "biomedical",
+      "medical equipment repair", "medical device sales",
+      "laboratory equipment", "surgical equipment",
+      "patient monitor", "medical imaging",
+    ],
+  },
+  {
+    industryId: "industrial-safety",
+    keywords: [
+      "industrial safety", "osha compliance", "safety training",
+      "fall protection", "confined space", "safety audit",
+      "osha consultation", "safety compliance",
+      "workplace safety", "safety equipment",
+      "hazard assessment", "safety program",
+      "rescue services", "industrial hygiene",
+    ],
+  },
+  {
+    industryId: "specialty-building-products",
+    keywords: [
+      "fire rated door", "fire door", "acoustic panel",
+      "acoustic ceiling", "access flooring", "raised floor",
+      "operable partition", "movable wall", "specialty glazing",
+      "bullet resistant glass", "fire rated glass",
+      "sound barrier", "acoustic wall", "demountable partition",
+    ],
+  },
 ];
 
 export interface IndustryMatch {
