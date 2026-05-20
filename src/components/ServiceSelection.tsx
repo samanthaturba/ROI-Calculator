@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import type { ServiceSelection as ServiceSelectionType, ExtractedService, CplChoice, AdPlatform } from "../lib/types";
-import { getAllIndustries, getServicesForIndustry } from "../lib/benchmarks";
+import { getAllIndustries, getServicesForIndustry, getBenchmarkForService } from "../lib/benchmarks";
 import { formatCurrency } from "../lib/calculations";
 
 interface Props {
@@ -536,38 +536,38 @@ export default function ServiceSelection({
         </div>
       )}
 
-      {/* ── Multi-platform note ────────────────────────────────────────────── */}
+      {/* ── Multi-platform banner ─────────────────────────────────────────── */}
       {selectedPlatforms.length > 1 && industryId && (
-        <div className="mb-4 p-3 bg-gray-50 border border-gray-200 rounded-lg space-y-1.5">
-          {selectedPlatforms.map((plat) => {
-            const meta = PLATFORM_META[plat];
-            const isPrimary = plat === primaryPlatform;
-            const platServices = getServicesForIndustry(industryId, plat);
-            let note = "";
-            if (isPrimary) {
-              note = "Service list and CPL benchmarks below are based on this platform.";
-            } else if (plat === "lsa") {
-              note = "Runs as a separate verified-lead program covering your selected service categories. Billed per confirmed lead, not per click.";
-            } else if (plat === "meta") {
-              note = "Audience-based (interest & demographic targeting). Best for brand awareness and retargeting — not keyword intent. CPL projections use Google benchmarks as a proxy.";
-            } else if (plat === "linkedin") {
-              note = "Targets by job title and company — ideal for commercial/B2B accounts. CPL typically higher than Google. Projections use Google benchmarks as a proxy.";
-            } else if (platServices.length > 0) {
-              note = `Has its own benchmark data for this industry (${platServices.length} service${platServices.length !== 1 ? "s" : ""}).`;
-            } else {
-              note = `No separate benchmark data — CPL projections use ${PLATFORM_META[primaryPlatform].label} as a proxy.`;
-            }
-            return (
-              <div key={plat} className="flex items-start gap-2 text-xs text-gray-600">
-                <span className="shrink-0 mt-0.5">{meta.icon}</span>
-                <span>
-                  <span className="font-semibold text-gray-800">{meta.label}</span>
-                  {isPrimary && <span className="ml-1.5 text-[10px] text-cogent-navy bg-cogent-navy/10 px-1.5 py-0.5 rounded-full font-medium">primary</span>}
-                  {" — "}{note}
-                </span>
-              </div>
-            );
-          })}
+        <div className="mb-4 p-3 bg-indigo-50 border border-indigo-200 rounded-lg">
+          <p className="text-xs font-semibold text-indigo-800 mb-1.5">
+            📊 Multi-Platform Campaign — Services run across {selectedPlatforms.length} platforms
+          </p>
+          <p className="text-[11px] text-indigo-700 mb-2">
+            Each service below will be advertised on all your selected platforms. Look for the platform
+            badges on each service to see per-platform CPL differences.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {selectedPlatforms.map((plat) => {
+              const meta = PLATFORM_META[plat];
+              const platServices = getServicesForIndustry(industryId, plat);
+              const hasBenchmarks = platServices.length > 0;
+              return (
+                <div key={plat} className={`inline-flex items-center gap-1.5 text-[11px] px-2.5 py-1 rounded-full border font-medium ${
+                  plat === primaryPlatform
+                    ? "bg-cogent-navy text-white border-cogent-navy"
+                    : hasBenchmarks
+                    ? "bg-white text-gray-700 border-gray-300"
+                    : "bg-gray-100 text-gray-500 border-gray-200"
+                }`}>
+                  <span>{meta.icon}</span>
+                  <span>{meta.shortLabel}</span>
+                  {plat === primaryPlatform && <span className="text-[9px] opacity-80">primary</span>}
+                  {plat === "meta" && <span className="text-[9px] opacity-70">· audience</span>}
+                  {plat === "lsa" && <span className="text-[9px] opacity-70">· pay-per-lead</span>}
+                </div>
+              );
+            })}
+          </div>
         </div>
       )}
 
@@ -653,6 +653,44 @@ export default function ServiceSelection({
                   </span>
                 )}
 
+                {/* Platform CPL badges — show when multiple platforms selected */}
+                {selectedPlatforms.length > 1 && service.benchmark && (
+                  <div className="flex flex-wrap gap-1">
+                    {selectedPlatforms.map((plat) => {
+                      const meta = PLATFORM_META[plat];
+                      const sourceIndustry = service.benchmark?.industryId ?? industryId;
+                      const lookupName = service.benchmark?.serviceName ?? service.serviceName;
+                      const platBenchmark = plat === primaryPlatform
+                        ? service.benchmark
+                        : getBenchmarkForService(sourceIndustry, lookupName, plat);
+                      const hasPlatData = !!platBenchmark;
+                      return (
+                        <span
+                          key={plat}
+                          className={`inline-flex items-center gap-0.5 text-[10px] px-1.5 py-0.5 rounded border ${
+                            hasPlatData
+                              ? plat === "google" ? "bg-blue-50 text-blue-700 border-blue-200"
+                              : plat === "lsa" ? "bg-green-50 text-green-700 border-green-200"
+                              : plat === "meta" ? "bg-purple-50 text-purple-700 border-purple-200"
+                              : "bg-amber-50 text-amber-700 border-amber-200"
+                              : "bg-gray-50 text-gray-400 border-gray-200"
+                          }`}
+                          title={hasPlatData
+                            ? `${meta.label}: $${platBenchmark!.cplLow}–$${platBenchmark!.cplHigh} CPL`
+                            : `${meta.label}: using ${PLATFORM_META[primaryPlatform].shortLabel} as proxy`
+                          }
+                        >
+                          <span>{meta.icon}</span>
+                          {hasPlatData
+                            ? <span className="font-medium">${platBenchmark!.cplMid}</span>
+                            : <span className="italic">proxy</span>
+                          }
+                        </span>
+                      );
+                    })}
+                  </div>
+                )}
+
                 {service.isManual && (
                   <button
                     onClick={() => removeManualService(index)}
@@ -662,6 +700,48 @@ export default function ServiceSelection({
                   </button>
                 )}
               </div>
+
+              {/* Per-platform CPL comparison — shown when selected + multi-platform */}
+              {service.selected && selectedPlatforms.length > 1 && service.benchmark && (
+                <div className="mt-2 ml-7 flex flex-wrap gap-2">
+                  {selectedPlatforms.map((plat) => {
+                    const meta = PLATFORM_META[plat];
+                    const sourceIndustry = service.benchmark?.industryId ?? industryId;
+                    const lookupName = service.benchmark?.serviceName ?? service.serviceName;
+                    const platBenchmark = plat === primaryPlatform
+                      ? service.benchmark
+                      : getBenchmarkForService(sourceIndustry, lookupName, plat);
+                    return (
+                      <div
+                        key={plat}
+                        className={`flex items-center gap-1.5 text-[11px] px-2 py-1 rounded-md border ${
+                          platBenchmark
+                            ? "bg-white border-gray-200"
+                            : "bg-gray-50 border-gray-150"
+                        }`}
+                      >
+                        <span className="shrink-0">{meta.icon}</span>
+                        <span className="font-medium text-gray-700">{meta.shortLabel}</span>
+                        {platBenchmark ? (
+                          <span className="text-gray-500">
+                            ${platBenchmark.cplLow}–${platBenchmark.cplHigh} CPL
+                            {plat === "meta" && (
+                              <span className="text-purple-500 ml-1">(audience)</span>
+                            )}
+                            {plat === "lsa" && (
+                              <span className="text-green-600 ml-1">(verified lead)</span>
+                            )}
+                          </span>
+                        ) : (
+                          <span className="text-gray-400 italic">
+                            uses {PLATFORM_META[primaryPlatform].shortLabel} CPL
+                          </span>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
 
               {/* Recommended spend hint — shown when selected */}
               {service.selected && recSpend?.target && (
