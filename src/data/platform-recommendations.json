@@ -1978,5 +1978,23 @@
       "rating": 1,
       "note": "Not recommended. Specialty building products are B2B and not LSA-eligible."
     }
+  },
+  "oil-gas-engineering": {
+    "google": {
+      "rating": 3,
+      "note": "Can capture inbound demand for specific technical services but search volume is low. Best for branded and long-tail technical keyword campaigns. Lower priority than LinkedIn for this B2B vertical."
+    },
+    "meta": {
+      "rating": 1,
+      "note": "Not recommended. Decision-makers (Plant Managers, Capital Projects VPs, Procurement teams) are not reachable through Meta advertising."
+    },
+    "linkedin": {
+      "rating": 5,
+      "note": "Primary platform for this vertical. Target Operations Directors, Plant Managers, Engineering VPs, Procurement Managers, and EHS Directors at refineries, chemical plants, and midstream operators. ABM toward companies announcing capital projects is highly effective."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not applicable. Google LSA does not support industrial engineering consulting."
+    }
   }
 }

@@ -466,5 +466,9 @@
   "specialty-building-products": {
     "closeRate": 20,
     "source": "Estimated based on B2B construction products close rate data; specification-driven sales with competitive bid processes"
+  },
+  "oil-gas-engineering": {
+    "closeRate": 12,
+    "source": "Hinge Research Institute 2025 Engineering & Energy Firm Marketing Study \u2014 long procurement cycles, multi-vendor RFP processes, and technical qualification requirements reduce inbound close rates to 10-15% for oil & gas engineering firms."
   }
 }
