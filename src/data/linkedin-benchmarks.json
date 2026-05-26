@@ -3276,5 +3276,50 @@
     "source": "The B2B House LinkedIn 2026; LinkedIn international trade professional targeting data",
     "confidence": "medium",
     "avgDaysToClose": 21
+  },
+  {
+    "industryId": "oilfield-machine-shop",
+    "industryName": "Oilfield Machine Shop & Component Repair",
+    "serviceName": "Wellhead Component Machining & Repair",
+    "cplLow": 85,
+    "cplMid": 140,
+    "cplHigh": 210,
+    "avgJobValue": 12000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 6000,
+    "notes": "LinkedIn reaches Procurement Managers, Supply Chain Directors, and Equipment Engineers at major oilfield service companies (Halliburton, NOV, SLB, Baker Hughes, Weatherford) and operators. Target by company (known oilfield service companies in the Gulf Coast region) and job title. Content highlighting large-capacity capabilities (30\" swing lathes), API compliance, and fast turnaround resonates. Known customer logos (NOV, Cameron, FMC) serve as powerful social proof.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026; LinkedIn oilfield/industrial procurement targeting data",
+    "confidence": "low",
+    "avgDaysToClose": 14
+  },
+  {
+    "industryId": "oilfield-machine-shop",
+    "industryName": "Oilfield Machine Shop & Component Repair",
+    "serviceName": "CNC Precision Machining (Heavy Industrial)",
+    "cplLow": 75,
+    "cplMid": 125,
+    "cplHigh": 190,
+    "avgJobValue": 10000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 5000,
+    "notes": "Target Procurement Managers, Manufacturing Engineers, and Operations Directors at chemical plants, defense contractors, and industrial manufacturers in South Texas. Filter by company industry (Oil & Gas, Chemicals, Defense & Space, Industrial Machinery). Showcase one-stop-shop capabilities: CNC machining + phosphate coating + laser marking all in-house. Reduces vendor count \u2014 a strong pitch for procurement teams.",
+    "source": "The B2B House LinkedIn 2026; LinkedIn industrial manufacturing procurement targeting; B2B machine shop marketing norms",
+    "confidence": "low",
+    "avgDaysToClose": 10
+  },
+  {
+    "industryId": "oilfield-machine-shop",
+    "industryName": "Oilfield Machine Shop & Component Repair",
+    "serviceName": "Downhole Tool Manufacturing & Repair",
+    "cplLow": 90,
+    "cplMid": 150,
+    "cplHigh": 225,
+    "avgJobValue": 10000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 6000,
+    "notes": "Target Drilling Engineers, Tool Pusher Managers, and Equipment Procurement leads at drilling contractors and oilfield tool rental companies. Urgency messaging works well \u2014 rig downtime is extremely costly and buyers need a reliable, fast-turnaround repair partner. Position as the go-to South Texas shop for precision downhole tool work.",
+    "source": "The B2B House LinkedIn 2026; LinkedIn oil & gas drilling operations targeting; downhole tool repair market norms",
+    "confidence": "low",
+    "avgDaysToClose": 10
   }
 ]

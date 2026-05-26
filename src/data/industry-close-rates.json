@@ -474,5 +474,9 @@
   "warehousing-3pl": {
     "closeRate": 22,
     "source": "3PL market data \u2014 CSCMP 2025 Annual Survey. Companies requesting 3PL quotes are typically evaluating 2-3 vendors and are ready to switch; inbound close rates average 20-25% for regional 3PL operators with responsive quoting."
+  },
+  "oilfield-machine-shop": {
+    "closeRate": 20,
+    "source": "Thomas Industrial Sourcing 2025 / First Page Sage 2026 B2B Industrial Manufacturing \u2014 inbound RFQs from oilfield procurement teams are high-intent; shops with responsive quoting and proven capability close approximately 18\u201322% of qualified inbound leads."
   }
 }

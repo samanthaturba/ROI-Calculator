@@ -2014,5 +2014,23 @@
       "rating": 1,
       "note": "Not applicable. Google Local Services Ads is designed for home services and does not support commercial warehousing or 3PL services."
     }
+  },
+  "oilfield-machine-shop": {
+    "google": {
+      "rating": 3,
+      "note": "Niche B2B \u2014 low search volume but very high intent. 'Oilfield machine shop Corpus Christi', 'wellhead component machining TX', 'API threading machine shop'. Buyers who search are serious RFQ prospects. Geographic targeting around South Texas oil & gas corridor (Corpus Christi, Eagle Ford, Permian Basin) is key."
+    },
+    "meta": {
+      "rating": 1,
+      "note": "Not recommended. Oilfield equipment procurement is a B2B decision made by engineers and procurement managers \u2014 not reachable through Facebook/Instagram advertising."
+    },
+    "linkedin": {
+      "rating": 4,
+      "note": "Strong channel for reaching procurement teams at major oilfield service companies. Target Procurement Managers, Equipment Engineers, and Supply Chain Directors at Halliburton, NOV, SLB, Baker Hughes, Weatherford, and regional operators. Known customer logos (NOV, Cameron, FMC) are powerful social proof in LinkedIn content."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not applicable. Google LSA does not support industrial machining or oilfield services."
+    }
   }
 }
