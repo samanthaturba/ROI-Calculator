@@ -1996,5 +1996,23 @@
       "rating": 1,
       "note": "Not applicable. Google LSA does not support industrial engineering consulting."
     }
+  },
+  "warehousing-3pl": {
+    "google": {
+      "rating": 4,
+      "note": "Strong channel for warehousing. Businesses actively search 'commercial warehousing near me', '3PL warehouse [city]', 'pick and pack fulfillment service'. High intent \u2014 companies searching are evaluating vendors and ready to get quotes. Geographic targeting is key for a regional facility."
+    },
+    "meta": {
+      "rating": 2,
+      "note": "Limited effectiveness. Warehousing is a B2B service and decision-makers (Supply Chain Managers, Operations Directors) are not typically reachable via Facebook/Instagram. Can work for retargeting website visitors but not recommended as a primary channel."
+    },
+    "linkedin": {
+      "rating": 4,
+      "note": "Strong secondary channel. Target Supply Chain Managers, Operations Directors, Logistics VPs, and Procurement Managers at manufacturers, retailers, and importers. Lead Gen Forms for quote requests work well. Geographic + industry + seniority targeting reaches the right decision-makers."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Not applicable. Google Local Services Ads is designed for home services and does not support commercial warehousing or 3PL services."
+    }
   }
 }

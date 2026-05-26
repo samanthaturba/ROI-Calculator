@@ -3231,5 +3231,50 @@
     "source": "The B2B House LinkedIn 2026; commissioning consulting market data; industrial facility startup cost norms",
     "confidence": "medium",
     "avgDaysToClose": 21
+  },
+  {
+    "industryId": "warehousing-3pl",
+    "industryName": "Warehousing & 3PL Services",
+    "serviceName": "Contract Warehousing & Storage",
+    "cplLow": 55,
+    "cplMid": 90,
+    "cplHigh": 140,
+    "avgJobValue": 60000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 6000,
+    "notes": "LinkedIn targets Supply Chain Managers, Operations Directors, and Logistics VPs at manufacturers, retailers, and importers in the Raleigh-Durham area and beyond. Content highlighting facility size (400,000+ sq ft), modern equipment, and customer service track record builds trust. Lead Gen Forms for 'Get a storage quote' work well. Target companies with 50-500 employees in Manufacturing, Retail, and Consumer Goods.",
+    "source": "The B2B House LinkedIn Ad Benchmarks 2026 ($60-130 CPL B2B Services); LinkedIn supply chain professional targeting data",
+    "confidence": "medium",
+    "avgDaysToClose": 21
+  },
+  {
+    "industryId": "warehousing-3pl",
+    "industryName": "Warehousing & 3PL Services",
+    "serviceName": "Pick & Pack / Order Fulfillment",
+    "cplLow": 50,
+    "cplMid": 82,
+    "cplHigh": 130,
+    "avgJobValue": 36000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 5000,
+    "notes": "Target E-commerce Directors, Operations Managers, and Supply Chain leads at DTC brands and growing online retailers. Content showing turnaround times, accuracy rates, and same-day shipping capability resonates. LinkedIn is effective for reaching decision-makers at companies scaling their fulfillment needs and evaluating 3PL partnerships.",
+    "source": "The B2B House LinkedIn 2026; LinkedIn e-commerce/retail operations targeting data",
+    "confidence": "medium",
+    "avgDaysToClose": 14
+  },
+  {
+    "industryId": "warehousing-3pl",
+    "industryName": "Warehousing & 3PL Services",
+    "serviceName": "Import & Export / Break Bulk",
+    "cplLow": 60,
+    "cplMid": 100,
+    "cplHigh": 155,
+    "avgJobValue": 40000,
+    "recommendedMinAdSpend": 3000,
+    "recommendedTargetAdSpend": 5000,
+    "notes": "Target Import/Export Managers, Global Trade Directors, and Procurement Managers at companies with international supply chains. Heavy lift and drum handling capabilities are key differentiators \u2014 mention these in ads. Filter by company industry (Manufacturing, Wholesale, Consumer Goods) and import/export related job titles.",
+    "source": "The B2B House LinkedIn 2026; LinkedIn international trade professional targeting data",
+    "confidence": "medium",
+    "avgDaysToClose": 21
   }
 ]
