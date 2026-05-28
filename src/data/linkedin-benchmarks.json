@@ -3321,5 +3321,20 @@
     "source": "The B2B House LinkedIn 2026; LinkedIn oil & gas drilling operations targeting; downhole tool repair market norms",
     "confidence": "low",
     "avgDaysToClose": 10
+  },
+  {
+    "industryId": "kitchen-bath-remodeling",
+    "industryName": "Kitchen & Bath Remodeling",
+    "serviceName": "Historic Home Renovation",
+    "cplLow": 120,
+    "cplMid": 200,
+    "cplHigh": 320,
+    "avgJobValue": 75000,
+    "recommendedMinAdSpend": 2000,
+    "recommendedTargetAdSpend": 4000,
+    "notes": "LinkedIn is not typically effective for residential remodeling \u2014 B2C audience is not on LinkedIn for home improvement. However, Hantel could reach commercial clients (restaurant owners, boutique hotel operators, property developers) for commercial kitchen/bath projects. Very niche use case. Generally not recommended for Hantel's residential focus.",
+    "source": "LinkedIn Ads benchmarks 2025; industry practice",
+    "confidence": "low",
+    "avgDaysToClose": 45
   }
 ]

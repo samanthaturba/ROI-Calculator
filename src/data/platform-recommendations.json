@@ -2032,5 +2032,23 @@
       "rating": 1,
       "note": "Not applicable. Google LSA does not support industrial machining or oilfield services."
     }
+  },
+  "kitchen-bath-remodeling": {
+    "google": {
+      "rating": 5,
+      "note": "High-intent search drives most kitchen & bath remodel leads \u2014 homeowners actively searching 'kitchen remodel Nashville' are prime prospects. Google Search + Local Service Ads capture ready-to-hire traffic. Strongest platform for this industry."
+    },
+    "meta": {
+      "rating": 4,
+      "note": "Instagram and Facebook are highly effective for visual remodeling services. Before/after content, project galleries, and Reels build brand desire and generate warm leads. Strong for nurturing and retargeting. Excellent for Hantel given showroom aesthetic."
+    },
+    "linkedin": {
+      "rating": 1,
+      "note": "Residential remodeling audience is not on LinkedIn. Only relevant if pursuing commercial kitchen/bath contracts. Not recommended for typical Hantel residential clients."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Local Service Ads available under Home Improvement category. Google Guaranteed badge adds trust for in-home estimates. Cost-effective for 'kitchen remodeler near me' and 'bathroom remodel company Nashville' queries. Worth running alongside Search campaigns."
+    }
   }
 }

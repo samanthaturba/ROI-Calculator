@@ -478,5 +478,9 @@
   "oilfield-machine-shop": {
     "closeRate": 20,
     "source": "Thomas Industrial Sourcing 2025 / First Page Sage 2026 B2B Industrial Manufacturing \u2014 inbound RFQs from oilfield procurement teams are high-intent; shops with responsive quoting and proven capability close approximately 18\u201322% of qualified inbound leads."
+  },
+  "kitchen-bath-remodeling": {
+    "closeRate": 20,
+    "source": "NKBA 2025 Consumer Attitudes & Kitchen/Bath Market Outlook \u2014 homeowners typically collect 2-4 bids for major remodels; inbound leads who contact a showroom convert at approximately 18-22% to signed contracts."
   }
 }
