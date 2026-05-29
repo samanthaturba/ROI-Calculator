@@ -482,5 +482,9 @@
   "kitchen-bath-remodeling": {
     "closeRate": 20,
     "source": "NKBA 2025 Consumer Attitudes & Kitchen/Bath Market Outlook \u2014 homeowners typically collect 2-4 bids for major remodels; inbound leads who contact a showroom convert at approximately 18-22% to signed contracts."
+  },
+  "retail-store-fixtures": {
+    "closeRate": 30,
+    "source": "B2B ecommerce industry benchmarks 2025 \u2014 retail fixture buyers who submit quote requests or add to cart are high-intent; inbound conversion rates for B2B ecommerce specialty suppliers average 25\u201335%. Direct purchase (no lead form) converts at 3\u20135% of site sessions but 25\u201340% of cart additions."
   }
 }

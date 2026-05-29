@@ -3336,5 +3336,20 @@
     "source": "LinkedIn Ads benchmarks 2025; industry practice",
     "confidence": "low",
     "avgDaysToClose": 45
+  },
+  {
+    "industryId": "retail-store-fixtures",
+    "industryName": "Retail Store Fixtures & Supplies (Ecommerce)",
+    "serviceName": "New Store Setup / Full Fixture Package",
+    "cplLow": 90,
+    "cplMid": 160,
+    "cplHigh": 260,
+    "avgJobValue": 6500,
+    "recommendedMinAdSpend": 2000,
+    "recommendedTargetAdSpend": 4000,
+    "notes": "ECOMMERCE: LinkedIn can reach retail directors, visual merchandising managers, and franchise operators who make bulk fixture purchasing decisions. Job titles: 'Retail Operations Manager', 'Visual Merchandising Manager', 'Store Development Manager'. High CPL but relevant for enterprise retail chains and franchises ordering fixtures in volume. Less effective for small independent retailer audience. Only use LinkedIn if targeting multi-unit retail operators.",
+    "source": "LinkedIn Ads benchmarks 2025; B2B ecommerce supply chain targeting",
+    "confidence": "low",
+    "avgDaysToClose": 30
   }
 ]

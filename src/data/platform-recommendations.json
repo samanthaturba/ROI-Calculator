@@ -2050,5 +2050,23 @@
       "rating": 3,
       "note": "Local Service Ads available under Home Improvement category. Google Guaranteed badge adds trust for in-home estimates. Cost-effective for 'kitchen remodeler near me' and 'bathroom remodel company Nashville' queries. Worth running alongside Search campaigns."
     }
+  },
+  "retail-store-fixtures": {
+    "google": {
+      "rating": 5,
+      "note": "Google Search + Google Shopping are the primary drivers for retail fixture ecommerce. Buyers search specific product terms ('gondola shelving', 'glass display cases') with high purchase intent. Shopping campaigns are essential \u2014 product listing ads with images, price, and brand are the standard format for this category. Strongest platform by far."
+    },
+    "meta": {
+      "rating": 4,
+      "note": "Meta works well for ecommerce retargeting (Dynamic Product Ads) and lookalike audiences built from purchaser lists. Instagram Shopping integration adds discovery value. Cold audiences for new store openings and retail entrepreneurs can be effective with video/lifestyle creative. Good complement to Google \u2014 not standalone."
+    },
+    "linkedin": {
+      "rating": 2,
+      "note": "LinkedIn is niche for this industry \u2014 only worthwhile if targeting enterprise retail chains, franchise operators, or visual merchandising managers at large retailers. High CPL makes it inefficient for small independent retailer audience. Skip unless specifically pursuing multi-unit or corporate accounts."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Local Service Ads are not applicable for ecommerce businesses. LSA is designed for local service providers (HVAC, plumbing, etc.) and does not support retail product categories. Dawson Jones ships nationally \u2014 LSA is not relevant."
+    }
   }
 }

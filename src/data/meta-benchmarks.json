@@ -5089,5 +5089,50 @@
     "source": "Meta Business Ads benchmarks 2025; NKBA social media marketing report 2025",
     "confidence": "medium",
     "avgDaysToClose": 21
+  },
+  {
+    "industryId": "retail-store-fixtures",
+    "industryName": "Retail Store Fixtures & Supplies (Ecommerce)",
+    "serviceName": "Display Cases & Showcases",
+    "cplLow": 30,
+    "cplMid": 55,
+    "cplHigh": 95,
+    "avgJobValue": 650,
+    "recommendedMinAdSpend": 1000,
+    "recommendedTargetAdSpend": 2500,
+    "notes": "ECOMMERCE: Meta (Facebook/Instagram) works for retail fixture ecommerce primarily through retargeting and catalog ads. Dynamic product ads (DPA) retargeting site visitors with specific products they viewed drive strong ROI. Cold audience targeting: retail business owners, boutique owners, 'small business owner' + 'retail' interests. Instagram Shopping integration available. CPL slightly higher than Google due to lower purchase intent at top of funnel.",
+    "source": "Meta Business Ads benchmarks 2025; B2B ecommerce retargeting CPL data",
+    "confidence": "medium",
+    "avgDaysToClose": 5
+  },
+  {
+    "industryId": "retail-store-fixtures",
+    "industryName": "Retail Store Fixtures & Supplies (Ecommerce)",
+    "serviceName": "Gondola & Retail Shelving Systems",
+    "cplLow": 35,
+    "cplMid": 65,
+    "cplHigh": 110,
+    "avgJobValue": 1400,
+    "recommendedMinAdSpend": 1000,
+    "recommendedTargetAdSpend": 2500,
+    "notes": "ECOMMERCE: Meta retargeting for gondola shelving works well for buyers who browsed but didn't convert. Lookalike audiences built from purchaser lists help find similar retail operators. B2B interest targeting: 'retail management', 'store design', 'visual merchandising'. Higher CPL than Google but valuable for staying top-of-mind during longer consideration cycle for large shelving orders.",
+    "source": "Meta Business Ads benchmarks 2025; B2B ecommerce retargeting data",
+    "confidence": "medium",
+    "avgDaysToClose": 7
+  },
+  {
+    "industryId": "retail-store-fixtures",
+    "industryName": "Retail Store Fixtures & Supplies (Ecommerce)",
+    "serviceName": "New Store Setup / Full Fixture Package",
+    "cplLow": 60,
+    "cplMid": 110,
+    "cplHigh": 180,
+    "avgJobValue": 6500,
+    "recommendedMinAdSpend": 1500,
+    "recommendedTargetAdSpend": 3000,
+    "notes": "ECOMMERCE: Facebook lead gen ads targeting entrepreneurs opening new businesses \u2014 interests: 'startup', 'small business', 'retail', 'entrepreneur'. Strong angle: 'Opening a new store? Get everything in one order.' Video ad showing a complete store setup performs well. CPL higher but AOV justifies spend. Retargeting abandoned quote pages is especially effective for this high-value segment.",
+    "source": "Meta Business Ads benchmarks 2025; high-value B2B lead gen CPL data",
+    "confidence": "low",
+    "avgDaysToClose": 21
   }
 ]
