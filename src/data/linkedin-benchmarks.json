@@ -3351,5 +3351,20 @@
     "source": "LinkedIn Ads benchmarks 2025; B2B ecommerce supply chain targeting",
     "confidence": "low",
     "avgDaysToClose": 30
+  },
+  {
+    "industryId": "auto-glass",
+    "industryName": "Auto Glass Repair & Replacement",
+    "serviceName": "Mobile Auto Glass Service",
+    "cplLow": 100,
+    "cplMid": 180,
+    "cplHigh": 280,
+    "avgJobValue": 350,
+    "recommendedMinAdSpend": 2000,
+    "recommendedTargetAdSpend": 3500,
+    "notes": "LinkedIn is not recommended for consumer auto glass services. Only potential use case: targeting fleet managers, property managers, or facility directors who need recurring auto glass services for company vehicle fleets. Very niche B2B angle \u2014 most auto glass shops don't pursue this. High CPL makes it inefficient for standard residential auto glass. Skip LinkedIn unless specifically pitching fleet glass accounts.",
+    "source": "LinkedIn Ads benchmarks 2025",
+    "confidence": "low",
+    "avgDaysToClose": 21
   }
 ]

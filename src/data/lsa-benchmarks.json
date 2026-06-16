@@ -586,5 +586,19 @@
     "notes": "LSA pay-per-lead. Lower-ticket service fits LSA's consumer-leads model better than full builds.",
     "source": "Home Service Direct 2026 LSA benchmarks \u2014 auto repair LSA CPL range $30-95. Custom build / engine builder is not a distinct LSA category, but auto repair leads sometimes route through for swap/tuning work.",
     "confidence": "medium"
+  },
+  {
+    "industryId": "auto-glass",
+    "industryName": "Auto Glass Repair & Replacement",
+    "serviceName": "Windshield Repair & Replacement",
+    "cplLow": 35,
+    "cplMid": 55,
+    "cplHigh": 80,
+    "avgJobValue": 300,
+    "recommendedMinAdSpend": 600,
+    "recommendedTargetAdSpend": 1500,
+    "notes": "LSA is available for auto glass under the 'Auto Glass' category \u2014 Google Guaranteed badge adds significant trust for a service where customers are handing over their car. Pay-per-lead model is efficient since demand spikes predictably (bad weather, construction zones, highway driving). Google caps lead costs, making this a reliable complement to Search campaigns. Works best in Denver Metro where Cornerstone's service area is established.",
+    "source": "HomeServiceDirect.net 2026 LSA CPL data; Google LSA auto glass category pricing",
+    "confidence": "medium"
   }
 ]

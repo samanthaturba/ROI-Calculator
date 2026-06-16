@@ -5134,5 +5134,35 @@
     "source": "Meta Business Ads benchmarks 2025; high-value B2B lead gen CPL data",
     "confidence": "low",
     "avgDaysToClose": 21
+  },
+  {
+    "industryId": "auto-glass",
+    "industryName": "Auto Glass Repair & Replacement",
+    "serviceName": "Windshield Replacement",
+    "cplLow": 35,
+    "cplMid": 65,
+    "cplHigh": 110,
+    "avgJobValue": 380,
+    "recommendedMinAdSpend": 800,
+    "recommendedTargetAdSpend": 2000,
+    "notes": "Meta is a secondary channel for auto glass \u2014 most demand is search-driven. However, Facebook/Instagram awareness campaigns work for brand building in the local market and retargeting website visitors who got a quote but didn't book. Creative angles: 'Free mobile service \u2014 we come to you', before/after of chip repair, insurance claim explainer ('Your deductible may be waived'). Lookalike audiences from customer lists can find similar local drivers. Not a primary lead-gen channel.",
+    "source": "Meta Business Ads benchmarks 2025; auto services industry CPL data",
+    "confidence": "medium",
+    "avgDaysToClose": 2
+  },
+  {
+    "industryId": "auto-glass",
+    "industryName": "Auto Glass Repair & Replacement",
+    "serviceName": "Windshield Chip & Crack Repair",
+    "cplLow": 28,
+    "cplMid": 55,
+    "cplHigh": 95,
+    "avgJobValue": 120,
+    "recommendedMinAdSpend": 600,
+    "recommendedTargetAdSpend": 1500,
+    "notes": "Meta lead gen for chip repair can work with a strong offer: 'Insurance may cover it 100% \u2014 no deductible.' CPL is higher than Google Search because intent is lower (people aren't actively looking when scrolling Facebook). Best used as a reminder campaign targeting local homeowners/commuters. Not recommended as primary campaign \u2014 Google Search and LSA will outperform for this service.",
+    "source": "Meta Business Ads benchmarks 2025; auto glass industry practice",
+    "confidence": "low",
+    "avgDaysToClose": 1
   }
 ]

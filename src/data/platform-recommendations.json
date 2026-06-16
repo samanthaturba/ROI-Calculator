@@ -2068,5 +2068,23 @@
       "rating": 1,
       "note": "Local Service Ads are not applicable for ecommerce businesses. LSA is designed for local service providers (HVAC, plumbing, etc.) and does not support retail product categories. Dawson Jones ships nationally \u2014 LSA is not relevant."
     }
+  },
+  "auto-glass": {
+    "google": {
+      "rating": 5,
+      "note": "Auto glass is one of the highest-intent search categories \u2014 customers actively search when they have a cracked or damaged windshield and need service fast. Google Search + Local Pack dominate lead volume. 'Windshield replacement near me', 'windshield repair [city]', and 'rock chip repair' are high-conversion, high-volume terms. Primary platform by a wide margin."
+    },
+    "meta": {
+      "rating": 2,
+      "note": "Meta (Facebook/Instagram) is a secondary awareness channel for auto glass. Works best for retargeting website visitors who didn't book and lookalike audiences for brand building. The 'insurance may cover it free' angle can generate engagement. Not a primary lead source \u2014 customers don't browse social media looking for windshield repair."
+    },
+    "linkedin": {
+      "rating": 1,
+      "note": "LinkedIn is not relevant for consumer auto glass. Only worthwhile if specifically targeting fleet managers or corporate accounts for commercial vehicle glass programs. Skip for standard residential auto glass clients."
+    },
+    "lsa": {
+      "rating": 4,
+      "note": "Local Service Ads (Google Guaranteed) are highly effective for auto glass \u2014 the trust badge is valuable for a service where customers hand over their vehicle. Auto glass is a supported LSA category. Pay-per-lead model works well since demand is spiky and predictable. Strong complement to Search campaigns, especially for mobile service positioning."
+    }
   }
 }

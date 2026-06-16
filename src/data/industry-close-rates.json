@@ -486,5 +486,9 @@
   "retail-store-fixtures": {
     "closeRate": 30,
     "source": "B2B ecommerce industry benchmarks 2025 \u2014 retail fixture buyers who submit quote requests or add to cart are high-intent; inbound conversion rates for B2B ecommerce specialty suppliers average 25\u201335%. Direct purchase (no lead form) converts at 3\u20135% of site sessions but 25\u201340% of cart additions."
+  },
+  "auto-glass": {
+    "closeRate": 40,
+    "source": "LocaliQ 2025 Auto Services close rate data \u2014 auto glass is a high-urgency, near-commodity service; customers who call or submit a quote request are typically ready to book. Inbound close rates for local auto glass shops average 35\u201345% depending on response time and pricing competitiveness."
   }
 }
