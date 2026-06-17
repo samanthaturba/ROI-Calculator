@@ -44,6 +44,11 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
   const [generating, setGenerating] = useState(false);
   const [generateError, setGenerateError] = useState("");
   const [generatedIndustry, setGeneratedIndustry] = useState<AiGeneratedIndustry | null>(null);
+  // Direct generate (from URL bar, not requiring a scan result first)
+  const [directGenerating, setDirectGenerating] = useState(false);
+  const [directGenerateError, setDirectGenerateError] = useState("");
+  const [showPasteForGenerate, setShowPasteForGenerate] = useState(false);
+  const [generatePasteText, setGeneratePasteText] = useState("");
 
   const industries = industrySearch
     ? searchIndustries(industrySearch)
@@ -178,6 +183,84 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
     setScanUrl("");
   }
 
+  /** Standalone generate: scans URL then generates, or uses pasted text directly. */
+  async function handleDirectGenerate(textOverride?: string) {
+    setDirectGenerating(true);
+    setDirectGenerateError("");
+    setShowPasteForGenerate(false);
+
+    const url = (value.websiteUrl || "").trim();
+    let text = textOverride || generatePasteText.trim();
+    let title = "";
+
+    // If no pasted text, fetch from URL first
+    if (!text) {
+      if (!url) {
+        setDirectGenerateError("Enter a website URL first, or paste the page text below.");
+        setShowPasteForGenerate(true);
+        setDirectGenerating(false);
+        return;
+      }
+      try {
+        const res = await fetch("/api/scan-website", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ url }),
+        });
+        const data = await res.json();
+        if (!res.ok || data.error) {
+          // Scan failed — prompt user to paste text instead
+          setDirectGenerateError(
+            `Couldn't fetch that site (${data.error ?? "network error"}). Paste the page text below and click Generate again.`
+          );
+          setShowPasteForGenerate(true);
+          setDirectGenerating(false);
+          return;
+        }
+        text = data.text ?? "";
+        title = data.title ?? "";
+      } catch {
+        setDirectGenerateError("Network error fetching site. Paste the page text below instead.");
+        setShowPasteForGenerate(true);
+        setDirectGenerating(false);
+        return;
+      }
+    }
+
+    if (!text) {
+      setDirectGenerateError("No page content found. Paste the site text below.");
+      setShowPasteForGenerate(true);
+      setDirectGenerating(false);
+      return;
+    }
+
+    try {
+      const res = await fetch("/api/generate-industry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url, text, title }),
+      });
+      const data = await res.json();
+      if (!res.ok || data.error) {
+        setDirectGenerateError(data.error ?? "AI generation failed. Try again.");
+        setDirectGenerating(false);
+        return;
+      }
+      const industry = data.industry as AiGeneratedIndustry;
+      // Apply directly — no preview needed for the quick path
+      if (onAiIndustryGenerated) {
+        onAiIndustryGenerated(industry, text);
+      }
+      setGeneratePasteText("");
+      setShowPasteForGenerate(false);
+      setDirectGenerateError("");
+    } catch {
+      setDirectGenerateError("Network error. Check your connection and try again.");
+    } finally {
+      setDirectGenerating(false);
+    }
+  }
+
   function applyScanResult(industryId: string) {
     if (!scanResult) return;
 
@@ -280,7 +363,7 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
           )}
           {!value.industryId && !showDropdown && (
             <p className="mt-1 text-xs text-cogent-neutral">
-              Don&apos;t see your industry? Select &quot;Other - Manual Input&quot; to enter your own CPL and job values.
+              Don&apos;t see your industry? Use AI below or select &quot;Other - Manual Input&quot;.
             </p>
           )}
         </div>
@@ -330,6 +413,66 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
             placeholder="e.g. Plumber, Water Heater Installation"
           />
         </div>
+      </div>
+
+      {/* ── Generate AI Industry Profile bar ─────────────────────────────────── */}
+      <div className="mt-3 rounded-lg border border-cogent-navy/20 bg-cogent-navy/[0.03] overflow-hidden">
+        <div className="flex items-center justify-between gap-3 px-4 py-3">
+          <div>
+            <p className="text-sm font-semibold text-cogent-navy">✨ Generate AI Industry Profile</p>
+            <p className="text-xs text-gray-500 mt-0.5">
+              {value.websiteUrl
+                ? `Scans ${value.websiteUrl} and builds custom CPL, job values & platform ratings for this exact business.`
+                : "Add a website URL above, or paste page text below — AI builds a custom industry profile in ~10 seconds."}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={() => handleDirectGenerate()}
+            disabled={directGenerating}
+            className="shrink-0 flex items-center gap-2 px-4 py-2 bg-cogent-navy text-white text-sm font-semibold rounded-lg hover:bg-cogent-navy-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors whitespace-nowrap"
+          >
+            {directGenerating ? (
+              <>
+                <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                </svg>
+                Generating…
+              </>
+            ) : "✨ Generate"}
+          </button>
+        </div>
+
+        {/* Error + paste fallback */}
+        {directGenerateError && (
+          <div className="px-4 pb-3">
+            <p className="text-xs text-red-600 mb-2">{directGenerateError}</p>
+          </div>
+        )}
+        {showPasteForGenerate && (
+          <div className="px-4 pb-4 border-t border-cogent-navy/10 pt-3">
+            <label className="block text-xs font-medium text-gray-700 mb-1">
+              Paste page text here to generate from it:
+            </label>
+            <textarea
+              value={generatePasteText}
+              onChange={(e) => setGeneratePasteText(e.target.value)}
+              rows={4}
+              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
+              placeholder="Copy and paste the text from the client's website here..."
+              autoFocus
+            />
+            <button
+              type="button"
+              onClick={() => handleDirectGenerate(generatePasteText)}
+              disabled={directGenerating || !generatePasteText.trim()}
+              className="mt-2 px-4 py-2 bg-cogent-navy text-white text-sm font-semibold rounded-lg hover:bg-cogent-navy-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+            >
+              {directGenerating ? "Generating…" : "✨ Generate from Pasted Text"}
+            </button>
+          </div>
+        )}
       </div>
 
       {/* ── Scan-from-URL panel (no URL yet) ─────────────────────────────────── */}
