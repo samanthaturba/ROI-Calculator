@@ -3366,5 +3366,35 @@
     "source": "LinkedIn Ads benchmarks 2025",
     "confidence": "low",
     "avgDaysToClose": 21
+  },
+  {
+    "industryId": "natural-stone-fabrication",
+    "industryName": "Natural Stone Fabrication & Supply",
+    "serviceName": "Commercial & Hospitality Stone Projects",
+    "cplLow": 120,
+    "cplMid": 220,
+    "cplHigh": 360,
+    "avgJobValue": 45000,
+    "recommendedMinAdSpend": 2000,
+    "recommendedTargetAdSpend": 4000,
+    "notes": "LinkedIn is the right channel for Natural Stone Gallery's hospitality division \u2014 targeting hotel developers, restaurant owners, property managers, interior design firms, and general contractors who spec stone for commercial projects. Job titles: 'Hotel Development Manager', 'Interior Designer', 'Facilities Manager', 'General Contractor', 'Property Developer'. High CPL but commercial stone contracts ($20K\u2013$150K) have exceptional ROI. Houston's energy sector drives corporate HQ and hotel development opportunities.",
+    "source": "LinkedIn Ads benchmarks 2025; commercial construction B2B targeting data",
+    "confidence": "low",
+    "avgDaysToClose": 45
+  },
+  {
+    "industryId": "natural-stone-fabrication",
+    "industryName": "Natural Stone Fabrication & Supply",
+    "serviceName": "Custom Cabinetry",
+    "cplLow": 110,
+    "cplMid": 200,
+    "cplHigh": 320,
+    "avgJobValue": 18000,
+    "recommendedMinAdSpend": 1500,
+    "recommendedTargetAdSpend": 3000,
+    "notes": "LinkedIn cabinetry targeting is relevant for commercial builds \u2014 restaurant kitchen buildouts, hotel room millwork, office kitchenettes. Less effective than Google for residential cabinet leads. Target architects, interior designers, and commercial construction project managers in Houston. High CPL makes this only worth pursuing for commercial cabinetry contracts.",
+    "source": "LinkedIn Ads benchmarks 2025; B2B construction targeting data",
+    "confidence": "low",
+    "avgDaysToClose": 30
   }
 ]

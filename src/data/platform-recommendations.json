@@ -2086,5 +2086,23 @@
       "rating": 4,
       "note": "Local Service Ads (Google Guaranteed) are highly effective for auto glass \u2014 the trust badge is valuable for a service where customers hand over their vehicle. Auto glass is a supported LSA category. Pay-per-lead model works well since demand is spiky and predictable. Strong complement to Search campaigns, especially for mobile service positioning."
     }
+  },
+  "natural-stone-fabrication": {
+    "google": {
+      "rating": 5,
+      "note": "Google Search captures the highest-intent buyers \u2014 people searching 'granite countertops Houston' or 'marble flooring installer Houston TX' are actively ready to purchase. Dominant channel for all residential stone services. Google Shopping can also feature individual stone products for supply-only searches. Primary platform by a wide margin."
+    },
+    "meta": {
+      "rating": 4,
+      "note": "Instagram and Facebook are excellent for natural stone \u2014 it's a highly visual, aspirational product category. Before/after photos, slab close-ups, and kitchen/bathroom reveals generate strong engagement and showroom visits. Retargeting website visitors with gallery content converts well. Instagram Reels showcasing stone fabrication or finished installs perform especially well."
+    },
+    "linkedin": {
+      "rating": 3,
+      "note": "LinkedIn is relevant for Natural Stone Gallery's commercial and hospitality division \u2014 reaching hotel developers, architects, interior designers, and general contractors who spec stone for large projects. High CPL but commercial stone contracts ($20K\u2013$150K+) have strong ROI. Skip for residential-only campaigns."
+    },
+    "lsa": {
+      "rating": 2,
+      "note": "Google Local Service Ads have limited category support for stone fabricators. Available under Home Improvement, but stone fabrication is not a primary LSA category like plumbing or HVAC. Worth testing with a small budget but not a primary channel. Google Search + Meta should take priority."
+    }
   }
 }

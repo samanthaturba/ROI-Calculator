@@ -146,13 +146,28 @@ function SinglePlatformResults({
           <div className="text-xl font-bold text-cogent-navy-dark mt-1">
             ~{formatCurrency(revenue)}
           </div>
-          {gp !== null && (
-            <div className="text-xs text-cogent-neutral mt-0.5">
-              Est. GP: ~{formatCurrency(gp)}
-            </div>
-          )}
         </div>
       </div>
+
+      {/* Gross Profit — prominent standalone card, shown when margin is set */}
+      {gp !== null && (
+        <div className="mt-4 p-5 rounded-xl border-2 border-emerald-400 bg-gradient-to-r from-emerald-50 to-emerald-50/40 flex items-center justify-between gap-4 shadow-sm">
+          <div>
+            <div className="text-xs font-semibold text-emerald-700 uppercase tracking-widest mb-0.5">
+              💰 Est. Gross Profit / Month
+            </div>
+            <div className="text-xs text-gray-500 mt-1">
+              After direct job costs — what stays in the business from these ads
+            </div>
+          </div>
+          <div className="text-right shrink-0">
+            <div className="text-3xl font-extrabold text-emerald-700">
+              ~{formatCurrency(gp)}
+            </div>
+            <div className="text-xs text-gray-400 mt-0.5">per month</div>
+          </div>
+        </div>
+      )}
 
       {/* What these numbers mean */}
       <div className="mb-6 p-4 bg-cogent-ivory/60 border border-gray-200 rounded-lg">
@@ -539,13 +554,28 @@ export default function Results({
           <div className="text-xl font-bold text-cogent-navy-dark mt-1">
             ~{formatCurrency(combinedRevenue)}
           </div>
-          {combinedGP !== null && (
-            <div className="text-xs text-cogent-neutral mt-0.5">
-              Est. GP: ~{formatCurrency(combinedGP)}
-            </div>
-          )}
         </div>
       </div>
+
+      {/* Gross Profit — prominent standalone card, shown when margin is set */}
+      {combinedGP !== null && (
+        <div className="mt-4 p-5 rounded-xl border-2 border-emerald-400 bg-gradient-to-r from-emerald-50 to-emerald-50/40 flex items-center justify-between gap-4 shadow-sm">
+          <div>
+            <div className="text-xs font-semibold text-emerald-700 uppercase tracking-widest mb-0.5">
+              💰 Est. Gross Profit / Month
+            </div>
+            <div className="text-xs text-gray-500 mt-1">
+              After direct job costs — what stays in the business from these ads
+            </div>
+          </div>
+          <div className="text-right shrink-0">
+            <div className="text-3xl font-extrabold text-emerald-700">
+              ~{formatCurrency(combinedGP)}
+            </div>
+            <div className="text-xs text-gray-400 mt-0.5">per month combined</div>
+          </div>
+        </div>
+      )}
 
       {/* Combined ROAS */}
       <div className="grid grid-cols-2 gap-4 mb-6">
