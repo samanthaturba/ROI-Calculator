@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import type { ClientInputs as ClientInputsType } from "../lib/types";
-import { searchIndustries, getAllIndustries } from "../lib/benchmarks";
+import { searchIndustries, getAllIndustriesWithAi, type AiGeneratedIndustry } from "../lib/benchmarks";
 import { detectIndustries } from "../lib/industry-detection";
 import type { IndustryMatch } from "../lib/industry-detection";
 
@@ -10,6 +10,7 @@ interface ScanResult {
   topMatches: IndustryMatch[];
   text: string;
   title: string;
+  url: string;
 }
 
 interface Props {
@@ -19,9 +20,11 @@ interface Props {
   /** Called when the user applies a website scan result — lets page.tsx handle
    *  industry + service loading atomically (avoids async state race). */
   onWebsiteScan?: (result: { industryId: string; text: string }) => void;
+  /** Called when AI generates a custom industry profile from a website scan. */
+  onAiIndustryGenerated?: (industry: AiGeneratedIndustry, text: string) => void;
 }
 
-export default function ClientInputs({ value, onChange, onTextExtract, onWebsiteScan }: Props) {
+export default function ClientInputs({ value, onChange, onTextExtract, onWebsiteScan, onAiIndustryGenerated }: Props) {
   const [industrySearch, setIndustrySearch] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const [pastedText, setPastedText] = useState("");
@@ -37,15 +40,20 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
   const [scanResult, setScanResult] = useState<ScanResult | null>(null);
   const [showScanInput, setShowScanInput] = useState(false);
 
+  // AI generation state
+  const [generating, setGenerating] = useState(false);
+  const [generateError, setGenerateError] = useState("");
+  const [generatedIndustry, setGeneratedIndustry] = useState<AiGeneratedIndustry | null>(null);
+
   const industries = industrySearch
     ? searchIndustries(industrySearch)
-    : getAllIndustries();
+    : getAllIndustriesWithAi();
 
   const selectedIndustryName =
-    getAllIndustries().find((i) => i.id === value.industryId)?.name ?? "";
+    getAllIndustriesWithAi().find((i) => i.id === value.industryId)?.name ?? "";
 
   const secondaryIndustries = (value.secondaryIndustryIds ?? [])
-    .map((id) => getAllIndustries().find((i) => i.id === id))
+    .map((id) => getAllIndustriesWithAi().find((i) => i.id === id))
     .filter(Boolean) as { id: string; name: string }[];
 
   useEffect(() => {
@@ -118,12 +126,63 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
         return;
       }
 
-      setScanResult({ topMatches, text, title });
+      setScanResult({ topMatches, text, title, url });
     } catch {
       setScanError("Network error. Check your connection and try again.");
     } finally {
       setScanning(false);
     }
+  }
+
+  async function handleGenerateIndustry() {
+    if (!scanResult) return;
+    setGenerating(true);
+    setGenerateError("");
+    setGeneratedIndustry(null);
+
+    try {
+      const res = await fetch("/api/generate-industry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          url: scanResult.url,
+          text: scanResult.text,
+          title: scanResult.title,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || data.error) {
+        setGenerateError(data.error ?? "AI generation failed. Please try again.");
+        return;
+      }
+
+      const industry = data.industry as AiGeneratedIndustry;
+      setGeneratedIndustry(industry);
+    } catch {
+      setGenerateError("Network error during AI generation. Check your connection.");
+    } finally {
+      setGenerating(false);
+    }
+  }
+
+  function applyGeneratedIndustry() {
+    if (!generatedIndustry || !scanResult) return;
+
+    if (onAiIndustryGenerated) {
+      onAiIndustryGenerated(generatedIndustry, scanResult.text);
+    }
+
+    // Update client name suggestion from title if blank
+    if (scanResult.url && !value.websiteUrl) {
+      onChange({ ...value, websiteUrl: scanResult.url });
+    }
+
+    setGeneratedIndustry(null);
+    setScanResult(null);
+    setShowScanInput(false);
+    setScanUrl("");
   }
 
   function applyScanResult(industryId: string) {
@@ -338,7 +397,7 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
       )}
 
       {/* ── Scan result confirmation banner ──────────────────────────────────── */}
-      {scanResult && (
+      {scanResult && !generatedIndustry && (
         <div className="mt-4 p-4 bg-cogent-sage/10 border border-cogent-sage/40 rounded-lg">
           <div className="flex items-start justify-between gap-2 mb-3">
             <div>
@@ -347,7 +406,7 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
                 <span className="font-normal italic">{scanResult.title || "website"}</span>
               </p>
               <p className="text-xs text-cogent-neutral mt-0.5">
-                Select an industry to apply — services will be auto-matched from the page text.
+                Pick a match below, or let AI generate a custom profile built specifically for this business.
               </p>
             </div>
             <button
@@ -361,7 +420,7 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
 
           <div className="space-y-2">
             {scanResult.topMatches.map((match, idx) => {
-              const industryName = getAllIndustries().find((i) => i.id === match.industryId)?.name ?? match.industryId;
+              const industryName = getAllIndustriesWithAi().find((i) => i.id === match.industryId)?.name ?? match.industryId;
               return (
                 <div
                   key={match.industryId}
@@ -395,6 +454,106 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
               );
             })}
           </div>
+
+          {/* AI Generate divider */}
+          <div className="mt-4 pt-4 border-t border-cogent-sage/30">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="text-xs font-semibold text-cogent-navy">
+                  🤖 None of these fit? Generate a custom industry profile
+                </p>
+                <p className="text-xs text-cogent-neutral mt-0.5">
+                  AI will analyze this site and build a new industry with accurate CPL, job values, and platform recommendations tailored to this exact business. Takes ~10 seconds.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={handleGenerateIndustry}
+                disabled={generating}
+                className="shrink-0 px-4 py-2 bg-cogent-navy text-white text-xs font-semibold rounded-lg hover:bg-cogent-navy-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors whitespace-nowrap"
+              >
+                {generating ? (
+                  <span className="flex items-center gap-1.5">
+                    <svg className="animate-spin h-3 w-3" viewBox="0 0 24 24" fill="none">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                    </svg>
+                    Generating…
+                  </span>
+                ) : "✨ Generate Profile"}
+              </button>
+            </div>
+            {generateError && (
+              <p className="mt-2 text-xs text-red-600">{generateError}</p>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* ── AI-generated industry preview ─────────────────────────────────────── */}
+      {generatedIndustry && (
+        <div className="mt-4 p-4 bg-cogent-navy/5 border-2 border-cogent-navy/20 rounded-lg">
+          <div className="flex items-start justify-between gap-2 mb-3">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-xs font-bold text-white bg-cogent-navy px-2 py-0.5 rounded">
+                  ✨ AI GENERATED
+                </span>
+                <span className="text-sm font-semibold text-cogent-navy">
+                  {generatedIndustry.industryName}
+                </span>
+              </div>
+              <p className="text-xs text-cogent-neutral">
+                {generatedIndustry.services.length} services · Close rate: {generatedIndustry.closeRate}% · Built from this website&apos;s content
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setGeneratedIndustry(null)}
+              className="text-gray-400 hover:text-gray-600 text-xs shrink-0"
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* Service preview */}
+          <div className="mb-3 space-y-1">
+            {generatedIndustry.services.slice(0, 5).map((svc) => (
+              <div key={svc.serviceName} className="flex items-center justify-between text-xs bg-white rounded px-2.5 py-1.5 border border-gray-100">
+                <span className="font-medium text-gray-800">{svc.serviceName}</span>
+                <span className="text-cogent-neutral ml-3 shrink-0">
+                  CPL ~${svc.cplMid} · Job ~${svc.avgJobValue?.toLocaleString()}
+                </span>
+              </div>
+            ))}
+            {generatedIndustry.services.length > 5 && (
+              <p className="text-[11px] text-cogent-neutral pl-1">
+                +{generatedIndustry.services.length - 5} more services included
+              </p>
+            )}
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={applyGeneratedIndustry}
+              className="flex-1 py-2 bg-cogent-navy text-white text-sm font-semibold rounded-lg hover:bg-cogent-navy-dark transition-colors"
+            >
+              ✅ Apply This Profile to Calculator
+            </button>
+            <button
+              type="button"
+              onClick={handleGenerateIndustry}
+              disabled={generating}
+              className="px-3 py-2 text-xs text-cogent-navy border border-cogent-navy/30 rounded-lg hover:bg-cogent-navy/5 disabled:opacity-50 transition-colors"
+              title="Regenerate with a fresh AI response"
+            >
+              {generating ? "…" : "↺ Retry"}
+            </button>
+          </div>
+          <p className="mt-2 text-[11px] text-gray-400">
+            ⚠️ AI-estimated data. Review CPL and job values against your market knowledge before presenting to clients.
+          </p>
         </div>
       )}
 
@@ -446,7 +605,7 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
                 className="border border-cogent-navy/50 rounded-full px-3 py-1 text-xs w-48 focus:ring-1 focus:ring-cogent-navy focus:outline-none"
               />
               <div className="absolute z-30 left-0 mt-1 w-64 bg-white border border-gray-200 rounded-md shadow-lg max-h-48 overflow-y-auto">
-                {(secSearch ? searchIndustries(secSearch) : getAllIndustries())
+                {(secSearch ? searchIndustries(secSearch) : getAllIndustriesWithAi())
                   .filter(
                     (i) =>
                       i.id !== value.industryId &&

@@ -19,6 +19,9 @@ import {
   getBenchmarkForService,
   getIndustryCloseRate,
   getAllGoogleBenchmarks,
+  registerAiIndustry,
+  getServicesForIndustryWithAi,
+  type AiGeneratedIndustry,
 } from "../lib/benchmarks";
 import { calculate, checkSpendWarning, formatCurrency } from "../lib/calculations";
 import { extractServicesFromText } from "../lib/service-extraction";
@@ -625,6 +628,59 @@ export default function Home() {
     [platform, budgetInputs.monthlyAdSpend, closeRateManuallySet]
   );
 
+  // Handle AI-generated industry from website scan
+  const handleAiGeneratedIndustry = useCallback(
+    (aiIndustry: AiGeneratedIndustry, text: string) => {
+      // Register in the in-memory benchmark registry so all lookups work
+      registerAiIndustry(aiIndustry);
+
+      // Build services from the AI-generated benchmarks (all pre-selected)
+      const newServices: ServiceSelectionType[] = aiIndustry.services.map((b) => ({
+        serviceName: b.serviceName,
+        selected: true,
+        allocationPercent: 0,
+        cplChoice: "high" as const,
+        customCpl: null,
+        customJobValue: null,
+        benchmark: b,
+        isManual: false,
+      }));
+
+      // Even split across all selected services
+      const count = newServices.filter((s) => s.selected).length;
+      if (count > 0) {
+        const even = Math.round((100 / count) * 10) / 10;
+        for (const s of newServices) s.allocationPercent = s.selected ? even : 0;
+      }
+
+      setServices(newServices);
+      setExtractedServices([]);
+      setClientInputs((prev) => ({ ...prev, industryId: aiIndustry.industryId }));
+
+      // Set close rate from AI data
+      if (!closeRateManuallySet) {
+        setBudgetInputs((prev) => ({ ...prev, closeRate: aiIndustry.closeRate }));
+      }
+
+      // Set recommended spend from the AI services' target spend
+      const aiTargetSpend = Math.max(
+        ...aiIndustry.services.map((s) => s.recommendedTargetAdSpend ?? 0)
+      );
+      if (aiTargetSpend > 0 && budgetInputs.monthlyAdSpend === 0) {
+        setBudgetInputs((prev) => ({ ...prev, monthlyAdSpend: aiTargetSpend }));
+      }
+
+      // Also run service extraction on the text to detect keyword matches
+      if (text) {
+        const benchmarks = getServicesForIndustryWithAi(aiIndustry.industryId, platform);
+        const allBenchmarks = getAllGoogleBenchmarks();
+        const extracted = extractServicesFromText(text, benchmarks, allBenchmarks);
+        setExtractedServices(extracted);
+      }
+    },
+    [platform, budgetInputs.monthlyAdSpend, closeRateManuallySet]
+  );
+
   // Handle text extraction for service detection
   const handleTextExtract = useCallback(
     (text: string) => {
@@ -1125,6 +1181,7 @@ ${resultsHtml}
           onChange={handleClientInputsChange}
           onTextExtract={handleTextExtract}
           onWebsiteScan={handleWebsiteScan}
+          onAiIndustryGenerated={handleAiGeneratedIndustry}
         />
 
         {/* Ecommerce management notice — shown prominently when enabled */}

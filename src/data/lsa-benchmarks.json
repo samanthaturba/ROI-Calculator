@@ -600,5 +600,19 @@
     "notes": "LSA is available for auto glass under the 'Auto Glass' category \u2014 Google Guaranteed badge adds significant trust for a service where customers are handing over their car. Pay-per-lead model is efficient since demand spikes predictably (bad weather, construction zones, highway driving). Google caps lead costs, making this a reliable complement to Search campaigns. Works best in Denver Metro where Cornerstone's service area is established.",
     "source": "HomeServiceDirect.net 2026 LSA CPL data; Google LSA auto glass category pricing",
     "confidence": "medium"
+  },
+  {
+    "industryId": "dump-truck-hauling",
+    "industryName": "Dump Truck & Site Services",
+    "serviceName": "Roll-Off Dumpster Rental",
+    "cplLow": 30,
+    "cplMid": 50,
+    "cplHigh": 80,
+    "avgJobValue": 420,
+    "recommendedMinAdSpend": 500,
+    "recommendedTargetAdSpend": 1200,
+    "notes": "Google Local Service Ads are available for junk removal/dumpster rental category. Google Guaranteed badge adds trust when competing with national chains. Pay-per-lead model works well for this service since demand is predictable and customers search locally. Effective in Tampa metro for 'dumpster rental near me' queries.",
+    "source": "HomeServiceDirect.net 2026 LSA CPL data; dumpster rental LSA category pricing",
+    "confidence": "medium"
   }
 ]

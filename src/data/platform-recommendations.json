@@ -2104,5 +2104,23 @@
       "rating": 2,
       "note": "Google Local Service Ads have limited category support for stone fabricators. Available under Home Improvement, but stone fabrication is not a primary LSA category like plumbing or HVAC. Worth testing with a small budget but not a primary channel. Google Search + Meta should take priority."
     }
+  },
+  "dump-truck-hauling": {
+    "google": {
+      "rating": 5,
+      "note": "Google Search is the dominant channel \u2014 contractors, builders, and homeowners search for dumpster rental, concrete slab quotes, fill dirt delivery, and site prep services with high intent. Local Pack visibility is critical in Tampa metro. Search campaigns with location targeting to Hillsboro/Pasco/Polk/Pinellas counties drive the most qualified leads."
+    },
+    "meta": {
+      "rating": 3,
+      "note": "Meta is a secondary awareness channel. Works for before/after concrete project content targeting Tampa homeowners, and retargeting website visitors. Facebook life-event targeting (new homeowner, recent mover) reaches people planning site work. Not a primary channel \u2014 supplement Google Search for brand building and retargeting."
+    },
+    "linkedin": {
+      "rating": 2,
+      "note": "LinkedIn is limited for dump truck/site services \u2014 the primary buyers (homeowners, residential contractors) are not on LinkedIn for procurement. Only useful if specifically targeting commercial developers, construction project managers, or property management firms for large-scale site work contracts. Skip for residential-focused campaigns."
+    },
+    "lsa": {
+      "rating": 3,
+      "note": "Google Local Service Ads are available for dumpster rental under the Junk Removal/Hauling category. Google Guaranteed badge helps compete with national roll-off companies. Worth running for dumpster-specific campaigns alongside regular Search. LSA not available for concrete or excavation categories."
+    }
   }
 }

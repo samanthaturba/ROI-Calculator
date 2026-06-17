@@ -5224,5 +5224,50 @@
     "source": "Meta Business Ads benchmarks 2025; interior design engagement data",
     "confidence": "medium",
     "avgDaysToClose": 14
+  },
+  {
+    "industryId": "dump-truck-hauling",
+    "industryName": "Dump Truck & Site Services",
+    "serviceName": "Concrete Slab & Pad Installation",
+    "cplLow": 45,
+    "cplMid": 80,
+    "cplHigh": 135,
+    "avgJobValue": 5500,
+    "recommendedMinAdSpend": 800,
+    "recommendedTargetAdSpend": 2000,
+    "notes": "Meta works for concrete services targeting homeowners planning projects (patio, shed pad, driveway). Before/after photos and project walkthrough videos perform well on Facebook with Tampa homeowner audiences. Lookalike audiences from existing customers + homeowner interest targeting. Retargeting website visitors who got a quote but didn't book. Less effective than Google Search for urgent/active buyers, but builds brand in local market.",
+    "source": "Meta Business Ads benchmarks 2025; home services CPL data",
+    "confidence": "medium",
+    "avgDaysToClose": 7
+  },
+  {
+    "industryId": "dump-truck-hauling",
+    "industryName": "Dump Truck & Site Services",
+    "serviceName": "Roll-Off Dumpster Rental",
+    "cplLow": 28,
+    "cplMid": 55,
+    "cplHigh": 90,
+    "avgJobValue": 420,
+    "recommendedMinAdSpend": 600,
+    "recommendedTargetAdSpend": 1500,
+    "notes": "Meta is a secondary channel for dumpster rental \u2014 most demand is search-driven. However, Facebook lead gen ads targeting contractors, property managers, and homeowners doing renovations can generate supplementary leads. Contractor audience: target 'contractor', 'remodeling', 'construction' interests + lookalike from existing accounts. CPL higher than Google but works for brand building.",
+    "source": "Meta Business Ads benchmarks 2025; dumpster rental industry data",
+    "confidence": "low",
+    "avgDaysToClose": 2
+  },
+  {
+    "industryId": "dump-truck-hauling",
+    "industryName": "Dump Truck & Site Services",
+    "serviceName": "Land Clearing",
+    "cplLow": 38,
+    "cplMid": 70,
+    "cplHigh": 120,
+    "avgJobValue": 7500,
+    "recommendedMinAdSpend": 800,
+    "recommendedTargetAdSpend": 2000,
+    "notes": "Meta can reach property buyers, developers, and homeowners in Tampa's growing suburbs (Pasco/Polk counties) who need land cleared before building. 'Recently purchased property' + 'new home' life event targeting on Facebook is effective. Video of clearing equipment at work drives strong engagement. Complements Google Search for land clearing campaigns.",
+    "source": "Meta Business Ads benchmarks 2025; construction/land development targeting data",
+    "confidence": "medium",
+    "avgDaysToClose": 8
   }
 ]

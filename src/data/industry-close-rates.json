@@ -494,5 +494,9 @@
   "natural-stone-fabrication": {
     "closeRate": 22,
     "source": "NKBA 2025 Natural Stone & Countertop Market Outlook \u2014 buyers typically visit 2-3 showrooms and collect multiple quotes; direct-import showrooms with unique slab selection convert inbound leads at 20-25%. Commercial projects are lower (10-15%) but residential showroom visits close at 25-30%."
+  },
+  "dump-truck-hauling": {
+    "closeRate": 28,
+    "source": "LocaliQ 2025 Construction & Site Work close rate data \u2014 dump truck and site services buyers are typically mid-funnel (actively getting quotes). Roll-off dumpster close rates are higher (~40%); concrete/excavation lower (~20%). Blended close rate of 28% reflects the mix of urgent (dumpster, quick haul) and project-based (concrete, site work) services."
   }
 }
