@@ -117,15 +117,8 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
       // Detect industries from the page text
       const topMatches = detectIndustries(text, 3);
 
-      if (topMatches.length === 0) {
-        setScanError(
-          "Could not detect a clear industry from this site. " +
-          "Try pasting the page text below, or select an industry manually."
-        );
-        setScanning(false);
-        return;
-      }
-
+      // Always set scanResult so the AI Generate button is available,
+      // even when keyword detection finds no matches.
       setScanResult({ topMatches, text, title, url });
     } catch {
       setScanError("Network error. Check your connection and try again.");
@@ -398,72 +391,36 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
 
       {/* ── Scan result confirmation banner ──────────────────────────────────── */}
       {scanResult && !generatedIndustry && (
-        <div className="mt-4 p-4 bg-cogent-sage/10 border border-cogent-sage/40 rounded-lg">
-          <div className="flex items-start justify-between gap-2 mb-3">
+        <div className="mt-4 rounded-lg overflow-hidden border border-cogent-sage/40">
+
+          {/* Header */}
+          <div className="flex items-start justify-between gap-2 p-4 bg-cogent-sage/10">
             <div>
               <p className="text-sm font-semibold text-cogent-navy">
-                🎯 Industry detected from{" "}
+                {scanResult.topMatches.length > 0 ? "🎯" : "🔍"}{" "}
+                Site scanned:{" "}
                 <span className="font-normal italic">{scanResult.title || "website"}</span>
               </p>
               <p className="text-xs text-cogent-neutral mt-0.5">
-                Pick a match below, or let AI generate a custom profile built specifically for this business.
+                {scanResult.topMatches.length > 0
+                  ? "Pick a matching industry below, or use AI to generate a custom profile for this exact business."
+                  : "No keyword match found — use AI to generate a custom profile tailored to this business."}
               </p>
             </div>
-            <button
-              type="button"
-              onClick={() => setScanResult(null)}
-              className="text-gray-400 hover:text-gray-600 text-xs shrink-0"
-            >
-              ✕ Dismiss
+            <button type="button" onClick={() => setScanResult(null)} className="text-gray-400 hover:text-gray-600 text-xs shrink-0">
+              ✕
             </button>
           </div>
 
-          <div className="space-y-2">
-            {scanResult.topMatches.map((match, idx) => {
-              const industryName = getAllIndustriesWithAi().find((i) => i.id === match.industryId)?.name ?? match.industryId;
-              return (
-                <div
-                  key={match.industryId}
-                  className="flex items-center justify-between gap-3 p-2.5 bg-white rounded-md border border-gray-200"
-                >
-                  <div className="flex items-center gap-2 min-w-0">
-                    {idx === 0 && (
-                      <span className="text-[10px] font-bold text-cogent-navy bg-cogent-sage/30 px-1.5 py-0.5 rounded shrink-0">
-                        BEST MATCH
-                      </span>
-                    )}
-                    <span className="text-sm font-medium text-gray-900 truncate">{industryName}</span>
-                    <span className={`text-[10px] px-1.5 py-0.5 rounded font-medium shrink-0 ${confidenceBadge(match.confidence)}`}>
-                      {match.confidence} confidence
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 shrink-0">
-                    <span className="text-[10px] text-gray-400 hidden sm:block">
-                      {match.matchedKeywords.slice(0, 3).join(", ")}
-                      {match.matchedKeywords.length > 3 ? ` +${match.matchedKeywords.length - 3}` : ""}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => applyScanResult(match.industryId)}
-                      className="px-3 py-1 bg-cogent-navy text-white text-xs font-medium rounded hover:bg-cogent-navy-dark transition-colors"
-                    >
-                      Apply
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* AI Generate divider */}
-          <div className="mt-4 pt-4 border-t border-cogent-sage/30">
-            <div className="flex items-start justify-between gap-3">
+          {/* ── AI Generate (always shown, prominent when no matches) ── */}
+          <div className={`p-4 ${scanResult.topMatches.length === 0 ? "bg-cogent-navy/5" : "bg-white border-t border-cogent-sage/30"}`}>
+            <div className="flex items-center justify-between gap-3">
               <div>
                 <p className="text-xs font-semibold text-cogent-navy">
-                  🤖 None of these fit? Generate a custom industry profile
+                  ✨ Generate a custom AI industry profile
                 </p>
                 <p className="text-xs text-cogent-neutral mt-0.5">
-                  AI will analyze this site and build a new industry with accurate CPL, job values, and platform recommendations tailored to this exact business. Takes ~10 seconds.
+                  AI reads this site and builds services, CPL ranges, job values, and platform ratings specific to this business. ~10 seconds.
                 </p>
               </div>
               <button
@@ -487,6 +444,47 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
               <p className="mt-2 text-xs text-red-600">{generateError}</p>
             )}
           </div>
+
+          {/* ── Keyword match suggestions (shown when available) ── */}
+          {scanResult.topMatches.length > 0 && (
+            <div className="p-4 pt-0 bg-white space-y-2">
+              <p className="text-xs text-cogent-neutral mb-2">Or pick from keyword-matched industries:</p>
+              {scanResult.topMatches.map((match, idx) => {
+                const industryName = getAllIndustriesWithAi().find((i) => i.id === match.industryId)?.name ?? match.industryId;
+                return (
+                  <div
+                    key={match.industryId}
+                    className="flex items-center justify-between gap-3 p-2.5 bg-gray-50 rounded-md border border-gray-200"
+                  >
+                    <div className="flex items-center gap-2 min-w-0">
+                      {idx === 0 && (
+                        <span className="text-[10px] font-bold text-cogent-navy bg-cogent-sage/30 px-1.5 py-0.5 rounded shrink-0">
+                          BEST MATCH
+                        </span>
+                      )}
+                      <span className="text-sm font-medium text-gray-900 truncate">{industryName}</span>
+                      <span className={`text-[10px] px-1.5 py-0.5 rounded font-medium shrink-0 ${confidenceBadge(match.confidence)}`}>
+                        {match.confidence}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <span className="text-[10px] text-gray-400 hidden sm:block">
+                        {match.matchedKeywords.slice(0, 3).join(", ")}
+                        {match.matchedKeywords.length > 3 ? ` +${match.matchedKeywords.length - 3}` : ""}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => applyScanResult(match.industryId)}
+                        className="px-3 py-1 bg-cogent-navy text-white text-xs font-medium rounded hover:bg-cogent-navy-dark transition-colors"
+                      >
+                        Apply
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       )}
 
