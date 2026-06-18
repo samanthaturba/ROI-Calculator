@@ -47,8 +47,6 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
   // Direct generate (from URL bar, not requiring a scan result first)
   const [directGenerating, setDirectGenerating] = useState(false);
   const [directGenerateError, setDirectGenerateError] = useState("");
-  const [showPasteForGenerate, setShowPasteForGenerate] = useState(false);
-  const [generatePasteText, setGeneratePasteText] = useState("");
 
   const industries = industrySearch
     ? searchIndustries(industrySearch)
@@ -183,57 +181,43 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
     setScanUrl("");
   }
 
-  /** Standalone generate: scans URL then generates, or uses pasted text directly. */
-  async function handleDirectGenerate(textOverride?: string) {
+  /** Standalone generate: scans the URL then calls AI to generate the industry profile. */
+  async function handleDirectGenerate() {
     setDirectGenerating(true);
     setDirectGenerateError("");
-    setShowPasteForGenerate(false);
 
     const url = (value.websiteUrl || "").trim();
-    let text = textOverride || generatePasteText.trim();
-    let title = "";
 
-    // If no pasted text, fetch from URL first
-    if (!text) {
-      if (!url) {
-        setDirectGenerateError("Enter a website URL first, or paste the page text below.");
-        setShowPasteForGenerate(true);
-        setDirectGenerating(false);
-        return;
-      }
-      try {
-        const res = await fetch("/api/scan-website", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ url }),
-        });
-        const data = await res.json();
-        if (!res.ok || data.error) {
-          // Scan failed — prompt user to paste text instead
-          setDirectGenerateError(
-            `Couldn't fetch that site (${data.error ?? "network error"}). Paste the page text below and click Generate again.`
-          );
-          setShowPasteForGenerate(true);
-          setDirectGenerating(false);
-          return;
-        }
-        text = data.text ?? "";
-        title = data.title ?? "";
-      } catch {
-        setDirectGenerateError("Network error fetching site. Paste the page text below instead.");
-        setShowPasteForGenerate(true);
-        setDirectGenerating(false);
-        return;
-      }
-    }
-
-    if (!text) {
-      setDirectGenerateError("No page content found. Paste the site text below.");
-      setShowPasteForGenerate(true);
+    if (!url) {
+      setDirectGenerateError("Enter a website URL above first.");
       setDirectGenerating(false);
       return;
     }
 
+    // Step 1: Fetch page text (tries direct fetch, then Jina AI reader as fallback)
+    let text = "";
+    let title = "";
+    try {
+      const res = await fetch("/api/scan-website", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url }),
+      });
+      const data = await res.json();
+      if (!res.ok || data.error) {
+        setDirectGenerateError(data.error ?? "Could not reach that site.");
+        setDirectGenerating(false);
+        return;
+      }
+      text = data.text ?? "";
+      title = data.title ?? "";
+    } catch {
+      setDirectGenerateError("Network error fetching the site. Check your connection.");
+      setDirectGenerating(false);
+      return;
+    }
+
+    // Step 2: Call AI to generate industry profile from the page text
     try {
       const res = await fetch("/api/generate-industry", {
         method: "POST",
@@ -247,12 +231,9 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
         return;
       }
       const industry = data.industry as AiGeneratedIndustry;
-      // Apply directly — no preview needed for the quick path
       if (onAiIndustryGenerated) {
         onAiIndustryGenerated(industry, text);
       }
-      setGeneratePasteText("");
-      setShowPasteForGenerate(false);
       setDirectGenerateError("");
     } catch {
       setDirectGenerateError("Network error. Check your connection and try again.");
@@ -444,33 +425,10 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
           </button>
         </div>
 
-        {/* Error + paste fallback */}
+        {/* Error message */}
         {directGenerateError && (
           <div className="px-4 pb-3">
-            <p className="text-xs text-red-600 mb-2">{directGenerateError}</p>
-          </div>
-        )}
-        {showPasteForGenerate && (
-          <div className="px-4 pb-4 border-t border-cogent-navy/10 pt-3">
-            <label className="block text-xs font-medium text-gray-700 mb-1">
-              Paste page text here to generate from it:
-            </label>
-            <textarea
-              value={generatePasteText}
-              onChange={(e) => setGeneratePasteText(e.target.value)}
-              rows={4}
-              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
-              placeholder="Copy and paste the text from the client's website here..."
-              autoFocus
-            />
-            <button
-              type="button"
-              onClick={() => handleDirectGenerate(generatePasteText)}
-              disabled={directGenerating || !generatePasteText.trim()}
-              className="mt-2 px-4 py-2 bg-cogent-navy text-white text-sm font-semibold rounded-lg hover:bg-cogent-navy-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
-            >
-              {directGenerating ? "Generating…" : "✨ Generate from Pasted Text"}
-            </button>
+            <p className="text-xs text-red-600">{directGenerateError}</p>
           </div>
         )}
       </div>
