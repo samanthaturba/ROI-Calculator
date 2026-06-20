@@ -13,6 +13,8 @@ interface Props {
   marketTier?: string;
   marketMultiplier?: number;
   monthlyAdSpend?: number;
+  /** When "low", shows a caveat on the projection that this audience has limited search behavior */
+  audienceSearchBehavior?: "high" | "medium" | "low" | null;
 }
 
 const PLATFORM_NAMES: Record<AdPlatform, string> = {
@@ -57,6 +59,7 @@ function SinglePlatformResults({
   targetArea,
   marketMultiplier,
   platform,
+  audienceSearchBehavior,
 }: {
   result: CalculationResult;
   roundingMode: RoundingMode;
@@ -64,6 +67,7 @@ function SinglePlatformResults({
   marketTier?: string;
   marketMultiplier?: number;
   platform: AdPlatform;
+  audienceSearchBehavior?: "high" | "medium" | "low" | null;
 }) {
   const platformName = PLATFORM_NAMES[platform];
   const isConservative = roundingMode === "conservative";
@@ -94,6 +98,20 @@ function SinglePlatformResults({
       {marketMultiplier && marketMultiplier !== 1.0 && (
         <div className="mb-4 p-3 bg-cogent-ivory border border-gray-200 rounded-md text-sm text-cogent-neutral">
           CPL adjusted {marketMultiplier > 1 ? "+" : ""}{Math.round((marketMultiplier - 1) * 100)}% for {targetArea || "selected market size"}
+        </div>
+      )}
+
+      {/* Low-search audience caveat */}
+      {audienceSearchBehavior === "low" && (platform === "google" || platform === "lsa") && (
+        <div className="mb-4 p-3 bg-amber-50 border-l-4 border-amber-400 rounded-md">
+          <p className="text-sm font-semibold text-amber-800 mb-1">
+            ⚠️ Audience Note — Limited Search Behavior
+          </p>
+          <p className="text-xs text-amber-700 leading-relaxed">
+            This industry&apos;s primary buyers (plant managers, procurement officers, etc.) don&apos;t typically use Google to find these services.
+            These projections show what search ads <strong>can</strong> capture from active searchers, but actual lead volume may be lower than projected.
+            For best results, pair ads with event marketing, direct outreach, and biz dev — see the Audience Intelligence section above.
+          </p>
         </div>
       )}
 
@@ -443,6 +461,7 @@ export default function Results({
   marketTier,
   marketMultiplier,
   monthlyAdSpend,
+  audienceSearchBehavior,
 }: Props) {
   // Check if any platform has results
   const hasAnyResults = selectedPlatforms.some((p) => results[p] !== null);
@@ -473,6 +492,7 @@ export default function Results({
           marketTier={marketTier}
           marketMultiplier={marketMultiplier}
           platform={platform}
+          audienceSearchBehavior={audienceSearchBehavior}
         />
       </section>
     );
@@ -514,6 +534,20 @@ export default function Results({
       {marketMultiplier && marketMultiplier !== 1.0 && (
         <div className="mb-4 p-3 bg-cogent-ivory border border-gray-200 rounded-md text-sm text-cogent-neutral">
           CPL adjusted {marketMultiplier > 1 ? "+" : ""}{Math.round((marketMultiplier - 1) * 100)}% for {targetArea || "selected market size"}
+        </div>
+      )}
+
+      {/* Low-search audience caveat */}
+      {audienceSearchBehavior === "low" && selectedPlatforms.some((p) => p === "google" || p === "lsa") && (
+        <div className="mb-4 p-3 bg-amber-50 border-l-4 border-amber-400 rounded-md">
+          <p className="text-sm font-semibold text-amber-800 mb-1">
+            ⚠️ Audience Note — Limited Search Behavior
+          </p>
+          <p className="text-xs text-amber-700 leading-relaxed">
+            This industry&apos;s primary buyers don&apos;t typically use Google to find these services.
+            These projections show what search ads <strong>can</strong> capture, but actual lead volume may be lower.
+            Pair ads with event marketing, direct outreach, and biz dev for maximum impact — see the Audience Intelligence section above.
+          </p>
         </div>
       )}
 

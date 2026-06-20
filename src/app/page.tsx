@@ -1898,6 +1898,7 @@ ${resultsHtml}
           marketTier={targetAreas.length === 1 ? targetAreas[0]?.tier : "blended"}
           marketMultiplier={blendedMultiplier}
           monthlyAdSpend={budgetMode === "maxroi" ? maxRoiAdSpend : budgetInputs.monthlyAdSpend}
+          audienceSearchBehavior={clientInputs.industryId ? getAudienceInsights(clientInputs.industryId)?.searchBehavior ?? null : null}
         />
 
         {/* Section E: Keyword Suggestions (Google only) */}
