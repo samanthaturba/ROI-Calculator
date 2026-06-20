@@ -1287,39 +1287,46 @@ ${resultsHtml}
             })}
           </div>
 
-          {/* ── Funnel Visual ─────────────────────────────────────────────────── */}
-          <div className="mb-5 p-4 bg-gray-50 rounded-lg border border-gray-200">
-            <p className="text-xs font-semibold text-cogent-navy mb-3">Where each platform sits in the buyer&apos;s journey:</p>
-            <div className="flex flex-col items-center gap-0">
-              {/* Top of funnel */}
-              <div className="w-full max-w-md">
-                <div className="bg-blue-50 border border-blue-200 rounded-t-lg px-4 py-2.5 text-center">
-                  <p className="text-[11px] font-bold text-blue-700 uppercase tracking-wide">Awareness</p>
-                  <p className="text-[11px] text-blue-600 mt-0.5">People don&apos;t know they need you yet</p>
-                  <p className="text-xs font-medium text-blue-700 mt-1">💼 LinkedIn · 📱 Meta (Display)</p>
+          {/* ── Funnel Visual (collapsible) ────────────────────────────────── */}
+          <details className="mb-5 bg-gray-50 rounded-lg border border-gray-200 group">
+            <summary className="cursor-pointer list-none px-4 py-3">
+              <div className="flex items-center gap-2 text-sm font-semibold text-cogent-neutral hover:text-cogent-navy transition-colors">
+                <span className="text-xs group-open:rotate-90 transition-transform">▶</span>
+                <span>Where each platform sits in the buyer&apos;s journey</span>
+              </div>
+            </summary>
+            <div className="px-4 pb-4">
+              <div className="flex flex-col items-center gap-0">
+                {/* Top of funnel */}
+                <div className="w-full max-w-md">
+                  <div className="bg-blue-50 border border-blue-200 rounded-t-lg px-4 py-2.5 text-center">
+                    <p className="text-[11px] font-bold text-blue-700 uppercase tracking-wide">Awareness</p>
+                    <p className="text-[11px] text-blue-600 mt-0.5">People don&apos;t know they need you yet</p>
+                    <p className="text-xs font-medium text-blue-700 mt-1">💼 LinkedIn · 📱 Meta (Display)</p>
+                  </div>
+                </div>
+                {/* Mid funnel */}
+                <div className="w-[85%] max-w-[26rem]">
+                  <div className="bg-amber-50 border-x border-amber-200 px-4 py-2.5 text-center">
+                    <p className="text-[11px] font-bold text-amber-700 uppercase tracking-wide">Consideration</p>
+                    <p className="text-[11px] text-amber-600 mt-0.5">They&apos;re thinking about it but not searching yet</p>
+                    <p className="text-xs font-medium text-amber-700 mt-1">📱 Meta (Retargeting)</p>
+                  </div>
+                </div>
+                {/* Bottom of funnel */}
+                <div className="w-[70%] max-w-[22rem]">
+                  <div className="bg-green-50 border border-green-300 rounded-b-lg px-4 py-2.5 text-center">
+                    <p className="text-[11px] font-bold text-green-700 uppercase tracking-wide">Intent / Decision</p>
+                    <p className="text-[11px] text-green-600 mt-0.5">Actively searching for your services right now</p>
+                    <p className="text-xs font-medium text-green-700 mt-1">🔍 Google Ads · 📍 LSA</p>
+                  </div>
                 </div>
               </div>
-              {/* Mid funnel */}
-              <div className="w-[85%] max-w-[26rem]">
-                <div className="bg-amber-50 border-x border-amber-200 px-4 py-2.5 text-center">
-                  <p className="text-[11px] font-bold text-amber-700 uppercase tracking-wide">Consideration</p>
-                  <p className="text-[11px] text-amber-600 mt-0.5">They&apos;re thinking about it but not searching yet</p>
-                  <p className="text-xs font-medium text-amber-700 mt-1">📱 Meta (Retargeting)</p>
-                </div>
-              </div>
-              {/* Bottom of funnel */}
-              <div className="w-[70%] max-w-[22rem]">
-                <div className="bg-green-50 border border-green-300 rounded-b-lg px-4 py-2.5 text-center">
-                  <p className="text-[11px] font-bold text-green-700 uppercase tracking-wide">Intent / Decision</p>
-                  <p className="text-[11px] text-green-600 mt-0.5">Actively searching for your services right now</p>
-                  <p className="text-xs font-medium text-green-700 mt-1">🔍 Google Ads · 📍 LSA</p>
-                </div>
-              </div>
+              <p className="text-[11px] text-gray-500 mt-3 text-center">
+                Google Ads &amp; LSA capture buyers at the bottom of the funnel — highest intent, fastest close. Meta and LinkedIn work higher in the funnel for awareness and retargeting.
+              </p>
             </div>
-            <p className="text-[11px] text-gray-500 mt-3 text-center">
-              Google Ads &amp; LSA capture buyers at the bottom of the funnel — highest intent, fastest close. Meta and LinkedIn work higher in the funnel for awareness and retargeting.
-            </p>
-          </div>
+          </details>
 
           {/* ── Audience Intelligence Panel ────────────────────────────────── */}
           {clientInputs.industryId && (() => {
@@ -1334,16 +1341,17 @@ ${resultsHtml}
             };
 
             return (
-              <div className={`mb-5 rounded-lg border-2 overflow-hidden ${
+              <details className={`mb-5 rounded-lg border-2 overflow-hidden group ${
                 insights.searchBehavior === "low"
                   ? "border-amber-300 bg-amber-50/50"
                   : "border-blue-200 bg-blue-50/30"
               }`}>
-                {/* Header */}
-                <div className={`px-4 py-3 ${
+                {/* Collapsible header */}
+                <summary className={`cursor-pointer list-none px-4 py-3 ${
                   insights.searchBehavior === "low" ? "bg-amber-100/60" : "bg-blue-100/40"
                 }`}>
                   <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xs group-open:rotate-90 transition-transform">▶</span>
                     <span className="text-sm">
                       {insights.searchBehavior === "low" ? "⚠️" : "💡"}
                     </span>
@@ -1351,10 +1359,10 @@ ${resultsHtml}
                       Audience Intelligence — {insights.industry}
                     </span>
                   </div>
-                  <p className="text-xs text-gray-600">
+                  <p className="text-xs text-gray-600 ml-7">
                     <span className="font-semibold">Primary buyer:</span> {insights.primaryBuyer}
                   </p>
-                </div>
+                </summary>
 
                 {/* Search behavior warning */}
                 <div className="px-4 py-3 border-b border-gray-200/60">
@@ -1391,7 +1399,7 @@ ${resultsHtml}
                       : "💡 Google Ads will capture active searchers, but pairing with these strategies will strengthen pipeline quality and shorten the sales cycle."}
                   </p>
                 </div>
-              </div>
+              </details>
             );
           })()}
 
