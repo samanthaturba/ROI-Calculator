@@ -2122,5 +2122,23 @@
       "rating": 3,
       "note": "Google Local Service Ads are available for dumpster rental under the Junk Removal/Hauling category. Google Guaranteed badge helps compete with national roll-off companies. Worth running for dumpster-specific campaigns alongside regular Search. LSA not available for concrete or excavation categories."
     }
+  },
+  "industrial-conveyor-rubber": {
+    "google": {
+      "rating": 4,
+      "note": "Google Search captures high-intent procurement searches \u2014 plant maintenance teams searching for 'conveyor belt repair Savannah' or '24/7 industrial conveyor service' are ready to call. Emergency service queries convert fast. Lower volume for niche products (loading arms) but strong for conveyor and rubber supply searches. Google call-only ads with 24/7 extensions are especially effective for the emergency service line."
+    },
+    "meta": {
+      "rating": 1,
+      "note": "Facebook/Instagram is not effective for B2B industrial equipment and services. The decision-makers (plant managers, maintenance directors, procurement) are not shopping for conveyor belts or loading arms on social media. Only marginal use case: waterjet cutting videos can attract fabrication shop attention. Skip Meta and invest in Google + LinkedIn instead."
+    },
+    "linkedin": {
+      "rating": 5,
+      "note": "LinkedIn is the primary outreach channel for this B2B industrial business. Plant managers, EHS directors, maintenance managers, procurement officers, and project engineers at pulp & paper mills, petrochemical facilities, and power plants are all on LinkedIn. Sponsored Content with technical case studies, InMail for targeted outreach, and company targeting of specific facilities in the Southeast all drive high-quality leads. Essential for loading arms and fall protection where search volume is near zero."
+    },
+    "lsa": {
+      "rating": 1,
+      "note": "Google Local Service Ads are not available for B2B industrial equipment suppliers. LSA categories cover consumer-facing services (plumbing, HVAC, etc.), not industrial conveyor or rubber product supply. Not applicable."
+    }
   }
 }

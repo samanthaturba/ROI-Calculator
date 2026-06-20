@@ -498,5 +498,9 @@
   "dump-truck-hauling": {
     "closeRate": 28,
     "source": "LocaliQ 2025 Construction & Site Work close rate data \u2014 dump truck and site services buyers are typically mid-funnel (actively getting quotes). Roll-off dumpster close rates are higher (~40%); concrete/excavation lower (~20%). Blended close rate of 28% reflects the mix of urgent (dumpster, quick haul) and project-based (concrete, site work) services."
+  },
+  "industrial-conveyor-rubber": {
+    "closeRate": 15,
+    "source": "First Page Sage 2026 B2B Industrial Manufacturing \u2014 long procurement cycles, multi-vendor RFP processes, and engineering review requirements reduce inbound close rates to 12-18% for industrial equipment suppliers. Emergency service inquiries close higher (~40%) but are blended down by the long-cycle engineered products."
   }
 }

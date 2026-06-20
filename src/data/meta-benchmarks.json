@@ -5269,5 +5269,20 @@
     "source": "Meta Business Ads benchmarks 2025; construction/land development targeting data",
     "confidence": "medium",
     "avgDaysToClose": 8
+  },
+  {
+    "industryId": "industrial-conveyor-rubber",
+    "industryName": "Industrial Conveyor & Rubber Products",
+    "serviceName": "Waterjet Cutting Services",
+    "cplLow": 50,
+    "cplMid": 90,
+    "cplHigh": 155,
+    "avgJobValue": 4500,
+    "recommendedMinAdSpend": 800,
+    "recommendedTargetAdSpend": 1800,
+    "notes": "Meta is only marginally useful for this B2B industrial business. Waterjet cutting is the one service that can attract some attention on Facebook via cool cutting videos showing the waterjet slicing through steel, stone, or rubber. Video ads showcasing the cutting capability can reach local manufacturing/fabrication shop owners. Not a primary channel \u2014 Google and LinkedIn should take priority for all other services.",
+    "source": "Meta Business Ads benchmarks 2025; B2B industrial content engagement data",
+    "confidence": "low",
+    "avgDaysToClose": 7
   }
 ]

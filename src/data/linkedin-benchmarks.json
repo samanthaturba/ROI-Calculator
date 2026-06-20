@@ -3396,5 +3396,50 @@
     "source": "LinkedIn Ads benchmarks 2025; B2B construction targeting data",
     "confidence": "low",
     "avgDaysToClose": 30
+  },
+  {
+    "industryId": "industrial-conveyor-rubber",
+    "industryName": "Industrial Conveyor & Rubber Products",
+    "serviceName": "Conveyor Belt Sales & Installation",
+    "cplLow": 110,
+    "cplMid": 200,
+    "cplHigh": 340,
+    "avgJobValue": 45000,
+    "recommendedMinAdSpend": 2000,
+    "recommendedTargetAdSpend": 4500,
+    "notes": "LinkedIn is the primary outreach channel for conveyor sales \u2014 target plant managers, maintenance directors, and procurement managers at pulp & paper, power generation, mining, and manufacturing facilities in the Southeast US. Job titles: 'Plant Manager', 'Maintenance Manager', 'Reliability Engineer', 'Procurement Manager', 'Capital Projects Engineer'. Company targeting: Georgia-Pacific, International Paper, Rayonier, Southern Company, Gulfstream. High CPL but exceptional contract values justify the spend.",
+    "source": "LinkedIn Ads benchmarks 2025; B2B industrial equipment targeting data",
+    "confidence": "medium",
+    "avgDaysToClose": 45
+  },
+  {
+    "industryId": "industrial-conveyor-rubber",
+    "industryName": "Industrial Conveyor & Rubber Products",
+    "serviceName": "Engineered Loading Arms",
+    "cplLow": 130,
+    "cplMid": 240,
+    "cplHigh": 400,
+    "avgJobValue": 65000,
+    "recommendedMinAdSpend": 2500,
+    "recommendedTargetAdSpend": 5000,
+    "notes": "LinkedIn is the best channel for loading arm sales \u2014 extremely niche product with almost no organic search volume. Target terminal managers, process engineers, and project managers at petrochemical refineries, fuel terminals, and chemical plants in the Southeast. Job titles: 'Terminal Operations Manager', 'Process Engineer', 'Capital Projects Manager', 'Marine Terminal Supervisor'. Company targeting: Colonial Pipeline, Kinder Morgan, Motiva, Citgo. InMail and Sponsored Content with technical case studies work well.",
+    "source": "LinkedIn Ads benchmarks 2025; petrochemical equipment B2B targeting data",
+    "confidence": "low",
+    "avgDaysToClose": 60
+  },
+  {
+    "industryId": "industrial-conveyor-rubber",
+    "industryName": "Industrial Conveyor & Rubber Products",
+    "serviceName": "Fall Protection Systems",
+    "cplLow": 100,
+    "cplMid": 185,
+    "cplHigh": 310,
+    "avgJobValue": 18000,
+    "recommendedMinAdSpend": 2000,
+    "recommendedTargetAdSpend": 4000,
+    "notes": "LinkedIn reaches EHS (Environment, Health & Safety) directors and plant safety managers who drive fall protection purchasing decisions. OSHA compliance is non-negotiable \u2014 these buyers MUST purchase. Job titles: 'EHS Manager', 'Safety Director', 'Plant Safety Coordinator', 'Facilities Manager'. Interest targeting: OSHA, industrial safety, workplace safety. Thought leadership content around OSHA compliance updates and fall protection best practices builds authority and generates inbound inquiries.",
+    "source": "LinkedIn Ads benchmarks 2025; industrial safety B2B targeting data",
+    "confidence": "medium",
+    "avgDaysToClose": 30
   }
 ]
