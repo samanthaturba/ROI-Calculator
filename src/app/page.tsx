@@ -1217,14 +1217,124 @@ ${resultsHtml}
               : "Ad Platforms"}
           </h2>
           <p className="text-sm text-cogent-neutral mb-4">
-            {clientInputs.industryId
-              ? "Click a platform to select it. Click additional platforms to build a multi-platform strategy."
-              : "Select an industry above to see platform fit ratings, or choose a platform to get started."}
+            These are the channels we run ads on. Google Ads and LSA are our core platforms — they capture people actively searching for your services.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-            {(Object.entries(PLATFORM_INFO) as [AdPlatform, typeof PLATFORM_INFO[AdPlatform]][]).map(
-              ([key, info]) => {
+          {/* ── Core Platforms: Google Ads + LSA ──────────────────────────────── */}
+          <div className="mb-1">
+            <p className="text-xs font-semibold text-cogent-navy uppercase tracking-wide mb-2">Core Platforms — Search Intent (Bottom of Funnel)</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-5">
+            {(["google", "lsa"] as AdPlatform[]).map((key) => {
+              const info = PLATFORM_INFO[key];
+              const isActive = selectedPlatforms.includes(key);
+              const rec = platformRecs?.[key];
+              const stars = rec?.rating ?? 0;
+              const ratingLabel = stars >= 5 ? { text: "Excellent", color: "text-green-700 bg-green-50 border-green-200" }
+                : stars >= 4 ? { text: "Strong", color: "text-blue-700 bg-blue-50 border-blue-200" }
+                : stars >= 3 ? { text: "Moderate", color: "text-yellow-700 bg-yellow-50 border-yellow-200" }
+                : stars >= 2 ? { text: "Limited", color: "text-orange-700 bg-orange-50 border-orange-200" }
+                : stars >= 1 ? { text: "Not Rec.", color: "text-red-700 bg-red-50 border-red-200" }
+                : null;
+
+              return (
+                <button
+                  key={key}
+                  onClick={(e) => {
+                    if (e.shiftKey || selectedPlatforms.length > 1) {
+                      handlePlatformToggle(key);
+                    } else {
+                      handlePlatformSwitch(key);
+                    }
+                  }}
+                  className={`p-4 rounded-lg border-2 text-left transition-all ${
+                    isActive
+                      ? "border-cogent-navy bg-cogent-navy/5 ring-1 ring-cogent-navy/20"
+                      : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
+                  }`}
+                >
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xl">{info.icon}</span>
+                    <span className={`font-semibold ${isActive ? "text-cogent-navy" : "text-gray-700"}`}>
+                      {info.label}
+                    </span>
+                    {isActive && (
+                      <span className="ml-auto text-[10px] font-medium text-white bg-cogent-navy px-2 py-0.5 rounded-full">
+                        ACTIVE
+                      </span>
+                    )}
+                  </div>
+                  {clientInputs.industryId && rec && (
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="inline-flex gap-0.5">
+                        {Array.from({ length: 5 }, (_, i) => (
+                          <span key={i} className={`text-sm ${i < stars ? "text-yellow-400" : "text-gray-300"}`}>★</span>
+                        ))}
+                      </span>
+                      {ratingLabel && stars > 0 && (
+                        <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded border ${ratingLabel.color}`}>
+                          {ratingLabel.text}
+                        </span>
+                      )}
+                    </div>
+                  )}
+                  <p className="text-xs text-cogent-neutral leading-relaxed">
+                    {clientInputs.industryId && rec ? rec.note : info.description}
+                  </p>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* ── Funnel Visual ─────────────────────────────────────────────────── */}
+          <div className="mb-5 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <p className="text-xs font-semibold text-cogent-navy mb-3">Where each platform sits in the buyer&apos;s journey:</p>
+            <div className="flex flex-col items-center gap-0">
+              {/* Top of funnel */}
+              <div className="w-full max-w-md">
+                <div className="bg-blue-50 border border-blue-200 rounded-t-lg px-4 py-2.5 text-center">
+                  <p className="text-[11px] font-bold text-blue-700 uppercase tracking-wide">Awareness</p>
+                  <p className="text-[11px] text-blue-600 mt-0.5">People don&apos;t know they need you yet</p>
+                  <p className="text-xs font-medium text-blue-700 mt-1">💼 LinkedIn · 📱 Meta (Display)</p>
+                </div>
+              </div>
+              {/* Mid funnel */}
+              <div className="w-[85%] max-w-[26rem]">
+                <div className="bg-amber-50 border-x border-amber-200 px-4 py-2.5 text-center">
+                  <p className="text-[11px] font-bold text-amber-700 uppercase tracking-wide">Consideration</p>
+                  <p className="text-[11px] text-amber-600 mt-0.5">They&apos;re thinking about it but not searching yet</p>
+                  <p className="text-xs font-medium text-amber-700 mt-1">📱 Meta (Retargeting)</p>
+                </div>
+              </div>
+              {/* Bottom of funnel */}
+              <div className="w-[70%] max-w-[22rem]">
+                <div className="bg-green-50 border border-green-300 rounded-b-lg px-4 py-2.5 text-center">
+                  <p className="text-[11px] font-bold text-green-700 uppercase tracking-wide">Intent / Decision</p>
+                  <p className="text-[11px] text-green-600 mt-0.5">Actively searching for your services right now</p>
+                  <p className="text-xs font-medium text-green-700 mt-1">🔍 Google Ads · 📍 LSA</p>
+                </div>
+              </div>
+            </div>
+            <p className="text-[11px] text-gray-500 mt-3 text-center">
+              Google Ads &amp; LSA capture buyers at the bottom of the funnel — highest intent, fastest close. Meta and LinkedIn work higher in the funnel for awareness and retargeting.
+            </p>
+          </div>
+
+          {/* ── Additional Platforms: Meta + LinkedIn ─────────────────────────── */}
+          <details className="group">
+            <summary className="cursor-pointer list-none">
+              <div className="flex items-center gap-2 text-sm font-semibold text-cogent-neutral hover:text-cogent-navy transition-colors">
+                <span className="text-xs group-open:rotate-90 transition-transform">▶</span>
+                <span>Additional Platforms — Awareness &amp; Retargeting (Optional)</span>
+              </div>
+              <p className="text-xs text-gray-400 mt-1 ml-5">
+                Meta and LinkedIn target people who aren&apos;t actively searching — useful for brand awareness, retargeting website visitors, and B2B outreach. These are display/social ads, not search ads.
+              </p>
+            </summary>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
+              {(["meta", "linkedin"] as AdPlatform[]).map((key) => {
+                const info = PLATFORM_INFO[key];
                 const isActive = selectedPlatforms.includes(key);
                 const rec = platformRecs?.[key];
                 const stars = rec?.rating ?? 0;
@@ -1232,7 +1342,7 @@ ${resultsHtml}
                   : stars >= 4 ? { text: "Strong", color: "text-blue-700 bg-blue-50 border-blue-200" }
                   : stars >= 3 ? { text: "Moderate", color: "text-yellow-700 bg-yellow-50 border-yellow-200" }
                   : stars >= 2 ? { text: "Limited", color: "text-orange-700 bg-orange-50 border-orange-200" }
-                  : stars >= 1 ? { text: "Not Recommended", color: "text-red-700 bg-red-50 border-red-200" }
+                  : stars >= 1 ? { text: "Not Rec.", color: "text-red-700 bg-red-50 border-red-200" }
                   : null;
 
                 return (
@@ -1263,7 +1373,6 @@ ${resultsHtml}
                       )}
                     </div>
 
-                    {/* Star rating & fit label (when industry is selected) */}
                     {clientInputs.industryId && rec && (
                       <div className="flex items-center gap-2 mb-1.5">
                         <span className="inline-flex gap-0.5">
@@ -1276,56 +1385,32 @@ ${resultsHtml}
                             {ratingLabel.text}
                           </span>
                         )}
-                        {stars === 0 && (
-                          <span className="text-[10px] font-medium px-1.5 py-0.5 rounded border text-gray-500 bg-gray-50 border-gray-200">
-                            Not Available
-                          </span>
-                        )}
                       </div>
                     )}
 
-                    {/* Description or platform note */}
                     <p className="text-xs text-cogent-neutral leading-relaxed">
                       {clientInputs.industryId && rec ? rec.note : info.description}
                     </p>
+
+                    {/* Funnel context note */}
+                    <p className="text-[11px] text-gray-400 mt-2 pt-2 border-t border-gray-100">
+                      {key === "meta"
+                        ? "📊 Display & social ads — targets interests and behaviors, not search queries. Best for retargeting people who already visited the website."
+                        : "📊 Professional B2B targeting — reaches decision-makers by job title and company. High CPL, best for high-value contracts."}
+                    </p>
                   </button>
                 );
-              }
-            )}
-          </div>
+              })}
+            </div>
+          </details>
 
           {/* Multi-select hint */}
           {selectedPlatforms.length === 1 && (
             <p className="mt-3 text-xs text-cogent-neutral">
-              💡 <strong>Tip:</strong> Hold Shift and click another platform to build a multi-platform strategy
+              💡 <strong>Tip:</strong> Click additional platforms to build a multi-platform strategy
               {clientInputs.industryId ? " with a recommended budget split." : "."}
             </p>
           )}
-
-          {/* Recommendation callout for strong alternatives */}
-          {clientInputs.industryId && platformRecs && (() => {
-            const allPlatforms: AdPlatform[] = ["google", "meta", "linkedin", "lsa"];
-            const goodAlternatives = allPlatforms.filter(
-              (p) => !selectedPlatforms.includes(p) && platformRecs[p].rating >= 4
-            );
-            if (goodAlternatives.length === 0) return null;
-            return (
-              <div className="mt-3 p-3 bg-cogent-sage/10 border border-cogent-sage/30 rounded-md">
-                <p className="text-sm text-cogent-navy">
-                  <span className="font-semibold">💡 Recommendation:</span>{" "}
-                  {selectedIndustry?.name ?? "This industry"} also performs well on{" "}
-                  {goodAlternatives.map((p, i) => (
-                    <span key={p}>
-                      {i > 0 && (i === goodAlternatives.length - 1 ? " and " : ", ")}
-                      <strong>{PLATFORM_INFO[p].label}</strong>
-                      {" "}({platformRecs[p].rating}★)
-                    </span>
-                  ))}
-                  . Click to add {goodAlternatives.length === 1 ? "it" : "them"} for a multi-platform strategy.
-                </p>
-              </div>
-            );
-          })()}
 
           {/* Platform Budget Split — shown when 2+ platforms selected AND industry is chosen */}
           {selectedPlatforms.length > 1 && clientInputs.industryId && (
