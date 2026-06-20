@@ -1,0 +1,212 @@
+{
+  "industrial-conveyor-rubber": {
+    "primaryBuyer": "Plant Managers, Maintenance Directors, Procurement Officers",
+    "industry": "Industrial Conveyor & Rubber Products",
+    "searchBehavior": "low",
+    "searchBehaviorNote": "This audience rarely uses Google to find conveyor belt or loading arm suppliers. Procurement at paper mills, refineries, and power plants is relationship-driven — they call vendors they already know or get referrals from peers at industry events.",
+    "strategies": [
+      {
+        "type": "event",
+        "title": "Trade Show & Event Marketing",
+        "detail": "Attend PTDA Industry Summit (power transmission/distribution), Pulp & Paper Industry Technical Conference, and regional manufacturing expos. Bring collateral focused on 24/7 uptime guarantees and cost-per-hour-of-downtime messaging — plant managers respond to downtime cost framing, not product specs."
+      },
+      {
+        "type": "prospecting",
+        "title": "Targeted Contact Prospecting (ZoomInfo / Apollo)",
+        "detail": "Build lists of Maintenance Directors and Plant Managers at pulp/paper mills, power plants, and chemical facilities within your service radius. Use ZoomInfo or Apollo.io to get direct contacts, then pair with LinkedIn InMail outreach and retargeting ads — so when they DO search, your brand is already familiar."
+      },
+      {
+        "type": "bizdev",
+        "title": "Biz Dev + Brand Awareness Pairing",
+        "detail": "Have your business development team warm up accounts via phone/email outreach while simultaneously running low-budget LinkedIn awareness ads targeting those same companies. When the prospect finally has a need and searches, they've already seen your name 3-5 times."
+      }
+    ]
+  },
+  "oil-gas-engineering": {
+    "primaryBuyer": "Capital Projects Managers, Process Engineers, Plant Managers at refineries and petrochemical facilities",
+    "industry": "Oil & Gas / Petrochemical Engineering",
+    "searchBehavior": "low",
+    "searchBehaviorNote": "Engineering contracts in oil & gas are almost never won through Google Ads. Procurement goes through approved vendor lists, RFP processes, and industry relationships built at conferences and through direct outreach. Google captures some emergency/small-scope work, but major contracts require relationship selling.",
+    "strategies": [
+      {
+        "type": "event",
+        "title": "Industry Conference Presence",
+        "detail": "Attend OTC (Offshore Technology Conference), AFPM (American Fuel & Petrochemical Manufacturers), and regional AICHE events. These are where capital project decisions get discussed months before RFPs go out. Collateral should emphasize your track record, safety record, and turnaround capabilities — not generic capabilities."
+      },
+      {
+        "type": "prospecting",
+        "title": "Approved Vendor List Strategy",
+        "detail": "Getting on a refinery's approved vendor list is the real sales goal. Identify target facilities, find their procurement contacts via ZoomInfo, and pursue vendor qualification packages. Once approved, you get invited to bid — no Google ad can do this for you."
+      },
+      {
+        "type": "bizdev",
+        "title": "Turnaround Season Outreach",
+        "detail": "Refineries and plants plan maintenance turnarounds 6-12 months in advance. Time your outreach to coincide with turnaround planning season (typically Q3-Q4 for spring turnarounds). Direct mail or email campaigns to engineering managers during planning windows get opened."
+      },
+      {
+        "type": "content",
+        "title": "Technical Thought Leadership on LinkedIn",
+        "detail": "Publish case studies, project completion posts, and technical articles on LinkedIn targeting process engineers. This builds credibility and keeps you visible when specification decisions are being made. Tag relevant companies and use industry hashtags (#oilandgas, #processengineering)."
+      }
+    ]
+  },
+  "oilfield-machine-shop": {
+    "primaryBuyer": "Procurement Managers, Equipment Engineers, Field Supervisors at oilfield service companies and E&P operators",
+    "industry": "Oilfield Machine Shop & Component Repair",
+    "searchBehavior": "medium",
+    "searchBehaviorNote": "Emergency machining and repair work does get searched on Google (broken downhole tools need fast turnaround). But ongoing contracts and large-volume work come through industry relationships and vendor qualification. The audience attends oilfield trade shows and trusts referrals from peers.",
+    "strategies": [
+      {
+        "type": "event",
+        "title": "Oilfield Trade Shows",
+        "detail": "Attend LAGCOE (Louisiana Gulf Coast Oil Exposition), OTC, and regional oilfield supply chain events. Bring sample parts and demonstrate your CNC capabilities — procurement managers want to see your work quality in person. Emphasize API certifications and fast turnaround times."
+      },
+      {
+        "type": "prospecting",
+        "title": "Oilfield Vendor Qualification",
+        "detail": "Major operators (Halliburton, Schlumberger, NOV, Baker Hughes) require formal vendor qualification. Target their procurement departments directly and complete their vendor packages. Once qualified, you receive RFQs automatically — this is the most reliable revenue path."
+      }
+    ]
+  },
+  "engineering": {
+    "primaryBuyer": "Plant Managers, Facility Directors, EHS Directors, Capital Projects Engineers",
+    "industry": "Engineering Services",
+    "searchBehavior": "medium",
+    "searchBehaviorNote": "Some engineering services get searched (structural engineering, environmental consulting), but larger contracts come through industry networks and referrals. Engineers often attend professional society events and rely on peer recommendations for specialist firms.",
+    "strategies": [
+      {
+        "type": "event",
+        "title": "Professional Society Events & Technical Conferences",
+        "detail": "Join and present at ASCE, ASME, NSPE, or industry-specific organizations. Speaking slots at regional chapter meetings position you as an expert and generate warm referrals. Sponsor local engineering society events — the cost is low and the audience is exactly right."
+      },
+      {
+        "type": "prospecting",
+        "title": "Target Facility Owners Directly",
+        "detail": "Use ZoomInfo to build lists of Plant Managers and Facility Directors at manufacturing companies, processing plants, and large commercial properties in your service area. Pair direct outreach with LinkedIn ads targeting the same companies to build familiarity before the first call."
+      }
+    ]
+  },
+  "warehousing-3pl": {
+    "primaryBuyer": "Supply Chain Directors, Operations VPs, Logistics Managers, Procurement Officers",
+    "industry": "Warehousing & 3PL Services",
+    "searchBehavior": "medium",
+    "searchBehaviorNote": "Companies searching for 3PL providers do use Google, but the highest-value contracts come through industry relationships and RFP processes. Supply chain professionals attend CSCMP and WERC events, and make decisions based on site visits and operational capability — not ads.",
+    "strategies": [
+      {
+        "type": "event",
+        "title": "Supply Chain Industry Events",
+        "detail": "Attend CSCMP EDGE Conference, WERC (Warehousing Education and Research Council), and regional logistics meetups. Bring case studies showing cost savings, on-time fulfillment rates, and warehouse layout efficiency. Supply chain VPs want proof of operational excellence, not sales pitches."
+      },
+      {
+        "type": "prospecting",
+        "title": "Target Companies Outgrowing Their Current Space",
+        "detail": "Monitor business news for companies announcing expansions, new product lines, or market entries — these businesses often need 3PL within 6 months. Use ZoomInfo to reach their Operations or Supply Chain VP with a tailored outreach: 'We noticed [company] is expanding into [market] — here's how we've helped similar companies scale their distribution.'"
+      },
+      {
+        "type": "bizdev",
+        "title": "Realtor & Commercial Broker Referral Network",
+        "detail": "Build referral relationships with commercial real estate brokers who work with companies relocating to your area. When a company moves into the region, they often need local warehousing before their own facility is ready. First-mover advantage on these leads is huge."
+      }
+    ]
+  },
+  "heavy-civil-marine": {
+    "primaryBuyer": "Government Procurement Officers, City Engineers, DOT Project Managers, Private Developers",
+    "industry": "Heavy Civil & Marine Construction",
+    "searchBehavior": "low",
+    "searchBehaviorNote": "Heavy civil work is almost entirely won through formal bid processes, not Google Ads. Government contracts come through bid portals (BidNet, DemandStar, state DOT systems). Private work comes through GC relationships and developer networks. Google is not where these buyers look.",
+    "strategies": [
+      {
+        "type": "prospecting",
+        "title": "Government Bid Platform Monitoring",
+        "detail": "Register on BidNet Direct, DemandStar, SAM.gov, and your state's DOT bid portal. Set alerts for your capability codes. Winning government work is about consistent bidding presence and prequalification — not advertising."
+      },
+      {
+        "type": "event",
+        "title": "AGC & Infrastructure Events",
+        "detail": "Attend AGC (Associated General Contractors) regional meetings and state infrastructure conferences. These events are where relationships with DOT project managers, city engineers, and prime contractors get built. Sponsor events to get face time with decision-makers."
+      },
+      {
+        "type": "bizdev",
+        "title": "GC Relationship Building",
+        "detail": "Identify the top 10-20 general contractors in your region who bid on projects requiring your specialty. Build sub-contractor relationships with their estimating teams — when they win a job, you get the call. This is more effective than any ad spend for heavy civil."
+      }
+    ]
+  },
+  "rigging-millwright": {
+    "primaryBuyer": "Plant Managers, Maintenance Managers, Capital Projects Engineers at manufacturing and processing facilities",
+    "industry": "Industrial Rigging & Millwright",
+    "searchBehavior": "medium",
+    "searchBehaviorNote": "Emergency rigging/millwright needs get searched ('heavy machinery moving near me'), but planned plant relocations and large equipment installations come through existing relationships and turnaround planning cycles. The audience trusts referrals and safety track records over ads.",
+    "strategies": [
+      {
+        "type": "event",
+        "title": "Manufacturing & Plant Engineering Events",
+        "detail": "Attend SME (Society of Manufacturing Engineers) events, SMRP (Society for Maintenance & Reliability Professionals) conferences, and regional plant engineering meetups. Bring photos/videos of your most impressive moves — rigging is a visual sale. Safety record documentation is essential collateral."
+      },
+      {
+        "type": "prospecting",
+        "title": "Shutdown/Turnaround Planning Calendar",
+        "detail": "Major facilities plan shutdown/turnaround work 6-12 months ahead. Identify plants in your region and their typical shutdown windows, then start outreach 9 months before. Being early in the planning conversation means you're not competing with 5 other bidders."
+      }
+    ]
+  },
+  "medical-devices": {
+    "primaryBuyer": "Hospital Procurement, Biomedical Engineers, Clinical Department Heads, GPO Contract Managers",
+    "industry": "Medical Devices & Equipment",
+    "searchBehavior": "low",
+    "searchBehaviorNote": "Medical device purchasing goes through GPOs (Group Purchasing Organizations), hospital procurement committees, and value analysis teams. Doctors and biomedical engineers may discover products at conferences, but the actual purchase decision involves layers of approval that Google Ads cannot shortcut.",
+    "strategies": [
+      {
+        "type": "event",
+        "title": "Medical Conferences & Clinical Events",
+        "detail": "Exhibit at RSNA (Radiology), AORN (Surgical), HIMSS (Health IT), or specialty-specific conferences where clinical decision-makers discover new products. These events are where the 'I want this' conversation starts — procurement follows later."
+      },
+      {
+        "type": "prospecting",
+        "title": "GPO Contract Strategy",
+        "detail": "Getting on GPO contracts (Vizient, Premier, HealthTrust) is the single highest-impact sales motion for medical devices. Target GPO category managers and complete their vendor qualification process. Once on contract, hospitals can purchase without a separate procurement cycle."
+      },
+      {
+        "type": "content",
+        "title": "Clinical Evidence & KOL Marketing",
+        "detail": "Publish clinical studies, white papers, and case studies featuring Key Opinion Leaders (KOLs) in your specialty. Clinicians trust peer-reviewed evidence and endorsements from respected colleagues more than any ad. Distribute through LinkedIn and medical society newsletters."
+      }
+    ]
+  },
+  "cold-chain-logistics": {
+    "primaryBuyer": "Supply Chain Directors, QA Managers, Operations VPs at food, pharma, and biotech companies",
+    "industry": "Cold Chain Logistics",
+    "searchBehavior": "medium",
+    "searchBehaviorNote": "Cold chain RFPs come through industry networks and compliance-driven procurement. Companies switching 3PL providers often do search, but the highest-value contracts involve lengthy qualification processes (FDA compliance, temperature validation audits). Relationships and certifications matter more than ad positioning.",
+    "strategies": [
+      {
+        "type": "event",
+        "title": "Cold Chain & Pharma Logistics Events",
+        "detail": "Attend IARW (International Association of Refrigerated Warehouses), GCCA, and pharma logistics conferences (LogiPharma, ISPE). Collateral should lead with compliance certifications (FDA, FSMA, HACCP) and temperature excursion track record — QA managers care about risk, not price."
+      },
+      {
+        "type": "prospecting",
+        "title": "Target Companies With Compliance Pain",
+        "detail": "Monitor FDA warning letters and recalls related to cold chain failures — companies that just had a temperature excursion incident are actively looking for better logistics partners. Reach out with a compliance-first message: 'We noticed [issue] — here's how our validated cold chain prevents this.'"
+      }
+    ]
+  },
+  "commercial-well-pump": {
+    "primaryBuyer": "Municipal Water Utility Directors, Facilities Managers, Environmental Engineers, Agricultural Operations Managers",
+    "industry": "Commercial Well & Pump Service",
+    "searchBehavior": "medium",
+    "searchBehaviorNote": "Emergency pump failures get searched on Google. But planned municipal well construction and rehabilitation projects go through government procurement and engineering firm specifications. Agricultural well work comes through farming community referrals and co-op relationships.",
+    "strategies": [
+      {
+        "type": "event",
+        "title": "Water Utility & Groundwater Events",
+        "detail": "Attend NGWA (National Ground Water Association) Groundwater Week, AWWA (American Water Works Association) conferences, and state rural water association meetings. Municipal water directors attend these — they're where 5-year capital improvement plans get discussed before RFPs are written."
+      },
+      {
+        "type": "prospecting",
+        "title": "Municipal Capital Improvement Plan Monitoring",
+        "detail": "Most municipalities publish 5-year CIPs online. Monitor these for planned well construction, pump station upgrades, and water system improvements. Reach out to the city engineer or water utility director 12 months before the project is budgeted — you want to be on the specification, not competing against it."
+      }
+    ]
+  }
+}

@@ -5,6 +5,23 @@ import linkedinBenchmarkData from "../data/linkedin-benchmarks.json";
 import lsaBenchmarkData from "../data/lsa-benchmarks.json";
 import platformRecommendationData from "../data/platform-recommendations.json";
 import industryCloseRates from "../data/industry-close-rates.json";
+import audienceInsightsData from "../data/audience-insights.json";
+
+export interface AudienceStrategy {
+  type: "event" | "prospecting" | "bizdev" | "content";
+  title: string;
+  detail: string;
+}
+
+export interface AudienceInsight {
+  primaryBuyer: string;
+  industry: string;
+  searchBehavior: "high" | "medium" | "low";
+  searchBehaviorNote: string;
+  strategies: AudienceStrategy[];
+}
+
+const audienceInsights = audienceInsightsData as Record<string, AudienceInsight>;
 
 const googleBenchmarks: IndustryBenchmark[] = googleBenchmarkData as IndustryBenchmark[];
 const metaBenchmarks: IndustryBenchmark[] = metaBenchmarkData as IndustryBenchmark[];
@@ -119,6 +136,10 @@ export function getIndustryCloseRate(industryId: string): { closeRate: number; s
 }
 
 export { googleBenchmarks as benchmarks };
+
+export function getAudienceInsights(industryId: string): AudienceInsight | null {
+  return audienceInsights[industryId] ?? null;
+}
 
 // ── In-memory AI-generated industry registry ─────────────────────────────────
 // Lets AI-generated industries (from website scan) flow through all existing

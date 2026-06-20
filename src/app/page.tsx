@@ -21,6 +21,7 @@ import {
   getAllGoogleBenchmarks,
   registerAiIndustry,
   getServicesForIndustryWithAi,
+  getAudienceInsights,
   type AiGeneratedIndustry,
 } from "../lib/benchmarks";
 import { calculate, checkSpendWarning, formatCurrency } from "../lib/calculations";
@@ -1319,6 +1320,80 @@ ${resultsHtml}
               Google Ads &amp; LSA capture buyers at the bottom of the funnel — highest intent, fastest close. Meta and LinkedIn work higher in the funnel for awareness and retargeting.
             </p>
           </div>
+
+          {/* ── Audience Intelligence Panel ────────────────────────────────── */}
+          {clientInputs.industryId && (() => {
+            const insights = getAudienceInsights(clientInputs.industryId);
+            if (!insights) return null;
+
+            const STRATEGY_ICONS: Record<string, string> = {
+              event: "🎪",
+              prospecting: "🎯",
+              bizdev: "🤝",
+              content: "📝",
+            };
+
+            return (
+              <div className={`mb-5 rounded-lg border-2 overflow-hidden ${
+                insights.searchBehavior === "low"
+                  ? "border-amber-300 bg-amber-50/50"
+                  : "border-blue-200 bg-blue-50/30"
+              }`}>
+                {/* Header */}
+                <div className={`px-4 py-3 ${
+                  insights.searchBehavior === "low" ? "bg-amber-100/60" : "bg-blue-100/40"
+                }`}>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-sm">
+                      {insights.searchBehavior === "low" ? "⚠️" : "💡"}
+                    </span>
+                    <span className="text-sm font-bold text-gray-800">
+                      Audience Intelligence — {insights.industry}
+                    </span>
+                  </div>
+                  <p className="text-xs text-gray-600">
+                    <span className="font-semibold">Primary buyer:</span> {insights.primaryBuyer}
+                  </p>
+                </div>
+
+                {/* Search behavior warning */}
+                <div className="px-4 py-3 border-b border-gray-200/60">
+                  <p className="text-xs text-gray-700 leading-relaxed">
+                    {insights.searchBehaviorNote}
+                  </p>
+                </div>
+
+                {/* Strategies */}
+                <div className="px-4 py-3">
+                  <p className="text-xs font-bold text-gray-700 mb-2 uppercase tracking-wide">
+                    Complementary Strategies to Pair with Ads:
+                  </p>
+                  <div className="space-y-3">
+                    {insights.strategies.map((strat, idx) => (
+                      <div key={idx} className="flex gap-2">
+                        <span className="text-sm shrink-0 mt-0.5">
+                          {STRATEGY_ICONS[strat.type] ?? "💡"}
+                        </span>
+                        <div>
+                          <p className="text-xs font-semibold text-gray-800">{strat.title}</p>
+                          <p className="text-xs text-gray-600 leading-relaxed mt-0.5">{strat.detail}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Footer note */}
+                <div className="px-4 py-2 bg-gray-100/50 border-t border-gray-200/60">
+                  <p className="text-[11px] text-gray-500">
+                    {insights.searchBehavior === "low"
+                      ? "⚡ For this audience, digital ads work best as PART of a broader strategy — not as the only strategy. Use the ROI projection above to show what ads alone can deliver, then present these complementary strategies to build a full marketing plan."
+                      : "💡 Google Ads will capture active searchers, but pairing with these strategies will strengthen pipeline quality and shorten the sales cycle."}
+                  </p>
+                </div>
+              </div>
+            );
+          })()}
 
           {/* ── Additional Platforms: Meta + LinkedIn ─────────────────────────── */}
           <details className="group">
