@@ -44,6 +44,8 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
   const [generating, setGenerating] = useState(false);
   const [generateError, setGenerateError] = useState("");
   const [generatedIndustry, setGeneratedIndustry] = useState<AiGeneratedIndustry | null>(null);
+  const [generatePassword, setGeneratePassword] = useState("");
+  const [passwordUnlocked, setPasswordUnlocked] = useState(false);
   // Direct generate (from URL bar, not requiring a scan result first)
   const [directGenerating, setDirectGenerating] = useState(false);
   const [directGenerateError, setDirectGenerateError] = useState("");
@@ -144,12 +146,14 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
           url: scanResult.url,
           text: scanResult.text,
           title: scanResult.title,
+          password: generatePassword,
         }),
       });
 
       const data = await res.json();
 
       if (!res.ok || data.error) {
+        if (res.status === 401) setPasswordUnlocked(false);
         setGenerateError(data.error ?? "AI generation failed. Please try again.");
         return;
       }
@@ -222,10 +226,11 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
       const res = await fetch("/api/generate-industry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url, text, title }),
+        body: JSON.stringify({ url, text, title, password: generatePassword }),
       });
       const data = await res.json();
       if (!res.ok || data.error) {
+        if (res.status === 401) setPasswordUnlocked(false);
         setDirectGenerateError(data.error ?? "AI generation failed. Try again.");
         setDirectGenerating(false);
         return;
@@ -404,25 +409,56 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
             <p className="text-xs text-gray-500 mt-0.5">
               {value.websiteUrl
                 ? `Scans ${value.websiteUrl} and builds custom CPL, job values & platform ratings for this exact business.`
-                : "Add a website URL above, or paste page text below — AI builds a custom industry profile in ~10 seconds."}
+                : "Add a website URL above — AI builds a custom industry profile in ~10 seconds."}
             </p>
           </div>
-          <button
-            type="button"
-            onClick={() => handleDirectGenerate()}
-            disabled={directGenerating}
-            className="shrink-0 flex items-center gap-2 px-4 py-2 bg-cogent-navy text-white text-sm font-semibold rounded-lg hover:bg-cogent-navy-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors whitespace-nowrap"
-          >
-            {directGenerating ? (
-              <>
-                <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
-                </svg>
-                Generating…
-              </>
-            ) : "✨ Generate"}
-          </button>
+          {passwordUnlocked ? (
+            <button
+              type="button"
+              onClick={() => handleDirectGenerate()}
+              disabled={directGenerating}
+              className="shrink-0 flex items-center gap-2 px-4 py-2 bg-cogent-navy text-white text-sm font-semibold rounded-lg hover:bg-cogent-navy-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors whitespace-nowrap"
+            >
+              {directGenerating ? (
+                <>
+                  <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                  </svg>
+                  Generating…
+                </>
+              ) : "✨ Generate"}
+            </button>
+          ) : (
+            <div className="flex items-center gap-2 shrink-0">
+              <input
+                type="password"
+                value={generatePassword}
+                onChange={(e) => setGeneratePassword(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && generatePassword) {
+                    setPasswordUnlocked(true);
+                    handleDirectGenerate();
+                  }
+                }}
+                placeholder="Password"
+                className="w-28 border border-gray-300 rounded-md px-2 py-1.5 text-sm focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
+              />
+              <button
+                type="button"
+                onClick={() => {
+                  if (generatePassword) {
+                    setPasswordUnlocked(true);
+                    handleDirectGenerate();
+                  }
+                }}
+                disabled={!generatePassword}
+                className="px-3 py-1.5 bg-cogent-navy text-white text-sm font-semibold rounded-lg hover:bg-cogent-navy-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors whitespace-nowrap"
+              >
+                ✨ Unlock
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Error message */}
@@ -524,22 +560,53 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
                   AI reads this site and builds services, CPL ranges, job values, and platform ratings specific to this business. ~10 seconds.
                 </p>
               </div>
-              <button
-                type="button"
-                onClick={handleGenerateIndustry}
-                disabled={generating}
-                className="shrink-0 px-4 py-2 bg-cogent-navy text-white text-xs font-semibold rounded-lg hover:bg-cogent-navy-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors whitespace-nowrap"
-              >
-                {generating ? (
-                  <span className="flex items-center gap-1.5">
-                    <svg className="animate-spin h-3 w-3" viewBox="0 0 24 24" fill="none">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
-                    </svg>
-                    Generating…
-                  </span>
-                ) : "✨ Generate Profile"}
-              </button>
+              {passwordUnlocked ? (
+                <button
+                  type="button"
+                  onClick={handleGenerateIndustry}
+                  disabled={generating}
+                  className="shrink-0 px-4 py-2 bg-cogent-navy text-white text-xs font-semibold rounded-lg hover:bg-cogent-navy-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors whitespace-nowrap"
+                >
+                  {generating ? (
+                    <span className="flex items-center gap-1.5">
+                      <svg className="animate-spin h-3 w-3" viewBox="0 0 24 24" fill="none">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                      </svg>
+                      Generating…
+                    </span>
+                  ) : "✨ Generate Profile"}
+                </button>
+              ) : (
+                <div className="flex items-center gap-2 shrink-0">
+                  <input
+                    type="password"
+                    value={generatePassword}
+                    onChange={(e) => setGeneratePassword(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && generatePassword) {
+                        setPasswordUnlocked(true);
+                        handleGenerateIndustry();
+                      }
+                    }}
+                    placeholder="Password"
+                    className="w-24 border border-gray-300 rounded-md px-2 py-1.5 text-xs focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (generatePassword) {
+                        setPasswordUnlocked(true);
+                        handleGenerateIndustry();
+                      }
+                    }}
+                    disabled={!generatePassword}
+                    className="px-3 py-1.5 bg-cogent-navy text-white text-xs font-semibold rounded-lg hover:bg-cogent-navy-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors whitespace-nowrap"
+                  >
+                    Unlock
+                  </button>
+                </div>
+              )}
             </div>
             {generateError && (
               <p className="mt-2 text-xs text-red-600">{generateError}</p>

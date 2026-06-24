@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
+const GENERATE_PASSWORD = process.env.GENERATE_PASSWORD || "cogent.123";
 
 // Detailed system prompt grounded in real CPL benchmark data
 const SYSTEM_PROMPT = `You are an expert digital advertising analyst with deep knowledge of Google Ads, Meta Ads, LinkedIn Ads, and Google Local Service Ads (LSA) benchmarks across all B2B and B2C industries.
@@ -106,11 +107,16 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const { url, text, title } = body as {
+    const { url, text, title, password } = body as {
       url?: string;
       text?: string;
       title?: string;
+      password?: string;
     };
+
+    if (password !== GENERATE_PASSWORD) {
+      return NextResponse.json({ error: "Incorrect password." }, { status: 401 });
+    }
 
     if (!text?.trim()) {
       return NextResponse.json({ error: "No page text provided." }, { status: 400 });
