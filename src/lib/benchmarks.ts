@@ -87,7 +87,7 @@ export function getRecommendedSpend(industryId: string, platform: AdPlatform = "
   min: number | null;
   target: number | null;
 } {
-  const services = getServicesForIndustry(industryId, platform);
+  const services = getServicesForIndustryWithAi(industryId, platform);
   if (services.length === 0) return { min: null, target: null };
 
   const mins = services

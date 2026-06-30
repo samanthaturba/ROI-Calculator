@@ -635,10 +635,10 @@ export default function Home() {
       // Register in the in-memory benchmark registry so all lookups work
       registerAiIndustry(aiIndustry);
 
-      // Build services from the AI-generated benchmarks (all pre-selected)
+      // Build services from the AI-generated benchmarks (unselected — user picks manually)
       const newServices: ServiceSelectionType[] = aiIndustry.services.map((b) => ({
         serviceName: b.serviceName,
-        selected: true,
+        selected: false,
         allocationPercent: 0,
         cplChoice: "high" as const,
         customCpl: null,
