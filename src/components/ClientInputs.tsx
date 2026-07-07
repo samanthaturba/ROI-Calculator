@@ -49,6 +49,9 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
   // Direct generate (from URL bar, not requiring a scan result first)
   const [directGenerating, setDirectGenerating] = useState(false);
   const [directGenerateError, setDirectGenerateError] = useState("");
+  // Manual paste fallback — shown when site can't be scanned or AI can't determine services
+  const [showManualPaste, setShowManualPaste] = useState(false);
+  const [manualPasteText, setManualPasteText] = useState("");
 
   const industries = industrySearch
     ? searchIndustries(industrySearch)
@@ -209,14 +212,20 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
       });
       const data = await res.json();
       if (!res.ok || data.error) {
-        setDirectGenerateError(data.error ?? "Could not reach that site.");
+        // Site couldn't be scanned — fall through to manual paste
+        setDirectGenerateError(
+          (data.error ?? "Could not reach that site.") +
+          " Paste text from their services or about page below."
+        );
+        setShowManualPaste(true);
         setDirectGenerating(false);
         return;
       }
       text = data.text ?? "";
       title = data.title ?? "";
     } catch {
-      setDirectGenerateError("Network error fetching the site. Check your connection.");
+      setDirectGenerateError("Network error fetching the site. Paste text from their services page below.");
+      setShowManualPaste(true);
       setDirectGenerating(false);
       return;
     }
@@ -232,6 +241,10 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
       if (!res.ok || data.error) {
         if (res.status === 401) setPasswordUnlocked(false);
         setDirectGenerateError(data.error ?? "AI generation failed. Try again.");
+        // Show manual paste for content-quality failures
+        if (data.errorType === "insufficient_content" || res.status === 422) {
+          setShowManualPaste(true);
+        }
         setDirectGenerating(false);
         return;
       }
@@ -240,6 +253,46 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
         onAiIndustryGenerated(industry, text);
       }
       setDirectGenerateError("");
+      setShowManualPaste(false);
+    } catch {
+      setDirectGenerateError("Network error. Check your connection and try again.");
+    } finally {
+      setDirectGenerating(false);
+    }
+  }
+
+  /** Generate from manually pasted text — skips the site scan entirely. */
+  async function handleGenerateFromPaste() {
+    if (!manualPasteText.trim()) return;
+    setDirectGenerating(true);
+    setDirectGenerateError("");
+
+    const url = (value.websiteUrl || "").trim();
+
+    try {
+      const res = await fetch("/api/generate-industry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          url,
+          text: manualPasteText,
+          title: "",
+          password: generatePassword,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || data.error) {
+        if (res.status === 401) setPasswordUnlocked(false);
+        setDirectGenerateError(data.error ?? "AI generation failed. Try again.");
+        return;
+      }
+      const industry = data.industry as AiGeneratedIndustry;
+      if (onAiIndustryGenerated) {
+        onAiIndustryGenerated(industry, manualPasteText);
+      }
+      setDirectGenerateError("");
+      setShowManualPaste(false);
+      setManualPasteText("");
     } catch {
       setDirectGenerateError("Network error. Check your connection and try again.");
     } finally {
@@ -461,10 +514,42 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
           )}
         </div>
 
-        {/* Error message */}
+        {/* Error + manual paste fallback */}
         {directGenerateError && (
-          <div className="px-4 pb-3">
-            <p className="text-xs text-red-600">{directGenerateError}</p>
+          <div className="px-4 pb-4 border-t border-cogent-navy/10 mt-1">
+            <p className="text-xs text-red-600 mt-3">{directGenerateError}</p>
+
+            {showManualPaste && (
+              <div className="mt-3">
+                <p className="text-xs font-semibold text-gray-700 mb-1">
+                  Paste text from their website (service page, homepage, or about page):
+                </p>
+                <textarea
+                  value={manualPasteText}
+                  onChange={(e) => setManualPasteText(e.target.value)}
+                  rows={5}
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 text-xs focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
+                  placeholder="Copy and paste text from the client's website here. Service descriptions, about page, or homepage content works best..."
+                />
+                <div className="flex items-center gap-2 mt-2">
+                  <button
+                    type="button"
+                    onClick={handleGenerateFromPaste}
+                    disabled={!manualPasteText.trim() || directGenerating}
+                    className="px-4 py-2 bg-cogent-navy text-white text-xs font-semibold rounded-lg hover:bg-cogent-navy-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                  >
+                    {directGenerating ? "Generating…" : "✨ Generate from pasted text"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => { setShowManualPaste(false); setManualPasteText(""); setDirectGenerateError(""); }}
+                    className="text-xs text-gray-400 hover:text-gray-600"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>

@@ -6,6 +6,21 @@ const GENERATE_PASSWORD = process.env.GENERATE_PASSWORD || "cogent.123";
 // Detailed system prompt grounded in real CPL benchmark data
 const SYSTEM_PROMPT = `You are an expert digital advertising analyst with deep knowledge of Google Ads, Meta Ads, LinkedIn Ads, and Google Local Service Ads (LSA) benchmarks across all B2B and B2C industries.
 
+━━━ ACCURACY RULES — READ BEFORE ANYTHING ELSE ━━━
+You are generating data that real sales analysts will present to real clients. A single wrong service on this list destroys the analyst's credibility in front of the client. This is not a creative task — it is a precision task.
+
+RULE 1 — EVIDENCE ONLY: Every service you list MUST be explicitly stated or directly implied by the website content provided. If you cannot point to specific words in the content that support a service, do not include it.
+
+RULE 2 — REFUSE WHEN UNCERTAIN: If the content is sparse, off-topic, appears to be from the wrong website, looks like boilerplate/ads/nav menus, or doesn't clearly describe specific services this business offers — you MUST return the error response below. Refusing is the correct and professional answer when content is insufficient.
+
+RULE 3 — NO CROSS-CONTAMINATION: Do not pull services from unrelated industries. An artificial turf company does not offer "Municipal Water Well Construction." A landscaping company does not offer "Oil & Gas Project Management." Stay strictly within what the business actually does.
+
+RULE 4 — SELF-CHECK BEFORE RESPONDING: For each service you are about to include, ask: "Would the owner of this specific business recognize this as something they sell?" If the answer is no or uncertain — remove it.
+
+IF you cannot identify at least 4 well-evidenced, specific services, OR the business type is genuinely unclear from the content provided, return ONLY this JSON (no other text, no preamble):
+{ "error": "insufficient_content", "message": "<one sentence explaining what the content appears to be and why services cannot be accurately determined>" }
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 You have internalized real CPL (cost per lead) data from:
 - LocaliQ 2025 Search Advertising Benchmarks (cross-industry)
 - WordStream 2025 Industry Benchmarks
@@ -118,8 +133,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Incorrect password." }, { status: 401 });
     }
 
-    if (!text?.trim()) {
-      return NextResponse.json({ error: "No page text provided." }, { status: 400 });
+    if (!text?.trim() || text.trim().length < 300) {
+      return NextResponse.json({
+        error: "Not enough website content to generate an accurate profile. Paste text from the site's services or about page below.",
+        errorType: "insufficient_content",
+      }, { status: 400 });
     }
 
     const userMessage = `Please generate a complete advertising industry profile for this business.
@@ -180,11 +198,23 @@ ${text.substring(0, 7000)}`;
       );
     }
 
-    // Basic validation
     const result = parsed as Record<string, unknown>;
+
+    // AI chose to refuse — content was insufficient or too ambiguous to generate accurately
+    if (result.error === "insufficient_content") {
+      return NextResponse.json(
+        {
+          error: `Couldn't determine this site's services with confidence. ${result.message ?? ""} Paste text from their services or about page below and we'll generate from that instead.`,
+          errorType: "insufficient_content",
+        },
+        { status: 422 }
+      );
+    }
+
+    // Basic structural validation
     if (!result.industryId || !result.industryName || !Array.isArray(result.services)) {
       return NextResponse.json(
-        { error: "AI response was incomplete. Please try again." },
+        { error: "AI response was incomplete. Please try again.", errorType: "incomplete_response" },
         { status: 500 }
       );
     }
