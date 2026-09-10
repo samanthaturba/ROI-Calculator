@@ -1,4 +1,4 @@
-import type { IndustryBenchmark, AdPlatform, PlatformRecommendation } from "./types";
+import type { IndustryBenchmark, AdPlatform, PlatformRecommendation, DemandAssessment } from "./types";
 import googleBenchmarkData from "../data/benchmarks.json";
 import metaBenchmarkData from "../data/meta-benchmarks.json";
 import linkedinBenchmarkData from "../data/linkedin-benchmarks.json";
@@ -149,6 +149,7 @@ export function getAudienceInsights(industryId: string): AudienceInsight | null 
 const aiIndustryStore: Map<string, { name: string; benchmarks: Record<AdPlatform, IndustryBenchmark[]> }> = new Map();
 const aiPlatformRecs: Map<string, Record<AdPlatform, PlatformRecommendation>> = new Map();
 const aiCloseRates: Map<string, { closeRate: number; source: string }> = new Map();
+const aiDemandAssessments: Map<string, DemandAssessment> = new Map();
 
 export interface AiGeneratedIndustry {
   industryId: string;
@@ -157,6 +158,7 @@ export interface AiGeneratedIndustry {
   closeRate: number;
   closeRateSource: string;
   platformRecommendations: Record<AdPlatform, PlatformRecommendation>;
+  demandAssessment?: DemandAssessment;
 }
 
 /** Register an AI-generated industry so all existing lookup functions work with it. */
@@ -184,6 +186,9 @@ export function registerAiIndustry(data: AiGeneratedIndustry): void {
     closeRate: data.closeRate,
     source: data.closeRateSource,
   });
+  if (data.demandAssessment) {
+    aiDemandAssessments.set(data.industryId, data.demandAssessment);
+  }
 }
 
 /** Remove a previously registered AI industry. */
@@ -191,6 +196,11 @@ export function unregisterAiIndustry(industryId: string): void {
   aiIndustryStore.delete(industryId);
   aiPlatformRecs.delete(industryId);
   aiCloseRates.delete(industryId);
+  aiDemandAssessments.delete(industryId);
+}
+
+export function getDemandAssessment(industryId: string): DemandAssessment | null {
+  return aiDemandAssessments.get(industryId) ?? null;
 }
 
 // Patch existing functions to also check the AI registry.

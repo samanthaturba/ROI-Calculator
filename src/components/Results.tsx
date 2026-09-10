@@ -15,6 +15,8 @@ interface Props {
   monthlyAdSpend?: number;
   /** When "low", shows a caveat on the projection that this audience has limited search behavior */
   audienceSearchBehavior?: "high" | "medium" | "low" | null;
+  /** Demand assessment verdict from AI classification — overrides audienceSearchBehavior when present */
+  demandVerdict?: "FIT" | "LIMITED_FIT" | "NOT_A_FIT" | null;
 }
 
 const PLATFORM_NAMES: Record<AdPlatform, string> = {
@@ -84,6 +86,7 @@ function SinglePlatformResults({
   const estimatedCpc = platform === "lsa" ? 0 : avgCpc * cpcMultiplier;
 
   const roas = result.totalSpend > 0 ? revenue / result.totalSpend : 0;
+  const gpRoas = gp !== null && result.totalSpend > 0 ? gp / result.totalSpend : null;
 
   return (
     <>
@@ -207,7 +210,7 @@ function SinglePlatformResults({
       </div>
 
       {/* Advanced Metrics Row */}
-      <div className="grid grid-cols-2 gap-4 mb-6">
+      <div className={`grid gap-4 mb-6 ${gpRoas !== null ? "grid-cols-3" : "grid-cols-2"}`}>
         <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
           {platform === "lsa" ? (
             <>
@@ -253,6 +256,20 @@ function SinglePlatformResults({
           </div>
           <div className="text-xs text-gray-400">revenue per $1 ad spend</div>
         </div>
+        {gpRoas !== null && (
+          <div className="rounded-lg p-4 border-2 border-emerald-300 bg-emerald-50/50">
+            <div className="text-xs text-emerald-800 uppercase tracking-wide mb-1">
+              <MetricTooltip
+                label="Est. GP ROAS"
+                explanation="Gross Profit Return on Ad Spend — for every $1 spent on ads, how many dollars of gross profit are estimated after direct job costs. This is the true return the business keeps."
+              />
+            </div>
+            <div className="text-lg font-bold text-emerald-700">
+              {gpRoas > 0 ? `${gpRoas.toFixed(1)}x` : "—"}
+            </div>
+            <div className="text-xs text-emerald-600/70">gross profit per $1 ad spend</div>
+          </div>
+        )}
       </div>
 
       {/* Revenue range */}
@@ -446,6 +463,7 @@ function SinglePlatformResults({
           <p>est. jobs = leads &times; close_rate = ~{formatNumber(result.totalLeads)} &times; {result.closeRate}% = ~{formatNumber(result.totalJobs)}</p>
           <p>est. revenue = jobs &times; avg_job_value = ~{formatCurrency(revenue)}</p>
           {roas > 0 && <p>est. ROAS = revenue / ad_spend = ~{formatCurrency(revenue)} / {formatCurrency(result.totalSpend)} = ~{roas.toFixed(1)}x</p>}
+          {gpRoas !== null && gpRoas > 0 && <p>est. GP ROAS = gross_profit / ad_spend = ~{formatCurrency(gp!)} / {formatCurrency(result.totalSpend)} = ~{gpRoas.toFixed(1)}x</p>}
         </div>
       </div>
     </>
@@ -462,7 +480,9 @@ export default function Results({
   marketMultiplier,
   monthlyAdSpend,
   audienceSearchBehavior,
+  demandVerdict,
 }: Props) {
+  const effectiveLowSearch = demandVerdict === "NOT_A_FIT" || demandVerdict === "LIMITED_FIT" || audienceSearchBehavior === "low";
   // Check if any platform has results
   const hasAnyResults = selectedPlatforms.some((p) => results[p] !== null);
 
@@ -492,7 +512,7 @@ export default function Results({
           marketTier={marketTier}
           marketMultiplier={marketMultiplier}
           platform={platform}
-          audienceSearchBehavior={audienceSearchBehavior}
+          audienceSearchBehavior={effectiveLowSearch ? "low" : audienceSearchBehavior}
         />
       </section>
     );
@@ -519,6 +539,7 @@ export default function Results({
     ? activeResults.reduce((s, r) => s + (isConservative ? r.result.grossProfitRounded! : r.result.grossProfit!), 0)
     : null;
   const combinedRoas = combinedSpend > 0 ? combinedRevenue / combinedSpend : 0;
+  const combinedGpRoas = combinedGP !== null && combinedSpend > 0 ? combinedGP / combinedSpend : null;
   const combinedCloseRate = activeResults[0].result.closeRate;
 
   return (
@@ -538,7 +559,7 @@ export default function Results({
       )}
 
       {/* Low-search audience caveat */}
-      {audienceSearchBehavior === "low" && selectedPlatforms.some((p) => p === "google" || p === "lsa") && (
+      {effectiveLowSearch && selectedPlatforms.some((p) => p === "google" || p === "lsa") && (
         <div className="mb-4 p-3 bg-amber-50 border-l-4 border-amber-400 rounded-md">
           <p className="text-sm font-semibold text-amber-800 mb-1">
             ⚠️ Audience Note — Limited Search Behavior
@@ -612,7 +633,7 @@ export default function Results({
       )}
 
       {/* Combined ROAS */}
-      <div className="grid grid-cols-2 gap-4 mb-6">
+      <div className={`grid gap-4 mb-6 ${combinedGpRoas !== null ? "grid-cols-3" : "grid-cols-2"}`}>
         <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
           <div className="text-xs text-cogent-neutral uppercase tracking-wide mb-1">
             <MetricTooltip
@@ -625,6 +646,20 @@ export default function Results({
           </div>
           <div className="text-xs text-gray-400">revenue per $1 ad spend</div>
         </div>
+        {combinedGpRoas !== null && (
+          <div className="rounded-lg p-4 border-2 border-emerald-300 bg-emerald-50/50">
+            <div className="text-xs text-emerald-800 uppercase tracking-wide mb-1">
+              <MetricTooltip
+                label="Combined GP ROAS"
+                explanation="Gross Profit Return on Ad Spend across all platforms \u2014 for every $1 spent on ads, how many dollars of gross profit are estimated after direct job costs."
+              />
+            </div>
+            <div className="text-lg font-bold text-emerald-700">
+              {combinedGpRoas > 0 ? `${combinedGpRoas.toFixed(1)}x` : "\u2014"}
+            </div>
+            <div className="text-xs text-emerald-600/70">gross profit per $1 ad spend</div>
+          </div>
+        )}
         <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
           <div className="text-xs text-cogent-neutral uppercase tracking-wide mb-1">Platforms</div>
           <div className="text-sm font-medium text-cogent-navy-dark mt-1">

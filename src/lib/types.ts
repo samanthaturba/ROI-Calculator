@@ -97,3 +97,48 @@ export interface ExtractedService {
   /** When no exact industry match exists, the closest benchmark from any industry used as a data proxy. */
   crossIndustryBenchmark?: IndustryBenchmark;
 }
+
+// ── Demand model classification ─────────────────────────────────────────────
+
+export type DemandModel =
+  | "local-service-consumer"
+  | "consumer-product-direct"
+  | "b2b-buyer-initiated"
+  | "b2b-spec-in"
+  | "contract-bid-driven"
+  | "distributor-mediated"
+  | "referral-relationship";
+
+export type SearchFitVerdict = "FIT" | "LIMITED_FIT" | "NOT_A_FIT";
+
+export type EvidenceTier = "VERIFIED" | "INFERRED" | "UNKNOWN";
+
+export interface EvidenceTaggedClaim {
+  claim: string;
+  tier: EvidenceTier;
+  source?: string;
+}
+
+export interface AlternativeChannel {
+  channel: string;
+  reason: string;
+}
+
+export interface DemandAssessment {
+  verdict: SearchFitVerdict;
+  verdictReason: string;
+  demandModel: DemandModel;
+  demandModelLabel: string;
+  demandModelExplanation: string;
+
+  buyerInitiatesWithSearch: EvidenceTaggedClaim;
+  transactionDirect: EvidenceTaggedClaim;
+  searchTermBehavior: EvidenceTaggedClaim;
+  headTermOwnership: EvidenceTaggedClaim;
+  salesCycleLength: EvidenceTaggedClaim;
+  geoConstrained: EvidenceTaggedClaim;
+
+  spendCeiling?: { amount: number; reason: string };
+  intakeBlockers?: string[];
+  alternativeChannels?: AlternativeChannel[];
+}

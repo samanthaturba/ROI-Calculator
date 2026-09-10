@@ -22,6 +22,7 @@ import {
   registerAiIndustry,
   getServicesForIndustryWithAi,
   getAudienceInsights,
+  getDemandAssessment,
   type AiGeneratedIndustry,
 } from "../lib/benchmarks";
 import { calculate, checkSpendWarning, formatCurrency } from "../lib/calculations";
@@ -31,6 +32,7 @@ import ClientInputsComponent from "../components/ClientInputs";
 import ServiceSelection from "../components/ServiceSelection";
 import BudgetSalesInputs from "../components/BudgetSalesInputs";
 import Results from "../components/Results";
+import DemandAssessmentPanel from "../components/DemandAssessment";
 import KeywordSuggestions from "../components/KeywordSuggestions";
 import ExportSummary from "../components/ExportSummary";
 import SaveLoad from "../components/SaveLoad";
@@ -1896,7 +1898,12 @@ ${resultsHtml}
           selectedServices={services.filter((s) => s.selected)}
         />
 
-        {/* Section D: Results */}
+        {/* Section D: Demand Assessment (AI-generated industries) */}
+        {clientInputs.industryId && getDemandAssessment(clientInputs.industryId) && (
+          <DemandAssessmentPanel assessment={getDemandAssessment(clientInputs.industryId)!} />
+        )}
+
+        {/* Section E: Results */}
         <Results
           results={platformResults}
           selectedPlatforms={selectedPlatforms}
@@ -1907,6 +1914,7 @@ ${resultsHtml}
           marketMultiplier={blendedMultiplier}
           monthlyAdSpend={budgetMode === "maxroi" ? maxRoiAdSpend : budgetInputs.monthlyAdSpend}
           audienceSearchBehavior={clientInputs.industryId ? getAudienceInsights(clientInputs.industryId)?.searchBehavior ?? null : null}
+          demandVerdict={clientInputs.industryId ? getDemandAssessment(clientInputs.industryId)?.verdict ?? null : null}
         />
 
         {/* Section E: Keyword Suggestions (Google only) */}
