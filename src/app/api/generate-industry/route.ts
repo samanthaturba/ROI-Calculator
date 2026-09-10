@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
+export const maxDuration = 60;
+
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 const GENERATE_PASSWORD = process.env.GENERATE_PASSWORD || "cogent.123";
 
