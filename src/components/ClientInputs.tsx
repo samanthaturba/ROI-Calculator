@@ -6,6 +6,20 @@ import { searchIndustries, getAllIndustriesWithAi, type AiGeneratedIndustry } fr
 import { detectIndustries } from "../lib/industry-detection";
 import type { IndustryMatch } from "../lib/industry-detection";
 
+async function parseStreamedResponse(res: Response): Promise<{ ok: boolean; status: number; data: Record<string, unknown> }> {
+  const text = await res.text();
+  const jsonStr = text.trimEnd();
+  const lastNewline = jsonStr.lastIndexOf("\n");
+  const payload = lastNewline >= 0 ? jsonStr.slice(lastNewline + 1) : jsonStr;
+  try {
+    const data = JSON.parse(payload.trim()) as Record<string, unknown>;
+    const hasError = !!data.error;
+    return { ok: !hasError, status: hasError ? (data.errorType === "insufficient_content" ? 422 : 500) : 200, data };
+  } catch {
+    return { ok: false, status: 500, data: { error: "AI returned invalid data format. Please try again." } };
+  }
+}
+
 interface ScanResult {
   topMatches: IndustryMatch[];
   text: string;
@@ -142,7 +156,7 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
     setGeneratedIndustry(null);
 
     try {
-      const res = await fetch("/api/generate-industry", {
+      const rawRes = await fetch("/api/generate-industry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -153,11 +167,16 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
         }),
       });
 
-      const data = await res.json();
+      if (rawRes.status === 401) {
+        setPasswordUnlocked(false);
+        setGenerateError("Incorrect password.");
+        return;
+      }
 
-      if (!res.ok || data.error) {
-        if (res.status === 401) setPasswordUnlocked(false);
-        setGenerateError(data.error ?? "AI generation failed. Please try again.");
+      const { ok: resOk, data } = await parseStreamedResponse(rawRes);
+
+      if (!resOk || data.error) {
+        setGenerateError((data.error as string) ?? "AI generation failed. Please try again.");
         return;
       }
 
@@ -232,23 +251,27 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
 
     // Step 2: Call AI to generate industry profile from the page text
     try {
-      const res = await fetch("/api/generate-industry", {
+      const rawRes2 = await fetch("/api/generate-industry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url, text, title, password: generatePassword }),
       });
-      const data = await res.json();
-      if (!res.ok || data.error) {
-        if (res.status === 401) setPasswordUnlocked(false);
-        setDirectGenerateError(data.error ?? "AI generation failed. Try again.");
-        // Show manual paste for content-quality failures
-        if (data.errorType === "insufficient_content" || res.status === 422) {
+      if (rawRes2.status === 401) {
+        setPasswordUnlocked(false);
+        setDirectGenerateError("Incorrect password.");
+        setDirectGenerating(false);
+        return;
+      }
+      const { ok: resOk2, data: data2 } = await parseStreamedResponse(rawRes2);
+      if (!resOk2 || data2.error) {
+        setDirectGenerateError((data2.error as string) ?? "AI generation failed. Try again.");
+        if (data2.errorType === "insufficient_content") {
           setShowManualPaste(true);
         }
         setDirectGenerating(false);
         return;
       }
-      const industry = data.industry as AiGeneratedIndustry;
+      const industry = data2.industry as AiGeneratedIndustry;
       if (onAiIndustryGenerated) {
         onAiIndustryGenerated(industry, text);
       }
@@ -270,7 +293,7 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
     const url = (value.websiteUrl || "").trim();
 
     try {
-      const res = await fetch("/api/generate-industry", {
+      const rawRes3 = await fetch("/api/generate-industry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -280,13 +303,17 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
           password: generatePassword,
         }),
       });
-      const data = await res.json();
-      if (!res.ok || data.error) {
-        if (res.status === 401) setPasswordUnlocked(false);
-        setDirectGenerateError(data.error ?? "AI generation failed. Try again.");
+      if (rawRes3.status === 401) {
+        setPasswordUnlocked(false);
+        setDirectGenerateError("Incorrect password.");
         return;
       }
-      const industry = data.industry as AiGeneratedIndustry;
+      const { ok: resOk3, data: data3 } = await parseStreamedResponse(rawRes3);
+      if (!resOk3 || data3.error) {
+        setDirectGenerateError((data3.error as string) ?? "AI generation failed. Try again.");
+        return;
+      }
+      const industry = data3.industry as AiGeneratedIndustry;
       if (onAiIndustryGenerated) {
         onAiIndustryGenerated(industry, manualPasteText);
       }

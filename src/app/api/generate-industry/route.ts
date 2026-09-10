@@ -225,6 +225,7 @@ Page title: ${title || "(not provided)"}
 Website content:
 ${text.substring(0, 7000)}`;
 
+    // Use streaming to keep Vercel Hobby connection alive (25s vs 10s limit)
     const anthropicRes = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       headers: {
@@ -235,10 +236,10 @@ ${text.substring(0, 7000)}`;
       body: JSON.stringify({
         model: "claude-sonnet-4-6",
         max_tokens: 3000,
+        stream: true,
         system: SYSTEM_PROMPT,
         messages: [{ role: "user", content: userMessage }],
       }),
-      signal: AbortSignal.timeout(45000),
     });
 
     if (!anthropicRes.ok) {
@@ -250,62 +251,115 @@ ${text.substring(0, 7000)}`;
       );
     }
 
-    const anthropicData = (await anthropicRes.json()) as {
-      content?: Array<{ type: string; text: string }>;
-    };
-    const rawContent = anthropicData.content?.[0]?.text ?? "";
-
-    if (!rawContent) {
-      return NextResponse.json({ error: "AI returned an empty response. Please try again." }, { status: 500 });
+    // Collect streamed text chunks
+    const reader = anthropicRes.body?.getReader();
+    if (!reader) {
+      return NextResponse.json({ error: "No response stream from AI." }, { status: 500 });
     }
 
-    // Strip any accidental markdown fences and parse
-    let parsed: unknown;
-    try {
-      const cleaned = rawContent
-        .replace(/^```(?:json)?\s*/m, "")
-        .replace(/\s*```\s*$/m, "")
-        .trim();
-      parsed = JSON.parse(cleaned);
-    } catch {
-      console.error("Failed to parse AI JSON:", rawContent.substring(0, 600));
-      return NextResponse.json(
-        { error: "AI returned invalid data format. Please try again." },
-        { status: 500 }
-      );
-    }
+    const encoder = new TextEncoder();
+    const decoder = new TextDecoder();
+    let rawContent = "";
 
-    const result = parsed as Record<string, unknown>;
+    // Stream keepalive: send newlines to client while collecting AI response
+    const stream = new ReadableStream({
+      async start(controller) {
+        try {
+          let buffer = "";
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            buffer += decoder.decode(value, { stream: true });
 
-    // AI chose to refuse — content was insufficient or too ambiguous to generate accurately
-    if (result.error === "insufficient_content") {
-      return NextResponse.json(
-        {
-          error: `Couldn't determine this site's services with confidence. ${result.message ?? ""} Paste text from their services or about page below and we'll generate from that instead.`,
-          errorType: "insufficient_content",
-        },
-        { status: 422 }
-      );
-    }
+            const lines = buffer.split("\n");
+            buffer = lines.pop() || "";
 
-    // Basic structural validation
-    if (!result.industryId || !result.industryName || !Array.isArray(result.services)) {
-      return NextResponse.json(
-        { error: "AI response was incomplete. Please try again.", errorType: "incomplete_response" },
-        { status: 500 }
-      );
-    }
+            for (const line of lines) {
+              if (line.startsWith("data: ")) {
+                const data = line.slice(6).trim();
+                if (data === "[DONE]") continue;
+                try {
+                  const evt = JSON.parse(data) as Record<string, unknown>;
+                  if (evt.type === "content_block_delta") {
+                    const delta = evt.delta as { type?: string; text?: string } | undefined;
+                    if (delta?.type === "text_delta" && delta.text) {
+                      rawContent += delta.text;
+                      // Send a keepalive space to prevent Vercel timeout
+                      controller.enqueue(encoder.encode(" "));
+                    }
+                  }
+                } catch {
+                  // skip unparseable lines
+                }
+              }
+            }
+          }
 
-    // Validate demand assessment is present
-    const da = result.demandAssessment as Record<string, unknown> | undefined;
-    if (!da || !da.verdict || !da.demandModel) {
-      return NextResponse.json(
-        { error: "AI response missing demand assessment. Please try again.", errorType: "incomplete_response" },
-        { status: 500 }
-      );
-    }
+          // Done streaming — parse and validate
+          if (!rawContent) {
+            const errResp = JSON.stringify({ error: "AI returned an empty response. Please try again." });
+            controller.enqueue(encoder.encode("\n" + errResp));
+            controller.close();
+            return;
+          }
 
-    return NextResponse.json({ industry: result });
+          let parsed: unknown;
+          try {
+            const cleaned = rawContent
+              .replace(/^```(?:json)?\s*/m, "")
+              .replace(/\s*```\s*$/m, "")
+              .trim();
+            parsed = JSON.parse(cleaned);
+          } catch {
+            console.error("Failed to parse AI JSON:", rawContent.substring(0, 600));
+            const errResp = JSON.stringify({ error: "AI returned invalid data format. Please try again." });
+            controller.enqueue(encoder.encode("\n" + errResp));
+            controller.close();
+            return;
+          }
+
+          const result = parsed as Record<string, unknown>;
+
+          if (result.error === "insufficient_content") {
+            const errResp = JSON.stringify({
+              error: `Couldn't determine this site's services with confidence. ${result.message ?? ""} Paste text from their services or about page below and we'll generate from that instead.`,
+              errorType: "insufficient_content",
+            });
+            controller.enqueue(encoder.encode("\n" + errResp));
+            controller.close();
+            return;
+          }
+
+          if (!result.industryId || !result.industryName || !Array.isArray(result.services)) {
+            const errResp = JSON.stringify({ error: "AI response was incomplete. Please try again.", errorType: "incomplete_response" });
+            controller.enqueue(encoder.encode("\n" + errResp));
+            controller.close();
+            return;
+          }
+
+          const da = result.demandAssessment as Record<string, unknown> | undefined;
+          if (!da || !da.verdict || !da.demandModel) {
+            const errResp = JSON.stringify({ error: "AI response missing demand assessment. Please try again.", errorType: "incomplete_response" });
+            controller.enqueue(encoder.encode("\n" + errResp));
+            controller.close();
+            return;
+          }
+
+          const successResp = JSON.stringify({ industry: result });
+          controller.enqueue(encoder.encode("\n" + successResp));
+          controller.close();
+        } catch (err) {
+          const msg = err instanceof Error ? err.message : String(err);
+          const errResp = JSON.stringify({ error: `Unexpected error: ${msg}` });
+          controller.enqueue(encoder.encode("\n" + errResp));
+          controller.close();
+        }
+      },
+    });
+
+    return new Response(stream, {
+      headers: { "Content-Type": "text/plain; charset=utf-8" },
+    });
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
     if (msg.includes("TimeoutError") || msg.includes("abort")) {
