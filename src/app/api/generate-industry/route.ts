@@ -223,7 +223,7 @@ Website URL: ${url || "(not provided)"}
 Page title: ${title || "(not provided)"}
 
 Website content:
-${text.substring(0, 7000)}`;
+${text.substring(0, 4000)}`;
 
     // Use streaming to keep Vercel Hobby connection alive (25s vs 10s limit)
     const anthropicRes = await fetch("https://api.anthropic.com/v1/messages", {
@@ -234,8 +234,8 @@ ${text.substring(0, 7000)}`;
         "content-type": "application/json",
       },
       body: JSON.stringify({
-        model: "claude-sonnet-4-6",
-        max_tokens: 3000,
+        model: "claude-haiku-4-5-20251001",
+        max_tokens: 2500,
         stream: true,
         system: SYSTEM_PROMPT,
         messages: [{ role: "user", content: userMessage }],
