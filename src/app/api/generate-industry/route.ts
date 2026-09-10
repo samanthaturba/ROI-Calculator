@@ -235,7 +235,7 @@ ${text.substring(0, 4000)}`;
       },
       body: JSON.stringify({
         model: "claude-haiku-4-5-20251001",
-        max_tokens: 2500,
+        max_tokens: 4000,
         stream: true,
         system: SYSTEM_PROMPT,
         messages: [{ role: "user", content: userMessage }],
@@ -305,10 +305,17 @@ ${text.substring(0, 4000)}`;
 
           let parsed: unknown;
           try {
-            const cleaned = rawContent
-              .replace(/^```(?:json)?\s*/m, "")
-              .replace(/\s*```\s*$/m, "")
+            // Strip markdown fences and any text outside the JSON object
+            let cleaned = rawContent
+              .replace(/^```(?:json)?\s*/gm, "")
+              .replace(/\s*```\s*/gm, "")
               .trim();
+            // Extract the JSON object if there's surrounding text
+            const firstBrace = cleaned.indexOf("{");
+            const lastBrace = cleaned.lastIndexOf("}");
+            if (firstBrace >= 0 && lastBrace > firstBrace) {
+              cleaned = cleaned.substring(firstBrace, lastBrace + 1);
+            }
             parsed = JSON.parse(cleaned);
           } catch {
             console.error("Failed to parse AI JSON:", rawContent.substring(0, 600));
