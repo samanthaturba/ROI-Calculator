@@ -132,59 +132,61 @@ Senior care / assisted living: $100–300
 For NOT_A_FIT industries: still generate service CPLs as theoretical benchmarks, but mark confidence as "low" and note in each service that keyword volume is unverified.
 
 ━━━ OUTPUT FORMAT ━━━
-Return ONLY valid JSON — no explanation, no markdown, no code blocks.
+Return ONLY valid JSON — no explanation, no markdown, no code blocks, no backtick fences.
+
+CRITICAL: Keep ALL string values SHORT — under 120 characters each. Be terse. Every extra word risks truncation.
 
 {
   "industryId": "kebab-case-slug",
-  "industryName": "Industry Name (2-5 words, title case)",
+  "industryName": "Industry Name (2-5 words)",
   "closeRate": <integer 1-60>,
-  "closeRateSource": "Brief source or rationale",
+  "closeRateSource": "Brief rationale, under 80 chars",
 
   "demandAssessment": {
     "verdict": "FIT" | "LIMITED_FIT" | "NOT_A_FIT",
-    "verdictReason": "One-sentence reason for the verdict. Lead with this — do not bury it.",
+    "verdictReason": "One short sentence.",
     "demandModel": "local-service-consumer" | "consumer-product-direct" | "b2b-buyer-initiated" | "b2b-spec-in" | "contract-bid-driven" | "distributor-mediated" | "referral-relationship",
-    "demandModelLabel": "Human-readable label, e.g. 'B2B Spec-In / Engineered Component'",
-    "demandModelExplanation": "2-3 sentences explaining WHY this business fits this demand model based on what you see on their website.",
+    "demandModelLabel": "Short label",
+    "demandModelExplanation": "1-2 short sentences max.",
 
-    "buyerInitiatesWithSearch": { "claim": "answer to Q1", "tier": "VERIFIED|INFERRED|UNKNOWN", "source": "if VERIFIED" },
-    "transactionDirect": { "claim": "answer to Q2", "tier": "VERIFIED|INFERRED|UNKNOWN", "source": "if VERIFIED" },
-    "searchTermBehavior": { "claim": "answer to Q3", "tier": "VERIFIED|INFERRED|UNKNOWN", "source": "if VERIFIED" },
-    "headTermOwnership": { "claim": "answer to Q4", "tier": "VERIFIED|INFERRED|UNKNOWN", "source": "if VERIFIED" },
-    "salesCycleLength": { "claim": "answer to Q5", "tier": "VERIFIED|INFERRED|UNKNOWN", "source": "if VERIFIED" },
-    "geoConstrained": { "claim": "answer to Q6", "tier": "VERIFIED|INFERRED|UNKNOWN", "source": "if VERIFIED" },
+    "buyerInitiatesWithSearch": { "claim": "short answer", "tier": "VERIFIED|INFERRED|UNKNOWN", "source": "" },
+    "transactionDirect": { "claim": "short answer", "tier": "VERIFIED|INFERRED|UNKNOWN", "source": "" },
+    "searchTermBehavior": { "claim": "short answer", "tier": "VERIFIED|INFERRED|UNKNOWN", "source": "" },
+    "headTermOwnership": { "claim": "short answer", "tier": "VERIFIED|INFERRED|UNKNOWN", "source": "" },
+    "salesCycleLength": { "claim": "short answer", "tier": "VERIFIED|INFERRED|UNKNOWN", "source": "" },
+    "geoConstrained": { "claim": "short answer", "tier": "VERIFIED|INFERRED|UNKNOWN", "source": "" },
 
-    "spendCeiling": { "amount": <number or null — monthly $ ceiling>, "reason": "why this ceiling exists" },
-    "intakeBlockers": ["list of blockers found on the website, or empty array"],
+    "spendCeiling": { "amount": <number or null>, "reason": "short reason" },
+    "intakeBlockers": ["short blocker descriptions"],
     "alternativeChannels": [
-      { "channel": "e.g. Thomasnet / LinkedIn ABM / Trade shows", "reason": "Why this channel fits the demand model" }
+      { "channel": "Channel name", "reason": "Why it fits, under 60 chars" }
     ]
   },
 
   "services": [
     {
-      "serviceName": "Specific Service Name",
+      "serviceName": "Service Name",
       "cplLow": <number>,
       "cplMid": <number>,
       "cplHigh": <number>,
       "avgJobValue": <number>,
       "recommendedMinAdSpend": <number>,
       "recommendedTargetAdSpend": <number>,
-      "notes": "What this covers, who the customer is, 3-5 example search queries. For NOT_A_FIT: note that keyword volume is unverified.",
-      "source": "Named source / 'Unverified — no published benchmark for this niche'",
+      "notes": "Brief note, 1-2 sentences max.",
+      "source": "Source or 'Unverified'",
       "confidence": "high" | "medium" | "low",
       "avgDaysToClose": <integer>
     }
   ],
   "platformRecommendations": {
-    "google": { "rating": <1-5>, "note": "Honest assessment. For NOT_A_FIT demand models, rating MUST be 1 or 2." },
-    "meta": { "rating": <1-5>, "note": "..." },
-    "linkedin": { "rating": <1-5>, "note": "..." },
-    "lsa": { "rating": <1-5>, "note": "..." }
+    "google": { "rating": <1-5>, "note": "1 short sentence." },
+    "meta": { "rating": <1-5>, "note": "1 short sentence." },
+    "linkedin": { "rating": <1-5>, "note": "1 short sentence." },
+    "lsa": { "rating": <1-5>, "note": "1 short sentence." }
   }
 }
 
-Generate 5–8 services. For NOT_A_FIT or LIMITED_FIT industries, still generate services (they're used if the user overrides), but set Google rating to 1-2 and confidence to "low".`;
+Generate 4–5 services (not more). Keep notes and reasons terse. For NOT_A_FIT or LIMITED_FIT, still generate services but set Google rating to 1-2 and confidence to "low".`;
 
 export async function POST(req: NextRequest) {
   if (!ANTHROPIC_API_KEY) {
@@ -235,7 +237,7 @@ ${text.substring(0, 4000)}`;
       },
       body: JSON.stringify({
         model: "claude-haiku-4-5-20251001",
-        max_tokens: 4000,
+        max_tokens: 2500,
         stream: true,
         system: SYSTEM_PROMPT,
         messages: [{ role: "user", content: userMessage }],
