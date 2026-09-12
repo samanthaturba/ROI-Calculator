@@ -21,6 +21,8 @@ interface Props {
   maxRoiAdSpend?: number;
   /** Selected services — used to compute weighted avg days-to-close note */
   selectedServices?: ServiceSelection[];
+  /** Weighted average CPL from selected services — used in the plain-English math bar */
+  weightedAvgCpl?: number | null;
 }
 
 const PLATFORM_LABELS: Record<AdPlatform, string> = {
@@ -53,6 +55,7 @@ export default function BudgetSalesInputs({
   budgetMode = "strict",
   maxRoiAdSpend = 0,
   selectedServices = [],
+  weightedAvgCpl: weightedAvgCplProp = null,
 }: Props) {
   const isMultiPlatform = selectedPlatforms && selectedPlatforms.length > 1 && platformAllocations;
   const isMaxRoi = budgetMode === "maxroi";
@@ -93,10 +96,8 @@ export default function BudgetSalesInputs({
   // The budget that will actually flow into calculations
   const effectiveBudget = isMaxRoi ? maxRoiAdSpend : value.monthlyAdSpend;
 
-  // Simple example: "at this spend + close rate, here's what you'd expect"
-  const avgCpl = recommendedTarget
-    ? (recommendedTarget / Math.ceil(6 / Math.max(value.closeRate / 100, 0.01)))
-    : null;
+  // Use the actual weighted average CPL from selected services
+  const avgCpl = weightedAvgCplProp;
   const exampleLeads = effectiveBudget > 0 && avgCpl ? Math.round(effectiveBudget / avgCpl) : null;
   const exampleJobs = exampleLeads ? Math.round(exampleLeads * (value.closeRate / 100)) : null;
 

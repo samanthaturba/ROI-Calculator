@@ -1896,6 +1896,13 @@ ${resultsHtml}
           budgetMode={budgetMode}
           maxRoiAdSpend={maxRoiAdSpend}
           selectedServices={services.filter((s) => s.selected)}
+          weightedAvgCpl={(() => {
+            const sel = services.filter((s) => s.selected);
+            if (sel.length === 0) return null;
+            const cpls = sel.map((s) => getEffectiveCplForService(s, blendedMultiplier)).filter((c): c is number => c !== null && c > 0);
+            if (cpls.length === 0) return null;
+            return cpls.reduce((a, b) => a + b, 0) / cpls.length;
+          })()}
         />
 
         {/* Section D: Demand Assessment (AI-generated industries) */}
