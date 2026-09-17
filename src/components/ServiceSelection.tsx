@@ -24,6 +24,10 @@ interface Props {
   onBudgetModeChange: (mode: BudgetMode) => void;
   /** Called when the user edits the inline monthly budget input */
   onMonthlyAdSpendChange?: (value: number) => void;
+  /** Service names that have live Google Ads CPC data overlaid */
+  liveCpcServices?: Set<string>;
+  /** Whether live CPC data is currently loading */
+  liveCpcLoading?: boolean;
 }
 
 type BudgetMode = "strict" | "maxroi";
@@ -168,6 +172,8 @@ export default function ServiceSelection({
   budgetMode,
   onBudgetModeChange,
   onMonthlyAdSpendChange,
+  liveCpcServices = new Set(),
+  liveCpcLoading = false,
 }: Props) {
   const [newServiceName, setNewServiceName] = useState("");
   const [showCrossIndustry, setShowCrossIndustry] = useState(false);
@@ -391,6 +397,14 @@ export default function ServiceSelection({
           <p className="text-sm text-gray-500 mt-0.5">
             Services are ordered by highest average job value — prioritize the top services for best ROI.
           </p>
+          {liveCpcLoading && (
+            <p className="text-xs text-blue-600 mt-1 animate-pulse">Fetching live CPC data from Google Ads...</p>
+          )}
+          {liveCpcServices.size > 0 && !liveCpcLoading && (
+            <p className="text-xs text-blue-600 mt-1">
+              CPL values updated with live Google Ads data for {liveCpcServices.size} service{liveCpcServices.size !== 1 ? "s" : ""}
+            </p>
+          )}
         </div>
 
         {/* Budget mode toggle */}
@@ -650,6 +664,12 @@ export default function ServiceSelection({
                       : "bg-orange-100 text-orange-700"
                   }`}>
                     {service.benchmark.confidence} confidence
+                  </span>
+                )}
+
+                {liveCpcServices.has(service.serviceName) && (
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 font-medium border border-blue-200">
+                    Google Ads Live
                   </span>
                 )}
 

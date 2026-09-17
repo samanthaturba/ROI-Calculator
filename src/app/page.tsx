@@ -27,6 +27,7 @@ import {
 } from "../lib/benchmarks";
 import { calculate, checkSpendWarning, formatCurrency } from "../lib/calculations";
 import { extractServicesFromText } from "../lib/service-extraction";
+import { useKeywordCpc, cpcToCpl } from "../lib/useKeywordCpc";
 
 import ClientInputsComponent from "../components/ClientInputs";
 import ServiceSelection from "../components/ServiceSelection";
@@ -138,6 +139,56 @@ export default function Home() {
   const primaryPlatform = selectedPlatforms[0];
   // Backward compat alias
   const platform = primaryPlatform;
+
+  // Live CPC data from Google Ads Keyword Planner
+  const [liveCpcServices, setLiveCpcServices] = useState<Set<string>>(new Set());
+  const cpcKeywords = useMemo(
+    () => services.filter((s) => s.selected).map((s) => s.serviceName),
+    [services]
+  );
+  const cpcState = useKeywordCpc(
+    clientInputs.industryId && platform === "google" ? cpcKeywords : []
+  );
+
+  useEffect(() => {
+    if (cpcState.loading || !cpcState.configured || cpcState.data.size === 0) return;
+
+    const updatedNames = new Set<string>();
+    let anyUpdated = false;
+
+    setServices((prev) =>
+      prev.map((s) => {
+        if (!s.benchmark || !s.selected) return s;
+
+        const cpc = cpcState.data.get(s.serviceName.toLowerCase());
+        if (!cpc || cpc.cpcMid === null) return s;
+
+        const newCplLow = cpcToCpl(cpc.cpcLow);
+        const newCplMid = cpcToCpl(cpc.cpcMid);
+        const newCplHigh = cpcToCpl(cpc.cpcHigh);
+
+        if (newCplMid === null) return s;
+
+        updatedNames.add(s.serviceName);
+        anyUpdated = true;
+
+        return {
+          ...s,
+          benchmark: {
+            ...s.benchmark,
+            cplLow: newCplLow ?? s.benchmark.cplLow,
+            cplMid: newCplMid,
+            cplHigh: newCplHigh ?? s.benchmark.cplHigh,
+            source: "google-ads-live",
+          },
+        };
+      })
+    );
+
+    if (anyUpdated) {
+      setLiveCpcServices(updatedNames);
+    }
+  }, [cpcState.data, cpcState.loading, cpcState.configured]);
 
   // Compute blended market multiplier from all areas
   const blendedMultiplier = useMemo(() => {
@@ -1872,6 +1923,8 @@ ${resultsHtml}
           onMonthlyAdSpendChange={(val) =>
             setBudgetInputs((prev) => ({ ...prev, monthlyAdSpend: val }))
           }
+          liveCpcServices={liveCpcServices}
+          liveCpcLoading={cpcState.loading}
         />
 
         {/* Section C: Budget + Sales Inputs */}
