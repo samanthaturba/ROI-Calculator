@@ -1976,6 +1976,8 @@ ${resultsHtml}
           audienceSearchBehavior={clientInputs.industryId ? getAudienceInsights(clientInputs.industryId)?.searchBehavior ?? null : null}
           demandVerdict={clientInputs.industryId ? getDemandAssessment(clientInputs.industryId)?.verdict ?? null : null}
           grossMarginPercent={budgetInputs.grossMarginPercent}
+          industryName={selectedIndustry?.name}
+          audienceInsights={clientInputs.industryId ? getAudienceInsights(clientInputs.industryId) : null}
         />
 
         {/* Section E: Keyword Suggestions (Google only) */}

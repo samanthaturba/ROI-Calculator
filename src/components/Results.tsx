@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { CalculationResult, RoundingMode, AdPlatform } from "../lib/types";
 import { formatCurrency, formatNumber } from "../lib/calculations";
+import type { AudienceInsight } from "../lib/benchmarks";
 
 interface Props {
   results: Record<AdPlatform, CalculationResult | null>;
@@ -19,6 +20,12 @@ interface Props {
   demandVerdict?: "FIT" | "LIMITED_FIT" | "NOT_A_FIT" | null;
   /** Gross margin percentage entered by user — null means not entered */
   grossMarginPercent?: number | null;
+  /** Industry ID for alternative marketing suggestions */
+  industryId?: string;
+  /** Industry display name */
+  industryName?: string;
+  /** Pre-fetched audience insights for this industry */
+  audienceInsights?: AudienceInsight | null;
 }
 
 const PLATFORM_NAMES: Record<AdPlatform, string> = {
@@ -58,7 +65,7 @@ function MetricTooltip({ label, explanation }: { label: string; explanation: str
 
 const LOW_ROAS_THRESHOLD = 3;
 
-function LowRoasWarning({ roas, gpRoas, grossMarginPercent }: { roas: number; gpRoas: number | null; grossMarginPercent?: number | null }) {
+function LowRoasWarning({ roas, gpRoas, grossMarginPercent, industryName, audienceInsights }: { roas: number; gpRoas: number | null; grossMarginPercent?: number | null; industryName?: string; audienceInsights?: AudienceInsight | null }) {
   const effectiveRoas = gpRoas !== null ? gpRoas : roas;
   if (effectiveRoas <= 0 || effectiveRoas >= LOW_ROAS_THRESHOLD) return null;
 
@@ -86,6 +93,115 @@ function LowRoasWarning({ roas, gpRoas, grossMarginPercent }: { roas: number; gp
       <p className="text-xs text-red-600 mt-2">
         If the numbers are accurate and ROAS is still below 3x, this may not be a strong ad-spend opportunity for the client. The owner may need to work on close rate, job value, or pricing before ads make sense.
       </p>
+      <AlternativeMarketingOptions industryName={industryName} audienceInsights={audienceInsights} />
+    </div>
+  );
+}
+
+const STRATEGY_ICONS: Record<string, string> = {
+  event: "🎪",
+  prospecting: "🎯",
+  bizdev: "🤝",
+  content: "📝",
+};
+
+const GENERAL_ALTERNATIVES: { title: string; detail: string; roiNote: string }[] = [
+  {
+    title: "Direct Mail Campaigns",
+    detail: "Targeted mailers to homeowners or businesses in the service area. Works especially well for home services, contractors, and local B2B. Every Door Direct Mail (EDDM) keeps postage low.",
+    roiNote: "Typical response rate 1–5%. At $0.50–$1.50/piece, a $2,000 campaign reaching 2,000 homes can generate 20–100 inquiries. ROI depends heavily on job value — high-ticket services ($5K+) often see 5–10x return.",
+  },
+  {
+    title: "SEO & Google Business Profile",
+    detail: "Organic search visibility through a well-optimized website and active Google Business Profile with reviews. Takes 3–6 months to build but generates leads at near-zero marginal cost once established.",
+    roiNote: "No direct ad spend — the investment is time and content. Businesses with 50+ Google reviews and strong local SEO often get 30–50% of their leads organically. Long-term ROI is typically the highest of any channel.",
+  },
+  {
+    title: "Referral & Review Programs",
+    detail: "Structured referral incentives for existing customers and systematic review collection. The highest-converting lead source for most service businesses — referred leads close at 2–3x the rate of cold leads.",
+    roiNote: "A $50–$100 referral bonus on a $2,000+ job is effectively a 3–5% marketing cost — far cheaper than ads. Many businesses report 10–20x ROI on referral program spend.",
+  },
+  {
+    title: "Social Media & Community Presence",
+    detail: "Consistent posting on Facebook, Instagram, or LinkedIn (depending on audience) with before/after work, customer stories, and community involvement. Builds trust and keeps the business top-of-mind.",
+    roiNote: "Hard to measure directly, but businesses active on social report 15–25% of leads mentioning they found them there. Works best paired with other channels as a trust-builder.",
+  },
+  {
+    title: "Networking & Strategic Partnerships",
+    detail: "Build relationships with complementary businesses that serve the same customer base. A plumber partners with realtors, an HVAC company partners with home inspectors, a commercial contractor partners with property managers.",
+    roiNote: "Zero direct cost. One strong referral partner can send 3–5 qualified leads per month. These leads typically close at high rates because they come with a trusted recommendation.",
+  },
+];
+
+function AlternativeMarketingOptions({ industryName, audienceInsights }: { industryName?: string; audienceInsights?: AudienceInsight | null }) {
+  const [expanded, setExpanded] = useState(false);
+
+  const hasIndustryInsights = audienceInsights && audienceInsights.strategies.length > 0;
+
+  return (
+    <div className="mt-3 border-t border-red-200 pt-3">
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="flex items-center gap-2 text-sm font-semibold text-red-800 hover:text-red-900 transition-colors w-full text-left"
+      >
+        <span className={`transition-transform duration-200 ${expanded ? "rotate-90" : ""}`}>▶</span>
+        <span>What else could work{industryName ? ` for ${industryName}` : ""}?</span>
+        <span className="text-xs font-normal text-red-600 ml-1">Alternative marketing options</span>
+      </button>
+
+      {expanded && (
+        <div className="mt-3 space-y-4">
+          {hasIndustryInsights && (
+            <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg">
+              <p className="text-sm font-semibold text-amber-900 mb-1">
+                Industry-Specific Insight — {audienceInsights!.industry}
+              </p>
+              <p className="text-xs text-amber-800 mb-3">
+                Primary buyer: <strong>{audienceInsights!.primaryBuyer}</strong>
+                {audienceInsights!.searchBehavior === "low" && (
+                  <> — this audience has <strong>low search behavior</strong>, meaning Google Ads may not be the best channel regardless of budget.</>
+                )}
+                {audienceInsights!.searchBehavior === "medium" && (
+                  <> — this audience has <strong>moderate search behavior</strong>. Ads can work for some services but not all.</>
+                )}
+              </p>
+              <p className="text-xs font-semibold text-amber-800 mb-2">Recommended strategies for this industry:</p>
+              <div className="space-y-2">
+                {audienceInsights!.strategies.map((s, i) => (
+                  <div key={i} className="text-xs text-amber-900">
+                    <p className="font-semibold">{STRATEGY_ICONS[s.type] || "📌"} {s.title}</p>
+                    <p className="text-amber-800 mt-0.5">{s.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className={hasIndustryInsights ? "p-3 bg-gray-50 border border-gray-200 rounded-lg" : ""}>
+            {hasIndustryInsights && (
+              <p className="text-xs font-semibold text-gray-700 mb-2">General alternatives worth discussing:</p>
+            )}
+            {!hasIndustryInsights && (
+              <p className="text-xs text-red-700 mb-3">
+                If paid ads aren&apos;t generating strong enough returns, here are other marketing channels to discuss with the client. These won&apos;t have the same precise projections as ad campaigns, but they&apos;re proven paths for service businesses:
+              </p>
+            )}
+            <div className="space-y-3">
+              {GENERAL_ALTERNATIVES.map((alt, i) => (
+                <div key={i} className="text-xs">
+                  <p className="font-semibold text-gray-800">{alt.title}</p>
+                  <p className="text-gray-600 mt-0.5">{alt.detail}</p>
+                  <p className="text-gray-500 mt-0.5 italic">💰 General ROI: {alt.roiNote}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className="text-xs text-red-600 italic">
+            These estimates are general industry ranges, not precise projections like the ad calculator above. Use them as talking points to guide the conversation — the right mix depends on the client&apos;s market, budget, and capacity.
+          </p>
+        </div>
+      )}
     </div>
   );
 }
@@ -99,6 +215,8 @@ function SinglePlatformResults({
   platform,
   audienceSearchBehavior,
   grossMarginPercent,
+  industryName,
+  audienceInsights,
 }: {
   result: CalculationResult;
   roundingMode: RoundingMode;
@@ -108,6 +226,8 @@ function SinglePlatformResults({
   platform: AdPlatform;
   audienceSearchBehavior?: "high" | "medium" | "low" | null;
   grossMarginPercent?: number | null;
+  industryName?: string;
+  audienceInsights?: AudienceInsight | null;
 }) {
   const platformName = PLATFORM_NAMES[platform];
   const isConservative = roundingMode === "conservative";
@@ -311,7 +431,7 @@ function SinglePlatformResults({
       </div>
 
       {/* Low ROAS warning */}
-      <LowRoasWarning roas={roas} gpRoas={gpRoas} grossMarginPercent={grossMarginPercent} />
+      <LowRoasWarning roas={roas} gpRoas={gpRoas} grossMarginPercent={grossMarginPercent} industryName={industryName} audienceInsights={audienceInsights} />
 
       {/* Revenue range */}
       {showRange && (
@@ -523,6 +643,8 @@ export default function Results({
   audienceSearchBehavior,
   demandVerdict,
   grossMarginPercent,
+  industryName,
+  audienceInsights,
 }: Props) {
   const effectiveLowSearch = demandVerdict === "NOT_A_FIT" || demandVerdict === "LIMITED_FIT" || audienceSearchBehavior === "low";
   // Check if any platform has results
@@ -556,6 +678,8 @@ export default function Results({
           platform={platform}
           audienceSearchBehavior={effectiveLowSearch ? "low" : audienceSearchBehavior}
           grossMarginPercent={grossMarginPercent}
+          industryName={industryName}
+          audienceInsights={audienceInsights}
         />
       </section>
     );
@@ -716,7 +840,7 @@ export default function Results({
       </div>
 
       {/* Low ROAS warning */}
-      <LowRoasWarning roas={combinedRoas} gpRoas={combinedGpRoas} grossMarginPercent={grossMarginPercent} />
+      <LowRoasWarning roas={combinedRoas} gpRoas={combinedGpRoas} grossMarginPercent={grossMarginPercent} industryName={industryName} audienceInsights={audienceInsights} />
 
       {/* Per-platform breakdown sections */}
       <div className="space-y-6 mt-6">
