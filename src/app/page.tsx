@@ -1978,6 +1978,7 @@ ${resultsHtml}
           grossMarginPercent={budgetInputs.grossMarginPercent}
           industryName={selectedIndustry?.name}
           audienceInsights={clientInputs.industryId ? getAudienceInsights(clientInputs.industryId) : null}
+          availableServices={services}
         />
 
         {/* Section E: Keyword Suggestions (Google only) */}

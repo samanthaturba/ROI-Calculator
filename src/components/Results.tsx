@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { CalculationResult, RoundingMode, AdPlatform } from "../lib/types";
+import type { CalculationResult, RoundingMode, AdPlatform, ServiceSelection as ServiceSelectionType } from "../lib/types";
 import { formatCurrency, formatNumber } from "../lib/calculations";
 import type { AudienceInsight } from "../lib/benchmarks";
 
@@ -26,6 +26,8 @@ interface Props {
   industryName?: string;
   /** Pre-fetched audience insights for this industry */
   audienceInsights?: AudienceInsight | null;
+  /** All available services for the industry (selected and unselected) */
+  availableServices?: ServiceSelectionType[];
 }
 
 const PLATFORM_NAMES: Record<AdPlatform, string> = {
@@ -65,7 +67,7 @@ function MetricTooltip({ label, explanation }: { label: string; explanation: str
 
 const LOW_ROAS_THRESHOLD = 3;
 
-function LowRoasWarning({ roas, gpRoas, grossMarginPercent, industryName, audienceInsights }: { roas: number; gpRoas: number | null; grossMarginPercent?: number | null; industryName?: string; audienceInsights?: AudienceInsight | null }) {
+function LowRoasWarning({ roas, gpRoas, grossMarginPercent, industryName, audienceInsights, availableServices }: { roas: number; gpRoas: number | null; grossMarginPercent?: number | null; industryName?: string; audienceInsights?: AudienceInsight | null; availableServices?: ServiceSelectionType[] }) {
   const effectiveRoas = gpRoas !== null ? gpRoas : roas;
   if (effectiveRoas <= 0 || effectiveRoas >= LOW_ROAS_THRESHOLD) return null;
 
@@ -93,7 +95,7 @@ function LowRoasWarning({ roas, gpRoas, grossMarginPercent, industryName, audien
       <p className="text-xs text-red-600 mt-2">
         If the numbers are accurate and ROAS is still below 3x, this may not be a strong ad-spend opportunity for the client. The owner may need to work on close rate, job value, or pricing before ads make sense.
       </p>
-      <AlternativeMarketingOptions industryName={industryName} audienceInsights={audienceInsights} />
+      <AlternativeMarketingOptions industryName={industryName} audienceInsights={audienceInsights} availableServices={availableServices} />
     </div>
   );
 }
@@ -133,10 +135,17 @@ const GENERAL_ALTERNATIVES: { title: string; detail: string; roiNote: string }[]
   },
 ];
 
-function AlternativeMarketingOptions({ industryName, audienceInsights }: { industryName?: string; audienceInsights?: AudienceInsight | null }) {
+function AlternativeMarketingOptions({ industryName, audienceInsights, availableServices }: { industryName?: string; audienceInsights?: AudienceInsight | null; availableServices?: ServiceSelectionType[] }) {
   const [expanded, setExpanded] = useState(false);
 
   const hasIndustryInsights = audienceInsights && audienceInsights.strategies.length > 0;
+
+  const selectedServices = availableServices?.filter((s) => s.selected) ?? [];
+  const selectedJobValues = selectedServices.map((s) => s.customJobValue ?? s.benchmark?.avgJobValue ?? 0);
+  const maxSelectedJobValue = Math.max(0, ...selectedJobValues);
+  const higherValueServices = (availableServices ?? [])
+    .filter((s) => !s.selected && !s.isManual && (s.benchmark?.avgJobValue ?? 0) > maxSelectedJobValue)
+    .sort((a, b) => (b.benchmark?.avgJobValue ?? 0) - (a.benchmark?.avgJobValue ?? 0));
 
   return (
     <div className="mt-3 border-t border-red-200 pt-3">
@@ -151,6 +160,35 @@ function AlternativeMarketingOptions({ industryName, audienceInsights }: { indus
 
       {expanded && (
         <div className="mt-3 space-y-4">
+          {higherValueServices.length > 0 && (
+            <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
+              <p className="text-sm font-semibold text-blue-900 mb-1">
+                🔍 Higher-value campaigns available in {industryName || "this industry"}
+              </p>
+              <p className="text-xs text-blue-800 mb-2">
+                The selected service{selectedServices.length > 1 ? "s have" : " has"} a lower average job value. These unselected campaigns have higher ticket sizes, which can dramatically improve ROAS with the same ad spend:
+              </p>
+              <div className="space-y-1.5">
+                {higherValueServices.slice(0, 5).map((s, i) => (
+                  <div key={i} className="flex items-center gap-2 text-xs text-blue-900">
+                    <span className="font-semibold">{s.serviceName}</span>
+                    <span className="px-1.5 py-0.5 bg-blue-100 rounded text-blue-700 font-medium">
+                      {formatCurrency(s.benchmark?.avgJobValue ?? 0)} avg job
+                    </span>
+                    {s.benchmark?.cplMid && (
+                      <span className="text-blue-600">
+                        ~{formatCurrency(s.benchmark.cplMid)} CPL
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs text-blue-700 mt-2 italic">
+                Try selecting these services above — a {formatCurrency(higherValueServices[0]?.benchmark?.avgJobValue ?? 0)} job at the same close rate returns far more per lead than a {formatCurrency(maxSelectedJobValue)} job.
+              </p>
+            </div>
+          )}
+
           {hasIndustryInsights && (
             <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg">
               <p className="text-sm font-semibold text-amber-900 mb-1">
@@ -217,6 +255,7 @@ function SinglePlatformResults({
   grossMarginPercent,
   industryName,
   audienceInsights,
+  availableServices,
 }: {
   result: CalculationResult;
   roundingMode: RoundingMode;
@@ -228,6 +267,7 @@ function SinglePlatformResults({
   grossMarginPercent?: number | null;
   industryName?: string;
   audienceInsights?: AudienceInsight | null;
+  availableServices?: ServiceSelectionType[];
 }) {
   const platformName = PLATFORM_NAMES[platform];
   const isConservative = roundingMode === "conservative";
@@ -431,7 +471,7 @@ function SinglePlatformResults({
       </div>
 
       {/* Low ROAS warning */}
-      <LowRoasWarning roas={roas} gpRoas={gpRoas} grossMarginPercent={grossMarginPercent} industryName={industryName} audienceInsights={audienceInsights} />
+      <LowRoasWarning roas={roas} gpRoas={gpRoas} grossMarginPercent={grossMarginPercent} industryName={industryName} audienceInsights={audienceInsights} availableServices={availableServices} />
 
       {/* Revenue range */}
       {showRange && (
@@ -645,6 +685,7 @@ export default function Results({
   grossMarginPercent,
   industryName,
   audienceInsights,
+  availableServices,
 }: Props) {
   const effectiveLowSearch = demandVerdict === "NOT_A_FIT" || demandVerdict === "LIMITED_FIT" || audienceSearchBehavior === "low";
   // Check if any platform has results
@@ -680,6 +721,7 @@ export default function Results({
           grossMarginPercent={grossMarginPercent}
           industryName={industryName}
           audienceInsights={audienceInsights}
+          availableServices={availableServices}
         />
       </section>
     );
@@ -840,7 +882,7 @@ export default function Results({
       </div>
 
       {/* Low ROAS warning */}
-      <LowRoasWarning roas={combinedRoas} gpRoas={combinedGpRoas} grossMarginPercent={grossMarginPercent} industryName={industryName} audienceInsights={audienceInsights} />
+      <LowRoasWarning roas={combinedRoas} gpRoas={combinedGpRoas} grossMarginPercent={grossMarginPercent} industryName={industryName} audienceInsights={audienceInsights} availableServices={availableServices} />
 
       {/* Per-platform breakdown sections */}
       <div className="space-y-6 mt-6">
