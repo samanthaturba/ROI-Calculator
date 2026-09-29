@@ -1975,6 +1975,7 @@ ${resultsHtml}
           monthlyAdSpend={budgetMode === "maxroi" ? maxRoiAdSpend : budgetInputs.monthlyAdSpend}
           audienceSearchBehavior={clientInputs.industryId ? getAudienceInsights(clientInputs.industryId)?.searchBehavior ?? null : null}
           demandVerdict={clientInputs.industryId ? getDemandAssessment(clientInputs.industryId)?.verdict ?? null : null}
+          grossMarginPercent={budgetInputs.grossMarginPercent}
         />
 
         {/* Section E: Keyword Suggestions (Google only) */}

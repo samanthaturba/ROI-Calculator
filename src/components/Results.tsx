@@ -17,6 +17,8 @@ interface Props {
   audienceSearchBehavior?: "high" | "medium" | "low" | null;
   /** Demand assessment verdict from AI classification — overrides audienceSearchBehavior when present */
   demandVerdict?: "FIT" | "LIMITED_FIT" | "NOT_A_FIT" | null;
+  /** Gross margin percentage entered by user — null means not entered */
+  grossMarginPercent?: number | null;
 }
 
 const PLATFORM_NAMES: Record<AdPlatform, string> = {
@@ -54,6 +56,40 @@ function MetricTooltip({ label, explanation }: { label: string; explanation: str
   );
 }
 
+const LOW_ROAS_THRESHOLD = 3;
+
+function LowRoasWarning({ roas, gpRoas, grossMarginPercent }: { roas: number; gpRoas: number | null; grossMarginPercent?: number | null }) {
+  const effectiveRoas = gpRoas !== null ? gpRoas : roas;
+  if (effectiveRoas <= 0 || effectiveRoas >= LOW_ROAS_THRESHOLD) return null;
+
+  const noMarginEntered = grossMarginPercent === null || grossMarginPercent === undefined;
+  const usingRevenueRoas = gpRoas === null;
+
+  return (
+    <div className="mb-6 p-4 bg-red-50 border-2 border-red-300 rounded-lg">
+      <p className="text-sm font-bold text-red-800 mb-2">
+        ⚠️ Low Return on Ad Spend — {effectiveRoas.toFixed(1)}x {usingRevenueRoas ? "ROAS" : "GP ROAS"}
+      </p>
+      <p className="text-sm text-red-700 mb-2">
+        For every $1 spent on ads, only ${effectiveRoas.toFixed(2)} of {usingRevenueRoas ? "revenue" : "gross profit"} is projected. A healthy campaign typically returns 3x or more. Before presenting this to a client, consider:
+      </p>
+      <ul className="text-sm text-red-700 list-disc list-inside space-y-1 mb-2">
+        <li><strong>Try a different campaign mix</strong> — adjust service selections or try different platforms</li>
+        <li><strong>Look at lower-CPL locations</strong> — smaller or less competitive markets can lower the cost per lead</li>
+        <li><strong>Double-check job value and close rate</strong> — are these realistic for this business? Higher average ticket or improved close rate directly improves ROAS</li>
+      </ul>
+      {noMarginEntered && (
+        <p className="text-sm text-red-800 font-semibold mt-2 p-2 bg-red-100 rounded">
+          ⚠️ No gross margin entered — the {effectiveRoas.toFixed(1)}x is based on top-line revenue only. After subtracting the cost of doing the jobs (labor, materials, overhead), the actual return will be even lower. Enter a gross margin % above for a more accurate picture.
+        </p>
+      )}
+      <p className="text-xs text-red-600 mt-2">
+        If the numbers are accurate and ROAS is still below 3x, this may not be a strong ad-spend opportunity for the client. The owner may need to work on close rate, job value, or pricing before ads make sense.
+      </p>
+    </div>
+  );
+}
+
 // Single-platform result view (unchanged from original)
 function SinglePlatformResults({
   result,
@@ -62,6 +98,7 @@ function SinglePlatformResults({
   marketMultiplier,
   platform,
   audienceSearchBehavior,
+  grossMarginPercent,
 }: {
   result: CalculationResult;
   roundingMode: RoundingMode;
@@ -70,6 +107,7 @@ function SinglePlatformResults({
   marketMultiplier?: number;
   platform: AdPlatform;
   audienceSearchBehavior?: "high" | "medium" | "low" | null;
+  grossMarginPercent?: number | null;
 }) {
   const platformName = PLATFORM_NAMES[platform];
   const isConservative = roundingMode === "conservative";
@@ -271,6 +309,9 @@ function SinglePlatformResults({
           </div>
         )}
       </div>
+
+      {/* Low ROAS warning */}
+      <LowRoasWarning roas={roas} gpRoas={gpRoas} grossMarginPercent={grossMarginPercent} />
 
       {/* Revenue range */}
       {showRange && (
@@ -481,6 +522,7 @@ export default function Results({
   monthlyAdSpend,
   audienceSearchBehavior,
   demandVerdict,
+  grossMarginPercent,
 }: Props) {
   const effectiveLowSearch = demandVerdict === "NOT_A_FIT" || demandVerdict === "LIMITED_FIT" || audienceSearchBehavior === "low";
   // Check if any platform has results
@@ -513,6 +555,7 @@ export default function Results({
           marketMultiplier={marketMultiplier}
           platform={platform}
           audienceSearchBehavior={effectiveLowSearch ? "low" : audienceSearchBehavior}
+          grossMarginPercent={grossMarginPercent}
         />
       </section>
     );
@@ -671,6 +714,9 @@ export default function Results({
           </div>
         </div>
       </div>
+
+      {/* Low ROAS warning */}
+      <LowRoasWarning roas={combinedRoas} gpRoas={combinedGpRoas} grossMarginPercent={grossMarginPercent} />
 
       {/* Per-platform breakdown sections */}
       <div className="space-y-6 mt-6">
