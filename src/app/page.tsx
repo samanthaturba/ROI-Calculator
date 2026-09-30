@@ -1263,6 +1263,52 @@ ${resultsHtml}
           </div>
         )}
 
+        {/* Platform recommendation banner — when Google is weak but another platform is strong */}
+        {(() => {
+          if (!platformRecs || !clientInputs.industryId) return null;
+          const googleRating = platformRecs.google?.rating ?? 0;
+          const currentPlatformRating = platformRecs[selectedPlatforms[0]]?.rating ?? 0;
+          // Find the best-rated platform that isn't currently selected as primary
+          const allPlatforms: AdPlatform[] = ["google", "lsa", "meta", "linkedin"];
+          const bestAlt = allPlatforms
+            .filter((p) => p !== selectedPlatforms[0])
+            .map((p) => ({ platform: p, rating: platformRecs[p]?.rating ?? 0, note: platformRecs[p]?.note ?? "" }))
+            .sort((a, b) => b.rating - a.rating)[0];
+          // Show banner when: current platform is notably weaker than the best alternative
+          // - Current <=2 and alt >=4 with 2+ gap (AI-generated NOT_A_FIT industries)
+          // - Current ==3 and alt ==5 (static data where Google is moderate but LinkedIn is excellent)
+          const gap = bestAlt.rating - currentPlatformRating;
+          const showBanner = bestAlt.rating >= 4 && gap >= 2;
+          if (!bestAlt || !showBanner) return null;
+          const platformLabel = PLATFORM_INFO[bestAlt.platform].label;
+          const platformIcon = PLATFORM_INFO[bestAlt.platform].icon;
+          return (
+            <div className="p-4 bg-blue-50 border-2 border-blue-300 rounded-lg">
+              <div className="flex items-start gap-3">
+                <span className="text-2xl mt-0.5">{platformIcon}</span>
+                <div className="flex-1">
+                  <p className="text-sm font-bold text-blue-900">
+                    {platformLabel} is a stronger fit for {selectedIndustry?.name ?? "this industry"}
+                  </p>
+                  <p className="text-sm text-blue-800 mt-1">
+                    Google Ads is rated {googleRating}/5 for this industry, but <strong>{platformLabel} is rated {bestAlt.rating}/5</strong>.
+                    {bestAlt.note && <> {bestAlt.note}</>}
+                  </p>
+                  <p className="text-xs text-blue-700 mt-1">
+                    Switching will load {platformLabel}-specific campaigns with their own CPL benchmarks, so you can project monthly revenue on the platform that actually fits this business.
+                  </p>
+                  <button
+                    onClick={() => handlePlatformSwitch(bestAlt.platform)}
+                    className="mt-3 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+                  >
+                    Switch to {platformLabel} →
+                  </button>
+                </div>
+              </div>
+            </div>
+          );
+        })()}
+
         {/* Unified Platform Selection & Fit */}
         <section className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
           <h2 className="text-lg font-semibold text-cogent-navy mb-1">
@@ -1457,15 +1503,39 @@ ${resultsHtml}
           })()}
 
           {/* ── Additional Platforms: Meta + LinkedIn ─────────────────────────── */}
-          <details className="group">
+          <details className="group" open={!!(platformRecs && (
+            ((platformRecs.linkedin?.rating ?? 0) >= 4 && (platformRecs.linkedin?.rating ?? 0) - (platformRecs[selectedPlatforms[0]]?.rating ?? 0) >= 2) ||
+            ((platformRecs.meta?.rating ?? 0) >= 4 && (platformRecs.meta?.rating ?? 0) - (platformRecs[selectedPlatforms[0]]?.rating ?? 0) >= 2)
+          )) || selectedPlatforms.includes("linkedin") || selectedPlatforms.includes("meta") || undefined}>
             <summary className="cursor-pointer list-none">
-              <div className="flex items-center gap-2 text-sm font-semibold text-cogent-neutral hover:text-cogent-navy transition-colors">
-                <span className="text-xs group-open:rotate-90 transition-transform">▶</span>
-                <span>Additional Platforms — Awareness &amp; Retargeting (Optional)</span>
-              </div>
-              <p className="text-xs text-gray-400 mt-1 ml-5">
-                Meta and LinkedIn target people who aren&apos;t actively searching — useful for brand awareness, retargeting website visitors, and B2B outreach. These are display/social ads, not search ads.
-              </p>
+              {(() => {
+                const currentRating = platformRecs?.[selectedPlatforms[0]]?.rating ?? 0;
+                const linkedInStrong = (platformRecs?.linkedin?.rating ?? 0) >= 4 && (platformRecs?.linkedin?.rating ?? 0) - currentRating >= 2;
+                const metaStrong = (platformRecs?.meta?.rating ?? 0) >= 4 && (platformRecs?.meta?.rating ?? 0) - currentRating >= 2;
+                const hasStrongAlt = linkedInStrong || metaStrong;
+                return (
+                  <>
+                    <div className={`flex items-center gap-2 text-sm font-semibold ${hasStrongAlt ? "text-blue-800" : "text-cogent-neutral"} hover:text-cogent-navy transition-colors`}>
+                      <span className="text-xs group-open:rotate-90 transition-transform">▶</span>
+                      <span>
+                        {hasStrongAlt
+                          ? <>Additional Platforms — <strong>{linkedInStrong && metaStrong ? "LinkedIn & Meta" : linkedInStrong ? "LinkedIn" : "Meta"} Recommended</strong> for this industry</>
+                          : <>Additional Platforms — Awareness &amp; Retargeting (Optional)</>}
+                      </span>
+                      {hasStrongAlt && (
+                        <span className="text-[10px] font-medium px-1.5 py-0.5 rounded border bg-blue-100 text-blue-700 border-blue-300">
+                          Better fit
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-xs text-gray-400 mt-1 ml-5">
+                      {hasStrongAlt
+                        ? <>This industry is a stronger fit for {linkedInStrong ? "LinkedIn" : "Meta"} than Google Ads. Click {linkedInStrong ? "LinkedIn" : "Meta"} below to project revenue on that platform instead.</>
+                        : <>Meta and LinkedIn target people who aren&apos;t actively searching — useful for brand awareness, retargeting website visitors, and B2B outreach.</>}
+                    </p>
+                  </>
+                );
+              })()}
             </summary>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
