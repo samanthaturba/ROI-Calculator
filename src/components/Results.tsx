@@ -96,7 +96,7 @@ function LowRoasWarning({ roas, gpRoas, grossMarginPercent, industryId, industry
       <p className="text-xs text-red-600 mt-2">
         If the numbers are accurate and ROAS is still below 3x, this may not be a strong ad-spend opportunity for the client. The owner may need to work on close rate, job value, or pricing before ads make sense.
       </p>
-      <AlternativeMarketingOptions industryId={industryId} industryName={industryName} audienceInsights={audienceInsights} availableServices={availableServices} />
+      <AlternativeMarketingOptions industryId={industryId} industryName={industryName} audienceInsights={audienceInsights} availableServices={availableServices} context="low-roas" />
     </div>
   );
 }
@@ -136,7 +136,35 @@ const GENERAL_ALTERNATIVES: { title: string; detail: string; roiNote: string }[]
   },
 ];
 
-function AlternativeMarketingOptions({ industryId, industryName, audienceInsights, availableServices }: { industryId?: string; industryName?: string; audienceInsights?: AudienceInsight | null; availableServices?: ServiceSelectionType[] }) {
+const CHANNEL_RESOURCE_URLS: Record<string, { url: string; label: string }> = {
+  "Direct Mail": { url: "https://www.addy.co", label: "Addy.co — Direct Mail Platform" },
+  "EDDM": { url: "https://www.addy.co", label: "Addy.co — Direct Mail Platform" },
+  "SEO": { url: "https://moz.com/learn/seo/local", label: "Moz — Local SEO Guide" },
+  "Google Business Profile": { url: "https://business.google.com", label: "Google Business Profile" },
+  "Review Generation": { url: "https://birdeye.com", label: "Birdeye — Review Management" },
+  "Review + Reputation": { url: "https://birdeye.com", label: "Birdeye — Review Management" },
+  "Reputation Management": { url: "https://birdeye.com", label: "Birdeye — Review Management" },
+  "Email Marketing": { url: "https://mailchimp.com", label: "Mailchimp — Email Marketing" },
+  "Email Drip": { url: "https://mailchimp.com", label: "Mailchimp — Email Marketing" },
+  "Email Campaigns": { url: "https://mailchimp.com", label: "Mailchimp — Email Marketing" },
+  "Meta": { url: "https://www.facebook.com/business/ads", label: "Meta Business — Ad Platform" },
+  "Facebook Ads": { url: "https://www.facebook.com/business/ads", label: "Meta Business — Ad Platform" },
+  "LinkedIn Ads": { url: "https://business.linkedin.com/marketing-solutions/ads", label: "LinkedIn — Ad Platform" },
+  "LinkedIn": { url: "https://business.linkedin.com/marketing-solutions/ads", label: "LinkedIn — Ad Platform" },
+  "ThomasNet": { url: "https://www.thomasnet.com", label: "ThomasNet — Industrial Directory" },
+  "Content Marketing": { url: "https://ahrefs.com/blog", label: "Ahrefs — Content & SEO Research" },
+  "Technical Content": { url: "https://ahrefs.com/blog", label: "Ahrefs — Content & SEO Research" },
+  "Google Ads": { url: "https://ads.google.com", label: "Google Ads Platform" },
+};
+
+function getChannelResource(channelName: string): { url: string; label: string } | null {
+  for (const [keyword, resource] of Object.entries(CHANNEL_RESOURCE_URLS)) {
+    if (channelName.includes(keyword)) return resource;
+  }
+  return null;
+}
+
+function AlternativeMarketingOptions({ industryId, industryName, audienceInsights, availableServices, context = "standalone" }: { industryId?: string; industryName?: string; audienceInsights?: AudienceInsight | null; availableServices?: ServiceSelectionType[]; context?: "standalone" | "low-roas" }) {
   const [expanded, setExpanded] = useState(false);
 
   const hasIndustryInsights = audienceInsights && audienceInsights.strategies.length > 0;
@@ -145,22 +173,34 @@ function AlternativeMarketingOptions({ industryId, industryName, audienceInsight
   const selectedServices = availableServices?.filter((s) => s.selected) ?? [];
   const selectedJobValues = selectedServices.map((s) => s.customJobValue ?? s.benchmark?.avgJobValue ?? 0);
   const maxSelectedJobValue = Math.max(0, ...selectedJobValues);
-  const higherValueServices = (availableServices ?? [])
+  const higherValueServices = context === "low-roas" ? (availableServices ?? [])
     .filter((s) => !s.selected && !s.isManual && (s.benchmark?.avgJobValue ?? 0) > maxSelectedJobValue)
-    .sort((a, b) => (b.benchmark?.avgJobValue ?? 0) - (a.benchmark?.avgJobValue ?? 0));
+    .sort((a, b) => (b.benchmark?.avgJobValue ?? 0) - (a.benchmark?.avgJobValue ?? 0)) : [];
+
+  const isStandalone = context === "standalone";
+  const borderColor = isStandalone ? "border-cogent-navy/20" : "border-red-200";
+  const headerColor = isStandalone ? "text-cogent-navy" : "text-red-800";
+  const headerHover = isStandalone ? "hover:text-cogent-navy-dark" : "hover:text-red-900";
+  const subtitleColor = isStandalone ? "text-cogent-neutral" : "text-red-600";
+  const disclaimerColor = isStandalone ? "text-cogent-neutral" : "text-red-600";
 
   return (
-    <div className="mt-3 border-t border-red-200 pt-3">
+    <div className={isStandalone ? "mt-6 p-4 bg-white border border-gray-200 rounded-lg shadow-sm" : "mt-3 border-t border-red-200 pt-3"}>
       <button
         onClick={() => setExpanded(!expanded)}
-        className="flex items-center gap-2 text-sm font-semibold text-red-800 hover:text-red-900 transition-colors w-full text-left"
+        className={`flex items-center gap-2 text-sm font-semibold ${headerColor} ${headerHover} transition-colors w-full text-left`}
       >
         <span className={`transition-transform duration-200 ${expanded ? "rotate-90" : ""}`}>▶</span>
-        <span>What else could work{industryName ? ` for ${industryName}` : ""}?</span>
-        <span className="text-xs font-normal text-red-600 ml-1">
+        <span>{isStandalone ? "💡 " : ""}Other Marketing Channels{industryName ? ` for ${industryName}` : ""}</span>
+        <span className={`text-xs font-normal ${subtitleColor} ml-1`}>
           {altMarketing ? `${altMarketing.channels.length} industry-specific channels` : "Alternative marketing options"}
         </span>
       </button>
+      {isStandalone && !expanded && (
+        <p className="text-xs text-cogent-neutral mt-1 ml-5">
+          Beyond paid ads — additional marketing channels Cogent can deliver for this industry
+        </p>
+      )}
 
       {expanded && (
         <div className="mt-3 space-y-4">
@@ -222,36 +262,51 @@ function AlternativeMarketingOptions({ industryId, industryName, audienceInsight
           {altMarketing ? (
             <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-lg">
               <p className="text-sm font-semibold text-emerald-900 mb-1">
-                Alternative Marketing Channels for {altMarketing.categoryLabel}
+                {isStandalone ? "Additional" : "Alternative"} Marketing Channels for {altMarketing.categoryLabel}
               </p>
               <p className="text-xs text-emerald-800 mb-3">
                 These channels have proven track records in the <strong>{altMarketing.categoryLabel.toLowerCase()}</strong> vertical. Each includes realistic ROI expectations and timeline so the AM can set proper client expectations:
               </p>
               <div className="space-y-4">
-                {altMarketing.channels.map((ch, i) => (
-                  <div key={i} className="text-xs border-b border-emerald-100 pb-3 last:border-b-0 last:pb-0">
-                    <p className="font-semibold text-emerald-900 text-sm">{ch.icon} {ch.channel}</p>
-                    <p className="text-emerald-800 mt-1">{ch.detail}</p>
-                    <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                      <div className="flex items-start gap-1.5">
-                        <span className="font-semibold text-emerald-700 whitespace-nowrap">Expected ROI:</span>
-                        <span className="text-emerald-800">{ch.roiRange}</span>
+                {altMarketing.channels.map((ch, i) => {
+                  const resource = getChannelResource(ch.channel);
+                  return (
+                    <div key={i} className="text-xs border-b border-emerald-100 pb-3 last:border-b-0 last:pb-0">
+                      <p className="font-semibold text-emerald-900 text-sm">{ch.icon} {ch.channel}</p>
+                      <p className="text-emerald-800 mt-1">{ch.detail}</p>
+                      <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                        <div className="flex items-start gap-1.5">
+                          <span className="font-semibold text-emerald-700 whitespace-nowrap">Expected ROI:</span>
+                          <span className="text-emerald-800">{ch.roiRange}</span>
+                        </div>
+                        <div className="flex items-start gap-1.5">
+                          <span className="font-semibold text-emerald-700 whitespace-nowrap">Timeline:</span>
+                          <span className="text-emerald-800">{ch.timeline}</span>
+                        </div>
                       </div>
-                      <div className="flex items-start gap-1.5">
-                        <span className="font-semibold text-emerald-700 whitespace-nowrap">Timeline:</span>
-                        <span className="text-emerald-800">{ch.timeline}</span>
-                      </div>
+                      <p className="text-emerald-700 mt-1.5 italic">Metrics: {ch.metrics}</p>
+                      <p className="text-emerald-600 mt-1">Best for: {ch.bestFor}</p>
+                      {resource && (
+                        <a
+                          href={resource.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 mt-2 text-xs font-medium text-emerald-700 hover:text-emerald-900 underline underline-offset-2"
+                        >
+                          🔗 {resource.label} ↗
+                        </a>
+                      )}
                     </div>
-                    <p className="text-emerald-700 mt-1.5 italic">Metrics: {ch.metrics}</p>
-                    <p className="text-emerald-600 mt-1">Best for: {ch.bestFor}</p>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           ) : (
             <div>
-              <p className="text-xs text-red-700 mb-3">
-                If paid ads aren&apos;t generating strong enough returns, here are other marketing channels to discuss with the client. These won&apos;t have the same precise projections as ad campaigns, but they&apos;re proven paths for service businesses:
+              <p className="text-xs text-gray-600 mb-3">
+                {isStandalone
+                  ? "Additional marketing channels to discuss with the client. These won’t have the same precise projections as ad campaigns, but they’re proven paths for service businesses:"
+                  : "If paid ads aren’t generating strong enough returns, here are other marketing channels to discuss with the client:"}
               </p>
               <div className="space-y-3">
                 {GENERAL_ALTERNATIVES.map((alt, i) => (
@@ -265,7 +320,7 @@ function AlternativeMarketingOptions({ industryId, industryName, audienceInsight
             </div>
           )}
 
-          <p className="text-xs text-red-600 italic">
+          <p className={`text-xs ${disclaimerColor} italic`}>
             {altMarketing
               ? "These are industry-specific estimates based on typical performance in this vertical, not precise projections. Use them as talking points with the client — the right mix depends on their market, budget, and capacity."
               : "These estimates are general industry ranges, not precise projections like the ad calculator above. Use them as talking points to guide the conversation — the right mix depends on the client’s market, budget, and capacity."}
@@ -701,6 +756,9 @@ function SinglePlatformResults({
           {gpRoas !== null && gpRoas > 0 && <p>est. GP ROAS = gross_profit / ad_spend = ~{formatCurrency(gp!)} / {formatCurrency(result.totalSpend)} = ~{gpRoas.toFixed(1)}x</p>}
         </div>
       </div>
+
+      {/* Always-visible alternative marketing channels */}
+      <AlternativeMarketingOptions industryId={industryId} industryName={industryName} audienceInsights={audienceInsights} availableServices={availableServices} context="standalone" />
     </>
   );
 }
@@ -1051,6 +1109,9 @@ export default function Results({
           </div>
         </div>
       </div>
+
+      {/* Always-visible alternative marketing channels */}
+      <AlternativeMarketingOptions industryId={industryId} industryName={industryName} audienceInsights={audienceInsights} availableServices={availableServices} context="standalone" />
 
       {/* Disclaimer */}
       <div className="mt-4 p-4 border-2 border-cogent-navy/20 rounded-lg bg-white">

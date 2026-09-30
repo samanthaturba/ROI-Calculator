@@ -1,5 +1,5 @@
 {
-  "_comment": "Industry-specific alternative marketing channels with concrete ROI estimates. Industries map to categories; each category has channels with metrics tailored to that vertical.",
+  "_comment": "Industry-specific alternative marketing channels Cogent can deliver. Industries map to categories; each category has channels with metrics. All channels are services a marketing agency executes — not things that require the client to manage social accounts, post on Nextdoor, do their own outreach, etc.",
 
   "categories": {
     "home-services": {
@@ -8,47 +8,47 @@
         {
           "channel": "Direct Mail (EDDM)",
           "icon": "📬",
-          "detail": "Every Door Direct Mail to homeowners in the service area. Home services have some of the highest direct mail response rates because homeowners keep mailers for future needs.",
-          "metrics": "Response rate: 2–5%. Cost: $0.40–$0.80/piece. A $1,500 EDDM campaign reaching 3,000 homes typically generates 60–150 calls.",
+          "detail": "Every Door Direct Mail campaigns targeting homeowners in the service area. Cogent designs the mailer, selects carrier routes by demographics, and handles printing and USPS delivery. Home services have some of the highest direct mail response rates because homeowners keep mailers for future needs.",
+          "metrics": "Response rate: 2–5%. Cost: $0.40–$0.80/piece all-in. A $1,500 EDDM campaign reaching 3,000 homes typically generates 60–150 calls.",
           "roiRange": "5–12x on jobs over $500",
-          "timeline": "Results within 1–2 weeks of drop",
-          "bestFor": "HVAC, plumbing, roofing, pest control, electrical"
+          "timeline": "Design to mailbox: 2–3 weeks. Results within 1–2 weeks of drop",
+          "bestFor": "HVAC, plumbing, roofing, pest control, electrical, garage door"
         },
         {
-          "channel": "Google Business Profile + Review Generation",
+          "channel": "SEO & Google Business Profile Optimization",
+          "icon": "🔍",
+          "detail": "Optimize the client's website for local search terms and build out their Google Business Profile with proper categories, service descriptions, photos, and a review generation system. Dominates the map pack without ongoing ad spend.",
+          "metrics": "Businesses ranking in the Google 3-pack get 2–3x more calls than those below it. GBP optimization alone can increase profile views 30–50% in 60 days.",
+          "roiRange": "Highest long-term ROI — no per-click cost once ranking. Typical 8–15x annual ROI on SEO investment",
+          "timeline": "GBP improvements show within 30–60 days. SEO ranking gains: 3–6 months",
+          "bestFor": "All home services — especially high-ticket jobs like roofing, remodeling, HVAC replacement"
+        },
+        {
+          "channel": "Automated Review Generation",
           "icon": "⭐",
-          "detail": "Homeowners check reviews before calling. A business with 100+ reviews and 4.5+ stars dominates the local map pack — this is free lead generation once established.",
-          "metrics": "Businesses with 100+ Google reviews get 2–3x more calls than competitors with fewer than 20. Map pack clicks convert at 15–25%.",
-          "roiRange": "Highest long-term ROI of any channel (no ongoing ad spend)",
-          "timeline": "3–6 months to build, then compounds",
-          "bestFor": "All home services — especially high-consideration jobs like roofing, remodeling, HVAC replacement"
+          "detail": "Set up an automated post-service email/SMS sequence that asks customers for Google reviews. Cogent builds the system, writes the templates, and monitors response rates. 100+ reviews at 4.5+ stars is the threshold for dominating local search.",
+          "metrics": "Automated sequences achieve 10–20% review conversion rate (vs 1–2% for passive requests). At 50 jobs/month, that's 5–10 new reviews monthly.",
+          "roiRange": "Businesses with 100+ reviews get 3–4x more map pack clicks. The gap between 30 and 150 reviews can double inbound calls",
+          "timeline": "System setup: 1 week. Noticeable review growth within 60 days",
+          "bestFor": "All consumer-facing home services — especially competitive markets"
         },
         {
-          "channel": "Referral Programs",
-          "icon": "🤝",
-          "detail": "Homeowners trust neighbor recommendations above all else. A structured $50–$100 referral bonus per signed job turns every happy customer into a salesperson.",
-          "metrics": "Referred leads close at 40–60% (vs 15–25% for ad leads). One active referrer can generate 2–4 jobs/year.",
-          "roiRange": "10–25x (a $75 referral bonus on a $3,000 job = 2.5% marketing cost)",
-          "timeline": "Ongoing — builds over time as customer base grows",
-          "bestFor": "Recurring services (HVAC maintenance, pest control, lawn care), high-ticket jobs (roofing, remodeling)"
+          "channel": "Email Marketing Campaigns",
+          "icon": "📧",
+          "detail": "Build and manage a customer email list with seasonal campaigns (HVAC tune-up reminders, winter plumbing prep, spring cleanup offers). Re-engages past customers who already trust the business — the cheapest lead source there is.",
+          "metrics": "Home services email open rates: 20–30%. Click-through: 3–5%. Past-customer reactivation campaigns convert at 15–25% — 5x higher than cold leads.",
+          "roiRange": "20–40x (email marketing costs $200–$500/mo to manage; one reactivated $3K job covers months of spend)",
+          "timeline": "List building starts immediately; first campaign within 2 weeks",
+          "bestFor": "Recurring services (HVAC maintenance, pest control), high-ticket repeat (plumbing, electrical, roofing)"
         },
         {
-          "channel": "Yard Signs + Vehicle Wraps",
-          "icon": "🏠",
-          "detail": "Leave branded yard signs at every job site for 2–4 weeks. Neighbors see the work happening and call. Vehicle wraps turn every service truck into a mobile billboard averaging 30,000–70,000 impressions/day.",
-          "metrics": "Yard signs: 1–3 calls per sign placement in active neighborhoods. Vehicle wraps: 2–5 monthly leads per wrapped truck.",
-          "roiRange": "Yard signs: near-infinite ROI ($2–$5/sign). Wraps: pay for themselves within 3–6 months",
-          "timeline": "Immediate visibility",
-          "bestFor": "Visible outdoor work — roofing, painting, landscaping, fencing, concrete"
-        },
-        {
-          "channel": "Nextdoor & Facebook Community Groups",
-          "icon": "💬",
-          "detail": "Local community platforms where homeowners ask for recommendations. Claiming a Nextdoor business page and actively responding to neighborhood posts builds trust without ad spend.",
-          "metrics": "Nextdoor recommendation posts reach 500–2,000 nearby homeowners. Businesses get 3–8 leads/month from active community engagement.",
-          "roiRange": "Free organic reach; promoted posts at $1–$3 CPM for hyper-local targeting",
-          "timeline": "2–4 weeks to establish presence, ongoing engagement",
-          "bestFor": "Emergency services (plumbing, locksmith, garage door), seasonal services (HVAC, pest control)"
+          "channel": "Targeted Meta/Facebook Ads (Retargeting)",
+          "icon": "📱",
+          "detail": "Even when Meta isn't the primary platform, retargeting ads to people who already visited the client's website are highly effective. Cogent sets up the pixel, builds audiences, and runs low-budget retargeting to stay top-of-mind.",
+          "metrics": "Retargeting ads convert at 3–5x the rate of cold traffic. Cost: $300–$500/mo for retargeting-only budgets. Keeps the brand visible to people who already searched for the service.",
+          "roiRange": "5–10x on retargeting budgets (these are warm prospects who already showed intent)",
+          "timeline": "Pixel install + audience build: 1 week. First retargeting results within 2 weeks",
+          "bestFor": "High-consideration services where customers compare 3–5 providers (roofing, remodeling, solar, HVAC install)"
         }
       ]
     },
@@ -56,40 +56,40 @@
       "label": "Commercial Services",
       "channels": [
         {
-          "channel": "Property Manager & Facility Director Outreach",
-          "icon": "🏢",
-          "detail": "Commercial work is relationship-driven. Property management companies and facility directors control recurring contracts worth $10K–$100K+/year. Building a list of local property managers and doing direct outreach is the highest-ROI activity.",
-          "metrics": "A commercial plumber or HVAC company with 5 strong property manager relationships can fill 40–60% of capacity from those alone.",
-          "roiRange": "Infinite — no ad spend, just relationship investment. One property manager contract can be worth $50K–$200K/year",
-          "timeline": "3–6 months to build initial relationships; contracts are often annual",
-          "bestFor": "Commercial HVAC, plumbing, electrical, janitorial, fire protection"
-        },
-        {
-          "channel": "Industry-Specific Directories & Bid Platforms",
-          "icon": "📋",
-          "detail": "Commercial buyers use platforms like BidClerk, iSqFt (ConstructConnect), ThomasNet, or industry-specific directories to find contractors. Having an optimized profile on the right platforms captures high-intent commercial buyers.",
-          "metrics": "ConstructConnect users report 3–8 qualified bid opportunities per month. Conversion from bid to contract: 10–25% depending on competition.",
-          "roiRange": "Platform fees are $200–$500/mo. One won contract typically covers a full year of membership",
-          "timeline": "Leads start within 2–4 weeks of profile optimization",
-          "bestFor": "Commercial contractors, specialty trades, mechanical/electrical subs"
-        },
-        {
-          "channel": "LinkedIn Decision-Maker Targeting",
+          "channel": "LinkedIn Ads (Decision-Maker Targeting)",
           "icon": "💼",
-          "detail": "Target Facility Managers, Operations Directors, and Procurement leads at commercial properties in your area. LinkedIn outreach + awareness ads create familiarity before the RFP cycle.",
-          "metrics": "LinkedIn InMail response rates for relevant service offers: 15–25%. Building a pipeline of 50 warm contacts typically yields 5–10 proposals per quarter.",
-          "roiRange": "3–8x when targeting high-value commercial contracts",
-          "timeline": "4–8 weeks for pipeline to generate proposals",
-          "bestFor": "B2B services, managed services contracts, commercial maintenance"
+          "detail": "Target Facility Managers, Operations Directors, and Procurement leads at commercial properties in the service area. Cogent builds the audience, writes the ad copy, and manages the campaign. LinkedIn's targeting precision is unmatched for B2B.",
+          "metrics": "LinkedIn InMail response rates for relevant service offers: 15–25%. Sponsored content reaches decision-makers at specific companies, titles, and industries.",
+          "roiRange": "3–8x when targeting high-value commercial contracts ($10K+ per job)",
+          "timeline": "Campaign launch: 1–2 weeks. Pipeline generation: 4–8 weeks",
+          "bestFor": "Commercial HVAC, plumbing, electrical, janitorial, fire protection, refrigeration"
         },
         {
-          "channel": "Case Study Marketing + Before/After Portfolio",
-          "icon": "📸",
-          "detail": "Commercial buyers evaluate track record heavily. Professional project case studies with scope, timeline, and results documentation — shared on your website and in sales decks — close deals that cold outreach alone can't.",
-          "metrics": "Proposals with case study attachments close 30–40% more often than proposals without them.",
-          "roiRange": "Multiplier on existing sales efforts — no standalone cost beyond documentation time",
-          "timeline": "Build library over 2–3 months from existing completed projects",
-          "bestFor": "Specialty contractors, restoration, commercial remodeling, fire protection"
+          "channel": "SEO for Commercial Keywords",
+          "icon": "🔍",
+          "detail": "Commercial search terms ('commercial HVAC repair [city]', 'restaurant kitchen cleaning service') are less competitive than residential and have much higher job values. Cogent optimizes the client's website with commercial-focused landing pages.",
+          "metrics": "Commercial service keywords have 5–10x fewer competitors than residential. Organic commercial leads average 3–5x higher job value than residential.",
+          "roiRange": "10–20x annual ROI. One commercial contract from organic search can be worth $20K–$100K+/year",
+          "timeline": "New landing pages can rank within 2–4 months for commercial-specific terms",
+          "bestFor": "Commercial HVAC, plumbing, electrical, cleaning, refrigeration, fire protection"
+        },
+        {
+          "channel": "Direct Mail to Commercial Properties",
+          "icon": "📬",
+          "detail": "Targeted mailers to property management companies, commercial building owners, and facility managers in the service area. Unlike residential EDDM, commercial mail is highly targeted — smaller volumes, higher value per piece.",
+          "metrics": "Commercial direct mail response rate: 1–3% (lower than residential, but each response is worth $5K–$50K+). A 500-piece mailing at $2/piece = $1,000 investment.",
+          "roiRange": "8–20x when targeting commercial decision-makers. One new commercial contract covers a full year of mailings",
+          "timeline": "Design + list building: 2 weeks. Mail drop to response: 2–4 weeks",
+          "bestFor": "Commercial contractors, maintenance services, specialty trades"
+        },
+        {
+          "channel": "Google Business Profile + Review Strategy",
+          "icon": "⭐",
+          "detail": "Even commercial buyers check Google reviews. Optimizing the GBP with commercial-specific categories, photos of commercial projects, and a review collection system from past commercial clients builds credibility.",
+          "metrics": "Commercial GBP profiles with 50+ reviews and commercial project photos get 40–60% more contact form submissions than bare profiles.",
+          "roiRange": "Free to maintain once set up. One commercial lead from organic search covers months of optimization effort",
+          "timeline": "GBP optimization: 1–2 weeks. Review growth is ongoing",
+          "bestFor": "All commercial services — especially when competing for property manager attention"
         }
       ]
     },
@@ -97,49 +97,40 @@
       "label": "B2B Industrial & Manufacturing",
       "channels": [
         {
-          "channel": "Trade Show & Industry Event Marketing",
-          "icon": "🎪",
-          "detail": "Industrial buyers attend 2–4 trade shows per year and make purchasing decisions there. A booth at the right regional show puts you in front of every potential buyer in your niche simultaneously.",
-          "metrics": "Cost: $3,000–$15,000 per show. Typical qualified lead capture: 30–100 contacts. Post-show close rate: 10–20% within 6 months.",
-          "roiRange": "5–15x for manufacturers and specialty fabricators (one large contract covers booth cost)",
-          "timeline": "Show season is cyclical — plan 3–6 months ahead",
-          "bestFor": "Fabrication, machining, industrial equipment, specialty manufacturing"
+          "channel": "LinkedIn Ads (Engineer & Procurement Targeting)",
+          "icon": "💼",
+          "detail": "Target Engineering Managers, Plant Managers, Procurement Directors, and Quality Engineers at manufacturing companies. Cogent builds custom audiences by job title, company size, and industry, then runs awareness + lead gen campaigns.",
+          "metrics": "LinkedIn CPL for B2B industrial: $50–$150. But average contract value is $15K–$100K+, making the math work. Sponsored content reaches the exact decision-makers who spec vendors.",
+          "roiRange": "5–15x on industrial contracts. One landed contract from LinkedIn covers 6–12 months of ad spend",
+          "timeline": "Campaign launch: 1–2 weeks. First qualified leads: 4–8 weeks. Sales cycle: 2–6 months",
+          "bestFor": "CNC machining, metal fabrication, powder coating, industrial manufacturing, engineering"
         },
         {
-          "channel": "ThomasNet / Industrial Directory Listings",
-          "icon": "🏭",
-          "detail": "ThomasNet is where industrial procurement officers search for suppliers. An optimized listing with certifications, capabilities, and equipment specs captures buyers actively sourcing.",
-          "metrics": "ThomasNet drives 1–5 qualified RFQs per month for well-optimized listings. Average industrial contract value: $15K–$100K+.",
-          "roiRange": "Premium listing: $500–$2,000/mo. One landed contract per quarter makes it profitable",
-          "timeline": "RFQs can start within 2 weeks of listing optimization",
-          "bestFor": "CNC machining, metal fabrication, powder coating, industrial manufacturing"
-        },
-        {
-          "channel": "Targeted Prospecting (ZoomInfo / Apollo)",
-          "icon": "🎯",
-          "detail": "Build lists of Plant Managers, Procurement Directors, and Engineering Managers at target companies. Use ZoomInfo or Apollo to get direct contacts, then run coordinated outreach via email, phone, and LinkedIn.",
-          "metrics": "Email open rates for targeted B2B industrial: 25–35%. Meeting booking rate from well-targeted campaigns: 3–8%.",
-          "roiRange": "Tool cost: $200–$500/mo. Pipeline value generated: $50K–$200K/quarter for active campaigns",
-          "timeline": "First meetings within 2–4 weeks. Sales cycle: 2–6 months for industrial contracts",
-          "bestFor": "OEM suppliers, specialty fabrication, industrial services, engineering firms"
-        },
-        {
-          "channel": "Technical Content + SEO",
+          "channel": "SEO + Technical Content Marketing",
           "icon": "📝",
-          "detail": "Industrial buyers research heavily before reaching out. Publishing technical content — capability guides, material comparison articles, tolerance specifications — captures engineers and procurement teams during the research phase.",
-          "metrics": "Industrial long-tail keywords face low competition. A well-written capability page can rank top 3 within 2–3 months and generate 5–15 qualified inquiries/month.",
+          "detail": "Industrial buyers research heavily before contacting vendors. Cogent creates technical content — capability pages, material comparison guides, tolerance specifications, process explainers — that captures engineers during the research phase.",
+          "metrics": "Industrial long-tail keywords have very low competition. A well-written capability page can rank top 3 within 2–3 months and generate 5–15 qualified RFQs/month.",
           "roiRange": "Highest long-term ROI for industrial companies. Content compounds — a page written today generates leads for years",
-          "timeline": "3–6 months for SEO traction; content can be repurposed in sales immediately",
-          "bestFor": "Specialty processes (powder coating, anodizing, precision machining), engineering services"
+          "timeline": "Content development: 2–4 weeks per page. SEO traction: 3–6 months. Immediate use in sales materials",
+          "bestFor": "Specialty processes (powder coating, anodizing, precision machining), fabrication, engineering services"
         },
         {
-          "channel": "Distributor & OEM Partnership Programs",
-          "icon": "🔗",
-          "detail": "Become a preferred vendor for distributors or OEMs in your space. One relationship with a major distributor can fill 30–50% of shop capacity with steady, recurring work.",
-          "metrics": "Partnership development takes 3–9 months. Once established, a single OEM relationship can generate $100K–$500K+/year in recurring orders.",
-          "roiRange": "No direct marketing cost — relationship investment. The highest-value growth channel for most industrial companies",
-          "timeline": "6–12 months to establish, then long-term recurring revenue",
-          "bestFor": "Component manufacturers, fabrication shops, specialty processors"
+          "channel": "ThomasNet / Industrial Directory Optimization",
+          "icon": "🏭",
+          "detail": "ThomasNet is where industrial procurement officers search for suppliers. Cogent optimizes the client's listing with proper certifications, capabilities, equipment specs, and photos to capture buyers actively sourcing.",
+          "metrics": "ThomasNet drives 1–5 qualified RFQs per month for well-optimized listings. Average industrial contract value: $15K–$100K+.",
+          "roiRange": "Premium listing: $500–$2,000/mo. One landed contract per quarter makes it highly profitable",
+          "timeline": "Profile optimization: 1–2 weeks. RFQs can start within 2 weeks of going live",
+          "bestFor": "CNC machining, metal fabrication, powder coating, industrial manufacturing, specialty processes"
+        },
+        {
+          "channel": "Email Drip Campaigns to Prospect Lists",
+          "icon": "📧",
+          "detail": "Build targeted prospect lists of Plant Managers and Procurement Directors at ideal customer companies, then run multi-touch email campaigns with case studies, capabilities, and offers. Cogent handles list building, copywriting, and automation.",
+          "metrics": "B2B industrial email open rates: 25–35%. Multi-touch sequences (5–7 emails over 6 weeks) generate meeting requests at 3–8% rate.",
+          "roiRange": "Tool + management cost: $500–$1,000/mo. Pipeline value generated: $50K–$200K/quarter for active campaigns",
+          "timeline": "List building + first sequence: 2–3 weeks. First meetings: 4–6 weeks",
+          "bestFor": "OEM suppliers, specialty fabrication, industrial services, component manufacturers"
         }
       ]
     },
@@ -147,40 +138,40 @@
       "label": "Construction & Heavy Trades",
       "channels": [
         {
-          "channel": "General Contractor & Builder Relationships",
-          "icon": "🏗️",
-          "detail": "GCs and builders control subcontractor selection on most projects. Getting on 5–10 GC preferred vendor lists in your area can fill your pipeline without any ad spend.",
-          "metrics": "Subcontractors on a GC's preferred list win 60–80% of bids they submit (vs 10–20% for unknown bidders). One GC relationship typically generates 3–8 projects per year.",
-          "roiRange": "Zero cost — relationship-driven. One GC partnership can generate $100K–$500K/year in project volume",
-          "timeline": "2–4 months to build initial GC relationships via job site visits and introductions",
-          "bestFor": "Concrete, excavation, framing, electrical, plumbing, HVAC, drywall, painting"
+          "channel": "SEO for Construction-Specific Keywords",
+          "icon": "🔍",
+          "detail": "Construction search terms ('commercial excavation [city]', 'concrete contractor near me') have high intent and moderate competition. Cogent builds service-specific landing pages and optimizes for local construction searches.",
+          "metrics": "Construction keywords convert at 8–15% from click to lead. Organic leads have 30–40% higher close rates than paid leads because they trust organic results more.",
+          "roiRange": "10–20x annual ROI. One organic lead for a $50K+ project covers years of SEO investment",
+          "timeline": "New pages can rank within 3–5 months. GBP optimization shows results in 30–60 days",
+          "bestFor": "Concrete, excavation, paving, demolition, site construction, commercial contractors"
         },
         {
-          "channel": "Bid Platform Presence (ConstructConnect, PlanHub)",
-          "icon": "📋",
-          "detail": "GCs post projects and invite bids through platforms like ConstructConnect, PlanHub, and BuildingConnected. Being active and responsive on these platforms gets you in front of project opportunities automatically.",
-          "metrics": "Active bidders see 10–30 relevant opportunities per month. Win rate: 15–25% for responsive, competitively-priced subs.",
-          "roiRange": "Platform cost: $100–$400/mo. One won project per month covers annual subscription many times over",
-          "timeline": "Bid opportunities available immediately upon signup",
-          "bestFor": "All construction subtrades — especially excavation, concrete, paving, structural"
+          "channel": "Direct Mail to Property Developers & GCs",
+          "icon": "📬",
+          "detail": "Targeted mailers to general contractors, property developers, and construction managers in the area. Cogent builds the list from permit records and contractor databases, designs the mailer, and manages the campaign.",
+          "metrics": "Response rate from targeted contractor/developer mail: 2–5%. Each response can be worth $50K–$500K in project value.",
+          "roiRange": "10–25x. A 200-piece mailing at $3/piece ($600) that lands one $100K project = 166x return",
+          "timeline": "List + design: 2 weeks. Drop to response: 2–4 weeks",
+          "bestFor": "Subcontractors seeking GC relationships — concrete, excavation, paving, electrical, plumbing, drywall"
         },
         {
-          "channel": "Equipment & Fleet Branding",
-          "icon": "🚛",
-          "detail": "Construction equipment on job sites is visible to every other contractor and developer passing by. Branded equipment, vehicle wraps, and job site signage build name recognition in the local construction community.",
-          "metrics": "Construction companies with branded fleets report 30–40% of inbound calls mention seeing their trucks/equipment. Job site signs generate 1–3 inquiries per active project.",
-          "roiRange": "One-time wrap cost: $2,000–$4,000 per vehicle. Lasts 5–7 years. Pays for itself within months",
-          "timeline": "Immediate visibility once installed",
-          "bestFor": "Excavation, dump truck hauling, paving, concrete, demolition — any trade with visible heavy equipment"
+          "channel": "LinkedIn Ads (GC & Developer Targeting)",
+          "icon": "💼",
+          "detail": "Target Project Managers, Estimators, and Owners at general contracting firms and development companies. Cogent runs campaigns showcasing the client's project portfolio and capabilities to the people who award subcontracts.",
+          "metrics": "LinkedIn reaches 90%+ of commercial construction decision-makers. Lead gen forms capture contact info directly — no website visit required.",
+          "roiRange": "3–10x. LinkedIn CPL for construction: $30–$80. One won subcontract ($50K+) covers months of campaigns",
+          "timeline": "Campaign launch: 1–2 weeks. First qualified leads: 3–6 weeks",
+          "bestFor": "All construction subtrades — especially those seeking commercial/GC work"
         },
         {
-          "channel": "Local Plan Room & Permit Monitoring",
-          "icon": "📐",
-          "detail": "Monitor local building permits and plan rooms to identify projects in the planning phase. Reaching out to property owners or GCs before the project goes to bid gives you a first-mover advantage.",
-          "metrics": "Permit-sourced outreach converts at 5–15% (vs 1–3% for cold outreach) because the prospect has an active, funded project.",
-          "roiRange": "Minimal cost (plan room memberships: $50–$200/mo). High conversion on high-value projects",
-          "timeline": "Pipeline builds within 2–4 weeks of active monitoring",
-          "bestFor": "Commercial construction, site work, specialty trades (fire protection, structural)"
+          "channel": "Google Business Profile + Project Portfolio",
+          "icon": "⭐",
+          "detail": "Construction GBP profiles with project photos, proper trade categories, and consistent reviews rank for '[trade] contractor near me' searches. Cogent optimizes the profile and builds a review collection system.",
+          "metrics": "Construction GBPs with 30+ reviews and project photos rank 2–3 positions higher in local results. Profile views increase 40–70% after full optimization.",
+          "roiRange": "Free ongoing leads. One inbound project from organic search ($10K–$100K+) covers the entire optimization effort",
+          "timeline": "Profile optimization: 1 week. Ranking improvements: 30–90 days",
+          "bestFor": "All construction trades — especially residential-facing (roofing, concrete, fencing, paving)"
         }
       ]
     },
@@ -188,40 +179,40 @@
       "label": "Remodeling & Design",
       "channels": [
         {
-          "channel": "Houzz, Angi & Home Design Platforms",
-          "icon": "🏡",
-          "detail": "Remodeling clients browse portfolios before calling. Houzz Pro, Angi, and similar platforms are where homeowners planning major renovations actively search for contractors. A strong portfolio with project photos closes leads faster than any ad.",
-          "metrics": "Houzz Pro generates 5–15 qualified leads/month for remodelers with 20+ project photos. Lead quality is high — these are homeowners in the planning stage with budget.",
-          "roiRange": "Platform fees: $300–$600/mo. Average kitchen remodel lead value: $25K–$75K. One conversion covers months of fees",
-          "timeline": "Leads start within 1–2 weeks of profile completion",
-          "bestFor": "Kitchen & bath remodeling, custom home builders, interior design, cabinetry"
+          "channel": "SEO + Portfolio Website",
+          "icon": "🔍",
+          "detail": "Remodeling clients search extensively before calling. Cogent builds a portfolio-focused website with project galleries, service pages optimized for local searches, and schema markup for rich search results.",
+          "metrics": "Remodeling keywords ('kitchen remodel [city]', 'bathroom renovation near me') convert at 10–18% from click to lead. Portfolio pages increase time-on-site by 3–4x.",
+          "roiRange": "8–15x annual ROI. One organic kitchen remodel lead ($30K–$75K) covers a full year of SEO",
+          "timeline": "Website build: 4–8 weeks. SEO ranking gains: 3–6 months",
+          "bestFor": "Kitchen & bath remodeling, custom home builders, flooring, cabinetry, countertops"
         },
         {
-          "channel": "Showroom & Open House Events",
-          "icon": "🏠",
-          "detail": "Invite potential clients to see completed work in person. Partner with a recent client to host a 2-hour open house, or set up a materials showroom. Seeing and touching the work converts browsers into buyers.",
-          "metrics": "Showroom visitors convert at 25–40% (vs 5–10% for website leads). Open house events typically generate 8–15 serious inquiries from 30–50 attendees.",
-          "roiRange": "Event cost: $500–$1,500 (food, signage, materials). One signed contract from an event covers a full year of events",
-          "timeline": "Plan 4–6 weeks ahead; results within 1–2 weeks post-event",
-          "bestFor": "Kitchen & bath, countertops, flooring, custom cabinetry, home builders"
+          "channel": "Meta/Facebook Ads (Visual Portfolio)",
+          "icon": "📱",
+          "detail": "Remodeling is visual — before/after photos perform exceptionally on Facebook and Instagram. Cogent runs carousel and video ads showcasing completed projects to homeowners in the service area by income, home value, and interests.",
+          "metrics": "Remodeling before/after ads get 2–3x higher engagement than text-based ads. Meta CPL for remodeling: $25–$60. Lead quality is strong because visual proof builds trust.",
+          "roiRange": "5–10x. A $2,000/mo Meta budget generating 40–80 leads at 15% close rate = 6–12 jobs at $15K+ average",
+          "timeline": "Campaign launch: 1–2 weeks. First leads within days of going live",
+          "bestFor": "Kitchen & bath, painting, flooring, epoxy/decorative concrete, custom builds, countertops"
         },
         {
-          "channel": "Real Estate Agent Partnerships",
-          "icon": "🔑",
-          "detail": "Realtors recommend contractors to every buyer. Being the go-to remodeler for 3–5 active real estate agents creates a steady stream of high-intent referrals from buyers who just closed on a home and have budget allocated.",
-          "metrics": "Active real estate agents close 12–20 homes/year. If 30% need remodeling work, one agent partnership generates 4–6 projects annually.",
-          "roiRange": "No cost except relationship maintenance. Referred remodeling jobs average $15K–$40K",
-          "timeline": "2–3 months to build realtor relationships; referrals start flowing after first successful project",
-          "bestFor": "Kitchen & bath, painting, flooring, window/door, general remodeling"
+          "channel": "Direct Mail to High-Value Neighborhoods",
+          "icon": "📬",
+          "detail": "Target homeowners in neighborhoods with homes 15–30 years old (prime remodel age) and household incomes of $100K+. Cogent selects carrier routes by home age, value, and demographics for maximum relevance.",
+          "metrics": "Remodeling direct mail response rate: 1–3% (lower volume, but average job value of $15K–$50K makes the math work). A $2,000 mailing generating 3 jobs at $25K each = $75K revenue.",
+          "roiRange": "10–25x when targeting the right neighborhoods",
+          "timeline": "Design + demographic targeting: 2 weeks. Drop to response: 2–4 weeks",
+          "bestFor": "Kitchen & bath, custom home builders, whole-house remodels, flooring, window/door replacement"
         },
         {
-          "channel": "Before/After Social Portfolio",
-          "icon": "📸",
-          "detail": "Remodeling is inherently visual — before/after content performs extremely well on Instagram and Facebook. A consistent posting schedule (3x/week) with professional project photos builds a portfolio that sells itself.",
-          "metrics": "Remodeling before/after posts average 3–5x more engagement than other local business content. Companies posting consistently report 15–25% of leads saying they found them on social media.",
-          "roiRange": "Free (organic) or $200–$500/mo for promoted posts. Visual content compounds — old posts keep generating leads",
-          "timeline": "3–6 months to build an engaged following; momentum builds with each completed project",
-          "bestFor": "All visual trades — kitchen/bath, painting, flooring, custom builds, epoxy/decorative concrete"
+          "channel": "Automated Review + Reputation Management",
+          "icon": "⭐",
+          "detail": "Remodeling is the most review-dependent home service — clients read 15–20 reviews before calling. Cogent sets up automated post-project review requests and monitors/responds to all review platforms.",
+          "metrics": "Remodelers with 75+ reviews close leads at 25–35% (vs 10–15% for those under 20 reviews). Every 10 new reviews increases lead volume by approximately 5–8%.",
+          "roiRange": "Multiplier on all other marketing — reviews make every channel convert better",
+          "timeline": "System setup: 1 week. Noticeable impact within 90 days",
+          "bestFor": "All remodeling — especially high-ticket services where trust is the #1 purchase factor"
         }
       ]
     },
@@ -229,40 +220,40 @@
       "label": "Automotive & Fleet Services",
       "channels": [
         {
-          "channel": "Fleet Manager Contracts",
-          "icon": "🚗",
-          "detail": "A single fleet contract (dealerships, delivery companies, construction fleets) can be worth $50K–$200K/year in steady, recurring work. Direct outreach to fleet managers at local companies is the highest-ROI activity for auto/fleet shops.",
-          "metrics": "Target companies with 10+ vehicles. A fleet of 50 trucks needs 200+ service events per year. Win rate on fleet proposals: 20–30% when competitive.",
-          "roiRange": "No marketing cost — just proposal time. One fleet contract can fill 20–40% of shop capacity",
-          "timeline": "2–4 months to build initial fleet pipeline; contracts typically annual",
-          "bestFor": "Truck repair, fleet maintenance, auto body, tire services"
+          "channel": "SEO + Google Business Profile",
+          "icon": "🔍",
+          "detail": "Auto service is one of the most searched local categories. Cogent optimizes the website for service-specific keywords and builds out the GBP with proper categories, service menus, and photos.",
+          "metrics": "Auto repair keywords get high search volume. GBP profiles with 100+ reviews dominate the map pack — and map pack clicks convert at 15–25% for auto services.",
+          "roiRange": "10–20x annual ROI. Organic leads have near-zero marginal cost once ranking",
+          "timeline": "GBP optimization: 1–2 weeks. SEO ranking: 3–6 months. Review growth is ongoing",
+          "bestFor": "All consumer-facing auto — repair, body, glass, tinting, detailing"
         },
         {
-          "channel": "Insurance Company & DRP Programs",
-          "icon": "🛡️",
-          "detail": "Insurance direct repair programs (DRPs) and adjuster relationships send a steady stream of collision work. Being on an insurer's preferred list means you're their default recommendation.",
-          "metrics": "DRP shops receive 40–60% of their work from insurance referrals. Average insurance repair ticket: $3,000–$8,000.",
-          "roiRange": "No direct cost (some DRPs require process certifications). Volume makes up for any margin concessions",
-          "timeline": "3–6 months to get DRP approval; then steady ongoing volume",
-          "bestFor": "Auto body, auto glass, collision repair, restoration"
-        },
-        {
-          "channel": "Dealer & Warranty Partnerships",
-          "icon": "🤝",
-          "detail": "Dealerships outsource specialized work (custom electronics, performance mods, fleet prep, specialty repairs) to qualified shops. Becoming a dealer's preferred outside vendor creates consistent, high-margin referrals.",
-          "metrics": "One dealer relationship can send 5–15 specialty jobs per month. Average referred job value is often 20–30% higher than walk-in work.",
-          "roiRange": "Zero marketing cost. Dealer referrals close at 80–90% because the customer was pre-sold",
-          "timeline": "1–3 months to establish first dealer relationship",
-          "bestFor": "Auto electronics, custom shops, engine builders, specialty repair"
-        },
-        {
-          "channel": "Google Business Profile + Reviews",
+          "channel": "Automated Review Generation",
           "icon": "⭐",
-          "detail": "Auto service is one of the most review-dependent industries. Consumers check Google reviews before choosing a shop, and shops with 100+ reviews dominate local search results.",
-          "metrics": "Auto shops with 100+ reviews and 4.5+ stars get 3–4x more map pack clicks. Review response rate impacts ranking — respond to every review within 24 hours.",
-          "roiRange": "Free to maintain. The difference between 50 reviews and 200 reviews can double monthly inbound calls",
-          "timeline": "Ask every customer for a review. At 10 reviews/month, reach 100+ in under a year",
-          "bestFor": "All consumer-facing auto services — repair, body, glass, tinting, detailing"
+          "detail": "Auto service is one of the most review-dependent industries — consumers check Google reviews before choosing a shop. Cogent sets up automated post-service review requests via SMS and email.",
+          "metrics": "Auto shops with 100+ reviews and 4.5+ stars get 3–4x more map pack clicks than those under 50. Automated systems achieve 15–25% review conversion rate.",
+          "roiRange": "The gap between a 4.0 and 4.7 star rating can double monthly inbound calls. No ongoing cost once the system is running",
+          "timeline": "System setup: 1 week. At 10 new reviews/month, reach 100+ within a year",
+          "bestFor": "All consumer-facing auto services — repair, body, glass, tinting"
+        },
+        {
+          "channel": "Direct Mail (Service Reminders + Offers)",
+          "icon": "📬",
+          "detail": "Target vehicle owners within the service radius with seasonal maintenance reminders and new-customer offers. Cogent designs, prints, and mails. Works especially well for tire shops, oil change, and maintenance services.",
+          "metrics": "Auto service direct mail response rate: 2–4%. Cost: $0.50–$1.00/piece. A $1,000 campaign reaching 1,500 households generates 30–60 calls.",
+          "roiRange": "5–10x for maintenance services. Higher for collision/specialty where average ticket is $2K+",
+          "timeline": "Design to mailbox: 2–3 weeks. Response within 1–2 weeks",
+          "bestFor": "Auto repair, fleet maintenance, tire/oil change, RV/auto specialty"
+        },
+        {
+          "channel": "Meta/Facebook Ads (Local Targeting)",
+          "icon": "📱",
+          "detail": "Run geo-targeted Facebook/Instagram ads to vehicle owners in the service area. Special offers, seasonal campaigns, and fleet service promotions. Cogent handles creative, targeting, and management.",
+          "metrics": "Meta CPL for auto services: $15–$40. Works well for promotions (free brake inspection, $50 off first service). Retargeting past website visitors converts at 3–5x cold traffic rates.",
+          "roiRange": "4–8x for consumer auto. Higher for specialty/fleet where job values are $1K+",
+          "timeline": "Campaign launch: 1 week. First leads within days",
+          "bestFor": "Consumer auto services, seasonal promotions, fleet service awareness"
         }
       ]
     },
@@ -270,40 +261,40 @@
       "label": "Professional & B2B Services",
       "channels": [
         {
-          "channel": "LinkedIn Thought Leadership + Content",
+          "channel": "LinkedIn Ads (Decision-Maker Campaigns)",
           "icon": "💼",
-          "detail": "B2B buyers research extensively before engaging a professional services firm. Regular LinkedIn posting about industry insights, case studies, and expertise positions you as the authority in your niche.",
-          "metrics": "Consistent LinkedIn posters (3–5x/week) in professional services generate 5–15 inbound inquiries per month. Decision-makers who see your content 7+ times are 3x more likely to respond to outreach.",
-          "roiRange": "Free organic reach. LinkedIn is the #1 lead source for B2B professional services (ahead of paid ads)",
-          "timeline": "4–8 weeks to build consistent engagement; compounds heavily over 6+ months",
-          "bestFor": "Consulting, managed IT, architecture, engineering, surveying"
+          "detail": "Professional services sell to other businesses. Cogent runs LinkedIn campaigns targeting the exact job titles, company sizes, and industries that buy these services. Thought leadership content + lead gen forms capture high-intent prospects.",
+          "metrics": "LinkedIn is the #1 lead source for B2B professional services. Sponsored content reaches decision-makers by title and company. Lead gen forms convert 2–3x better than landing pages.",
+          "roiRange": "5–12x for consulting, IT, and engineering services. One landed client covers months of LinkedIn spend",
+          "timeline": "Campaign launch: 1–2 weeks. First qualified leads: 3–6 weeks. Sales cycle: 1–3 months",
+          "bestFor": "Consulting, managed IT, architecture, engineering, surveying, mailing services"
         },
         {
-          "channel": "Strategic Referral Network",
-          "icon": "🔗",
-          "detail": "Build a referral circle with complementary professional services firms. An architect refers engineers, an IT company refers security consultants, an accountant refers consultants. Formalize these with quarterly check-ins and reciprocal introductions.",
-          "metrics": "A network of 5 active referral partners can generate 2–5 qualified introductions per month. Professional service referrals close at 40–60%.",
-          "roiRange": "No cost. Referred clients have 50% higher lifetime value than cold-sourced clients",
-          "timeline": "3–6 months to build and activate a referral network",
-          "bestFor": "All professional services — consulting, architecture, engineering, IT"
-        },
-        {
-          "channel": "Speaking & Webinar Marketing",
-          "icon": "🎤",
-          "detail": "Present at industry associations, chamber of commerce events, and host educational webinars. One speaking engagement puts you in front of 30–200 potential buyers and positions you as an expert, not a vendor.",
-          "metrics": "Post-presentation lead conversion: 5–15% of attendees request follow-up. Average deal size from speaking leads is 40–60% higher than cold outreach.",
-          "roiRange": "Free to present (most associations welcome speakers). Webinars cost $50–$200 to produce. One closed deal covers a full year of speaking",
-          "timeline": "Book speaking slots 1–3 months ahead; leads from events close within 3–6 months",
+          "channel": "SEO + Thought Leadership Content",
+          "icon": "📝",
+          "detail": "Professional service buyers research extensively before engaging a firm. Cogent creates authoritative content — industry guides, case studies, how-to articles — optimized for the searches your prospects are making.",
+          "metrics": "B2B content pages convert at 2–5% for gated assets (whitepapers, guides). Organic traffic from one well-ranked article can generate 5–20 leads per month indefinitely.",
+          "roiRange": "Highest long-term ROI. A $2,000 article that ranks #1 for a key term generates leads for years",
+          "timeline": "Content creation: 1–2 weeks per piece. SEO ranking: 3–6 months. Immediate use in sales outreach",
           "bestFor": "Consulting, managed IT, engineering, architecture — any expertise-driven service"
         },
         {
-          "channel": "Association Memberships & Board Positions",
-          "icon": "🏛️",
-          "detail": "Join and actively participate in industry associations where your buyers are members. Board positions and committee involvement create access to decision-makers in a non-sales context.",
-          "metrics": "Active association members report 20–30% of new business coming through association connections. Board members get even more visibility.",
-          "roiRange": "Membership dues: $200–$2,000/year. Access to a network worth multiples of that in potential business",
-          "timeline": "6–12 months for relationships to translate to business; long-term compound returns",
-          "bestFor": "Engineering, architecture, consulting, IT — any firm serving a defined industry vertical"
+          "channel": "Email Marketing to Prospect Lists",
+          "icon": "📧",
+          "detail": "Build targeted prospect lists and run multi-touch email campaigns with case studies, service overviews, and CTAs. Cogent handles list sourcing, sequence design, copywriting, and analytics.",
+          "metrics": "B2B email open rates: 25–35%. Multi-touch sequences generate meetings at 3–8%. Average professional services contract: $20K–$100K+.",
+          "roiRange": "10–25x. Email cost: $500–$1,500/mo. One new client per quarter covers the full year",
+          "timeline": "First campaign: 2–3 weeks. Meetings start within 4–6 weeks",
+          "bestFor": "All professional services — especially those with defined ideal client profiles"
+        },
+        {
+          "channel": "Google Ads (High-Intent Keywords)",
+          "icon": "🔍",
+          "detail": "Even though organic is preferred long-term, paid search captures high-intent professional service searches immediately. Cogent targets specific keywords like 'managed IT services [city]' or 'structural engineering firm near me'.",
+          "metrics": "Professional service keywords are expensive ($15–$50 CPC) but convert well because searchers have immediate need. Landing page optimization is critical — Cogent A/B tests for maximum conversion.",
+          "roiRange": "3–8x depending on contract value. Works best for services with $10K+ average contract",
+          "timeline": "Campaign live within 1 week. Leads start immediately",
+          "bestFor": "Managed IT, architecture, engineering, consulting — services where searchers have acute need"
         }
       ]
     },
@@ -311,40 +302,40 @@
       "label": "Environmental & Restoration Services",
       "channels": [
         {
-          "channel": "Insurance Adjuster & Agent Relationships",
-          "icon": "🛡️",
-          "detail": "Insurance agents and adjusters are the #1 referral source for restoration, mold, and water damage work. Being on preferred vendor lists and responding within 1–2 hours to emergency calls is worth more than any ad campaign.",
-          "metrics": "Restoration companies with 10+ active adjuster relationships report 50–70% of revenue from insurance referrals. Response time is the differentiator — first to respond wins 80% of emergency jobs.",
-          "roiRange": "No marketing cost. Insurance jobs average $5K–$25K per claim",
-          "timeline": "2–4 months to build adjuster relationships; then ongoing referral volume",
+          "channel": "SEO for Emergency Keywords",
+          "icon": "🔍",
+          "detail": "Restoration and environmental searches are high-urgency ('water damage restoration [city]', 'mold remediation near me'). Cogent optimizes for these emergency keywords where the first search result gets 60%+ of calls.",
+          "metrics": "#1 organic ranking for 'water damage restoration [city]' can generate 20–50 calls/month. Emergency search CTR for position 1: 35–45%.",
+          "roiRange": "15–30x. Average restoration job: $5K–$25K. One organic lead per week covers the full SEO investment",
+          "timeline": "Emergency keywords are competitive — expect 4–8 months. GBP optimization shows faster results",
           "bestFor": "Water/fire restoration, mold remediation, environmental cleanup"
         },
         {
-          "channel": "Property Manager Emergency Response Contracts",
-          "icon": "🏢",
-          "detail": "Property managers need reliable emergency response vendors on speed dial. Getting on the preferred vendor list for commercial property managers guarantees call volume when emergencies happen.",
-          "metrics": "One large property management company can generate 5–15 emergency calls per month. Annual contract value: $30K–$100K+.",
-          "roiRange": "Relationship-driven — no ad spend. Emergency response premiums often yield 30–50% margins",
-          "timeline": "1–3 months to secure initial contracts",
-          "bestFor": "Restoration, mold, waterproofing, environmental services"
+          "channel": "Google Business Profile + Emergency Optimization",
+          "icon": "⭐",
+          "detail": "Emergency services live and die by GBP. Cogent optimizes the profile for emergency categories, adds 24/7 messaging, builds review volume, and ensures the business appears in 'open now' and emergency-intent searches.",
+          "metrics": "Restoration companies in the GBP 3-pack get 70%+ of emergency clicks. Response time display and review count are the top two factors prospects evaluate.",
+          "roiRange": "One emergency restoration job per month from organic search ($5K–$15K) covers years of GBP optimization",
+          "timeline": "Optimization: 1–2 weeks. Ranking improvements: 30–90 days",
+          "bestFor": "All emergency services — restoration, mold, water damage, environmental"
         },
         {
-          "channel": "Certification & Compliance Marketing",
-          "icon": "📜",
-          "detail": "Environmental and restoration work often requires certifications (IICRC, EPA, state licenses). Marketing your certifications — especially ones competitors lack — differentiates you for commercial and insurance work where compliance matters.",
-          "metrics": "Certified companies win 40–60% more commercial bids. Listing certifications prominently on your GBP and website increases contact rate by 25–35%.",
-          "roiRange": "Certification costs: $500–$3,000/year. The competitive advantage in winning bids far exceeds the cost",
-          "timeline": "Immediate once certifications are obtained and marketed",
-          "bestFor": "Mold remediation, environmental cleanup, asbestos, lead, restoration"
+          "channel": "Direct Mail to Property Managers",
+          "icon": "📬",
+          "detail": "Property managers need reliable emergency response vendors. Cogent builds a targeted mailing list of property management companies and sends professional capability packets that get filed for when emergencies happen.",
+          "metrics": "Property manager direct mail response rate: 3–7% (they keep capability packets on file). One large property management relationship can generate $30K–$100K+/year.",
+          "roiRange": "15–30x. A $500 mailing that gets you on one property manager's vendor list pays for itself many times over",
+          "timeline": "Mailings go out in 2–3 weeks. Responses come over 1–6 months as emergencies arise",
+          "bestFor": "Restoration, mold, waterproofing, environmental cleanup"
         },
         {
-          "channel": "Realtor & Home Inspector Partnerships",
-          "icon": "🔑",
-          "detail": "Home inspectors find mold, water damage, and structural issues during every transaction. Being their recommended specialist means getting called for every finding — and these are motivated buyers with a closing deadline.",
-          "metrics": "Active home inspectors inspect 200–400 homes/year. 15–25% have issues requiring specialist follow-up. One inspector partnership can generate 3–8 jobs per month.",
-          "roiRange": "No cost. Inspection-referred work is high-urgency and closes at 60–80%",
-          "timeline": "2–4 weeks to build first inspector relationships",
-          "bestFor": "Mold remediation, waterproofing, foundation repair, environmental testing"
+          "channel": "Meta/Facebook Ads (Awareness + Retargeting)",
+          "icon": "📱",
+          "detail": "Most homeowners don't search for restoration until they need it. Running low-budget awareness ads ensures the client's brand is already familiar when an emergency strikes. Cogent manages awareness campaigns + retargeting.",
+          "metrics": "Brand awareness CPM on Meta: $5–$10. When a crisis hits, people call the name they recognize. Businesses running awareness campaigns see 20–35% higher inbound call rates.",
+          "roiRange": "Hard to measure directly, but the lift on organic and direct calls is substantial. $500/mo awareness budget supports $10K+/mo in attributable revenue",
+          "timeline": "Campaigns live within 1 week. Brand recognition builds over 2–3 months",
+          "bestFor": "Restoration, mold remediation, waterproofing — any emergency service"
         }
       ]
     },
@@ -352,40 +343,40 @@
       "label": "Outdoor & Property Services",
       "channels": [
         {
-          "channel": "Door-to-Door / Neighborhood Blitz",
-          "icon": "🚶",
-          "detail": "After completing a job, canvass the surrounding 20–50 homes with door hangers or quick introductions. Neighbors who see your crew working are warm prospects — they already know you're active in their area.",
-          "metrics": "Door hanger response rate in the immediate neighborhood of a completed job: 3–8% (vs 1–2% for random distribution). Cost: $0.10–$0.25 per hanger.",
-          "roiRange": "15–30x for lawn care and tree service. A $500 landscaping job from a $0.15 door hanger is a 3,300x return",
-          "timeline": "Same-day results — leave hangers while your crew is on-site",
-          "bestFor": "Landscaping, lawn care, tree service, pressure washing, fencing, irrigation"
-        },
-        {
-          "channel": "HOA & Property Manager Contracts",
-          "icon": "🏘️",
-          "detail": "One HOA contract covers 50–500+ properties with recurring monthly or seasonal work. Property managers and HOA boards make bulk purchasing decisions for all residents.",
-          "metrics": "A mid-size HOA contract (100 homes) for lawn maintenance: $3K–$8K/month recurring. One commercial property management contract: $5K–$15K/month.",
-          "roiRange": "Infinite — no marketing cost for direct outreach. One HOA fills a significant portion of annual revenue",
-          "timeline": "HOA boards meet quarterly — time proposals to their budget cycle (typically Q4 for next year)",
-          "bestFor": "Landscaping, lawn care, pressure washing, irrigation, tree service, pool maintenance"
-        },
-        {
-          "channel": "Seasonal Direct Mail Timing",
+          "channel": "Direct Mail (Seasonal Campaigns)",
           "icon": "📬",
-          "detail": "Outdoor services are seasonal — time direct mail to hit 2–3 weeks before the season starts. Spring cleanup mailers in early March, fall leaf removal in September, holiday lighting in October.",
-          "metrics": "Seasonally-timed mailers get 2–3x the response rate of off-season drops. Pre-season booking campaigns can fill 40–60% of capacity before the season starts.",
-          "roiRange": "5–10x for seasonal services when timed correctly",
-          "timeline": "Mail 2–3 weeks before the service season peaks",
-          "bestFor": "Lawn care, landscaping, pressure washing, gutter cleaning, holiday lighting"
+          "detail": "Outdoor services are seasonal — Cogent times direct mail drops 2–3 weeks before each season peaks. Spring cleanup mailers in early March, fall leaf removal in September, holiday lighting in October. Carrier route targeting by home value and lot size.",
+          "metrics": "Seasonally-timed mailers get 2–3x the response rate of off-season drops. Pre-season campaigns can fill 40–60% of capacity before the season starts.",
+          "roiRange": "5–12x for seasonal services when timed correctly",
+          "timeline": "Plan 3–4 weeks ahead of each season. Results within 1–2 weeks of drop",
+          "bestFor": "Landscaping, lawn care, pressure washing, tree service, pool, irrigation, fencing"
         },
         {
-          "channel": "Before/After + Drone Photography",
-          "icon": "📸",
-          "detail": "Outdoor work is visual. Drone shots of completed landscapes, tree removals, and property transformations perform extremely well on social media and your website. This content sells the work without any pitch.",
-          "metrics": "Before/after outdoor posts get 4–6x more engagement than text posts. Drone portfolio pages increase website conversion by 20–35%.",
-          "roiRange": "Drone photography: $100–$300 per shoot (or invest $500–$1,000 in your own drone). Content generates leads for months",
-          "timeline": "Immediate — start documenting every job this week",
-          "bestFor": "Landscaping, tree service, fencing, excavation, hardscape, pool installation"
+          "channel": "SEO + Google Business Profile",
+          "icon": "🔍",
+          "detail": "Outdoor service searches spike seasonally and are highly local. Cogent optimizes the website and GBP for seasonal keywords, ensures proper service area settings, and builds review volume to dominate the map pack.",
+          "metrics": "Landscaping/tree service keywords get 3–5x search volume in spring vs winter. Ranking for '[service] near me' captures the surge. GBP 3-pack captures 60%+ of local clicks.",
+          "roiRange": "10–20x annual ROI. Seasonal search spikes mean concentrated lead volume during peak months",
+          "timeline": "GBP optimization: 1–2 weeks. SEO for seasonal terms: optimize 2–3 months before the season",
+          "bestFor": "All outdoor services — landscaping, tree service, fencing, pressure washing, pool, irrigation"
+        },
+        {
+          "channel": "Meta/Facebook Ads (Seasonal + Visual)",
+          "icon": "📱",
+          "detail": "Outdoor work is visual — before/after transformation photos perform exceptionally on Facebook and Instagram. Cogent runs seasonal campaigns with project photos targeting homeowners by home value, age, and interests in the service area.",
+          "metrics": "Outdoor before/after ads get 3–5x more engagement than text ads. Meta CPL for outdoor services: $15–$35. Seasonal campaigns during peak months convert at 2x the off-season rate.",
+          "roiRange": "5–10x during peak season. Before/after content drives organic sharing that amplifies reach for free",
+          "timeline": "Campaign launch: 1 week. Best results when timed to seasonal demand",
+          "bestFor": "Landscaping, pressure washing, fencing, pool, tree service — any visually dramatic service"
+        },
+        {
+          "channel": "Email Marketing (Customer Reactivation)",
+          "icon": "📧",
+          "detail": "Past customers are the easiest sell for seasonal services. Cogent builds automated seasonal email sequences that remind past customers to book spring cleanup, fall prep, or annual maintenance before the rush.",
+          "metrics": "Customer reactivation emails for seasonal services have 30–40% open rates and 10–20% rebooking rates. One email to 500 past customers can generate 50–100 bookings.",
+          "roiRange": "30–50x. Email cost is minimal; reactivated customers require zero acquisition cost",
+          "timeline": "List import + first sequence: 1–2 weeks. Send 3–4 weeks before each season peak",
+          "bestFor": "Recurring seasonal services — lawn care, landscaping, pressure washing, gutter cleaning, pool maintenance"
         }
       ]
     },
@@ -393,39 +384,39 @@
       "label": "Moving & Logistics Services",
       "channels": [
         {
-          "channel": "Real Estate Agent & Property Manager Referrals",
-          "icon": "🔑",
-          "detail": "Every home sale or lease signing needs a mover. Being the recommended moving company for 5–10 active realtors creates a steady pipeline of pre-qualified, time-sensitive leads.",
-          "metrics": "Active agents close 15–25 homes/year. If 50% need moving help, one agent partnership generates 8–12 moves annually. Referred moves close at 70–80%.",
-          "roiRange": "No marketing cost. Average residential move: $2,000–$5,000. One agent covers itself immediately",
-          "timeline": "2–4 weeks to establish first realtor partnerships",
+          "channel": "SEO + Google Business Profile",
+          "icon": "🔍",
+          "detail": "Moving searches are high-intent and local. Cogent optimizes the website for 'movers near me', '[city] moving company', and specialty terms, plus builds the GBP with proper categories and review volume.",
+          "metrics": "Moving keywords convert at 12–20% from click to quote request. GBP reviews are the #1 factor — consumers read 10+ reviews before choosing a mover.",
+          "roiRange": "10–15x annual ROI. Average residential move: $2K–$5K. One organic lead per week covers the full SEO investment",
+          "timeline": "GBP optimization: 1–2 weeks. SEO ranking: 3–6 months",
+          "bestFor": "Residential/commercial moving, junk removal, hauling"
+        },
+        {
+          "channel": "Meta/Facebook Ads (Life Event Targeting)",
+          "icon": "📱",
+          "detail": "Facebook allows targeting people who recently listed their home, are newly engaged, or recently moved — all triggers for needing moving services. Cogent runs campaigns targeting these life events in the service area.",
+          "metrics": "Life event targeting reaches people with immediate need. Meta CPL for moving: $20–$50. These leads convert at 2–3x cold traffic because they have a deadline.",
+          "roiRange": "5–10x. Life event leads are time-sensitive and highly motivated",
+          "timeline": "Campaign live within 1 week. Leads start immediately",
           "bestFor": "Residential moving, junk removal, storage services"
         },
         {
-          "channel": "Apartment Complex & HOA Partnerships",
-          "icon": "🏘️",
-          "detail": "Partner with apartment complexes and HOAs to be their recommended moving company. Move-in/move-out is constant in multi-unit properties, and a building-wide recommendation reaches every tenant.",
-          "metrics": "A 200-unit apartment complex has 30–50 move-ins/outs per year. Being the recommended mover captures 20–40% of that volume.",
-          "roiRange": "Zero cost. Volume from one large complex: $30K–$80K/year in moves",
-          "timeline": "1–2 months to set up first partnership",
-          "bestFor": "Moving companies, junk removal, storage"
-        },
-        {
-          "channel": "Yelp & Review Platforms",
+          "channel": "Automated Review Generation",
           "icon": "⭐",
-          "detail": "Moving is one of the most review-dependent industries — consumers read 10+ reviews before choosing a mover. Yelp, Google, and Angi reviews are the primary decision factor after price.",
-          "metrics": "Moving companies with 100+ reviews and 4.5+ stars get 2–3x more quote requests. Responding to negative reviews within 24 hours reduces their impact by 50%.",
-          "roiRange": "Free to maintain. The gap between a 4.0 and 4.7 star rating can double lead volume",
-          "timeline": "Ongoing — request reviews from every customer. Aim for 5–10 new reviews per month",
+          "detail": "Moving is one of the most review-dependent industries. Cogent sets up automated post-move review requests and manages review responses. The difference between 50 and 200 reviews can double lead volume.",
+          "metrics": "Automated review requests achieve 15–20% conversion. Moving companies with 100+ reviews get 2–3x more quote requests. Responding to all reviews (especially negative ones within 24 hours) significantly impacts conversion.",
+          "roiRange": "Free once set up. Reviews are a multiplier on all other marketing efforts",
+          "timeline": "System setup: 1 week. Steady growth ongoing",
           "bestFor": "All consumer-facing logistics — moving, junk removal, hauling, storage"
         },
         {
-          "channel": "E-commerce & Fulfillment Partnerships",
-          "icon": "📦",
-          "detail": "For B2B logistics (warehousing, 3PL, distribution), partner with growing e-commerce brands that need scalable fulfillment. One mid-size brand contract can generate $10K–$50K/month in recurring revenue.",
-          "metrics": "E-commerce brands with $1M–$10M revenue outgrow DIY fulfillment and need 3PL partners. Conversion from proposal to contract: 15–25% for competitive, well-presented offers.",
-          "roiRange": "No marketing cost for direct outreach. Recurring monthly contracts with 12–24 month terms",
-          "timeline": "3–6 month sales cycle for logistics contracts",
+          "channel": "LinkedIn Ads (B2B Logistics)",
+          "icon": "💼",
+          "detail": "For B2B logistics (warehousing, 3PL, distribution, cold chain), Cogent runs LinkedIn campaigns targeting Operations Directors, Supply Chain Managers, and eCommerce founders at companies outgrowing their current fulfillment setup.",
+          "metrics": "LinkedIn CPL for logistics: $40–$80. But B2B logistics contracts are $10K–$50K+/month recurring, making the cost per acquisition very attractive.",
+          "roiRange": "10–30x for recurring logistics contracts. One won account can generate $120K–$600K/year",
+          "timeline": "Campaign launch: 1–2 weeks. Sales cycle for logistics: 2–6 months",
           "bestFor": "Warehousing, 3PL, distribution, cold chain logistics"
         }
       ]
@@ -434,40 +425,40 @@
       "label": "Oil, Gas & Heavy Industrial",
       "channels": [
         {
-          "channel": "Trade Show Circuit (OTC, ADIPEC, WEC)",
-          "icon": "🎪",
-          "detail": "Oil & gas purchasing decisions happen at industry conferences. OTC (Offshore Technology Conference), ADIPEC, and regional petroleum shows are where plant managers and procurement teams evaluate new vendors.",
-          "metrics": "OTC alone draws 60,000+ attendees. A well-staffed booth captures 50–200 qualified contacts. Post-show close rate: 5–15% within 12 months.",
-          "roiRange": "Booth cost: $10K–$50K. One landed O&G contract ($100K–$1M+) covers years of show attendance",
-          "timeline": "Major shows are annual — plan 6+ months ahead. Regional shows offer faster entry",
-          "bestFor": "Oil & gas engineering, oilfield services, heavy equipment, industrial fabrication"
+          "channel": "LinkedIn Ads (O&G Decision-Maker Targeting)",
+          "icon": "💼",
+          "detail": "O&G purchasing decisions involve Plant Managers, Capital Projects VPs, and Procurement teams. Cogent runs targeted LinkedIn campaigns reaching these exact roles at refineries, petrochemical plants, and energy companies in the client's service area.",
+          "metrics": "LinkedIn CPL for O&G: $75–$200. Average O&G service contract: $50K–$500K+. One landed contract covers 6–12 months of LinkedIn spend.",
+          "roiRange": "5–15x. The high contract values in O&G make LinkedIn economics very favorable",
+          "timeline": "Campaign launch: 1–2 weeks. Sales cycle: 3–12 months for O&G contracts",
+          "bestFor": "Oil & gas engineering, oilfield services, industrial fabrication, rigging/millwright"
         },
         {
-          "channel": "ISNetworld / Avetta / Veriforce Compliance Profiles",
-          "icon": "📜",
-          "detail": "O&G operators require contractors to be pre-qualified through safety compliance platforms. Having a green-light ISNetworld or Avetta profile is a prerequisite for bidding — and a strong safety record differentiates you from competitors.",
-          "metrics": "90%+ of major O&G operators require ISNetworld or equivalent. Companies with top safety grades win 30–50% more bids.",
-          "roiRange": "Platform cost: $1,000–$5,000/year. Without it, you can't even bid on most O&G work",
-          "timeline": "2–4 months for initial compliance setup; ongoing maintenance",
-          "bestFor": "All O&G contractors and industrial service providers"
+          "channel": "SEO + Technical Capabilities Website",
+          "icon": "📝",
+          "detail": "O&G engineers research vendors online before adding them to bid lists. Cogent builds technical capability pages, project case studies, and certification documentation — optimized for the technical searches procurement teams run.",
+          "metrics": "O&G technical content faces low SEO competition. Capability pages rank quickly and generate high-quality RFQ traffic. Content doubles as sales collateral for proposals.",
+          "roiRange": "Highest long-term ROI. Technical content compounds and establishes authority in the niche",
+          "timeline": "Content development: 2–4 weeks per page. SEO ranking: 3–6 months",
+          "bestFor": "Engineering firms, specialty fabrication, inspection, process equipment"
         },
         {
-          "channel": "Targeted Account-Based Outreach",
-          "icon": "🎯",
-          "detail": "Oil & gas has a finite number of major operators and EPC firms in each region. Build a target account list of 20–50 companies and run coordinated outreach through LinkedIn, industry introductions, and direct proposals.",
-          "metrics": "With 20–50 target accounts, a well-executed ABM campaign can generate meetings with 20–30% within 6 months. Average O&G service contract: $50K–$500K+.",
-          "roiRange": "Marketing cost: minimal (prospecting tools + time). One won contract can generate years of recurring revenue",
-          "timeline": "6–12 months for full ABM cycle in O&G (long sales cycles)",
+          "channel": "Email Campaigns to Target Account Lists",
+          "icon": "📧",
+          "detail": "O&G has a finite number of major operators and EPC firms in each region. Cogent builds a target account list and runs coordinated email campaigns with case studies, certifications, and capability summaries to the decision-makers at each account.",
+          "metrics": "O&G email open rates from targeted lists: 20–30%. Multi-touch campaigns (6–8 touches over 3 months) generate meetings with 5–15% of target accounts.",
+          "roiRange": "Minimal cost ($500–$1,500/mo). One won contract can generate years of recurring revenue",
+          "timeline": "List building + first campaign: 2–4 weeks. Meetings within 4–8 weeks. Close timeline: 3–12 months",
           "bestFor": "Engineering firms, industrial fabrication, specialty services (rigging, millwright, refractory)"
         },
         {
-          "channel": "Technical Paper & Case Study Publishing",
-          "icon": "📝",
-          "detail": "O&G engineers and procurement teams evaluate vendors based on technical expertise. Publishing case studies, white papers, and technical capabilities documents — and sharing them through LinkedIn and industry publications — builds credibility that cold calls can't.",
-          "metrics": "Technical content shared on LinkedIn in O&G gets 3–5x more engagement from decision-makers than promotional posts. Case studies attached to proposals increase win rate by 25–35%.",
-          "roiRange": "No direct cost. Content differentiates you in competitive bids and shortens the trust-building phase",
-          "timeline": "2–3 months to build initial case study library from existing project work",
-          "bestFor": "Engineering, specialty fabrication, inspection services, process equipment"
+          "channel": "Direct Mail (Capability Packets to Plants)",
+          "icon": "📬",
+          "detail": "Physical capability packets mailed to plant managers and maintenance directors get noticed — they sit on desks while emails get buried. Cogent designs professional capability brochures and mails them to targeted decision-makers at O&G facilities.",
+          "metrics": "O&G direct mail response rate: 2–5% (high for B2B because decision-makers keep physical materials). A 100-piece mailing at $5/piece ($500) that generates 3–5 meetings is highly cost-effective.",
+          "roiRange": "15–30x. One won O&G contract ($100K+) covers years of mailings",
+          "timeline": "Design + print: 2–3 weeks. Mail drop to response: 2–6 weeks",
+          "bestFor": "All O&G contractors — engineering, fabrication, field services, inspection"
         }
       ]
     },
@@ -475,40 +466,40 @@
       "label": "Medical & Specialized Products",
       "channels": [
         {
-          "channel": "Medical Trade Shows & Conferences (MEDICA, MD&M)",
-          "icon": "🏥",
-          "detail": "Medical device and specialized product buyers attend trade shows to evaluate new vendors and technologies. MEDICA, MD&M, and specialty conferences are where purchasing decisions begin.",
-          "metrics": "MEDICA: 80,000+ attendees. MD&M West: 20,000+. Qualified lead capture: 30–100 contacts per show. Medical sales cycles: 6–18 months.",
-          "roiRange": "Booth: $5K–$30K. Medical device contracts can be worth $100K–$1M+. One landed account covers years of shows",
-          "timeline": "Plan 4–6 months ahead for major shows; follow-up cycle is long",
+          "channel": "LinkedIn Ads (Healthcare Decision-Maker Targeting)",
+          "icon": "💼",
+          "detail": "Medical purchasing involves multiple stakeholders — surgeons, procurement teams, administrators. Cogent runs LinkedIn campaigns targeting these exact roles at hospital systems, clinics, and medical groups.",
+          "metrics": "LinkedIn CPL for healthcare: $60–$150. Medical device sales cycles are long (6–18 months) but contract values are $50K–$1M+. LinkedIn builds the pipeline that closes downstream.",
+          "roiRange": "5–20x on medical device/product contracts. Pipeline building through LinkedIn is critical for long-cycle sales",
+          "timeline": "Campaign launch: 1–2 weeks. Pipeline development: 3–6 months. Close timeline: 6–18 months",
           "bestFor": "Medical devices, specialized equipment, laboratory supplies"
         },
         {
-          "channel": "GPO & Hospital System Vendor Programs",
-          "icon": "🏛️",
-          "detail": "Group Purchasing Organizations (GPOs) like Vizient, Premier, and HealthTrust control 90%+ of hospital purchasing. Getting on a GPO contract is the single most impactful sales channel for medical products.",
-          "metrics": "GPO contract access opens purchasing from thousands of hospitals simultaneously. Non-GPO vendors are often excluded from consideration entirely.",
-          "roiRange": "GPO membership fees: $5K–$50K. Access to $100B+ in aggregate hospital purchasing",
-          "timeline": "6–18 months for GPO contract approval",
-          "bestFor": "Medical devices, disposables, specialized equipment"
+          "channel": "SEO + Technical Content Marketing",
+          "icon": "📝",
+          "detail": "Healthcare professionals research heavily before evaluating vendors. Cogent creates technical content — product comparison guides, clinical application articles, regulatory compliance documentation — that captures medical professionals during the research phase.",
+          "metrics": "Medical technical content faces moderate competition but ranks well with proper E-E-A-T signals. Well-optimized product pages generate 5–15 qualified inquiries per month.",
+          "roiRange": "Highest long-term ROI. Medical content establishes authority and generates trust-based leads",
+          "timeline": "Content development: 2–4 weeks per piece. SEO ranking: 4–8 months for medical terms",
+          "bestFor": "Medical devices, specialized equipment, diagnostics"
         },
         {
-          "channel": "Clinical Advisory Board & KOL Marketing",
-          "icon": "👨‍⚕️",
-          "detail": "In medical sales, Key Opinion Leaders (KOLs) and clinical advisors influence purchasing decisions across entire hospital systems. Engaging 3–5 KOLs who advocate for your product creates pull demand that no ad can replicate.",
-          "metrics": "One KOL endorsement can influence purchasing decisions across a hospital system of 10–50 facilities. KOL-driven products see 2–3x faster adoption curves.",
-          "roiRange": "KOL engagement costs: $10K–$50K/year. Influence on market adoption: priceless for medical products",
-          "timeline": "6–12 months to build KOL relationships; 12–24 months for market impact",
+          "channel": "Email Campaigns to Healthcare Systems",
+          "icon": "📧",
+          "detail": "Build targeted lists of procurement directors, department heads, and clinical leaders at hospital systems. Cogent runs multi-touch email campaigns with clinical evidence, case studies, and product information.",
+          "metrics": "Healthcare B2B email open rates: 20–28%. Multi-touch sequences generate demo/meeting requests at 2–5%. Average medical device deal: $50K–$500K+.",
+          "roiRange": "10–30x. One closed healthcare system account can generate recurring revenue for years",
+          "timeline": "List building + first campaign: 3–4 weeks. First meetings: 6–10 weeks",
           "bestFor": "Medical devices, clinical equipment, specialized diagnostics"
         },
         {
-          "channel": "Regulatory & Certification Differentiation",
-          "icon": "📜",
-          "detail": "FDA clearances, ISO 13485, CE marking — certifications are table stakes in medical. But marketing specific certifications competitors lack (especially in emerging areas) creates competitive moats.",
-          "metrics": "Products with additional certifications (e.g., cybersecurity compliance, specific FDA pathways) win bids 40–60% more often in competitive evaluations.",
-          "roiRange": "Certification investment: $10K–$100K. Competitive differentiation drives premium pricing and higher win rates",
-          "timeline": "3–12 months depending on certification complexity",
-          "bestFor": "Medical devices, specialized manufacturing for medical applications"
+          "channel": "Google Ads (High-Intent Medical Keywords)",
+          "icon": "🔍",
+          "detail": "Healthcare procurement searches ('medical device supplier', 'diagnostic equipment quote') have high intent and moderate CPC. Cogent runs targeted campaigns capturing procurement teams actively sourcing.",
+          "metrics": "Medical procurement keywords: $10–$40 CPC. Conversion rate: 5–12% for quote request forms. These are high-intent searches from people with budget authority.",
+          "roiRange": "5–15x. High CPC is offset by high contract values ($50K+)",
+          "timeline": "Campaign live within 1–2 weeks. Leads start immediately",
+          "bestFor": "Medical equipment, laboratory supplies, specialized products"
         }
       ]
     }

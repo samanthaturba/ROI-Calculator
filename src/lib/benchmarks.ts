@@ -16,6 +16,7 @@ export interface AlternativeMarketingChannel {
   roiRange: string;
   timeline: string;
   bestFor: string;
+  resourceUrl?: string;
 }
 
 export interface IndustryAlternativeMarketing {
