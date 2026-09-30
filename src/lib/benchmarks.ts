@@ -6,6 +6,23 @@ import lsaBenchmarkData from "../data/lsa-benchmarks.json";
 import platformRecommendationData from "../data/platform-recommendations.json";
 import industryCloseRates from "../data/industry-close-rates.json";
 import audienceInsightsData from "../data/audience-insights.json";
+import alternativeMarketingData from "../data/alternative-marketing.json";
+
+export interface AlternativeMarketingChannel {
+  channel: string;
+  icon: string;
+  detail: string;
+  metrics: string;
+  roiRange: string;
+  timeline: string;
+  bestFor: string;
+}
+
+export interface IndustryAlternativeMarketing {
+  categoryId: string;
+  categoryLabel: string;
+  channels: AlternativeMarketingChannel[];
+}
 
 export interface AudienceStrategy {
   type: "event" | "prospecting" | "bizdev" | "content";
@@ -139,6 +156,17 @@ export { googleBenchmarks as benchmarks };
 
 export function getAudienceInsights(industryId: string): AudienceInsight | null {
   return audienceInsights[industryId] ?? null;
+}
+
+const altMarketingCategories = alternativeMarketingData.categories as Record<string, { label: string; channels: AlternativeMarketingChannel[] }>;
+const altMarketingIndustryMap = alternativeMarketingData.industryMap as Record<string, string>;
+
+export function getAlternativeMarketing(industryId: string): IndustryAlternativeMarketing | null {
+  const categoryId = altMarketingIndustryMap[industryId];
+  if (!categoryId) return null;
+  const category = altMarketingCategories[categoryId];
+  if (!category) return null;
+  return { categoryId, categoryLabel: category.label, channels: category.channels };
 }
 
 // ── In-memory AI-generated industry registry ─────────────────────────────────

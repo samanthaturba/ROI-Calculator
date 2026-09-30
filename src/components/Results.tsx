@@ -3,7 +3,8 @@
 import { useState } from "react";
 import type { CalculationResult, RoundingMode, AdPlatform, ServiceSelection as ServiceSelectionType } from "../lib/types";
 import { formatCurrency, formatNumber } from "../lib/calculations";
-import type { AudienceInsight } from "../lib/benchmarks";
+import type { AudienceInsight, IndustryAlternativeMarketing } from "../lib/benchmarks";
+import { getAlternativeMarketing } from "../lib/benchmarks";
 
 interface Props {
   results: Record<AdPlatform, CalculationResult | null>;
@@ -67,7 +68,7 @@ function MetricTooltip({ label, explanation }: { label: string; explanation: str
 
 const LOW_ROAS_THRESHOLD = 3;
 
-function LowRoasWarning({ roas, gpRoas, grossMarginPercent, industryName, audienceInsights, availableServices }: { roas: number; gpRoas: number | null; grossMarginPercent?: number | null; industryName?: string; audienceInsights?: AudienceInsight | null; availableServices?: ServiceSelectionType[] }) {
+function LowRoasWarning({ roas, gpRoas, grossMarginPercent, industryId, industryName, audienceInsights, availableServices }: { roas: number; gpRoas: number | null; grossMarginPercent?: number | null; industryId?: string; industryName?: string; audienceInsights?: AudienceInsight | null; availableServices?: ServiceSelectionType[] }) {
   const effectiveRoas = gpRoas !== null ? gpRoas : roas;
   if (effectiveRoas <= 0 || effectiveRoas >= LOW_ROAS_THRESHOLD) return null;
 
@@ -95,7 +96,7 @@ function LowRoasWarning({ roas, gpRoas, grossMarginPercent, industryName, audien
       <p className="text-xs text-red-600 mt-2">
         If the numbers are accurate and ROAS is still below 3x, this may not be a strong ad-spend opportunity for the client. The owner may need to work on close rate, job value, or pricing before ads make sense.
       </p>
-      <AlternativeMarketingOptions industryName={industryName} audienceInsights={audienceInsights} availableServices={availableServices} />
+      <AlternativeMarketingOptions industryId={industryId} industryName={industryName} audienceInsights={audienceInsights} availableServices={availableServices} />
     </div>
   );
 }
@@ -135,10 +136,11 @@ const GENERAL_ALTERNATIVES: { title: string; detail: string; roiNote: string }[]
   },
 ];
 
-function AlternativeMarketingOptions({ industryName, audienceInsights, availableServices }: { industryName?: string; audienceInsights?: AudienceInsight | null; availableServices?: ServiceSelectionType[] }) {
+function AlternativeMarketingOptions({ industryId, industryName, audienceInsights, availableServices }: { industryId?: string; industryName?: string; audienceInsights?: AudienceInsight | null; availableServices?: ServiceSelectionType[] }) {
   const [expanded, setExpanded] = useState(false);
 
   const hasIndustryInsights = audienceInsights && audienceInsights.strategies.length > 0;
+  const altMarketing = industryId ? getAlternativeMarketing(industryId) : null;
 
   const selectedServices = availableServices?.filter((s) => s.selected) ?? [];
   const selectedJobValues = selectedServices.map((s) => s.customJobValue ?? s.benchmark?.avgJobValue ?? 0);
@@ -155,7 +157,9 @@ function AlternativeMarketingOptions({ industryName, audienceInsights, available
       >
         <span className={`transition-transform duration-200 ${expanded ? "rotate-90" : ""}`}>▶</span>
         <span>What else could work{industryName ? ` for ${industryName}` : ""}?</span>
-        <span className="text-xs font-normal text-red-600 ml-1">Alternative marketing options</span>
+        <span className="text-xs font-normal text-red-600 ml-1">
+          {altMarketing ? `${altMarketing.channels.length} industry-specific channels` : "Alternative marketing options"}
+        </span>
       </button>
 
       {expanded && (
@@ -163,7 +167,7 @@ function AlternativeMarketingOptions({ industryName, audienceInsights, available
           {higherValueServices.length > 0 && (
             <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
               <p className="text-sm font-semibold text-blue-900 mb-1">
-                🔍 Higher-value campaigns available in {industryName || "this industry"}
+                Higher-value campaigns available in {industryName || "this industry"}
               </p>
               <p className="text-xs text-blue-800 mb-2">
                 The selected service{selectedServices.length > 1 ? "s have" : " has"} a lower average job value. These unselected campaigns have higher ticket sizes, which can dramatically improve ROAS with the same ad spend:
@@ -215,28 +219,56 @@ function AlternativeMarketingOptions({ industryName, audienceInsights, available
             </div>
           )}
 
-          <div className={hasIndustryInsights ? "p-3 bg-gray-50 border border-gray-200 rounded-lg" : ""}>
-            {hasIndustryInsights && (
-              <p className="text-xs font-semibold text-gray-700 mb-2">General alternatives worth discussing:</p>
-            )}
-            {!hasIndustryInsights && (
+          {altMarketing ? (
+            <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-lg">
+              <p className="text-sm font-semibold text-emerald-900 mb-1">
+                Alternative Marketing Channels for {altMarketing.categoryLabel}
+              </p>
+              <p className="text-xs text-emerald-800 mb-3">
+                These channels have proven track records in the <strong>{altMarketing.categoryLabel.toLowerCase()}</strong> vertical. Each includes realistic ROI expectations and timeline so the AM can set proper client expectations:
+              </p>
+              <div className="space-y-4">
+                {altMarketing.channels.map((ch, i) => (
+                  <div key={i} className="text-xs border-b border-emerald-100 pb-3 last:border-b-0 last:pb-0">
+                    <p className="font-semibold text-emerald-900 text-sm">{ch.icon} {ch.channel}</p>
+                    <p className="text-emerald-800 mt-1">{ch.detail}</p>
+                    <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                      <div className="flex items-start gap-1.5">
+                        <span className="font-semibold text-emerald-700 whitespace-nowrap">Expected ROI:</span>
+                        <span className="text-emerald-800">{ch.roiRange}</span>
+                      </div>
+                      <div className="flex items-start gap-1.5">
+                        <span className="font-semibold text-emerald-700 whitespace-nowrap">Timeline:</span>
+                        <span className="text-emerald-800">{ch.timeline}</span>
+                      </div>
+                    </div>
+                    <p className="text-emerald-700 mt-1.5 italic">Metrics: {ch.metrics}</p>
+                    <p className="text-emerald-600 mt-1">Best for: {ch.bestFor}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div>
               <p className="text-xs text-red-700 mb-3">
                 If paid ads aren&apos;t generating strong enough returns, here are other marketing channels to discuss with the client. These won&apos;t have the same precise projections as ad campaigns, but they&apos;re proven paths for service businesses:
               </p>
-            )}
-            <div className="space-y-3">
-              {GENERAL_ALTERNATIVES.map((alt, i) => (
-                <div key={i} className="text-xs">
-                  <p className="font-semibold text-gray-800">{alt.title}</p>
-                  <p className="text-gray-600 mt-0.5">{alt.detail}</p>
-                  <p className="text-gray-500 mt-0.5 italic">💰 General ROI: {alt.roiNote}</p>
-                </div>
-              ))}
+              <div className="space-y-3">
+                {GENERAL_ALTERNATIVES.map((alt, i) => (
+                  <div key={i} className="text-xs">
+                    <p className="font-semibold text-gray-800">{alt.title}</p>
+                    <p className="text-gray-600 mt-0.5">{alt.detail}</p>
+                    <p className="text-gray-500 mt-0.5 italic">General ROI: {alt.roiNote}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           <p className="text-xs text-red-600 italic">
-            These estimates are general industry ranges, not precise projections like the ad calculator above. Use them as talking points to guide the conversation — the right mix depends on the client&apos;s market, budget, and capacity.
+            {altMarketing
+              ? "These are industry-specific estimates based on typical performance in this vertical, not precise projections. Use them as talking points with the client — the right mix depends on their market, budget, and capacity."
+              : "These estimates are general industry ranges, not precise projections like the ad calculator above. Use them as talking points to guide the conversation — the right mix depends on the client’s market, budget, and capacity."}
           </p>
         </div>
       )}
@@ -253,6 +285,7 @@ function SinglePlatformResults({
   platform,
   audienceSearchBehavior,
   grossMarginPercent,
+  industryId,
   industryName,
   audienceInsights,
   availableServices,
@@ -265,6 +298,7 @@ function SinglePlatformResults({
   platform: AdPlatform;
   audienceSearchBehavior?: "high" | "medium" | "low" | null;
   grossMarginPercent?: number | null;
+  industryId?: string;
   industryName?: string;
   audienceInsights?: AudienceInsight | null;
   availableServices?: ServiceSelectionType[];
@@ -471,7 +505,7 @@ function SinglePlatformResults({
       </div>
 
       {/* Low ROAS warning */}
-      <LowRoasWarning roas={roas} gpRoas={gpRoas} grossMarginPercent={grossMarginPercent} industryName={industryName} audienceInsights={audienceInsights} availableServices={availableServices} />
+      <LowRoasWarning roas={roas} gpRoas={gpRoas} grossMarginPercent={grossMarginPercent} industryId={industryId} industryName={industryName} audienceInsights={audienceInsights} availableServices={availableServices} />
 
       {/* Revenue range */}
       {showRange && (
@@ -683,6 +717,7 @@ export default function Results({
   audienceSearchBehavior,
   demandVerdict,
   grossMarginPercent,
+  industryId,
   industryName,
   audienceInsights,
   availableServices,
@@ -719,6 +754,7 @@ export default function Results({
           platform={platform}
           audienceSearchBehavior={effectiveLowSearch ? "low" : audienceSearchBehavior}
           grossMarginPercent={grossMarginPercent}
+          industryId={industryId}
           industryName={industryName}
           audienceInsights={audienceInsights}
           availableServices={availableServices}
@@ -882,7 +918,7 @@ export default function Results({
       </div>
 
       {/* Low ROAS warning */}
-      <LowRoasWarning roas={combinedRoas} gpRoas={combinedGpRoas} grossMarginPercent={grossMarginPercent} industryName={industryName} audienceInsights={audienceInsights} availableServices={availableServices} />
+      <LowRoasWarning roas={combinedRoas} gpRoas={combinedGpRoas} grossMarginPercent={grossMarginPercent} industryId={industryId} industryName={industryName} audienceInsights={audienceInsights} availableServices={availableServices} />
 
       {/* Per-platform breakdown sections */}
       <div className="space-y-6 mt-6">
