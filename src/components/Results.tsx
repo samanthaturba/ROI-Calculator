@@ -136,32 +136,98 @@ const GENERAL_ALTERNATIVES: { title: string; detail: string; roiNote: string }[]
   },
 ];
 
-const CHANNEL_RESOURCE_URLS: Record<string, { url: string; label: string }> = {
-  "Direct Mail": { url: "https://www.addy.co", label: "Addy.co — Direct Mail Platform" },
-  "EDDM": { url: "https://www.addy.co", label: "Addy.co — Direct Mail Platform" },
-  "SEO": { url: "https://moz.com/learn/seo/local", label: "Moz — Local SEO Guide" },
-  "Google Business Profile": { url: "https://business.google.com", label: "Google Business Profile" },
-  "Review Generation": { url: "https://birdeye.com", label: "Birdeye — Review Management" },
-  "Review + Reputation": { url: "https://birdeye.com", label: "Birdeye — Review Management" },
-  "Reputation Management": { url: "https://birdeye.com", label: "Birdeye — Review Management" },
-  "Email Marketing": { url: "https://mailchimp.com", label: "Mailchimp — Email Marketing" },
-  "Email Drip": { url: "https://mailchimp.com", label: "Mailchimp — Email Marketing" },
-  "Email Campaigns": { url: "https://mailchimp.com", label: "Mailchimp — Email Marketing" },
-  "Meta": { url: "https://www.facebook.com/business/ads", label: "Meta Business — Ad Platform" },
-  "Facebook Ads": { url: "https://www.facebook.com/business/ads", label: "Meta Business — Ad Platform" },
-  "LinkedIn Ads": { url: "https://business.linkedin.com/marketing-solutions/ads", label: "LinkedIn — Ad Platform" },
-  "LinkedIn": { url: "https://business.linkedin.com/marketing-solutions/ads", label: "LinkedIn — Ad Platform" },
-  "ThomasNet": { url: "https://www.thomasnet.com", label: "ThomasNet — Industrial Directory" },
-  "Content Marketing": { url: "https://ahrefs.com/blog", label: "Ahrefs — Content & SEO Research" },
-  "Technical Content": { url: "https://ahrefs.com/blog", label: "Ahrefs — Content & SEO Research" },
-  "Google Ads": { url: "https://ads.google.com", label: "Google Ads Platform" },
+interface ChannelTool {
+  url: string;
+  label: string;
+  pricing?: string;
+}
+
+const CHANNEL_TOOLS: Record<string, ChannelTool[]> = {
+  "Direct Mail": [
+    { url: "https://www.addy.co", label: "Addy.co", pricing: "~$0.50–$1.00/piece, no minimums" },
+    { url: "https://www.postcardmania.com", label: "PostcardMania", pricing: "varies by volume" },
+    { url: "https://eddm.usps.com/eddm/select-routes.htm", label: "USPS EDDM Route Selector", pricing: "free tool — plan routes before printing" },
+  ],
+  "EDDM": [
+    { url: "https://www.addy.co", label: "Addy.co", pricing: "~$0.50–$1.00/piece, no minimums" },
+    { url: "https://eddm.usps.com/eddm/select-routes.htm", label: "USPS EDDM Route Selector", pricing: "free tool — plan routes before printing" },
+  ],
+  "SEO": [
+    { url: "https://moz.com/learn/seo/local", label: "Moz Local SEO Guide", pricing: "free guide" },
+    { url: "https://ahrefs.com/blog/local-seo", label: "Ahrefs Local SEO Guide", pricing: "free guide" },
+    { url: "https://www.semrush.com/local", label: "Semrush Local", pricing: "from $130/mo" },
+    { url: "https://www.brightlocal.com", label: "BrightLocal", pricing: "from $39/mo — local SEO tracking" },
+  ],
+  "Google Business Profile": [
+    { url: "https://business.google.com", label: "Google Business Profile", pricing: "free" },
+    { url: "https://www.brightlocal.com", label: "BrightLocal", pricing: "from $39/mo — GBP tracking & audit" },
+  ],
+  "Review Generation": [
+    { url: "https://www.nicejob.com", label: "NiceJob", pricing: "from $75/mo — automated review requests via email + SMS" },
+    { url: "https://www.podium.com", label: "Podium", pricing: "from $249/mo — SMS reviews, webchat, payments" },
+    { url: "https://birdeye.com", label: "Birdeye", pricing: "from $299/mo — reviews, listings, surveys" },
+  ],
+  "Review + Reputation": [
+    { url: "https://www.nicejob.com", label: "NiceJob", pricing: "from $75/mo — automated review requests" },
+    { url: "https://www.podium.com", label: "Podium", pricing: "from $249/mo — SMS reviews + webchat" },
+    { url: "https://birdeye.com", label: "Birdeye", pricing: "from $299/mo — reviews, listings, surveys" },
+  ],
+  "Reputation Management": [
+    { url: "https://www.nicejob.com", label: "NiceJob", pricing: "from $75/mo" },
+    { url: "https://birdeye.com", label: "Birdeye", pricing: "from $299/mo" },
+  ],
+  "Email Marketing": [
+    { url: "https://mailchimp.com", label: "Mailchimp", pricing: "free up to 500 contacts, from $13/mo after" },
+    { url: "https://www.constantcontact.com", label: "Constant Contact", pricing: "from $12/mo" },
+    { url: "https://www.activecampaign.com", label: "ActiveCampaign", pricing: "from $29/mo — advanced automation" },
+  ],
+  "Email Drip": [
+    { url: "https://mailchimp.com", label: "Mailchimp", pricing: "free up to 500 contacts, from $13/mo after" },
+    { url: "https://www.activecampaign.com", label: "ActiveCampaign", pricing: "from $29/mo — drip sequences + CRM" },
+    { url: "https://www.apollo.io", label: "Apollo.io", pricing: "free tier available — prospect lists + email sequences" },
+  ],
+  "Email Campaigns": [
+    { url: "https://mailchimp.com", label: "Mailchimp", pricing: "free up to 500 contacts" },
+    { url: "https://www.apollo.io", label: "Apollo.io", pricing: "free tier — B2B prospect lists + outreach" },
+    { url: "https://hunter.io", label: "Hunter.io", pricing: "free 25 searches/mo — find email addresses" },
+  ],
+  "Meta": [
+    { url: "https://www.facebook.com/business/ads", label: "Meta Business Suite", pricing: "free — ad creation + management" },
+    { url: "https://www.facebook.com/business/learn", label: "Meta Blueprint", pricing: "free training courses" },
+  ],
+  "Facebook": [
+    { url: "https://www.facebook.com/business/ads", label: "Meta Business Suite", pricing: "free — ad creation + management" },
+  ],
+  "LinkedIn Ads": [
+    { url: "https://business.linkedin.com/marketing-solutions/ads", label: "LinkedIn Campaign Manager", pricing: "min $10/day spend" },
+    { url: "https://business.linkedin.com/marketing-solutions/cx/b2b-marketing", label: "LinkedIn B2B Marketing Guide", pricing: "free guide" },
+  ],
+  "LinkedIn": [
+    { url: "https://business.linkedin.com/marketing-solutions/ads", label: "LinkedIn Campaign Manager", pricing: "min $10/day spend" },
+  ],
+  "ThomasNet": [
+    { url: "https://www.thomasnet.com", label: "ThomasNet", pricing: "free basic listing, premium from ~$500/mo" },
+  ],
+  "Content Marketing": [
+    { url: "https://ahrefs.com", label: "Ahrefs", pricing: "from $99/mo — keyword research + content planning" },
+    { url: "https://www.semrush.com", label: "Semrush", pricing: "from $130/mo — content + SEO toolkit" },
+    { url: "https://surferseo.com", label: "Surfer SEO", pricing: "from $69/mo — content optimization" },
+  ],
+  "Technical Content": [
+    { url: "https://ahrefs.com", label: "Ahrefs", pricing: "from $99/mo — keyword research" },
+    { url: "https://www.semrush.com", label: "Semrush", pricing: "from $130/mo — content + SEO toolkit" },
+  ],
+  "Google Ads": [
+    { url: "https://ads.google.com", label: "Google Ads", pricing: "no platform fee — pay per click only" },
+    { url: "https://ads.google.com/home/tools/keyword-planner/", label: "Google Keyword Planner", pricing: "free — research keyword costs" },
+  ],
 };
 
-function getChannelResource(channelName: string): { url: string; label: string } | null {
-  for (const [keyword, resource] of Object.entries(CHANNEL_RESOURCE_URLS)) {
-    if (channelName.includes(keyword)) return resource;
+function getChannelTools(channelName: string): ChannelTool[] {
+  for (const [keyword, tools] of Object.entries(CHANNEL_TOOLS)) {
+    if (channelName.includes(keyword)) return tools;
   }
-  return null;
+  return [];
 }
 
 function AlternativeMarketingOptions({ industryId, industryName, audienceInsights, availableServices, context = "standalone" }: { industryId?: string; industryName?: string; audienceInsights?: AudienceInsight | null; availableServices?: ServiceSelectionType[]; context?: "standalone" | "low-roas" }) {
@@ -269,7 +335,7 @@ function AlternativeMarketingOptions({ industryId, industryName, audienceInsight
               </p>
               <div className="space-y-4">
                 {altMarketing.channels.map((ch, i) => {
-                  const resource = getChannelResource(ch.channel);
+                  const tools = getChannelTools(ch.channel);
                   return (
                     <div key={i} className="text-xs border-b border-emerald-100 pb-3 last:border-b-0 last:pb-0">
                       <p className="font-semibold text-emerald-900 text-sm">{ch.icon} {ch.channel}</p>
@@ -286,15 +352,21 @@ function AlternativeMarketingOptions({ industryId, industryName, audienceInsight
                       </div>
                       <p className="text-emerald-700 mt-1.5 italic">Metrics: {ch.metrics}</p>
                       <p className="text-emerald-600 mt-1">Best for: {ch.bestFor}</p>
-                      {resource && (
-                        <a
-                          href={resource.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 mt-2 text-xs font-medium text-emerald-700 hover:text-emerald-900 underline underline-offset-2"
-                        >
-                          🔗 {resource.label} ↗
-                        </a>
+                      {tools.length > 0 && (
+                        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
+                          <span className="text-emerald-700 font-semibold">Tools:</span>
+                          {tools.map((tool, ti) => (
+                            <a
+                              key={ti}
+                              href={tool.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-0.5 text-emerald-700 hover:text-emerald-900 underline underline-offset-2"
+                            >
+                              {tool.label}{tool.pricing ? ` (${tool.pricing})` : ""} ↗
+                            </a>
+                          ))}
+                        </div>
                       )}
                     </div>
                   );
