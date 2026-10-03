@@ -831,6 +831,9 @@ function SinglePlatformResults({
 
       {/* Always-visible alternative marketing channels */}
       <AlternativeMarketingOptions industryId={industryId} industryName={industryName} audienceInsights={audienceInsights} availableServices={availableServices} context="standalone" />
+
+      {/* Total Marketing Investment Calculator — internal use only */}
+      <TotalInvestmentCalculator monthlyAdSpend={result.totalSpend} monthlyRevenue={revenue} />
     </>
   );
 }
@@ -1197,6 +1200,94 @@ export default function Results({
           and to help set realistic expectations for campaign performance once fully optimized (typically 60-90 days).
         </p>
       </div>
+      {/* Total Marketing Investment Calculator — internal use only */}
+      <TotalInvestmentCalculator monthlyAdSpend={combinedSpend} monthlyRevenue={combinedRevenue} />
+
     </section>
+  );
+}
+
+function TotalInvestmentCalculator({ monthlyAdSpend, monthlyRevenue }: { monthlyAdSpend: number; monthlyRevenue: number }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [cogentFee, setCogentFee] = useState<string>("");
+
+  const fee = parseFloat(cogentFee) || 0;
+  const totalMonthly = fee + monthlyAdSpend;
+  const totalAnnual = totalMonthly * 12;
+  const annualAdRevenue = monthlyRevenue * 12;
+  const netReturn = annualAdRevenue - totalAnnual;
+  const totalRoi = totalAnnual > 0 ? annualAdRevenue / totalAnnual : 0;
+
+  return (
+    <div className="mt-6 border-t border-dashed border-gray-300 pt-4">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="text-xs text-gray-400 hover:text-cogent-navy transition-colors flex items-center gap-1"
+      >
+        <span className="text-[10px]">{isOpen ? "▼" : "▶"}</span>
+        Total Marketing Investment Calculator (internal)
+      </button>
+
+      {isOpen && (
+        <div className="mt-3 p-4 bg-gray-50 border border-gray-200 rounded-lg text-sm">
+          <div className="flex items-center gap-3 mb-4">
+            <label className="text-xs text-cogent-neutral whitespace-nowrap">
+              Cogent Monthly Fee:
+            </label>
+            <div className="relative">
+              <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm">$</span>
+              <input
+                type="number"
+                value={cogentFee}
+                onChange={(e) => setCogentFee(e.target.value)}
+                placeholder="e.g. 4000"
+                className="pl-6 pr-3 py-1.5 border border-gray-300 rounded text-sm w-32 focus:outline-none focus:ring-1 focus:ring-cogent-navy/30"
+              />
+            </div>
+          </div>
+
+          {fee > 0 && (
+            <div className="space-y-2 font-mono text-xs text-cogent-neutral">
+              <div className="flex justify-between border-b border-gray-200 pb-1">
+                <span>Cogent marketing fee</span>
+                <span>{formatCurrency(fee)}/mo</span>
+              </div>
+              <div className="flex justify-between border-b border-gray-200 pb-1">
+                <span>+ Ad budget</span>
+                <span>{formatCurrency(monthlyAdSpend)}/mo</span>
+              </div>
+              <div className="flex justify-between font-semibold text-cogent-navy border-b border-gray-300 pb-1">
+                <span>= Total monthly investment</span>
+                <span>{formatCurrency(totalMonthly)}/mo</span>
+              </div>
+              <div className="flex justify-between pt-1">
+                <span>Annual total investment</span>
+                <span>{formatCurrency(totalAnnual)}/yr</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Annual projected ad revenue</span>
+                <span>{formatCurrency(annualAdRevenue)}/yr</span>
+              </div>
+              <div className={`flex justify-between font-semibold pt-1 border-t border-gray-300 ${netReturn >= 0 ? "text-emerald-700" : "text-amber-700"}`}>
+                <span>Net return (ad revenue − total cost)</span>
+                <span>{netReturn >= 0 ? "+" : ""}{formatCurrency(netReturn)}/yr</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Return on total investment</span>
+                <span className={totalRoi >= 1 ? "text-emerald-700 font-semibold" : "text-amber-700 font-semibold"}>
+                  {totalRoi > 0 ? `${totalRoi.toFixed(1)}x` : "—"}
+                </span>
+              </div>
+
+              {netReturn < 0 && (
+                <div className="mt-3 p-2 bg-amber-50 border border-amber-200 rounded text-[11px] text-amber-800 leading-relaxed">
+                  Note: This only accounts for revenue from ads. The full Cogent scope includes SEO, website, content, and other initiatives that also drive revenue and are not captured in this ad-only projection.
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
   );
 }
