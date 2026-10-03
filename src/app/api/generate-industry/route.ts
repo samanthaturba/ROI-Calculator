@@ -128,8 +128,34 @@ Trucking & logistics (residential-facing): $40–120
 Trucking & logistics (B2B fleet): $80–250
 Real estate (buyer/seller leads): $40–120
 Senior care / assisted living: $100–300
+Entertainment & events (theaters, venues, attractions): $15–50
+Lodging & hospitality (hotels, inns, resorts): $30–90
+Fitness & recreation (gyms, studios, sports): $25–80
+Education & training (schools, tutoring, courses): $40–150
+Pet services (grooming, boarding, veterinary): $25–70
+Financial services (accounting, tax, insurance): $80–200
+Wedding & event services (planners, catering, photography): $40–120
 
 For NOT_A_FIT industries: still generate service CPLs as theoretical benchmarks, but mark confidence as "low" and note in each service that keyword volume is unverified.
+
+━━━ RECOMMENDED SPEND CALIBRATION ━━━
+
+recommendedMinAdSpend is the MINIMUM monthly budget to generate enough leads to see results. recommendedTargetAdSpend is the sweet spot for consistent ROI. Use these anchors:
+
+- Local service businesses (one location, 20-mile radius): min $1,500, target $3,000–5,000
+- Multi-location or regional businesses: min $2,500, target $5,000–10,000
+- Ecommerce / DTC: min $1,500, target $3,000–8,000
+- High-ticket B2B ($50K+ job value): min $3,000, target $6,000–12,000
+- Volume-driven businesses (tickets, bookings, reservations): min $2,000, target $4,000–8,000
+- Niche / low-competition markets: min $1,000, target $2,000–4,000
+
+NEVER set recommendedMinAdSpend below $1,000 — at lower budgets there are not enough clicks to learn or optimize, and the data is too thin to report on. A $500/mo Google Ads budget is almost never enough to produce meaningful results for any business.
+
+avgJobValue MUST reflect the TOTAL revenue from the lead, not just one transaction:
+- For ticket/admission businesses: avg tickets per buyer (usually 2-4) × ticket price
+- For hotels/lodging: avg nights per stay × nightly rate
+- For subscriptions: first 90 days of customer value, not one month
+- For repeat-service businesses (cleaning, lawn care): at least 3 months of service value
 
 ━━━ OUTPUT FORMAT ━━━
 Return ONLY valid JSON — no explanation, no markdown, no code blocks, no backtick fences.
