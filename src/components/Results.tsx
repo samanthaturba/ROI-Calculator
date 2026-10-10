@@ -1,10 +1,62 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { CalculationResult, RoundingMode, AdPlatform, ServiceSelection as ServiceSelectionType } from "../lib/types";
 import { formatCurrency, formatNumber } from "../lib/calculations";
 import type { AudienceInsight, IndustryAlternativeMarketing } from "../lib/benchmarks";
 import { getAlternativeMarketing } from "../lib/benchmarks";
+
+interface VolumeData {
+  volume: number;
+  keywords: string;
+}
+
+const volumeCache = new Map<string, Record<string, VolumeData>>();
+
+function useSearchVolumes(industryName?: string, serviceNames?: string[]) {
+  const [volumes, setVolumes] = useState<Record<string, VolumeData>>({});
+  const [loading, setLoading] = useState(false);
+  const [fetched, setFetched] = useState("");
+
+  const cacheKey = industryName && serviceNames?.length
+    ? `${industryName}:${[...serviceNames].sort().join(",")}`
+    : "";
+
+  useEffect(() => {
+    if (!cacheKey || cacheKey === fetched) return;
+    if (volumeCache.has(cacheKey)) {
+      setVolumes(volumeCache.get(cacheKey)!);
+      setFetched(cacheKey);
+      return;
+    }
+    let cancelled = false;
+    setLoading(true);
+    fetch("/api/search-volume", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ industryName, serviceNames }),
+    })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (cancelled || !data) return;
+        const results = data.results ?? {};
+        volumeCache.set(cacheKey, results);
+        setVolumes(results);
+      })
+      .catch(() => {})
+      .finally(() => { if (!cancelled) { setLoading(false); setFetched(cacheKey); } });
+    return () => { cancelled = true; };
+  }, [cacheKey]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  return { volumes, loading };
+}
+
+function formatVolume(v: number): string {
+  if (v >= 100000) return `${Math.round(v / 1000)}K`;
+  if (v >= 10000) return `${(v / 1000).toFixed(1)}K`;
+  if (v >= 1000) return `${(v / 1000).toFixed(1)}K`;
+  return String(v);
+}
 
 interface Props {
   results: Record<AdPlatform, CalculationResult | null>;
@@ -447,6 +499,9 @@ function SinglePlatformResults({
   const roas = result.totalSpend > 0 ? revenue / result.totalSpend : 0;
   const gpRoas = gp !== null && result.totalSpend > 0 ? gp / result.totalSpend : null;
 
+  const serviceNames = result.serviceResults.map((sr) => sr.serviceName);
+  const { volumes: searchVolumes, loading: volumesLoading } = useSearchVolumes(industryName, serviceNames);
+
   return (
     <>
       <h2 className="text-lg font-semibold text-cogent-navy mb-1">
@@ -648,58 +703,92 @@ function SinglePlatformResults({
         </div>
       )}
 
-      {/* Per-service breakdown */}
-      {result.serviceResults.length > 1 && (
-        <div>
-          <h3 className="text-sm font-semibold text-cogent-navy mb-2">Per-Service Breakdown (Estimated)</h3>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b-2 border-cogent-navy/10">
-                  <th className="text-left py-2 px-2 text-cogent-navy font-medium">Service</th>
-                  <th className="text-right py-2 px-2 text-cogent-navy font-medium">Spend</th>
-                  <th className="text-right py-2 px-2 text-cogent-navy font-medium">Est. CPL</th>
-                  <th className="text-right py-2 px-2 text-cogent-navy font-medium">Est. Leads</th>
-                  <th className="text-right py-2 px-2 text-cogent-navy font-medium">Est. Jobs</th>
-                  <th className="text-right py-2 px-2 text-cogent-navy font-medium">Job Value</th>
-                  <th className="text-right py-2 px-2 text-cogent-navy font-medium">Est. Revenue</th>
-                  <th className="text-center py-2 px-2 text-cogent-navy font-medium">Conf.</th>
-                </tr>
-              </thead>
-              <tbody>
-                {result.serviceResults.map((sr) => (
-                  <tr key={sr.serviceName} className="border-b border-gray-100 hover:bg-cogent-ivory/50">
-                    <td className="py-2 px-2 text-gray-900">{sr.serviceName}</td>
-                    <td className="text-right py-2 px-2">{formatCurrency(sr.allocatedSpend)}</td>
-                    <td className="text-right py-2 px-2">{formatCurrency(sr.cplUsed)}</td>
-                    <td className="text-right py-2 px-2">~{formatNumber(sr.leads)}</td>
-                    <td className="text-right py-2 px-2">
-                      ~{isConservative ? sr.jobsRounded : formatNumber(sr.jobs)}
-                    </td>
-                    <td className="text-right py-2 px-2">{formatCurrency(sr.jobValue)}</td>
-                    <td className="text-right py-2 px-2 font-medium">
-                      ~{formatCurrency(isConservative ? sr.revenueRounded : sr.revenue)}
-                    </td>
-                    <td className="text-center py-2 px-2">
-                      <span className={`text-xs px-1.5 py-0.5 rounded ${
-                        sr.confidence === "high"
-                          ? "bg-green-100 text-green-700"
-                          : sr.confidence === "medium"
-                          ? "bg-yellow-100 text-yellow-700"
-                          : sr.confidence === "custom"
-                          ? "bg-purple-100 text-purple-700"
-                          : "bg-orange-100 text-orange-700"
+      {/* ROI Potential — per-service visual breakdown */}
+      {result.serviceResults.length > 0 && (() => {
+        const maxRevenue = Math.max(...result.serviceResults.map((sr) => isConservative ? sr.revenueRounded : sr.revenue));
+        const maxSpend = Math.max(...result.serviceResults.map((sr) => sr.allocatedSpend));
+        const maxVal = Math.max(maxRevenue, maxSpend);
+        return (
+          <div className="border border-cogent-navy/10 rounded-lg p-4 bg-white">
+            <h3 className="text-sm font-bold text-cogent-navy uppercase tracking-wider mb-1">
+              ROI Potential {industryName ? <>&#8212; {industryName}</> : null}
+            </h3>
+            <div className="flex items-center gap-4 text-xs text-cogent-neutral mb-3">
+              <span className="flex items-center gap-1.5"><span className="inline-block w-3 h-3 rounded-full bg-amber-600" /> Monthly ad spend</span>
+              <span className="flex items-center gap-1.5"><span className="inline-block w-3 h-3 rounded-full bg-emerald-600" /> Projected revenue</span>
+              {(Object.keys(searchVolumes).length > 0 || volumesLoading) && (
+                <span className="flex items-center gap-1.5"><span className="inline-block w-3 h-3 rounded-sm bg-blue-100 border border-blue-300" /> Est. search volume</span>
+              )}
+            </div>
+            <div className="space-y-2">
+              {result.serviceResults.map((sr) => {
+                const rev = isConservative ? sr.revenueRounded : sr.revenue;
+                const roas = sr.allocatedSpend > 0 ? rev / sr.allocatedSpend : 0;
+                const spendPct = maxVal > 0 ? (sr.allocatedSpend / maxVal) * 100 : 0;
+                const revPct = maxVal > 0 ? (rev / maxVal) * 100 : 0;
+                const vol = searchVolumes[sr.serviceName];
+                return (
+                  <div key={sr.serviceName} className="grid grid-cols-[minmax(140px,1fr)_3fr_auto_auto] items-center gap-2 py-1.5 border-b border-gray-50 last:border-0">
+                    <div className="text-sm font-medium text-gray-900 leading-tight pr-1">{sr.serviceName}</div>
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-1">
+                        <div className="h-2.5 rounded-full bg-amber-600/80" style={{ width: `${Math.max(spendPct, 1.5)}%` }} />
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <div className="h-2.5 rounded-full bg-emerald-600/80" style={{ width: `${Math.max(revPct, 1.5)}%` }} />
+                      </div>
+                    </div>
+                    <div className="text-right text-xs whitespace-nowrap leading-snug">
+                      <div className="text-amber-700">{formatCurrency(sr.allocatedSpend)}</div>
+                      <div className="text-emerald-700 font-semibold">{formatCurrency(rev)}</div>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <span className={`inline-flex items-center justify-center min-w-[48px] px-2 py-1 text-xs font-bold rounded-full ${
+                        roas < 1 ? "bg-red-600 text-white" : roas < 3 ? "bg-amber-500 text-white" : "bg-emerald-600 text-white"
                       }`}>
-                        {sr.confidence}
+                        {roas.toFixed(1)}x
                       </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            {/* Search volume row below chart */}
+            {(Object.keys(searchVolumes).length > 0 || volumesLoading) && (
+              <div className="mt-4 pt-3 border-t border-gray-100">
+                <div className="flex items-center gap-2 mb-2">
+                  <h4 className="text-xs font-semibold text-cogent-navy uppercase tracking-wider">Est. Monthly Search Volume</h4>
+                  <span className="text-[10px] text-gray-400 italic">(AI-estimated, US national)</span>
+                  {volumesLoading && <span className="text-[10px] text-blue-500 animate-pulse">loading...</span>}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {result.serviceResults.map((sr) => {
+                    const vol = searchVolumes[sr.serviceName];
+                    if (!vol) return null;
+                    const level = vol.volume >= 10000 ? "high" : vol.volume >= 2000 ? "mid" : "low";
+                    return (
+                      <div key={sr.serviceName} className={`group relative flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs border ${
+                        level === "high" ? "bg-blue-50 border-blue-200 text-blue-800" :
+                        level === "mid" ? "bg-sky-50 border-sky-200 text-sky-800" :
+                        "bg-gray-50 border-gray-200 text-gray-600"
+                      }`}>
+                        <span className="font-medium truncate max-w-[140px]">{sr.serviceName}</span>
+                        <span className={`font-bold ${
+                          level === "high" ? "text-blue-600" : level === "mid" ? "text-sky-600" : "text-gray-500"
+                        }`}>{formatVolume(vol.volume)}/mo</span>
+                        <div className="invisible group-hover:visible absolute z-10 bottom-full left-0 mb-1 w-48 p-2 bg-cogent-navy text-white text-[10px] rounded shadow-lg">
+                          Top keywords: {vol.keywords}
+                          <span className="absolute top-full left-4 border-4 border-transparent border-t-cogent-navy" />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
-        </div>
-      )}
+        );
+      })()}
 
       {/* Learning & Ramp-Up Period */}
       <div className="mt-6 p-4 bg-cogent-navy/5 border border-cogent-navy/10 rounded-lg">
