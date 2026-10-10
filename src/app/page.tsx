@@ -2114,6 +2114,8 @@ ${resultsHtml}
             />
             <span className="text-xs text-gray-400">
               Cogent Analytics — Estimates are projections only and do not guarantee results.
+              {" · "}
+              <a href="/privacy" className="underline hover:text-gray-300">Privacy Policy</a>
             </span>
           </div>
           <div className="text-xs text-gray-500 text-right max-w-md">
