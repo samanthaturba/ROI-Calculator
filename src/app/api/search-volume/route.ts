@@ -76,7 +76,8 @@ Use realistic volume ranges. Be honest — some niche services genuinely have lo
     const text =
       data.content?.[0]?.type === "text" ? data.content[0].text : "";
 
-    const parsed = JSON.parse(text);
+    const cleaned = text.replace(/^```(?:json)?\s*/i, "").replace(/```\s*$/, "").trim();
+    const parsed = JSON.parse(cleaned);
     return NextResponse.json({ results: parsed.volumes ?? {} });
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err);
