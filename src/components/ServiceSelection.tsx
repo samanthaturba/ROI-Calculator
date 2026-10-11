@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import type { ServiceSelection as ServiceSelectionType, ExtractedService, CplChoice, AdPlatform } from "../lib/types";
 import { getAllIndustries, getServicesForIndustry, getBenchmarkForService } from "../lib/benchmarks";
 import { formatCurrency } from "../lib/calculations";
+import { useSearchVolumes, formatVolume } from "../lib/useSearchVolumes";
 
 interface Props {
   services: ServiceSelectionType[];
@@ -28,6 +29,8 @@ interface Props {
   liveCpcServices?: Set<string>;
   /** Whether live CPC data is currently loading */
   liveCpcLoading?: boolean;
+  /** Industry display name — used for search volume lookup */
+  industryName?: string;
 }
 
 type BudgetMode = "strict" | "maxroi";
@@ -174,6 +177,7 @@ export default function ServiceSelection({
   onMonthlyAdSpendChange,
   liveCpcServices = new Set(),
   liveCpcLoading = false,
+  industryName,
 }: Props) {
   const [newServiceName, setNewServiceName] = useState("");
   const [showCrossIndustry, setShowCrossIndustry] = useState(false);
@@ -205,6 +209,8 @@ export default function ServiceSelection({
   }, [services]);
 
   // ── These must live before any early return to satisfy Rules of Hooks ─────────
+  const allServiceNames = useMemo(() => services.map((s) => s.serviceName), [services]);
+  const { volumes: searchVolumes } = useSearchVolumes(industryName, allServiceNames);
   const selectedServices = services.filter((s) => s.selected);
 
   const maxRoiRows = useMemo(() => {
@@ -664,6 +670,15 @@ export default function ServiceSelection({
                       : "bg-orange-100 text-orange-700"
                   }`}>
                     {service.benchmark.confidence} confidence
+                  </span>
+                )}
+
+                {searchVolumes[service.serviceName] && (
+                  <span
+                    className="text-[11px] px-2 py-0.5 rounded-full font-semibold bg-cyan-50 text-cyan-700 border border-cyan-200"
+                    title={`Top keywords: ${searchVolumes[service.serviceName].keywords}`}
+                  >
+                    🔍 {formatVolume(searchVolumes[service.serviceName].volume)}/mo
                   </span>
                 )}
 

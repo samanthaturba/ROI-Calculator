@@ -1995,6 +1995,7 @@ ${resultsHtml}
           }
           liveCpcServices={liveCpcServices}
           liveCpcLoading={cpcState.loading}
+          industryName={selectedIndustry?.name}
         />
 
         {/* Section C: Budget + Sales Inputs */}
