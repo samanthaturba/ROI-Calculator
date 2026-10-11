@@ -690,34 +690,7 @@ export default function ClientInputs({ value, onChange, onTextExtract, onWebsite
                   ) : "✨ Generate Profile"}
                 </button>
               ) : (
-                <div className="flex items-center gap-2 shrink-0">
-                  <input
-                    type="password"
-                    value={generatePassword}
-                    onChange={(e) => setGeneratePassword(e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" && generatePassword) {
-                        setPasswordUnlocked(true);
-                        handleGenerateIndustry();
-                      }
-                    }}
-                    placeholder="Password"
-                    className="w-24 border border-gray-300 rounded-md px-2 py-1.5 text-xs focus:ring-2 focus:ring-cogent-navy focus:border-cogent-navy"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (generatePassword) {
-                        setPasswordUnlocked(true);
-                        handleGenerateIndustry();
-                      }
-                    }}
-                    disabled={!generatePassword}
-                    className="px-3 py-1.5 bg-cogent-navy text-white text-xs font-semibold rounded-lg hover:bg-cogent-navy-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors whitespace-nowrap"
-                  >
-                    Unlock
-                  </button>
-                </div>
+                <p className="text-xs text-gray-400 italic shrink-0">Enter password above to unlock</p>
               )}
             </div>
             {generateError && (
